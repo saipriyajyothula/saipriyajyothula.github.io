@@ -8,6 +8,12 @@
 
 <body>
         <img src = "img/power.png" id = "power" style="display:none">
+        <audio src="music/furelise.mp3" id="furelise" style="display:none"></audio>
+        <audio src="music/moltoallegro.mp3" id="moltoallegro" style="display:none"></audio>
+        <audio src="music/rondo.mp3" id="rondo" style="display:none"></audio>
+        <audio src="music/tempo.mp3" id="tempo" style="display:none"></audio>
+        <audio src="music/bathenglish.mp3" id="bathenglish" style="display:none"></audio>
+        <audio src="music/bathspanish.mp3" id="bathspanish" style="display:none"></audio>
 		<!-- canvas tag for Fabric.js to draw into -->
 		<canvas id="c" width="4140" height="2200" style="border:2px solid black;" ></canvas>
 </body>
@@ -22,11 +28,12 @@
   var canvas = this.__canvas = new fabric.Canvas('c');
 
 
-var arya = [99, 'medium', 'normal', 'kyloren'];
-var sasha = [97, 'medium', 'divergent', 'bb8'];
-var ian = [102, 'high', 'normal', 'starwars'];
+var arya = [99, 'medium', 'normal', 'bb8'];
+var sasha = [97, 'medium', 'divergent', 'stormtrooper'];
+var ian = [102, 'high', 'normal', 'kyloren'];
 var guest1 = [103, 'low', 'normal', 'orangebb8'];
-var guest2 = [98, 'high', 'divergent', 'stormtrooper'];
+var guest2 = [98, 'high', 'divergent', 'starwars'];
+var languages = ['English','Espanol','French','Hindi','Telugu','Urdu','Russian','Korean','German','Japanese'];
     
 var backWall = new fabric.Rect({
   left: 0,
@@ -91,7 +98,7 @@ var showerBathRect = new fabric.Rect({
 showerBathRect.lockMovementX = showerBathRect.lockMovementY = true;    
 
 var themeRect = new fabric.Rect({
-  left: 720,
+  left: 700,
   top: 400,
   originX: 'center',
   originY: 'center',
@@ -105,7 +112,24 @@ var themeRect = new fabric.Rect({
   shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
 });
 
-themeRect.lockMovementX = themeRect.lockMovementY = true;    
+themeRect.lockMovementX = themeRect.lockMovementY = true;
+
+var languageRect = new fabric.Rect({
+  left: 700,
+  top: 600,
+  originX: 'center',
+  originY: 'center',
+  fill: 'white',
+  stroke: 'black',
+  strokeWidth: 2,
+  width: 220,
+  height: 100,
+  rx: 10,
+  ry: 10,
+  shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+});
+
+languageRect.lockMovementX = languageRect.lockMovementY = true;    
     
 var tempUpArrow = new fabric.Triangle({
   left: 1635,
@@ -146,6 +170,12 @@ tempText.lockMovementX = tempText.lockMovementY = true;
 tempText.selectable = false;
 tempText.evented = false;
 
+var cautionText = new fabric.Text('default', { left: 1640, top: 650, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center', fill: 'transparent'});
+cautionText.hasControls = cautionText.hasBorders = false;
+cautionText.lockMovementX = cautionText.lockMovementY = true;
+cautionText.selectable = false;
+cautionText.evented = false;    
+
 var tempUnitText = new fabric.Text('default', { left: 1665, top: 400, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 tempUnitText.lockMovementX = tempUnitText.lockMovementY = true;
 
@@ -164,12 +194,52 @@ saveText.lockMovementX = saveText.lockMovementY = true;
 var nameText= new fabric.Text('\uD83D\uDC64 '+'Arya', { left: 1605, top: 565, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 nameText.lockMovementX = nameText.lockMovementY = true;
 
-var themeText= new fabric.Text(' Theme\n'+'Kylo Ren', { left: 720, top: 400, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+var themeText= new fabric.Text('Theme\nKylo Ren', { left: 700, top: 400, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 themeText.lockMovementX = themeText.lockMovementY = true; 
     
-var dateText = new fabric.Text('default', { left: 820, top: 200, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+var languageText= new fabric.Text('Language\n'+'English', { left: 700, top: 600, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+languageText.lockMovementX = languageText.lockMovementY = true; 
+    
+var dateText = new fabric.Text('default', { left: 945, top: 200, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 dateText.lockMovementX = dateText.lockMovementY = true;
 dateText.hasControls = dateText.hasBorders = false;
+
+var musicText= new fabric.Text('\uD83D\uDD07 Music', { left: 1080, top: 400, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+musicText.lockMovementX = musicText.lockMovementY = true; 
+
+var dateRect = new fabric.Rect({
+  left: 945,
+  top: 200,
+  originX: 'center',
+  originY: 'center',
+  fill: 'white',
+  stroke: 'black',
+  strokeWidth: 2,
+  width: 230,
+  height: 100,
+  rx: 10,
+  ry: 10,
+  shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+});
+ 
+dateRect.lockMovementX = dateRect.lockMovementY = true;
+
+var musicRect = new fabric.Rect({
+  left: 1080,
+  top: 400,
+  originX: 'center',
+  originY: 'center',
+  fill: 'white',
+  stroke: 'black',
+  strokeWidth: 2,
+  width: 400,
+  height: 100,
+  rx: 10,
+  ry: 10,
+  shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+});
+ 
+musicRect.lockMovementX = musicRect.lockMovementY = true;
     
 var tempUnitRect = new fabric.Rect({
   left: 1670,
@@ -186,6 +256,8 @@ var tempUnitRect = new fabric.Rect({
   shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
 });
 
+tempUnitRect.lockMovementX = tempUnitRect.lockMovementY = true;    
+    
 var waterFlowRect = new fabric.Rect({
   left: 1765,
   top: 467,
@@ -341,12 +413,13 @@ var waterTemp = 99;
 var tempUnits = 'F';
 var waterFlow = 'off';
 var waterSpeed;
-var bg = 'kyloren'
+var bg = 'bb8'
 var ratiox = (canvas.width/localWidth);
 var ratioy = (canvas.height/localHeight);
 var showerBath = 'shower';
 var sprayType = 'normal';
 var name = 'Arya';
+var music = 'none';
 
 var powerImg = document.getElementById('power');
 var power = new fabric.Image(powerImg, {
@@ -392,6 +465,13 @@ fabric.Image.fromURL('img/spray_divergent.png', function(divspray) {
 });
     
 function updateWaterTemp() {
+  if ((waterTemp > 110 && tempUnits == 'F')||(waterTemp > 43 && tempUnits == 'C')){
+        cautionText.text = 'Water too hot!';
+        cautionText.fill = 'red';
+    }
+    else{ 
+    cautionText.fill = 'transparent'
+    }
   tempText.text = String(waterTemp);
   tempUnitText.text = ' \u00B0' + tempUnits;
 }
@@ -428,16 +508,34 @@ function updateWaterFlow() {
   if (waterFlow == 'on') {
       if (showerBath == 'shower') {
       showerHead.fill = '#99cc66';
-      bathSpout.fill = '#ff6666';        
+      bathSpout.fill = '#ff6666';
+      if (language == 1){
+      bathspanish.pause();
+      }
+      else {
+      bathenglish.pause();
+      }
       }
       else {
       showerHead.fill = '#ff6666';
-      bathSpout.fill = '#99cc66';  
+      bathSpout.fill = '#99cc66';
+      if (language == 1){
+      bathspanish.play();
+      }
+      else {
+      bathenglish.play();
+      }
       }
   }
   else {
       showerHead.fill = '#ff6666';
       bathSpout.fill = '#ff6666';
+      if (language == 1){
+      bathspanish.pause();
+      }
+      else {
+      bathenglish.pause();
+      }
       }
   updateWaterSpeed();
 }
@@ -557,22 +655,81 @@ else {
 showerBathRect.top = showerBathRect.top + 660;
 showerBathText.top = showerBathText.top + 660;
     }
-}    
-
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    dateText.text = h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 100);
 }
-function checkTime(i) {
+
+        
+function playMusic(){
+if (music =='furelise'){
+    furelise.play();
+}
+else if (music == 'rondo'){
+    furelise.pause();
+    rondo.play();
+}
+else if (music == 'moltoallegro'){
+    rondo.pause();
+    moltoallegro.play();
+}
+else if (music == 'tempo'){
+    moltoallegro.pause();
+    tempo.play();
+}
+else {
+    tempo.pause();
+}    
+}
+
+function updateLanguage() {
+    if (language == 1){
+        cautionText.text = 'Agua demasiado caliente!';
+        themeLanguage = 'Tema\n';
+    }
+    else if (language == 0) {
+        cautionText.text = 'Water too hot!';
+        themeLanguage = 'Theme\n';
+    }
+    updateThemeText();
+}    
+    
+var months = ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'];
+function getTime() {
+    var datetime = new Date();
+    var h = datetime.getHours();
+    var m = datetime.getMinutes();
+    var yy = datetime.getFullYear();
+    var mm = datetime.getMonth();
+    var dd = datetime.getDate();
+    m = check(m);
+    mm = months[mm];
+    dd = check(dd);
+    dateText.text = mm +" "+ dd + ", "+ yy +"\n      "+ h + ":" + m ;
+    setTimeout(getTime, 1000);
+}
+function check(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
+
+function updateThemeText(){
+if (bg == 'orangebb8'){
+    themeText.text = themeLanguage +'Orange BB-8';
+}
+else if (bg == 'stormtrooper'){
+    themeText.text = themeLanguage +'Stormtrooper';
+}
+else if (bg == 'bb8'){
+    themeText.text = themeLanguage +'BB-8';
+}
+else if (bg == 'starwars'){
+    themeText.text = themeLanguage +'Star Wars';
+}
+else if (bg == 'none'){
+    themeText.text = themeLanguage +'None';
+} 
+else {
+    themeText.text = themeLanguage +'Kylo Ren';
+}    
+}    
     
 updateWaterTemp();
 updateSprayType();
@@ -580,7 +737,7 @@ updateShowerBath();
 updateWaterFlow();
 updateWaterSpeed();
 updateTheme();
-startTime();
+getTime();
     
 tempUpArrow.on('selected', function() {
   waterTemp++;
@@ -753,31 +910,28 @@ updateVal();
 canvas.deactivateAll();
 });
 
+var themeLanguage = 'Theme\n';    
+    
 themeRect.on('selected', function() {
 if (bg == 'kyloren'){
     bg = 'orangebb8';
-    themeText.text = '    Theme\n'+'Orange BB-8';
 }
 else if (bg == 'orangebb8'){
     bg = 'stormtrooper';
-    themeText.text = '    Theme\n'+'Stormtrooper';
 }
 else if (bg == 'stormtrooper'){
     bg = 'bb8';
-    themeText.text = 'Theme\n'+'  BB-8';
 }
 else if (bg == 'bb8'){
     bg = 'starwars';
-    themeText.text = '  Theme\n'+'Star Wars';
 }
 else if (bg == 'starwars'){
     bg = 'none'
-    themeText.text = ' Theme\n'+'  None';
 } 
 else {
     bg = 'kyloren'
-    themeText.text = ' Theme\n'+'Kylo Ren';
-}                
+}
+updateThemeText();
 updateTheme();
 canvas.deactivateAll();
 });
@@ -785,31 +939,155 @@ canvas.deactivateAll();
 themeText.on('selected', function() {
 if (bg == 'kyloren'){
     bg = 'orangebb8';
-    themeText.text = '    Theme\n'+'Orange BB-8';
 }
 else if (bg == 'orangebb8'){
     bg = 'stormtrooper';
-    themeText.text = '    Theme\n'+'Stormtrooper';
 }
 else if (bg == 'stormtrooper'){
     bg = 'bb8';
-    themeText.text = 'Theme\n'+'  BB-8';
 }
 else if (bg == 'bb8'){
     bg = 'starwars';
-    themeText.text = '  Theme\n'+'Star Wars';
 }
 else if (bg == 'starwars'){
     bg = 'none'
-    themeText.text = ' Theme\n'+'  None';
 } 
 else {
     bg = 'kyloren'
-    themeText.text = ' Theme\n'+'Kylo Ren';
-}                
+}
+updateThemeText();
 updateTheme();
 canvas.deactivateAll();
 });
+
+musicText.on('selected', function() {
+if (music =='furelise'){
+    music = 'rondo';
+    musicText.text = '\u266b Mozart\n'+'Rondo alla turca';
+}
+else if (music == 'rondo'){
+    music = 'moltoallegro';
+    musicText.text = '\u266b Mozart\n'+'Molto allegro';
+}
+else if (music == 'moltoallegro'){
+    music = 'tempo';
+    musicText.text = '\u266b Mozart\n'+'Tempo di minuetto';
+}
+else if (music == 'tempo'){
+    music = 'none';
+    musicText.text = '\uD83D\uDD07 Music';
+}
+else {
+    music = 'furelise';
+    musicText.text = '\u266b Beethoven\n'+'Fur Elise';
+}                
+playMusic();
+canvas.deactivateAll();
+});
+
+musicRect.on('selected', function() {
+if (music =='furelise'){
+    music = 'rondo';
+    musicText.text = '\u266b Mozart\n'+'Rondo alla turca';
+}
+else if (music == 'rondo'){
+    music = 'moltoallegro';
+    musicText.text = '\u266b Mozart\n'+'Molto allegro';
+}
+else if (music == 'moltoallegro'){
+    music = 'tempo';
+    musicText.text = '\u266b Mozart\n'+'Tempo di minuetto';
+}
+else if (music == 'tempo'){
+    music = 'none';
+    musicText.text = '\uD83D\uDD07 Music';
+}
+else {
+    music = 'furelise';
+    musicText.text = '\u266b Beethoven\n'+'Fur Elise';
+}                
+playMusic();
+canvas.deactivateAll();
+});    
+
+var language = 0;
+languageRect.on('selected', function() {
+for (var i=0; i<10; i++){
+if (language == i){
+    if (i != 9){
+        language = i+1;
+    }
+    else {
+        language = 0;
+    }
+break;
+}    
+}
+languageText.text = languages[language];
+updateLanguage();
+canvas.deactivateAll();
+});
+
+languageText.on('selected', function() {
+for (var i=0; i<10; i++){
+if (language == i){
+    if (i != 9){
+        language = i+1;
+    }
+    else {
+        language = 0;
+    }
+break;
+}    
+}
+languageText.text = languages[language];
+updateLanguage();
+canvas.deactivateAll();
+});
+    
+var url = 'http://api.openweathermap.org/data/2.5/weather?q=Chicago&appid=44db6a862fba0b067b1930da0d769e98';    
+    
+var weather = getJSON(url);
+var weatherExtract = JSON.parse(weather);
+var t = Math.round(weatherExtract.main.temp - 273.15);
+var d = weatherExtract.weather[0].description;
+var weatherText = new fabric.Text('Weather: '+t+' \u00b0C\n'+d, { left: 1080, top: 600, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+weatherText.lockMovementX = weatherText.lockMovementY = true;
+    
+var weatherRect = new fabric.Rect({
+  left: 1080,
+  top: 600,
+  originX: 'center',
+  originY: 'center',
+  fill: 'white',
+  stroke: 'black',
+  strokeWidth: 2,
+  width: 400,
+  height: 100,
+  rx: 10,
+  ry: 10,
+  shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+});
+ 
+weatherRect.lockMovementX = weatherRect.lockMovementY = true;
+
+// ****** code adapted from http://stackoverflow.com/questions/19440589/parsing-json-data-from-a-url
+    
+function getJSON(url) {
+        var resp ;
+        var xmlHttp ;
+        resp  = '' ;
+        xmlHttp = new XMLHttpRequest();
+        if(xmlHttp != null)
+        {
+            xmlHttp.open( "GET", url, false );
+            xmlHttp.send( null );
+            resp = xmlHttp.responseText;
+        }
+        return resp ;
+    }
+
+//******    
     
 canvas.add(backWall);
 canvas.add(sideWall);
@@ -821,6 +1099,7 @@ canvas.add(fireText);
 canvas.add(tempDownArrow);
 canvas.add(snowflakeText);
 canvas.add(tempText);
+canvas.add(cautionText);
 canvas.add(tempUnitRect);
 canvas.add(tempUnitText);
 canvas.add(lowRect);
@@ -838,8 +1117,15 @@ canvas.add(saveText);
 canvas.add(nameRect);
 canvas.add(nameText);
 canvas.add(themeRect);
+canvas.add(musicRect);
+canvas.add(musicText);
 canvas.add(themeText);
+canvas.add(dateRect);
 canvas.add(dateText);
+canvas.add(languageRect);
+canvas.add(languageText);
+canvas.add(weatherRect);
+canvas.add(weatherText);
     
 function zoomAll(SCALE_FACTOR) {
 
