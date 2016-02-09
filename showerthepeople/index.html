@@ -97,9 +97,27 @@ var showerBathRect = new fabric.Rect({
 
 showerBathRect.lockMovementX = showerBathRect.lockMovementY = true;    
 
+var newsRect = new fabric.Rect({
+  left: 580,
+  top: 350,
+  originX: 'left',
+  originY: 'center',
+  fill: 'white',
+  stroke: 'black',
+  strokeWidth: 2,
+  width: 710,
+  height: 100,
+  rx: 10,
+  ry: 10,
+  shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+});
+
+newsRect.lockMovementX = newsRect.lockMovementY = true;
+newsRect.hasControls = newsRect.hasBorders = false;
+    
 var themeRect = new fabric.Rect({
   left: 700,
-  top: 400,
+  top: 650,
   originX: 'center',
   originY: 'center',
   fill: 'white',
@@ -116,7 +134,7 @@ themeRect.lockMovementX = themeRect.lockMovementY = true;
 
 var languageRect = new fabric.Rect({
   left: 700,
-  top: 600,
+  top: 500,
   originX: 'center',
   originY: 'center',
   fill: 'white',
@@ -194,17 +212,20 @@ saveText.lockMovementX = saveText.lockMovementY = true;
 var nameText= new fabric.Text('\uD83D\uDC64 '+'Arya', { left: 1605, top: 565, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 nameText.lockMovementX = nameText.lockMovementY = true;
 
-var themeText= new fabric.Text('Theme\nKylo Ren', { left: 700, top: 400, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+var themeText= new fabric.Text('Theme\nKylo Ren', { left: 700, top: 650, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 themeText.lockMovementX = themeText.lockMovementY = true; 
     
-var languageText= new fabric.Text('Language\n'+'English', { left: 700, top: 600, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
-languageText.lockMovementX = languageText.lockMovementY = true; 
+var languageText= new fabric.Text('Language\n'+'English', { left: 700, top: 500, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+languageText.lockMovementX = languageText.lockMovementY = true;
+
+var newsText= new fabric.Text('News: Winter storms battering Northeast, Midwest;\nChicago State students, faculty protest budget standoff.', { left: 590, top: 350, fontFamily: 'Helvetica', fontSize: 28, originX: 'left', originY: 'center'});
+newsText.lockMovementX = newsText.lockMovementY = true;    
     
 var dateText = new fabric.Text('default', { left: 945, top: 200, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 dateText.lockMovementX = dateText.lockMovementY = true;
 dateText.hasControls = dateText.hasBorders = false;
 
-var musicText= new fabric.Text('\uD83D\uDD07 Music', { left: 1080, top: 400, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+var musicText= new fabric.Text('\uD83D\uDD07 Music', { left: 1080, top: 650, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 musicText.lockMovementX = musicText.lockMovementY = true; 
 
 var dateRect = new fabric.Rect({
@@ -226,7 +247,7 @@ dateRect.lockMovementX = dateRect.lockMovementY = true;
 
 var musicRect = new fabric.Rect({
   left: 1080,
-  top: 400,
+  top: 650,
   originX: 'center',
   originY: 'center',
   fill: 'white',
@@ -683,10 +704,23 @@ function updateLanguage() {
     if (language == 1){
         cautionText.text = 'Agua demasiado caliente!';
         themeLanguage = 'Tema\n';
+        weatherText.text = 'Clima: ' + t+' \u00b0C';
+        if (music=='none'){
+            musicText.text = '\uD83D\uDD07 Musica';
+        }
+        newsText.text = 'Noticias: Las tormentas invernales que azotan Noreste, Medio Oeste;\nChicago estado estudiantes, profesores protesta enfrentamiento presupuesto.'
+        newsText.fontSize = 20;
+        
     }
     else if (language == 0) {
         cautionText.text = 'Water too hot!';
         themeLanguage = 'Theme\n';
+        weatherText.text = 'Weather: '+t+' \u00b0C\n'+d;
+        if (music=='none'){
+            musicText.text = '\uD83D\uDD07 Music';
+        }
+       newsText.text = 'News: Winter storms battering Northeast, Midwest;\nChicago State students, faculty protest budget standoff.';
+       newsText.fontSize = 28;
     }
     updateThemeText();
 }    
@@ -1051,12 +1085,13 @@ var weather = getJSON(url);
 var weatherExtract = JSON.parse(weather);
 var t = Math.round(weatherExtract.main.temp - 273.15);
 var d = weatherExtract.weather[0].description;
-var weatherText = new fabric.Text('Weather: '+t+' \u00b0C\n'+d, { left: 1080, top: 600, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
+var weatherText = new fabric.Text('Weather: '+t+' \u00b0C\n'+d, { left: 1080, top: 500, fontFamily: 'Helvetica', fontSize: 35, originX: 'center', originY: 'center'});
 weatherText.lockMovementX = weatherText.lockMovementY = true;
+weatherText.hasControls = weatherText.hasBorders = false;
     
 var weatherRect = new fabric.Rect({
   left: 1080,
-  top: 600,
+  top: 500,
   originX: 'center',
   originY: 'center',
   fill: 'white',
@@ -1070,6 +1105,7 @@ var weatherRect = new fabric.Rect({
 });
  
 weatherRect.lockMovementX = weatherRect.lockMovementY = true;
+weatherRect.hasControls = weatherRect.hasBorders = false;
 
 // ****** code adapted from http://stackoverflow.com/questions/19440589/parsing-json-data-from-a-url
     
@@ -1126,6 +1162,8 @@ canvas.add(languageRect);
 canvas.add(languageText);
 canvas.add(weatherRect);
 canvas.add(weatherText);
+canvas.add(newsRect);
+canvas.add(newsText);
     
 function zoomAll(SCALE_FACTOR) {
 
