@@ -14,6 +14,8 @@
         <audio src="music/tempo.mp3" id="tempo" style="display:none"></audio>
         <audio src="music/bathenglish.mp3" id="bathenglish" style="display:none"></audio>
         <audio src="music/bathspanish.mp3" id="bathspanish" style="display:none"></audio>
+        <audio src="music/saveenglish.mp3" id="saveenglish" style="display:none"></audio>
+        <audio src="music/savespanish.mp3" id="savespanish" style="display:none"></audio>
 		<!-- canvas tag for Fabric.js to draw into -->
 		<canvas id="c" width="4140" height="2200" style="border:2px solid black;" ></canvas>
 </body>
@@ -929,6 +931,12 @@ if (tempUnits == 'C'){
     waterTemp = (1.8*waterTemp)+32;
 }
 saveRect.stroke = 'green';
+if (language == 1){
+savespanish.play();
+}
+else{
+saveenglish.play();
+}
 saveRect.strokeWidth = 6;
 updateVal();
 canvas.deactivateAll();
@@ -939,6 +947,12 @@ if (tempUnits == 'C'){
     waterTemp = Math.round((1.8*waterTemp)+32);
 }
 saveRect.stroke = 'green';
+if (language == 1){
+savespanish.play();
+}
+else{
+saveenglish.play();
+}
 saveRect.strokeWidth = 6;
 updateVal();
 canvas.deactivateAll();
