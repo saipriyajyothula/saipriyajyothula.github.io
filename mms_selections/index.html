@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Nothin!</title>
+<style class="cp-pen-styles">
+body { font-family: sans-serif; }
+
+#sort-it input { font-size: 1em;} /* prevent zoom in mobile */
+
+#sort-it ol {
+  /* list style is faked with number inputs */
+  list-style: none;
+  padding: 0;
+}
+
+#sort-it li {
+  position: relative;
+  min-height: 1em;
+  cursor: move;
+  padding: .5em .5em .5em 2.5em;
+  border: 1px solid #ccc;
+  margin: .25em 0;
+  border-radius: .25em;
+  max-width: 16em;
+  color: white
+}
+    
+#sort-it li#first{
+background: #1f77b4;   
+}
+
+#sort-it li#second{
+background: #aec7e8;
+color: black
+}
+    
+#sort-it li#third{
+background: #ff7f0e;
+}
+    
+#sort-it li#fourth{
+background: #ffbb78;
+color: black
+}
+    
+#sort-it li#fifth{
+background: #2ca02c;        
+}
+ 
+#sort-it li#sixth{
+background: #98df8a;
+color: black
+}
+    
+#sort-it li#seventh{
+background: #d62728;
+}
+    
+#sort-it li#eighth{
+background: #ff9896;
+color: black
+}
+
+#sort-it li input {
+  /* Move these to visually fake the ol numbers */
+  position: absolute;
+  width: 1.75em;
+  left: .25em;
+  top: .4em;
+  border: 0;
+  text-align: right;
+  background: transparent;
+  color: white
+}
+
+#sort-it li input#custom-number-2{
+  color: black
+}
+
+#sort-it li input#custom-number-4{
+  color: black
+}    
+
+#sort-it li input#custom-number-6{
+  color: black
+}
+
+#sort-it li input#custom-number-8{
+  color: black
+}
+        
+#sort-it li label {
+  /* visually hidden offscreen so it still benefits screen readers */
+  position: absolute;
+  left: -9999px;
+}
+
+/* sortable plugin styles when dragged */
+
+#sort-it .dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+#sort-it li.placeholder {
+  position: relative;
+  background: #eee;
+}
+</style>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1 style="margin-top:20px;">User Preferences</h1>
+<form id="sort-it">
+  <ol>
+    <li id = 'first'>Impact on my neighbors
+      <label for="custom-number-1">New order:</label>
+      <input id="custom-number-1" name="custom-number-1" type="number" min="1">
+    </li>
+    <li id = 'second'>Investment
+      <label for="custom-number-2">New order:</label>
+      <input id="custom-number-2" name="custom-number-2" type="number" min="1">
+    </li>
+    <li id = 'third'>Groundwater Infiltration
+      <label for="custom-number-3">New order:</label>
+      <input id="custom-number-3" name="custom-number-3" type="number" min="1">
+    </li>
+    <li id = 'fourth'>Efficiency of Intervention &#40&#36&#47Gallon&#41
+      <label for="custom-number-4">New order:</label>
+      <input id="custom-number-4" name="custom-number-4" type="number" min="1">
+    </li>
+    <li id = 'fifth'>Damage Reduction
+      <label for="custom-number-5">New order:</label>
+      <input id="custom-number-5" name="custom-number-5" type="number" min="1">
+    </li>
+    <li id = 'sixth'>Capacity Used
+      <label for="custom-number-6">New order:</label>
+      <input id="custom-number-6" name="custom-number-6" type="number" min="1">
+    </li>
+      <li id = 'seventh'>Water Flow Path
+      <label for="custom-number-7">New order:</label>
+      <input id="custom-number-7" name="custom-number-7" type="number" min="1">
+    </li>
+      <li id = 'eighth'>Maximum Flooded Area
+      <label for="custom-number-8">New order:</label>
+      <input id="custom-number-8" name="custom-number-8" type="number" min="1">
+    </li>
+  </ol>
+  <input type="submit" id="manual-sort" name="manual-sort" value="Update">
+</form>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="js/jquery-sortable-min.js"></script>
+
+<script>
+var l = [8,7,6,5,4,3,2,1];
+$(function(){
+    // uses http://johnny.github.io/jquery-sortable/js/jquery-sortable-min.js
+		$('#sort-it ol').sortable({
+			onDrop: function(item) {
+				$(item).removeClass("dragged").removeAttr("style");
+				$("body").removeClass("dragging");
+
+				getInitialOrder('#sort-it li');
+			}
+		});
+        
+		getInitialOrder('#sort-it li');
+     
+    //bind stuff to number inputs
+		$('#sort-it ol input[type="number"]').focus(function(){
+			$(this).select();	
+		}).change(function(){
+			updateAllNumbers($(this), '#sort-it input');
+		}).keyup(function(){
+			updateAllNumbers($(this), '#sort-it input');
+		});
+  
+    //bind to form submission
+    $('#sort-it').submit(function(e){
+      reorderItems('#sort-it li', '#sort-it ol');
+      e.preventDefault();
+    })
+    
+    
+    
+}); // end doc ready
+	
+function getInitialOrder(obj){
+		var num = 1;
+		$(obj).each(function(){
+       //set object initial order data based on order in DOM
+			$(this).find('input[type="number"]').val(num).attr('data-initial-value', num); 
+			num++;
+		});
+      $(obj).find('input[type="number"]').attr('max', $(obj).length); //give it an html5 max attr based on num of objects
+l[0]=9-$("#custom-number-1").val();
+l[1]=9-$("#custom-number-2").val();
+l[2]=9-$("#custom-number-3").val();
+l[3]=9-$("#custom-number-4").val();
+l[4]=9-$("#custom-number-5").val();
+l[5]=9-$("#custom-number-6").val();
+l[6]=9-$("#custom-number-7").val();
+l[7]=9-$("#custom-number-8").val();
+console.log(l);
+}
+	
+function updateAllNumbers(currObj, targets){
+        var delta = currObj.val() - currObj.attr('data-initial-value'), //if positive, the object went down in order. If negative, it went up.
+                c = parseInt(currObj.val(), 10), //value just entered by user
+                cI = parseInt(currObj.attr('data-initial-value'), 10), //original object val before change
+                top = $(targets).length;
+        
+        //if the user enters a number too high or low, cap it
+        if(c > top){
+            currObj.val(top);
+        }else if(c < 1){
+            currObj.val(1);
+        }
+        
+		$(targets).not($(currObj)).each(function(){ //change all the other objects
+			var v = parseInt($(this).val(), 10); //value of object changed		
+				
+			if (v >= c && v < cI && delta < 0){ //object going up in order pushes same-numbered and in-between objects down
+				$(this).val(v + 1);
+			} else if (v <= c && v > cI && delta > 0){ //object going down in order pushes same-numbered and in-between objects up
+				$(this).val(v - 1);
+			}
+		}).promise().done(function(){
+			//after all the fields update based on new val, set their data element so further changes can be tracked 
+			//(but ignore if no value given yet)
+			$(targets).each(function(){
+				if($(this).val() !== ""){
+					$(this).attr('data-initial-value', $(this).val());
+				}
+			});
+		});
+
+}
+
+function reorderItems(things, parent){
+  for(var i = 1; i <= $(things).length; i++){
+    $(things).each(function(){
+      var x = parseInt($(this).find('input').val(), 10);
+      if(x === i){
+        $(this).appendTo(parent);
+      }
+    });
+  }
+l[0]=9-$("#custom-number-1").val();
+l[1]=9-$("#custom-number-2").val();
+l[2]=9-$("#custom-number-3").val();
+l[3]=9-$("#custom-number-4").val();
+l[4]=9-$("#custom-number-5").val();
+l[5]=9-$("#custom-number-6").val();
+l[6]=9-$("#custom-number-7").val();
+l[7]=9-$("#custom-number-8").val();
+console.log(l);
+}
+
+    
+</script>
+</body>
+</html>
