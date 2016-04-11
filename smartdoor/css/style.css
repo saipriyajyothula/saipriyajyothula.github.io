@@ -1,0 +1,11 @@
+
+@font-face {
+	  font-family: 'HelveticaLight';
+	  src: url('/fonts/Helvetica-Light.ttf'); /* IE9 Compat Modes */
+	  src: url('/fonts/Helvetica-Light.ttf')  format('truetype');
+	}
+@font-face {
+	  font-family: 'Helvetica';
+	  src: url('/fonts/Helvetica.ttf'); /* IE9 Compat Modes */
+	  src: url('/fonts/Helvetica.ttf')  format('truetype');
+	}

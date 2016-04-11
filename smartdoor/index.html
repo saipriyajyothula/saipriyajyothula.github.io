@@ -1,0 +1,311 @@
+
+<!-- template for Project 1 - CS 422 - Spring 2016 - Andrew Johnson -->
+
+<html>    
+<head>
+    <meta charset="utf-8">
+    <title>fabric.js project template</title>
+	
+	<!-- Get version 1.5.0 of Fabric.js from CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" ></script>
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <img src = "img/uptown.png" id = "uptownImg" style="display:none">
+    <img src = "img/marvin.png" id = "marvinImg" style="display:none">
+    <img src = "img/sugar.png" id = "sugarImg" style="display:none">
+    <img src = "img/p.jpg" id = "bg" style="display:none">
+    <img src = "img/cross.png" id = "cross" style="display:none">
+    <img src = "img/prev.png" id = "prev" style="display:none">
+    <img src = "img/play.png" id = "play" style="display:none">
+    <img src = "img/pause.png" id = "pause" style="display:none">
+    <img src = "img/next.png" id = "next" style="display:none">
+    <img src = "img/high.png" id = "high" style="display:none">
+    <img src = "img/low.png" id = "low" style="display:none">
+    <audio src="music/uptown.mp3" id="uptown" style="display:none"></audio>
+    <audio src="music/marvin.mp3" id="marvin" style="display:none"></audio>
+    <audio src="music/sugar.mp3" id="sugar" style="display:none"></audio>
+    <link href="css/style.css" rel="stylesheet">
+    
+
+	 
+<body>
+		<!-- canvas tag for Fabric.js to draw into -->
+    <!-- set this to some appropriate size for your development work -->
+    <!-- but keep the same aspect ratio -->
+    <!-- we will use width="2714" height="2200" for presentations and evaluation -->
+		<canvas id="c" width="2714" height="2200" style="border:2px solid black;" ></canvas>
+</body>
+<script src="js/timeweathernews.js"></script>
+<script src="js/music.js"></script>
+<script>
+
+
+function addelements () {
+
+var insideDoor = new fabric.Rect({
+  left: 50,
+  top: 0,
+  fill: 'white',
+  stroke: 'black',
+  width: 1230,
+  height: 2200,
+  angle: 0
+});
+
+// the doors will not be selectable or movable
+insideDoor.hasControls = insideDoor.hasBorders = false;
+insideDoor.lockMovementX = insideDoor.lockMovementY = true;
+
+//-----------------------------------------------------------------Outside Door-------------------------------------------------------------
+var outsideDoor = new fabric.Rect({
+  left: 1420,
+  top: 0,
+  fill: 'white',
+  stroke: 'black',
+  width: 1230,
+  height: 2200,
+  angle: 0
+});
+
+outsideDoor.hasControls = outsideDoor.hasBorders = false;
+outsideDoor.lockMovementX = outsideDoor.lockMovementY = true;
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+
+    
+fabric.Image.fromURL('img/Mirror.png', function(mirror) {
+  mirror.set({left:leftWidth,
+  top: topLength, originX: 'left', originY: 'top'});    
+  canvas.add(mirror);
+  mirror.on('mousedown',function(){
+       
+});
+});
+
+fabric.Image.fromURL('img/Messages.png', function(messages) {
+  messages.set({left:leftWidth+220,
+  top: topLength});    
+  canvas.add(messages);
+  messages.on('mousedown',function(){
+      
+});    
+});
+    
+fabric.Image.fromURL('img/Camera.png', function(camera) {
+  camera.set({left:leftWidth+440,
+  top: topLength});    
+  canvas.add(camera);
+  camera.on('mousedown',function(){
+    canvas.moveTo(insideDoor,50);
+    var tempImg = document.createElement('video');
+        tempImg.setAttribute('src','music/Out.mp4');
+        tempImg.setAttribute('style','display:none');
+        tempImg.setAttribute('loop','loop');
+        document.body.appendChild(tempImg);  
+    var imgInstance = new fabric.Image(tempImg, {
+        left: 50,
+        top: 0,
+        width: 1230,
+        height: 2200
+});   
+    canvas.add(imgInstance);
+    canvas.moveTo(imgInstance,50);
+    imgInstance.getElement().play();  
+    fabric.util.requestAnimFrame(function render() {
+    canvas.renderAll();
+    fabric.util.requestAnimFrame(render);
+});    
+  canvas.deactivateAll();         
+});    
+});
+
+    
+fabric.Image.fromURL('img/Emergency.png', function(emergency) {
+  emergency.set({left:leftWidth+660,
+  top: topLength});    
+  canvas.add(emergency);
+  emergency.on('mousedown',function(){
+      
+});
+}); 
+    
+fabric.Image.fromURL('img/Alarm.png', function(alarm) {
+  alarm.set({left: leftWidth,
+  top: topLength+250});    
+  canvas.add(alarm);
+  alarm.on('mousedown',function(){
+      
+});
+});
+
+fabric.Image.fromURL('img/Themes.png', function(themes) {
+  themes.set({left: leftWidth+220,
+  top: topLength+250});    
+  canvas.add(themes);
+  themes.on('mousedown',function(){
+      
+});
+});    
+
+fabric.Image.fromURL('img/Music.png', function(music) {
+  music.set({left: leftWidth+440,
+  top: topLength+250});    
+  canvas.add(music);
+  music.on('mousedown',function(){
+      musicPlayer();
+});
+});    
+
+fabric.Image.fromURL('img/News.png', function(news) {
+  news.set({left: leftWidth+660,
+  top: topLength+250});    
+  canvas.add(news);
+  news.on('mousedown',function(){
+  getNews(language);
+});
+});    
+ 
+fabric.Image.fromURL('img/Logs.png', function(logs) {
+  logs.set({left: leftWidth,
+  top: topLength+500});    
+  canvas.add(logs);
+  logs.on('mousedown',function(){
+      
+});
+});    
+
+fabric.Image.fromURL('img/Settings.png', function(settings) {
+  settings.set({left: leftWidth+220,
+  top: topLength+500});    
+  canvas.add(settings);
+  settings.on('mousedown',function(){
+      
+});
+});    
+
+fabric.Image.fromURL('img/DND.png', function(dnd) {
+  dnd.set({left: leftWidth+440,
+  top: topLength+500});    
+  canvas.add(dnd);
+  dnd.on('mousedown',function(){
+      
+});
+});    
+    
+fabric.Image.fromURL('img/Help.png', function(help) {
+  help.set({left: leftWidth+660,
+  top: topLength+500});    
+  canvas.add(help);
+  help.on('mousedown',function(){
+      
+});
+});    
+
+var mirrorText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+mirrorText.text = (language == 0) ? 'Mirror' : 'Espejo';
+mirrorText.hasControls = mirrorText.hasBorders = false;
+mirrorText.lockMovementX = mirrorText.lockMovementY = true;
+mirrorText.selectable = false;
+mirrorText.evented = false;
+
+var messagesText = new fabric.Text('default', { left: leftWidth+280, top: topLength+145, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+messagesText.text = (language == 0) ? 'Messages' : 'Mensajes';
+messagesText.hasControls = messagesText.hasBorders = false;
+messagesText.lockMovementX = messagesText.lockMovementY = true;
+messagesText.selectable = false;
+messagesText.evented = false;    
+
+var cameraText = new fabric.Text('default', { left: leftWidth+500, top: topLength+145, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+cameraText.text = (language == 0) ? 'Camera' : 'Cámara';
+cameraText.hasControls = cameraText.hasBorders = false;
+cameraText.lockMovementX = cameraText.lockMovementY = true;
+cameraText.selectable = false;
+cameraText.evented = false;
+
+var emergencyText = new fabric.Text('default', { left: leftWidth+720, top: topLength+145, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+emergencyText.text = (language == 0) ? 'Emergency' : 'Emergenc..';
+emergencyText.hasControls = emergencyText.hasBorders = false;
+emergencyText.lockMovementX = emergencyText.lockMovementY = true;
+emergencyText.selectable = false;
+emergencyText.evented = false;    
+
+var alarmText = new fabric.Text('default', { left: leftWidth+60, top: topLength+395, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+alarmText.text = (language == 0) ? 'Alarm' : 'Alarma';
+alarmText.hasControls = alarmText.hasBorders = false;
+alarmText.lockMovementX = alarmText.lockMovementY = true;
+alarmText.selectable = false;
+alarmText.evented = false;    
+
+var themesText = new fabric.Text('default', { left: leftWidth+280, top: topLength+395, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+themesText.text = (language == 0) ? 'Themes' : 'Temas';
+themesText.hasControls = themesText.hasBorders = false;
+themesText.lockMovementX = themesText.lockMovementY = true;
+themesText.selectable = false;
+themesText.evented = false;    
+
+var musicText= new fabric.Text('default', { left: leftWidth+500, top: topLength+395, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+musicText.text = (language == 0) ? 'Music' : 'Música';
+musicText.hasControls = musicText.hasBorders = false;
+musicText.lockMovementX = musicText.lockMovementY = true;
+musicText.selectable = false;
+musicText.evented = false;
+
+var newsText = new fabric.Text('default', { left: leftWidth+720, top: topLength+395, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+newsText.text = (language == 0) ? 'News' : 'Noticias';
+newsText.hasControls = newsText.hasBorders = false;
+newsText.lockMovementX = newsText.lockMovementY = true;
+newsText.selectable = false;
+newsText.evented = false;    
+    
+var logsText = new fabric.Text('default', { left: leftWidth+60, top: topLength+645, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+logsText.text = (language == 0) ? 'Logs' : 'Registros';
+logsText.hasControls = logsText.hasBorders = false;
+logsText.lockMovementX = logsText.lockMovementY = true;
+logsText.selectable = false;
+logsText.evented = false;    
+
+var settingsText = new fabric.Text('default', { left: leftWidth+280, top: topLength+645, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+settingsText.text = (language == 0) ? 'Settings' : 'Ajustes';
+settingsText.hasControls = settingsText.hasBorders = false;
+settingsText.lockMovementX = settingsText.lockMovementY = true;
+settingsText.selectable = false;
+settingsText.evented = false;    
+
+var  dndText= new fabric.Text('default', { left: leftWidth+500, top: topLength+645, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+dndText.text = (language == 0) ? 'DND' : 'DND';
+dndText.hasControls = dndText.hasBorders = false;
+dndText.lockMovementX = dndText.lockMovementY = true;
+dndText.selectable = false;
+dndText.evented = false;
+
+var helpText = new fabric.Text('default', { left: leftWidth+720, top: topLength+645, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+helpText.text = (language == 0) ? 'Help' : 'Ayuda';
+helpText.hasControls = helpText.hasBorders = false;
+helpText.lockMovementX = helpText.lockMovementY = true;
+helpText.selectable = false;
+helpText.evented = false;    
+
+canvas.add(insideDoor);
+canvas.add(outsideDoor);
+//canvas.add(power);
+//canvas.add(powerRect);
+canvas.add(mirrorText);
+canvas.add(messagesText);
+canvas.add(cameraText);
+canvas.add(emergencyText);
+canvas.add(alarmText);
+canvas.add(themesText);
+canvas.add(musicText);
+canvas.add(newsText);
+canvas.add(logsText);
+canvas.add(settingsText);
+canvas.add(dndText);
+canvas.add(helpText);
+}
+addelements();
+getWeather('C',0);
+getTime(0);
+    
+</script>		
+</head>
+  
+</html>
