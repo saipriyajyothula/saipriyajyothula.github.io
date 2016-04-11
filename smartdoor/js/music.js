@@ -100,8 +100,12 @@ highImg.lockMovementX = highImg.lockMovementY = true;
 highImg.hasControls = highImg.hasBorders = false;
 
 var volLine = new fabric.Line([315,topLength+509,463,topLength+509],{stroke: 'black', strokeWidth: 3});
+volLine.lockMovementX = volLine.lockMovementY = true;
+volLine.hasControls = volLine.hasBorders = false;
 
 var volCircle = new fabric.Circle({left: 453, top: topLength+510, radius: 10, originY: 'center'});
+volCircle.lockMovementX = volCircle.lockMovementY = true;
+volCircle.hasControls = volCircle.hasBorders = false;
 
 function musicPlayer(){
     canvas.add(musicRect);
