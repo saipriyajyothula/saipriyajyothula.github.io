@@ -27,7 +27,6 @@ var artistText = new fabric.Text(musicArtist[musicId], { left: 868, top: topLeng
 artistText.hasControls = artistText.hasBorders = false;
 artistText.lockMovementX = artistText.lockMovementY = true;
 
-var playInstance = gElement('play');
 var playImg = new fabric.Image(playInstance, {
 left: 835,
 top: topLength+325,
@@ -35,7 +34,6 @@ top: topLength+325,
 playImg.lockMovementX = playImg.lockMovementY = true;
 playImg.hasControls = playImg.hasBorders = false;
 
-var pauseInstance = gElement('pause');
 var pauseImg = new fabric.Image(pauseInstance, {
 left: 835,
 top: topLength+325,
@@ -43,7 +41,6 @@ top: topLength+325,
 pauseImg.lockMovementX = pauseImg.lockMovementY = true;
 pauseImg.hasControls = pauseImg.hasBorders = false;
 
-var prevInstance = gElement('prev');
 var prevImg = new fabric.Image(prevInstance, {
 left: 705,
 top: topLength+350,
@@ -51,7 +48,6 @@ top: topLength+350,
 prevImg.lockMovementX = prevImg.lockMovementY = true;
 prevImg.hasControls = prevImg.hasBorders = false;
 
-var nextInstance = gElement('next');
 var nextImg = new fabric.Image(nextInstance, {
 left: 995,
 top: topLength+350,
@@ -59,7 +55,6 @@ top: topLength+350,
 nextImg.lockMovementX = nextImg.lockMovementY = true;
 nextImg.hasControls = nextImg.hasBorders = false;
 
-var uptownInstance = gElement('uptownImg');
 var uptownImg = new fabric.Image(uptownInstance, {
 left: 235,
 top: topLength+140
@@ -67,7 +62,6 @@ top: topLength+140
 uptownImg.lockMovementX = uptownImg.lockMovementY = true;
 uptownImg.hasControls = uptownImg.hasBorders = false;
 
-var marvinInstance = gElement('marvinImg');
 var marvinImg = new fabric.Image(marvinInstance, {
 left: 235,
 top: topLength+140
@@ -75,7 +69,6 @@ top: topLength+140
 marvinImg.lockMovementX = marvinImg.lockMovementY = true;
 marvinImg.hasControls = marvinImg.hasBorders = false;
 
-var sugarInstance = gElement('sugarImg');
 var sugarImg = new fabric.Image(sugarInstance, {
 left: 235,
 top: topLength+140
@@ -83,7 +76,6 @@ top: topLength+140
 sugarImg.lockMovementX = sugarImg.lockMovementY = true;
 sugarImg.hasControls = sugarImg.hasBorders = false;
 
-var lowInstance = gElement('low');
 var lowImg = new fabric.Image(lowInstance, {
 left: 235,
 top: topLength+490
@@ -91,7 +83,6 @@ top: topLength+490
 lowImg.lockMovementX = lowImg.lockMovementY = true;
 lowImg.hasControls = lowImg.hasBorders = false;
 
-var highInstance = gElement('high');
 var highImg = new fabric.Image(highInstance, {
 left: 485,
 top: topLength+490

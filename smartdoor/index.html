@@ -9,17 +9,8 @@
 	<!-- Get version 1.5.0 of Fabric.js from CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" ></script>
     <script src="js/jquery-1.12.0.min.js"></script>
-    <img src = "img/uptown.png" id = "uptownImg" style="display:none">
-    <img src = "img/marvin.png" id = "marvinImg" style="display:none">
-    <img src = "img/sugar.png" id = "sugarImg" style="display:none">
     <img src = "img/p.jpg" id = "bg" style="display:none">
     <img src = "img/cross.png" id = "cross" style="display:none">
-    <img src = "img/prev.png" id = "prev" style="display:none">
-    <img src = "img/play.png" id = "play" style="display:none">
-    <img src = "img/pause.png" id = "pause" style="display:none">
-    <img src = "img/next.png" id = "next" style="display:none">
-    <img src = "img/high.png" id = "high" style="display:none">
-    <img src = "img/low.png" id = "low" style="display:none">
     <audio src="music/uptown.mp3" id="uptown" style="display:none"></audio>
     <audio src="music/marvin.mp3" id="marvin" style="display:none"></audio>
     <audio src="music/sugar.mp3" id="sugar" style="display:none"></audio>
@@ -34,6 +25,29 @@
     <!-- we will use width="2714" height="2200" for presentations and evaluation -->
 		<canvas id="c" width="2714" height="2200" style="border:2px solid black;" ></canvas>
 </body>
+<script>
+    var playInstance = new Image();
+    var pauseInstance = new Image();
+    var prevInstance = new Image();
+    var nextInstance = new Image();
+    var lowInstance = new Image();
+    var highInstance = new Image();
+    var uptownInstance = new Image();
+    var sugarInstance = new Image();
+    var marvinInstance = new Image();
+function preload(){
+    playInstance.src = "img/play.png";
+    pauseInstance.src = "img/pause.png";
+    prevInstance.src = "img/prev.png";
+    nextInstance.src = "img/next.png";
+    lowInstance.src = "img/low.png";
+    highInstance.src = "img/high.png";
+    uptownInstance.src = "img/uptown.png";
+    sugarInstance.src = "img/sugar.png";
+    marvinInstance.src = "img/marvin.png";
+}  
+window.onload=preload();
+</script>
 <script src="js/timeweathernews.js"></script>
 <script src="js/music.js"></script>
 <script>
@@ -198,8 +212,8 @@ fabric.Image.fromURL('img/Help.png', function(help) {
   help.on('mousedown',function(){
       
 });
-});    
-
+});      
+    
 var mirrorText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
 mirrorText.text = (language == 0) ? 'Mirror' : 'Espejo';
 mirrorText.hasControls = mirrorText.hasBorders = false;
@@ -283,6 +297,13 @@ helpText.hasControls = helpText.hasBorders = false;
 helpText.lockMovementX = helpText.lockMovementY = true;
 helpText.selectable = false;
 helpText.evented = false;    
+    
+var gh = new Image();
+    gh.src=('');
+     var dd=new fabric.Image(gh);
+        dd.set({left:1000, top:1500});
+    
+
 
 canvas.add(insideDoor);
 canvas.add(outsideDoor);
@@ -300,6 +321,8 @@ canvas.add(logsText);
 canvas.add(settingsText);
 canvas.add(dndText);
 canvas.add(helpText);
+    canvas.add(dd);
+    canvas.moveTo(dd, 50);
 }
 addelements();
 getWeather('C',0);
