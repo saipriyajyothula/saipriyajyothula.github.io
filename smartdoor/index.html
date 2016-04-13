@@ -47,9 +47,481 @@ function preload(){
     marvinInstance.src = "img/marvin.png";
 }  
 window.onload=preload();
+
+    
+var canvas = this.__canvas = new fabric.Canvas('c');
+canvas.backgroundColor = "#DDDDDD";  // light grey
+
+var leftWidth = 280;    
+var topLength = 500;
+var language = 0;
+
+var newsRect = new fabric.Rect({
+  left: 135,
+  top: topLength,
+  fill: 'white',
+  stroke: 'black',
+  strokeWidth: 5,
+  width: 1060,
+  height: 680,
+  rx: 10,
+  ry: 10,
+  angle: 0
+});
+
+newsRect.hasControls = newsRect.hasBorders = false;
+newsRect.lockMovementX = newsRect.lockMovementY = true; 
+
+var newsHeaderText = new fabric.Text('News', { left: 665, top: topLength + 80, fontFamily: 'Helvetica', fontSize: 44, originX: 'center', originY: 'top', fontWeight: 300});
+newsHeaderText.hasControls = newsHeaderText.hasBorders = false;
+newsHeaderText.lockMovementX = newsHeaderText.lockMovementY = true;
+
+var newsFooterText = new fabric.Text('default', { left: 673, top: topLength +620, fontFamily: 'Helvetica', fontSize: 28, originX: 'center', originY: 'top'});
+newsFooterText.hasControls = newsFooterText.hasBorders = false;
+newsFooterText.lockMovementX = newsFooterText.lockMovementY = true;
+
+var firstText = new fabric.Text('default', { left: 340, top: topLength + 240, fontFamily: 'Helvetica', fontSize: 28, originY: 'center', fontWeight: 300});
+firstText.hasControls = firstText.hasBorders = false;
+firstText.lockMovementX = firstText.lockMovementY = true;
+
+var secondText = new fabric.Text('default', { left: 340, top: topLength + 390, fontFamily: 'Helvetica', fontSize: 28, originY: 'center', fontWeight: 300});
+secondText.hasControls = secondText.hasBorders = false;
+secondText.lockMovementX = secondText.lockMovementY = true;
+
+var thirdText = new fabric.Text('default', { left: 340, top: topLength + 540, fontFamily: 'Helvetica', fontSize: 28, originY: 'center', fontWeight: 300});
+thirdText.hasControls = thirdText.hasBorders = false;
+thirdText.lockMovementX = thirdText.lockMovementY = true;
+    
+var tempText = new fabric.Text('default', { left: 2300, top: 200, fontFamily: 'Helvetica', fontSize: 60, originX: 'left', originY: 'center'});
+tempText.hasControls = tempText.hasBorders = false;
+tempText.lockMovementX = tempText.lockMovementY = true;
+
+var tempDesText = new fabric.Text('default', { left: 2300, top: 300, fontFamily: 'Helvetica', fontSize: 40, originX: 'left', originY: 'center'});
+tempDesText.hasControls = tempDesText.hasBorders = false;
+tempDesText.lockMovementX = tempDesText.lockMovementY = true;
+
+var timeText = new fabric.Text('default', { left: 945, top: 200, fontFamily: 'Helvetica', fontSize: 60, originX: 'center', originY: 'center'});
+timeText.lockMovementX = timeText.lockMovementY = true;
+timeText.hasControls = timeText.hasBorders = false;
+
+var dateText = new fabric.Text('default', { left: 945, top: 300, fontFamily: 'Helvetica', fontSize: 40, originX: 'center', originY: 'center'});
+dateText.lockMovementX = dateText.lockMovementY = true;
+dateText.hasControls = dateText.hasBorders = false;
+
+/*var powerImg = document.getElementById('bg');
+var power = new fabric.Image(powerImg, {
+left: 60,
+top: 10,
+});
+*/
+/*var powerRect = new fabric.Rect({
+  left: 60,
+  top: 10,
+  fill: 'black',
+  opacity: 0.06,
+  width: 1230,
+  height: 2200,
+  angle: 0
+});
+
+var filter = new fabric.Image.filters.Convolute({
+  matrix: [ 1/8, 1/8, 1/8,
+            1/8, 1/8, 1/8,
+            1/8, 1/8, 1/8 ]
+});
+power.filters.push(filter);
+power.applyFilters(canvas.renderAll.bind(canvas));*/
+
+var months0 = ['Jan.','Feb.','Mar.','Apr.','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
+var months1 = ['enero','feb.','marzo','abr.','mayo','jun.','jul.','agosto','set.','oct.','nov','dic'];
+var days0 = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var days1 = ['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
+function getTime(lan) {
+    var datetime = new Date();
+    var h = datetime.getHours();
+    var m = datetime.getMinutes();
+    var mm = datetime.getMonth();
+    var dd = datetime.getDate();
+    var day = datetime.getDay();
+    m = checkdigit(m);
+    month = (lan==0) ? months0[mm] : months1[mm];
+    weekdd = (lan==0) ? days0[day] : days1[day];
+    dd = checkdigit(dd);
+    timeText.text = (h>12)? h-12 + ":" + m + ' PM': h + ":" + m + ' AM';
+    dateText.text = weekdd +", "+ month + " "+ dd ;
+    setTimeout(getTime, 1000, lan);
+    canvas.add(timeText);
+    canvas.add(dateText);
+}
+function checkdigit(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+function getWeather(unit, lan){
+var units='metric';
+var lang='en';
+    if(unit=='F'){
+        units='imperial';
+    }
+    if(lan==1){
+        lang='es';    
+    }
+var url = 'http://api.openweathermap.org/data/2.5/weather?q=Chicago&units='+units+'&APPID=788adeb06070edb262bf78f315e1400a&lang='+lang;
+
+//metric for C and imperial for F
+    
+var weatherExtract=[];    
+$.get(url,function(d){
+    cbc(d);
+});
+function cbc(d)
+    {
+    weatherExtract=d;      
+    var weathericonurl = 'http://openweathermap.org/img/w/'+weatherExtract.weather[0].icon+'.png';
+    tempText.text = String(Math.round(weatherExtract.main.temp))+' \u00B0'+unit;
+    var d = weatherExtract.weather[0].description;
+    tempDesText.text = d[0].toUpperCase() + d.slice(1);
+    canvas.add(tempText);
+    canvas.add(tempDesText);
+    }
+}  
+    
+function getNews(lan){
+canvas.add(newsRect);
+var url = 'http://api.nytimes.com/svc/topstories/v1/world.json?api-key=141a890ea8bc94b8dd5afc9c4a88bd53:17:74891958';
+var newsExtract = [];
+$.get(url,function(d){
+    cbc(d);   
+});
+function cbc(d)
+    {
+    newsHeaderText.text = 'News';
+    canvas.add(newsHeaderText);
+    newsExtract = d;
+    var s1 = check(newsExtract.results[1].title);
+    var s2 = check(newsExtract.results[0].title);
+    var s3 = check(newsExtract.results[5].title);
+    fabric.Image.fromURL(newsExtract.results[1].multimedia[1].url, function(i1) {
+    i1.set({left: 215,
+    top: topLength+190, scaleX: 2/3, scaleY: 2/3});    
+    canvas.add(i1);
+    });
+    fabric.Image.fromURL(newsExtract.results[0].multimedia[1].url, function(i2) {
+    i2.set({left: 215,
+    top: topLength+340, scaleX: 2/3, scaleY: 2/3});    
+    canvas.add(i2);
+    });
+    fabric.Image.fromURL(newsExtract.results[5].multimedia[1].url, function(i3) {
+    i3.set({left: 215,
+    top: topLength+490, scaleX: 2/3, scaleY: 2/3});    
+    canvas.add(i3);
+    });
+
+    if(lan != 1){
+        firstText.text = s1;
+        secondText.text = s2;
+        thirdText.text = s3;
+        canvas.add(firstText);
+        canvas.add(secondText);
+        canvas.add(thirdText);
+        }
+        
+    if(lan == 1){
+     var s1Url = 'https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20160403T075912Z.9381e511060b9142.5b7b4a73ebe51c4e5fe59d701f8ea99fd23032d3&text='+s1+'&lang=en-es&format=plain';
+            var s1Extract = [];
+            $.get(s1Url,function(d1){
+                cbc1(d1);
+            });
+            function cbc1(d1)
+            {
+                s1Extract = d1;
+                s1 = s1Extract.text[0];   
+            }
+        
+    }
+}
+}
+
+
+function check(s){
+    if(s.includes('&#')){
+        s=s.slice(0,s.indexOf('&#'))+s.slice(s.indexOf('&#')+7);
+        s=check(s);
+        return s;
+    }
+    return s;
+}
+
+function truncate(s){
+    if(s.length > 38){
+        var sub = s.slice(38);
+        sub = sub.slice(0,sub.indexOf(' '))+'\n'+sub.slice(sub.indexOf(' ')+1)
+        s=s.slice(0,38)+sub;
+        }
+    return s;
+}
+
+var gElement = function(id){return document.getElementById(id)};    
+    
+    
+var musicTitle = ['Uptown Funk ft. Bruno Mars', 'Sugar', 'Marvin Gaye ft. Meghan Trainor'];
+var musicArtist = ['Mark Ronson', 'Maroon 5', 'Charlie Puth'];
+var musicId = 0;
+var volStatus = 10;
+
+var musicRect = new fabric.Rect({
+  left: 135,
+  top: topLength,
+  fill: 'white',
+  stroke: 'black',
+  strokeWidth: 5,
+  width: 1060,
+  height: 680,
+  rx: 10,
+  ry: 10,
+  angle: 0
+});
+
+musicRect.hasControls = musicRect.hasBorders = false;
+musicRect.lockMovementX = musicRect.lockMovementY = true; 
+
+var titleText = new fabric.Text(musicTitle[musicId], { left: 868, top: topLength+170, fontFamily: 'Helvetica', fontSize: 44, originX: 'center', originY: 'top'});
+titleText.hasControls = titleText.hasBorders = false;
+titleText.lockMovementX = titleText.lockMovementY = true;
+
+var artistText = new fabric.Text(musicArtist[musicId], { left: 868, top: topLength+240, fontFamily: 'Helvetica', fontSize: 22, originX: 'center', originY: 'top'});
+artistText.hasControls = artistText.hasBorders = false;
+artistText.lockMovementX = artistText.lockMovementY = true;
+
+var playImg = new fabric.Image(playInstance, {
+left: 835,
+top: topLength+325,
+});
+playImg.lockMovementX = playImg.lockMovementY = true;
+playImg.hasControls = playImg.hasBorders = false;
+
+var pauseImg = new fabric.Image(pauseInstance, {
+left: 835,
+top: topLength+325,
+});
+pauseImg.lockMovementX = pauseImg.lockMovementY = true;
+pauseImg.hasControls = pauseImg.hasBorders = false;
+
+var prevImg = new fabric.Image(prevInstance, {
+left: 705,
+top: topLength+350,
+});
+prevImg.lockMovementX = prevImg.lockMovementY = true;
+prevImg.hasControls = prevImg.hasBorders = false;
+
+var nextImg = new fabric.Image(nextInstance, {
+left: 995,
+top: topLength+350,
+});
+nextImg.lockMovementX = nextImg.lockMovementY = true;
+nextImg.hasControls = nextImg.hasBorders = false;
+
+var uptownImg = new fabric.Image(uptownInstance, {
+left: 235,
+top: topLength+140
+});
+uptownImg.lockMovementX = uptownImg.lockMovementY = true;
+uptownImg.hasControls = uptownImg.hasBorders = false;
+
+var marvinImg = new fabric.Image(marvinInstance, {
+left: 235,
+top: topLength+140
+});
+marvinImg.lockMovementX = marvinImg.lockMovementY = true;
+marvinImg.hasControls = marvinImg.hasBorders = false;
+
+var sugarImg = new fabric.Image(sugarInstance, {
+left: 235,
+top: topLength+140
+});
+sugarImg.lockMovementX = sugarImg.lockMovementY = true;
+sugarImg.hasControls = sugarImg.hasBorders = false;
+
+var lowImg = new fabric.Image(lowInstance, {
+left: 235,
+top: topLength+490
+});
+lowImg.lockMovementX = lowImg.lockMovementY = true;
+lowImg.hasControls = lowImg.hasBorders = false;
+
+var highImg = new fabric.Image(highInstance, {
+left: 485,
+top: topLength+490
+});
+highImg.lockMovementX = highImg.lockMovementY = true;
+highImg.hasControls = highImg.hasBorders = false;
+
+var volLine = new fabric.Line([315,topLength+509,463,topLength+509],{stroke: 'black', strokeWidth: 3});
+volLine.lockMovementX = volLine.lockMovementY = true;
+volLine.hasControls = volLine.hasBorders = false;
+
+var volCircle = new fabric.Circle({left: 453, top: topLength+510, radius: 10, originY: 'center'});
+volCircle.lockMovementX = volCircle.lockMovementY = true;
+volCircle.hasControls = volCircle.hasBorders = false;
+
+function musicPlayer(){
+    canvas.add(musicRect);
+    canvas.add(prevImg);
+    canvas.add(pauseImg);
+    canvas.moveTo(pauseImg,-50);
+    canvas.add(playImg);
+    canvas.add(nextImg);
+    canvas.add(uptownImg);    
+    canvas.add(sugarImg);
+    canvas.moveTo(sugarImg,-50);
+    canvas.add(marvinImg);
+    canvas.moveTo(marvinImg,-50);
+    canvas.add(lowImg);
+    canvas.add(highImg);
+    canvas.add(titleText);
+    canvas.add(artistText);
+    canvas.add(volLine);
+    canvas.add(volCircle);
+}
+
+playImg.on('mousedown', function() {
+    playMusic();
+});
+
+pauseImg.on('mousedown', function() {
+    playFront();
+    pauseMusic(); 
+});
+
+prevImg.on('mousedown', function() {
+    playFront();
+    pauseMusic();
+    if(musicId==0){
+        musicId=2;
+    }
+    else{
+        musicId -= 1;
+    }
+    playMusic();
+});
+
+nextImg.on('mousedown', function() {
+    playFront();
+    pauseMusic();
+    if(musicId==2){
+        musicId=0;
+    }
+    else{
+        musicId += 1;
+    }
+    playMusic();
+});
+
+highImg.on('mousedown', function() {
+    volumeUp(); 
+});
+
+lowImg.on('mousedown', function() {
+    volumeDown(); 
+});
+
+function playMusic(){
+    changeMetadata();
+    pauseFront();
+    if(musicId==0){
+        uptown.play();
+    }
+    else if(musicId==1){
+        sugar.play();
+    }
+    else{
+        marvin.play();
+    }
+    canvas.deactivateAll();
+}
+
+function pauseMusic(){
+    if(musicId==0){
+        uptown.pause();
+    }
+    else if(musicId==1){
+        sugar.pause();
+    }
+    else{
+        marvin.pause();
+    }
+    canvas.deactivateAll();
+}
+
+function playFront(){
+    pauseImg.opacity = 0;
+    canvas.moveTo(pauseImg,-50);
+    playImg.opacity = 1;
+    canvas.moveTo(playImg,50);
+}
+
+function pauseFront(){
+    playImg.opacity = 0;
+    canvas.moveTo(playImg,-50);
+    pauseImg.opacity = 1;
+    canvas.moveTo(pauseImg,50);
+}
+
+function volumeUp(){
+    if(volStatus==10){
+    }
+    else{
+        volStatus += 2;
+    }
+    changeVolume(volStatus, '+');
+    canvas.deactivateAll();
+}
+
+function volumeDown(){
+    if(volStatus==0){
+    }
+    else{
+        volStatus -= 2;
+    }
+    changeVolume(volStatus, '-');
+    canvas.deactivateAll();
+}
+
+function changeVolume(volStatus, sign){
+        uptown.volume = volStatus/10;
+        sugar.volume = volStatus/10;
+        marvin.volume = volStatus/10;
+        if((volCircle.left <= 306)&&(sign == '-')){
+        }
+        else if((volCircle.left == 453)&&(sign == '+')){
+        }
+        else{
+            if(sign == '+'){
+                volCircle.left += 29.6;
+            }
+            else{
+                volCircle.left -= 29.6;
+            }
+        }
+}
+
+function changeMetadata(){
+    titleText.text = musicTitle[musicId];
+    artistText.text = musicArtist[musicId];
+    if(musicId == 0){
+        canvas.moveTo(uptownImg, 50);
+    }
+    else if(musicId == 1){
+        canvas.moveTo(sugarImg, 50);
+    }
+    else{
+        canvas.moveTo(marvinImg, 50);
+    }
+}
 </script>
-<script src="js/timeweathernews.js"></script>
-<script src="js/music.js"></script>
+<!--<script src="js/timeweathernews.js"></script>-->
+<!--<script src="js/music.js"></script>-->
 <script>
 
 
