@@ -27,69 +27,6 @@ var artistText = new fabric.Text(musicArtist[musicId], { left: 868, top: topLeng
 artistText.hasControls = artistText.hasBorders = false;
 artistText.lockMovementX = artistText.lockMovementY = true;
 
-var playImg = new fabric.Image(playInstance, {
-left: 835,
-top: topLength+325,
-});
-playImg.lockMovementX = playImg.lockMovementY = true;
-playImg.hasControls = playImg.hasBorders = false;
-
-var pauseImg = new fabric.Image(pauseInstance, {
-left: 835,
-top: topLength+325,
-});
-pauseImg.lockMovementX = pauseImg.lockMovementY = true;
-pauseImg.hasControls = pauseImg.hasBorders = false;
-
-var prevImg = new fabric.Image(prevInstance, {
-left: 705,
-top: topLength+350,
-});
-prevImg.lockMovementX = prevImg.lockMovementY = true;
-prevImg.hasControls = prevImg.hasBorders = false;
-
-var nextImg = new fabric.Image(nextInstance, {
-left: 995,
-top: topLength+350,
-});
-nextImg.lockMovementX = nextImg.lockMovementY = true;
-nextImg.hasControls = nextImg.hasBorders = false;
-
-var uptownImg = new fabric.Image(uptownInstance, {
-left: 235,
-top: topLength+140
-});
-uptownImg.lockMovementX = uptownImg.lockMovementY = true;
-uptownImg.hasControls = uptownImg.hasBorders = false;
-
-var marvinImg = new fabric.Image(marvinInstance, {
-left: 235,
-top: topLength+140
-});
-marvinImg.lockMovementX = marvinImg.lockMovementY = true;
-marvinImg.hasControls = marvinImg.hasBorders = false;
-
-var sugarImg = new fabric.Image(sugarInstance, {
-left: 235,
-top: topLength+140
-});
-sugarImg.lockMovementX = sugarImg.lockMovementY = true;
-sugarImg.hasControls = sugarImg.hasBorders = false;
-
-var lowImg = new fabric.Image(lowInstance, {
-left: 235,
-top: topLength+490
-});
-lowImg.lockMovementX = lowImg.lockMovementY = true;
-lowImg.hasControls = lowImg.hasBorders = false;
-
-var highImg = new fabric.Image(highInstance, {
-left: 485,
-top: topLength+490
-});
-highImg.lockMovementX = highImg.lockMovementY = true;
-highImg.hasControls = highImg.hasBorders = false;
-
 var volLine = new fabric.Line([315,topLength+509,463,topLength+509],{stroke: 'black', strokeWidth: 3});
 volLine.lockMovementX = volLine.lockMovementY = true;
 volLine.hasControls = volLine.hasBorders = false;
@@ -98,70 +35,130 @@ var volCircle = new fabric.Circle({left: 453, top: topLength+510, radius: 10, or
 volCircle.lockMovementX = volCircle.lockMovementY = true;
 volCircle.hasControls = volCircle.hasBorders = false;
 
-function musicPlayer(){
-    canvas.add(musicRect);
-    canvas.add(prevImg);
-    canvas.add(pauseImg);
-    canvas.moveTo(pauseImg,-50);
-    canvas.add(playImg);
-    canvas.add(nextImg);
-    canvas.add(uptownImg);    
-    canvas.add(sugarImg);
-    canvas.moveTo(sugarImg,-50);
-    canvas.add(marvinImg);
-    canvas.moveTo(marvinImg,-50);
-    canvas.add(lowImg);
-    canvas.add(highImg);
-    canvas.add(titleText);
-    canvas.add(artistText);
-    canvas.add(volLine);
-    canvas.add(volCircle);
+function playFront(){
+    fabric.Image.fromURL('img/play.png', function(play) {
+    play.set({left: 835, top: topLength+325});    
+    canvas.add(play);
+    play.hasControls = play.hasBorders = false;
+    play.lockMovementX = play.lockMovementY = true;
+        play.on('mousedown',function(){
+            changeMetadata();
+            playMusic();
+            pauseFront();
+        });
+    });
 }
 
-playImg.on('mousedown', function() {
-    playMusic();
-});
+function pauseFront(){
+    fabric.Image.fromURL('img/pause.png', function(pause) {
+    pause.set({left: 835, top: topLength+325});    
+    canvas.add(pause);
+    pause.hasControls = pause.hasBorders = false;
+    pause.lockMovementX = pause.lockMovementY = true;
+        pause.on('mousedown',function(){
+            changeMetadata();
+            pauseMusic();
+            playFront();
+            canvas.deactivateAll();
+        });
+    });
+}
 
-pauseImg.on('mousedown', function() {
-    playFront();
-    pauseMusic(); 
-});
+function prevButton(){
+    fabric.Image.fromURL('img/prev.png', function(prev) {
+    prev.set({left: 705, top: topLength+350});    
+    canvas.add(prev);
+    prev.hasControls = prev.hasBorders = false;
+    prev.lockMovementX = prev.lockMovementY = true;
+        prev.on('mousedown',function(){
+        pauseMusic();
+        if(musicId==0){
+            musicId=2;
+        }
+        else{
+            musicId -= 1;
+        }
+        changeMetadata();
+        playMusic();
+        pauseFront();
+        canvas.deactivateAll();
+        });
+    }); 
+}
 
-prevImg.on('mousedown', function() {
-    playFront();
-    pauseMusic();
-    if(musicId==0){
-        musicId=2;
-    }
-    else{
-        musicId -= 1;
-    }
-    playMusic();
-});
+function nextButton(){
+    fabric.Image.fromURL('img/next.png', function(next) {
+    next.set({left: 995, top: topLength+350});    
+    canvas.add(next);
+    next.hasControls = next.hasBorders = false;
+    next.lockMovementX = next.lockMovementY = true;
+        next.on('mousedown',function(){
+        pauseMusic();
+        if(musicId==2){
+            musicId=0;
+        }
+        else{
+            musicId += 1;
+        }
+        changeMetadata();
+        playMusic();
+        pauseFront();    
+        });
+    }); 
+}
 
-nextImg.on('mousedown', function() {
-    playFront();
-    pauseMusic();
-    if(musicId==2){
-        musicId=0;
-    }
-    else{
-        musicId += 1;
-    }
-    playMusic();
-});
+function lowButton(){
+    fabric.Image.fromURL('img/low.png', function(low) {
+    low.set({left: 235, top: topLength+490});    
+    canvas.add(low);
+    low.hasControls = low.hasBorders = false;
+    low.lockMovementX = low.lockMovementY = true;
+        low.on('mousedown',function(){
+            volumeDown();
+        });
+    }); 
+}
 
-highImg.on('mousedown', function() {
-    volumeUp(); 
-});
+function highButton(){
+    fabric.Image.fromURL('img/high.png', function(high) {
+    high.set({left: 485, top: topLength+490});    
+    canvas.add(high);
+    high.hasControls = high.hasBorders = false;
+    high.lockMovementX = high.lockMovementY = true;
+        high.on('mousedown',function(){
+            volumeUp();
+        });
+    }); 
+}
 
-lowImg.on('mousedown', function() {
-    volumeDown(); 
-});
+function uptownArtwork(){
+    fabric.Image.fromURL('img/uptown.png', function(uptownImg) {
+    uptownImg.set({left: 235, top: topLength+140});    
+    canvas.add(uptownImg);
+    uptownImg.hasControls = uptownImg.hasBorders = false;
+    uptownImg.lockMovementX = uptownImg.lockMovementY = true;
+    });
+}
+
+function sugarArtwork(){
+    fabric.Image.fromURL('img/sugar.png', function(sugarImg) {
+    sugarImg.set({left: 235, top: topLength+140});    
+    canvas.add(sugarImg);
+    sugarImg.hasControls = sugarImg.hasBorders = false;
+    sugarImg.lockMovementX = sugarImg.lockMovementY = true;
+    });
+}
+
+function marvinArtwork(){
+    fabric.Image.fromURL('img/marvin.png', function(marvinImg) {
+    marvinImg.set({left: 235, top: topLength+140});    
+    canvas.add(marvinImg);
+    marvinImg.hasControls = marvinImg.hasBorders = false;
+    marvinImg.lockMovementX = marvinImg.lockMovementY = true;
+    });
+}
 
 function playMusic(){
-    changeMetadata();
-    pauseFront();
     if(musicId==0){
         uptown.play();
     }
@@ -187,18 +184,18 @@ function pauseMusic(){
     canvas.deactivateAll();
 }
 
-function playFront(){
-    pauseImg.opacity = 0;
-    canvas.moveTo(pauseImg,-50);
-    playImg.opacity = 1;
-    canvas.moveTo(playImg,50);
-}
-
-function pauseFront(){
-    playImg.opacity = 0;
-    canvas.moveTo(playImg,-50);
-    pauseImg.opacity = 1;
-    canvas.moveTo(pauseImg,50);
+function changeMetadata(){
+    titleText.text = musicTitle[musicId];
+    artistText.text = musicArtist[musicId];
+    if(musicId == 0){
+        uptownArtwork();
+    }
+    else if(musicId == 1){
+        sugarArtwork();
+    }
+    else{
+        marvinArtwork();
+    }
 }
 
 function volumeUp(){
@@ -239,16 +236,32 @@ function changeVolume(volStatus, sign){
         }
 }
 
-function changeMetadata(){
-    titleText.text = musicTitle[musicId];
-    artistText.text = musicArtist[musicId];
-    if(musicId == 0){
-        canvas.moveTo(uptownImg, 50);
-    }
-    else if(musicId == 1){
-        canvas.moveTo(sugarImg, 50);
-    }
-    else{
-        canvas.moveTo(marvinImg, 50);
-    }
+function musicPlayer(){
+    canvas.add(musicRect);
+    canvas.add(titleText);
+    canvas.add(artistText);
+    canvas.add(volLine);
+    canvas.add(volCircle);
+    playFront();
+    prevButton();
+    nextButton();
+    changeMetadata();
+    lowButton();
+    highButton();
+    closeMusicPlayer();
+}
+
+function closeMusicPlayer(){
+    fabric.Image.fromURL('img/cross.png', function(crossImg) {
+    crossImg.set({left: 1195+25, top: topLength-25, originX: 'center', originY: 'center'});    
+    canvas.add(crossImg);
+    crossImg.hasControls = crossImg.hasBorders = false;
+    crossImg.lockMovementX = crossImg.lockMovementY = true;
+    crossImg.on('mousedown',function(){
+            pauseMusic();
+            canvas.deactivateAll();
+            canvas.clear();
+            addelements();
+        });
+    });
 }

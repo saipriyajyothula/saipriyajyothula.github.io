@@ -1,22 +1,15 @@
-
-<!-- template for Project 1 - CS 422 - Spring 2016 - Andrew Johnson -->
-
 <html>    
 <head>
     <meta charset="utf-8">
-    <title>fabric.js project template</title>
+    <title>New beginnings!</title>
 	
 	<!-- Get version 1.5.0 of Fabric.js from CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" ></script>
     <script src="js/jquery-1.12.0.min.js"></script>
-    <img src = "img/p.jpg" id = "bg" style="display:none">
-    <img src = "img/cross.png" id = "cross" style="display:none">
     <audio src="music/uptown.mp3" id="uptown" style="display:none"></audio>
     <audio src="music/marvin.mp3" id="marvin" style="display:none"></audio>
     <audio src="music/sugar.mp3" id="sugar" style="display:none"></audio>
     <link href="css/style.css" rel="stylesheet">
-    
-
 	 
 <body>
 		<!-- canvas tag for Fabric.js to draw into -->
@@ -25,33 +18,13 @@
     <!-- we will use width="2714" height="2200" for presentations and evaluation -->
 		<canvas id="c" width="2714" height="2200" style="border:2px solid black;" ></canvas>
 </body>
-<script>
-    var playInstance = new Image();
-    var pauseInstance = new Image();
-    var prevInstance = new Image();
-    var nextInstance = new Image();
-    var lowInstance = new Image();
-    var highInstance = new Image();
-    var uptownInstance = new Image();
-    var sugarInstance = new Image();
-    var marvinInstance = new Image();
-function preload(){
-    playInstance.src = "img/play.png";
-    pauseInstance.src = "img/pause.png";
-    prevInstance.src = "img/prev.png";
-    nextInstance.src = "img/next.png";
-    lowInstance.src = "img/low.png";
-    highInstance.src = "img/high.png";
-    uptownInstance.src = "img/uptown.png";
-    sugarInstance.src = "img/sugar.png";
-    marvinInstance.src = "img/marvin.png";
-}  
-window.onload=preload();
-</script>
-<script src="js/timeweathernews.js"></script>
-<script src="js/music.js"></script>
-<script>
 
+<script src = "js/dependencies.js"></script>
+<script src = "js/timeweather.js"></script>
+<script src = "js/news.js"></script>
+<script src = "js/music.js"></script>
+    
+<script>
 
 function addelements () {
 
@@ -68,8 +41,7 @@ var insideDoor = new fabric.Rect({
 // the doors will not be selectable or movable
 insideDoor.hasControls = insideDoor.hasBorders = false;
 insideDoor.lockMovementX = insideDoor.lockMovementY = true;
-
-//-----------------------------------------------------------------Outside Door-------------------------------------------------------------
+    
 var outsideDoor = new fabric.Rect({
   left: 1420,
   top: 0,
@@ -83,9 +55,6 @@ var outsideDoor = new fabric.Rect({
 outsideDoor.hasControls = outsideDoor.hasBorders = false;
 outsideDoor.lockMovementX = outsideDoor.lockMovementY = true;
 
-//----------------------------------------------------------------------------------------------------------------------------------------------
-
-    
 fabric.Image.fromURL('img/Mirror.png', function(mirror) {
   mirror.set({left:leftWidth,
   top: topLength, originX: 'left', originY: 'top'});    
@@ -174,7 +143,7 @@ fabric.Image.fromURL('img/News.png', function(news) {
   top: topLength+250});    
   canvas.add(news);
   news.on('mousedown',function(){
-  getNews(language);
+      getNews(language);
 });
 });    
  
@@ -212,8 +181,8 @@ fabric.Image.fromURL('img/Help.png', function(help) {
   help.on('mousedown',function(){
       
 });
-});      
-    
+});
+
 var mirrorText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'Helvetica', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
 mirrorText.text = (language == 0) ? 'Mirror' : 'Espejo';
 mirrorText.hasControls = mirrorText.hasBorders = false;
@@ -297,18 +266,9 @@ helpText.hasControls = helpText.hasBorders = false;
 helpText.lockMovementX = helpText.lockMovementY = true;
 helpText.selectable = false;
 helpText.evented = false;    
-    
-var gh = new Image();
-    gh.src=('');
-     var dd=new fabric.Image(gh);
-        dd.set({left:1000, top:1500});
-    
-
 
 canvas.add(insideDoor);
 canvas.add(outsideDoor);
-//canvas.add(power);
-//canvas.add(powerRect);
 canvas.add(mirrorText);
 canvas.add(messagesText);
 canvas.add(cameraText);
@@ -321,12 +281,10 @@ canvas.add(logsText);
 canvas.add(settingsText);
 canvas.add(dndText);
 canvas.add(helpText);
-    canvas.add(dd);
-    canvas.moveTo(dd, 50);
+getTime(language);
+getWeather(tempUnits, language);
 }
 addelements();
-getWeather('C',0);
-getTime(0);
     
 </script>		
 </head>
