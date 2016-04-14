@@ -19,11 +19,11 @@ var musicRect = new fabric.Rect({
 musicRect.hasControls = musicRect.hasBorders = false;
 musicRect.lockMovementX = musicRect.lockMovementY = true; 
 
-var titleText = new fabric.Text(musicTitle[musicId], { left: 868, top: topLength+170, fontFamily: 'Helvetica', fontSize: 44, originX: 'center', originY: 'top'});
+var titleText = new fabric.Text(musicTitle[musicId], { left: 868, top: topLength+170, fontFamily: 'HelveticaLight', fontSize: 44, originX: 'center', originY: 'top'});
 titleText.hasControls = titleText.hasBorders = false;
 titleText.lockMovementX = titleText.lockMovementY = true;
 
-var artistText = new fabric.Text(musicArtist[musicId], { left: 868, top: topLength+240, fontFamily: 'Helvetica', fontSize: 22, originX: 'center', originY: 'top'});
+var artistText = new fabric.Text(musicArtist[musicId], { left: 868, top: topLength+240, fontFamily: 'HelveticaLight', fontSize: 22, originX: 'center', originY: 'top'});
 artistText.hasControls = artistText.hasBorders = false;
 artistText.lockMovementX = artistText.lockMovementY = true;
 

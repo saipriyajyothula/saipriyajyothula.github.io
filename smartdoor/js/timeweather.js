@@ -3,19 +3,19 @@ var months1 = ['enero','feb.','marzo','abr.','mayo','jun.','jul.','agosto','set.
 var days0 = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 var days1 = ['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
 
-var tempText = new fabric.Text('default', { left: 2300, top: 200, fontFamily: 'Helvetica', fontSize: 60, originX: 'left', originY: 'center'});
+var tempText = new fabric.Text('default', { left: 2300, top: 200, fontFamily: 'HelveticaLight', fontSize: 60, originX: 'left', originY: 'center'});
 tempText.hasControls = tempText.hasBorders = false;
 tempText.lockMovementX = tempText.lockMovementY = true;
 
-var tempDesText = new fabric.Text('default', { left: 2300, top: 300, fontFamily: 'Helvetica', fontSize: 40, originX: 'left', originY: 'center'});
+var tempDesText = new fabric.Text('default', { left: 2300, top: 300, fontFamily: 'HelveticaLight', fontSize: 40, originX: 'left', originY: 'center'});
 tempDesText.hasControls = tempDesText.hasBorders = false;
 tempDesText.lockMovementX = tempDesText.lockMovementY = true;
 
-var timeText = new fabric.Text('default', { left: 945, top: 200, fontFamily: 'Helvetica', fontSize: 60, originX: 'center', originY: 'center'});
+var timeText = new fabric.Text('default', { left: 945, top: 200, fontFamily: 'HelveticaLight', fontSize: 60, originX: 'center', originY: 'center'});
 timeText.lockMovementX = timeText.lockMovementY = true;
 timeText.hasControls = timeText.hasBorders = false;
 
-var dateText = new fabric.Text('default', { left: 945, top: 300, fontFamily: 'Helvetica', fontSize: 40, originX: 'center', originY: 'center'});
+var dateText = new fabric.Text('default', { left: 945, top: 300, fontFamily: 'HelveticaLight', fontSize: 40, originX: 'center', originY: 'center'});
 dateText.lockMovementX = dateText.lockMovementY = true;
 dateText.hasControls = dateText.hasBorders = false;
 
