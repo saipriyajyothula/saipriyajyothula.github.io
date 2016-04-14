@@ -22,6 +22,7 @@
 <script src = "js/dependencies.js"></script>
 <script src = "js/timeweather.js"></script>
 <script src = "js/emergency.js"></script>
+<script src = "js/alarmdnd.js"></script>
 <script src = "js/news.js"></script>
 <script src = "js/music.js"></script>
     
@@ -119,8 +120,11 @@ fabric.Image.fromURL('img/Alarm.png', function(alarm) {
   alarm.set({left: leftWidth,
   top: topLength+250});    
   canvas.add(alarm);
+  if(alarmStatus == 0){
+    canvas.add(alarmRedCircle);
+  }
   alarm.on('mousedown',function(){
-      
+      alarmWindow();
 });
 });
 
@@ -173,8 +177,11 @@ fabric.Image.fromURL('img/DND.png', function(dnd) {
   dnd.set({left: leftWidth+440,
   top: topLength+500});    
   canvas.add(dnd);
+  if(dndStatus == 1){
+    canvas.add(dndRedCircle);
+  }
   dnd.on('mousedown',function(){
-      
+      dndWindow();
 });
 });    
     
@@ -271,6 +278,14 @@ helpText.lockMovementX = helpText.lockMovementY = true;
 helpText.selectable = false;
 helpText.evented = false;    
 
+var alarmRedCircle = new fabric.Circle({left: leftWidth + 120, top: topLength+250, radius: 18, fill: 'red', originX: 'center', originY: 'center'});
+alarmRedCircle.lockMovementX = alarmRedCircle.lockMovementY = true;
+alarmRedCircle.hasControls = alarmRedCircle.hasBorders = false;
+    
+var dndRedCircle = new fabric.Circle({left: leftWidth + 560, top: topLength+500, radius: 18, fill: 'red', originX: 'center', originY: 'center'});
+dndRedCircle.lockMovementX = dndRedCircle.lockMovementY = true;
+dndRedCircle.hasControls = dndRedCircle.hasBorders = false;
+    
 canvas.add(insideDoor);
 canvas.add(outsideDoor);
 canvas.add(mirrorText);

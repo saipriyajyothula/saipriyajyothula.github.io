@@ -5,6 +5,8 @@ var leftWidth = 280;
 var topLength = 500;
 var tempUnits = 'C';
 var language = 0;
+var alarmStatus = 1;
+var dndStatus = 0;
 
 function cross(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {

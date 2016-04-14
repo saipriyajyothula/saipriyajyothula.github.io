@@ -11,11 +11,11 @@ var tempDesText = new fabric.Text('default', { left: 1160, top: 260, fontFamily:
 tempDesText.hasControls = tempDesText.hasBorders = false;
 tempDesText.lockMovementX = tempDesText.lockMovementY = true;
 
-var timeText = new fabric.Text('default', { left: 350, top: 125, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center', originY: 'top'});
+var timeText = new fabric.Text('default', { left: 170, top: 125, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'left', originY: 'top'});
 timeText.lockMovementX = timeText.lockMovementY = true;
 timeText.hasControls = timeText.hasBorders = false;
 
-var dateText = new fabric.Text('default', { left: 350, top: 260, fontFamily: 'HelveticaLight', fontSize: 52, originX: 'center', originY: 'top'});
+var dateText = new fabric.Text('default', { left: 170, top: 260, fontFamily: 'HelveticaLight', fontSize: 52, originX: 'left', originY: 'top'});
 dateText.lockMovementX = dateText.lockMovementY = true;
 dateText.hasControls = dateText.hasBorders = false;
 
@@ -32,7 +32,7 @@ function getTime(lan) {
     dd = checkdigit(dd);
     timeText.text = (h>12)? h-12 + ":" + m + ' PM': h + ":" + m + ' AM';
     dateText.text = weekdd +", "+ month + " "+ dd ;
-    setTimeout(getTime, 1000, lan);
+    setTimeout(getTime, 60000, lan);
     canvas.add(timeText);
     canvas.add(dateText);
 }
