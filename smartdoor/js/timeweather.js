@@ -3,19 +3,19 @@ var months1 = ['enero','feb.','marzo','abr.','mayo','jun.','jul.','agosto','set.
 var days0 = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 var days1 = ['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
 
-var tempText = new fabric.Text('default', { left: 2300, top: 200, fontFamily: 'HelveticaLight', fontSize: 60, originX: 'left', originY: 'center'});
+var tempText = new fabric.Text('default', { left: 1160, top: 125, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'right', originY: 'top'});
 tempText.hasControls = tempText.hasBorders = false;
 tempText.lockMovementX = tempText.lockMovementY = true;
 
-var tempDesText = new fabric.Text('default', { left: 2300, top: 300, fontFamily: 'HelveticaLight', fontSize: 40, originX: 'left', originY: 'center'});
+var tempDesText = new fabric.Text('default', { left: 1160, top: 260, fontFamily: 'HelveticaLight', fontSize: 52, originX: 'right', originY: 'top'});
 tempDesText.hasControls = tempDesText.hasBorders = false;
 tempDesText.lockMovementX = tempDesText.lockMovementY = true;
 
-var timeText = new fabric.Text('default', { left: 945, top: 200, fontFamily: 'HelveticaLight', fontSize: 60, originX: 'center', originY: 'center'});
+var timeText = new fabric.Text('default', { left: 350, top: 125, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center', originY: 'top'});
 timeText.lockMovementX = timeText.lockMovementY = true;
 timeText.hasControls = timeText.hasBorders = false;
 
-var dateText = new fabric.Text('default', { left: 945, top: 300, fontFamily: 'HelveticaLight', fontSize: 40, originX: 'center', originY: 'center'});
+var dateText = new fabric.Text('default', { left: 350, top: 260, fontFamily: 'HelveticaLight', fontSize: 52, originX: 'center', originY: 'top'});
 dateText.lockMovementX = dateText.lockMovementY = true;
 dateText.hasControls = dateText.hasBorders = false;
 
@@ -62,10 +62,21 @@ function getWeather(unit, lan){
     function cbc(d)
         {
         weatherExtract=d;      
-        var weathericonurl = 'http://openweathermap.org/img/w/'+weatherExtract.weather[0].icon+'.png';
-        tempText.text = String(Math.round(weatherExtract.main.temp))+' \u00B0'+unit;
+        var weathericonurl = weatherExtract.weather[0].icon;
+        var x = String(Math.round(weatherExtract.main.temp));
+        tempText.text = x +' \u00B0'+unit;
         var d = weatherExtract.weather[0].description;
         tempDesText.text = d[0].toUpperCase() + d.slice(1);
+        
+        fabric.Image.fromURL('img/'+ weathericonurl +'.png', function(weatherImg) {
+        weatherImg.set({left: 890, top: 109.5, originX: 'right', originY: 'top'});
+        if((x>-1)&&(x<10)){weatherImg.left = 935;}
+        canvas.add(weatherImg);
+        weatherImg.hasControls = weatherImg.hasBorders = false;
+        weatherImg.lockMovementX = weatherImg.lockMovementY = true;
+    
+    });    
+            
         canvas.add(tempText);
         canvas.add(tempDesText);
         }
