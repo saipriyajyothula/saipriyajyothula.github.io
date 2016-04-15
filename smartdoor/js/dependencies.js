@@ -17,7 +17,21 @@ function cross(){
     crossImg.on('mousedown',function(){
             canvas.deactivateAll();
             canvas.clear();
-            addelements();
+            mainscreen();
+        });
+    });
+}
+
+function crossSide(){
+    fabric.Image.fromURL('img/cross.png', function(crossImg) {
+    crossImg.set({left: 1195+25, top: topLength-25, originX: 'center', originY: 'center'});    
+    canvas.add(crossImg);
+    crossImg.hasControls = crossImg.hasBorders = false;
+    crossImg.lockMovementX = crossImg.lockMovementY = true;
+    crossImg.on('mousedown',function(){
+            canvas.deactivateAll();
+            canvas.clear();
+            sidescreen();
         });
     });
 }

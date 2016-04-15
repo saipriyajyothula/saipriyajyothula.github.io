@@ -19,6 +19,14 @@ var dateText = new fabric.Text('default', { left: 170, top: 260, fontFamily: 'He
 dateText.lockMovementX = dateText.lockMovementY = true;
 dateText.hasControls = dateText.hasBorders = false;
 
+var outTimeText = new fabric.Text('default', { left: 2585, top: 60, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'right', originY: 'top'});
+outTimeText.lockMovementX = outTimeText.lockMovementY = true;
+outTimeText.hasControls = outTimeText.hasBorders = false;
+
+var outDateText = new fabric.Text('default', { left: 1480, top: 60, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'left', originY: 'top'});
+outDateText.lockMovementX = outDateText.lockMovementY = true;
+outDateText.hasControls = outDateText.hasBorders = false;
+
 function getTime(lan) {
     var datetime = new Date();
     var h = datetime.getHours();
@@ -31,10 +39,14 @@ function getTime(lan) {
     weekdd = (lan==0) ? days0[day] : days1[day];
     dd = checkdigit(dd);
     timeText.text = (h>12)? h-12 + ":" + m + ' PM': h + ":" + m + ' AM';
+    outTimeText.text = timeText.text;
     dateText.text = weekdd +", "+ month + " "+ dd ;
+    outDateText.text = dateText.text;
     setTimeout(getTime, 60000, lan);
     canvas.add(timeText);
     canvas.add(dateText);
+    canvas.add(outTimeText);
+    canvas.add(outDateText);
 }
 
 function checkdigit(i) {

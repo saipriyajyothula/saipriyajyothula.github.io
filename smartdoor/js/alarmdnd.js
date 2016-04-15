@@ -36,59 +36,59 @@ var dndHeaderText = new fabric.Text('DND', { left: 665, top: topLength + 80, fon
 dndHeaderText.hasControls = dndHeaderText.hasBorders = false;
 dndHeaderText.lockMovementX = dndHeaderText.lockMovementY = true;
 
-var alarmOnText = new fabric.Text('ON', { left: 724, top: topLength + 340, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'left', originY: 'center', fontWeight: 300});
+var alarmOnText = new fabric.Text('ON', { left: 736, top: topLength + 340, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'left', originY: 'center', fontWeight: 300});
 alarmOnText.hasControls = alarmOnText.hasBorders = false;
 alarmOnText.lockMovementX = alarmOnText.lockMovementY = true;
 
-var dndOnText = new fabric.Text('ON', { left: 724, top: topLength + 340, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'left', originY: 'center', fontWeight: 300});
+var dndOnText = new fabric.Text('ON', { left: 736, top: topLength + 340, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'left', originY: 'center', fontWeight: 300});
 dndOnText.hasControls = dndOnText.hasBorders = false;
 dndOnText.lockMovementX = dndOnText.lockMovementY = true;
 
-var alarmOffText = new fabric.Text('OFF', { left: 606, top: topLength + 340, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'right', originY: 'center', fontWeight: 300});
+var alarmOffText = new fabric.Text('OFF', { left: 594, top: topLength + 340, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'right', originY: 'center', fontWeight: 300});
 alarmOffText.hasControls = alarmOffText.hasBorders = false;
 alarmOffText.lockMovementX = alarmOffText.lockMovementY = true;
 
-var dndOffText = new fabric.Text('OFF', { left: 606, top: topLength + 340, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'right', originY: 'center', fontWeight: 300});
+var dndOffText = new fabric.Text('OFF', { left: 594, top: topLength + 340, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'right', originY: 'center', fontWeight: 300});
 dndOffText.hasControls = dndOffText.hasBorders = false;
 dndOffText.lockMovementX = dndOffText.lockMovementY = true;
 
 var alarmSwitchRect = new fabric.Rect({
-  left: 626,
+  left: 614,
   top: topLength+336,
   fill: '#4CD964',
   stroke: '#4CD964',
-  width: 78,
-  height: 40,
+  width: 102,
+  height: 52,
   originX: 'left',
   originY: 'center',
-  rx: 19,
-  ry: 19,
+  rx: 25,
+  ry: 25,
   angle: 0
 });
 alarmSwitchRect.hasControls = alarmSwitchRect.hasBorders = false;
 alarmSwitchRect.lockMovementX = alarmSwitchRect.lockMovementY = true;
 
 var dndSwitchRect = new fabric.Rect({
-  left: 626,
+  left: 614,
   top: topLength+336,
   fill: 'EAEAEA',
   stroke: '#B7B7B7',
-  width: 78,
-  height: 40,
+  width: 102,
+  height: 52,
   originX: 'left',
   originY: 'center',
-  rx: 19,
-  ry: 19,
+  rx: 25,
+  ry: 25,
   angle: 0
 });
 dndSwitchRect.hasControls = dndSwitchRect.hasBorders = false;
 dndSwitchRect.lockMovementX = dndSwitchRect.lockMovementY = true;
 
-var alarmCircle = new fabric.Circle({left: 684, top: topLength+336, radius: 19, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: 'none'});
+var alarmCircle = new fabric.Circle({left: 690, top: topLength+336, radius: 25, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: 'none'});
 alarmCircle.lockMovementX = alarmCircle.lockMovementY = true;
 alarmCircle.hasControls = alarmCircle.hasBorders = false;
 
-var dndCircle = new fabric.Circle({left: 646, top: topLength+336, radius: 19, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: '#CECECE 2px 2px 2px'});
+var dndCircle = new fabric.Circle({left: 640, top: topLength+336, radius: 25, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: '#CECECE 2px 2px 2px'});
 dndCircle.lockMovementX = dndCircle.lockMovementY = true;
 dndCircle.hasControls = dndCircle.hasBorders = false;
 
@@ -143,12 +143,12 @@ function alarmSwitch(){
     canvas.deactivateAll();
     if(alarmStatus == 1){
         alarmStatus = 0;
-        alarmCircle.set({left: 646, shadow: '#CECECE 2px 2px 2px'});
+        alarmCircle.set({left: 640, shadow: '#CECECE 2px 2px 2px'});
         alarmSwitchRect.set({fill: '#EAEAEA', stroke: '#B7B7B7'});
     }
     else{
         alarmStatus = 1;
-        alarmCircle.set({left: 684, shadow: 'none'});
+        alarmCircle.set({left: 690, shadow: 'none'});
         alarmSwitchRect.set({fill: '#4CD964', stroke: '#4CD964'});
     }
 }
@@ -157,12 +157,12 @@ function dndSwitch(){
     canvas.deactivateAll();
     if(dndStatus == 1){
         dndStatus = 0;
-        dndCircle.set({left: 646, shadow: '#CECECE 2px 2px 2px'});
+        dndCircle.set({left: 640, shadow: '#CECECE 2px 2px 2px'});
         dndSwitchRect.set({fill: '#EAEAEA', stroke: '#B7B7B7'});
     }
     else{
         dndStatus = 1;
-        dndCircle.set({left: 684, shadow: 'none'});
+        dndCircle.set({left: 690, shadow: 'none'});
         dndSwitchRect.set({fill: '#4CD964', stroke: '#4CD964'});
     }
 }

@@ -1,6 +1,6 @@
 var musicTitle = ['Uptown Funk ft. Bruno Mars', 'Sugar', 'Marvin Gaye ft. Meghan Trainor'];
 var musicArtist = ['Mark Ronson', 'Maroon 5', 'Charlie Puth'];
-var musicId = 0;
+var musicId = 1;
 var volStatus = 10;
 
 var musicRect = new fabric.Rect({
@@ -261,7 +261,7 @@ function closeMusicPlayer(){
             pauseMusic();
             canvas.deactivateAll();
             canvas.clear();
-            addelements();
+            mainscreen();
         });
     });
 }
