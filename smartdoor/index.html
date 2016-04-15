@@ -44,6 +44,66 @@ outsideDoor.lockMovementX = outsideDoor.lockMovementY = true;
 
 canvas.add(outsideDoor);    
 getTime(language);
+    
+fabric.Image.fromURL('img/doorbell.png', function(doorbell) {
+  doorbell.set({left: 1560,
+  top: topLength, originX: 'left', originY: 'top'});    
+  canvas.add(doorbell);
+  doorbell.on('mousedown',function(){
+       
+});
+});
+
+fabric.Image.fromURL('img/package.png', function(package) {
+  package.set({left: 1940,
+  top: topLength});    
+  canvas.add(package);
+  package.on('mousedown',function(){
+      
+});    
+});
+    
+fabric.Image.fromURL('img/message.png', function(message) {
+  message.set({left: 2330,
+  top: topLength});    
+  canvas.add(message);
+  message.on('mousedown',function(){
+      
+});    
+});
+
+var helloText = new fabric.Text('default', { left: 2035, top: 260, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center'});
+helloText.text = (language == 0) ? 'Hello there!' : '¡Hola!';
+helloText.hasControls = helloText.hasBorders = false;
+helloText.lockMovementX = helloText.lockMovementY = true;
+helloText.selectable = false;
+helloText.evented = false;    
+    
+var doorbellText = new fabric.Text('default', { left: 1665, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+doorbellText.text = (language == 0) ? 'Ring Bell' : 'Anillo de\nCampana';
+doorbellText.hasControls = doorbellText.hasBorders = false;
+doorbellText.lockMovementX = doorbellText.lockMovementY = true;
+doorbellText.selectable = false;
+doorbellText.evented = false;
+
+var packageText = new fabric.Text('default', { left: 2035, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+packageText.text = (language == 0) ? 'Deliver a\nPackage' : 'Entregar\nun Paquete';
+packageText.hasControls = packageText.hasBorders = false;
+packageText.lockMovementX = packageText.lockMovementY = true;
+packageText.selectable = false;
+packageText.evented = false;    
+
+var outMessageText = new fabric.Text('default', { left: 2435, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+outMessageText.text = (language == 0) ? 'Leave a\nMessage' : 'Deja un\nMensaje';
+outMessageText.hasControls = outMessageText.hasBorders = false;
+outMessageText.lockMovementX = outMessageText.lockMovementY = true;
+outMessageText.selectable = false;
+outMessageText.evented = false;    
+
+canvas.add(helloText);    
+canvas.add(doorbellText);    
+canvas.add(packageText);    
+canvas.add(outMessageText);    
 }    
     
 function doors(){
@@ -62,6 +122,7 @@ insideDoor.hasControls = insideDoor.hasBorders = false;
 insideDoor.lockMovementX = insideDoor.lockMovementY = true;
     
 canvas.add(insideDoor);
+    
 outDoor();
 getWeather(tempUnits, language);        
 }    

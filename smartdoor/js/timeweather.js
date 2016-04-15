@@ -38,7 +38,7 @@ function getTime(lan) {
     month = (lan==0) ? months0[mm] : months1[mm];
     weekdd = (lan==0) ? days0[day] : days1[day];
     dd = checkdigit(dd);
-    timeText.text = (h>12)? h-12 + ":" + m + ' PM': h + ":" + m + ' AM';
+    timeText.text = (h>12)? checkdigit(h-12) + ":" + m + ' PM': checkdigit(h) + ":" + m + ' AM';
     outTimeText.text = timeText.text;
     dateText.text = weekdd +", "+ month + " "+ dd ;
     outDateText.text = dateText.text;
