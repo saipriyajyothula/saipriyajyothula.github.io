@@ -1,25 +1,3 @@
-var doorbellInstance = document.getElementById('dg');
-var doorbellImg = new fabric.Image(doorbellInstance, {
-left: 140,
-top: 500,
-});
-doorbellImg.lockMovementX = doorbellImg.lockMovementY = true;
-doorbellImg.hasControls = doorbellImg.hasBorders = false;
-
-outApps.add(doorbellImg);
-outApps.moveTo(doorbellImg, -50);
-
-var packageInstance = document.getElementById('pg');
-var packageImg = new fabric.Image(packageInstance, {
-left: 520,
-top: 500,
-});
-packageImg.lockMovementX = packageImg.lockMovementY = true;
-packageImg.hasControls = packageImg.hasBorders = false;
-
-outApps.add(packageImg);
-outApps.moveTo(packageImg, -50);
-
 function alarmWindow(){
     
     var alarmRect = new fabric.Rect({
@@ -188,15 +166,15 @@ function dndWindow(){
     
     function dndSwitch(){
         inWindow.deactivateAll();
-        if(dndStatus == 1){
-            outApps.moveTo(doorbellImg, -50);            
-            outApps.moveTo(packageImg, -50);            
+        if(dndStatus == 1){           
             dndStatus = 0;
+            restructureOutDoor();
+            outApps.renderAll.bind(outApps);
         }
         else{
             dndStatus = 1;
-            outApps.moveTo(doorbellImg, 50);
-            outApps.moveTo(packageImg, 50);
+            restructureOutDoor();
+            outApps.renderAll.bind(outApps);
         }
         dndPosition();
     }

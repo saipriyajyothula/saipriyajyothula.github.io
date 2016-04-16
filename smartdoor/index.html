@@ -507,7 +507,7 @@ function sidescreen(){
 function outDoor(){
     
     divOutApps.style.display = 'block';
-    
+    if(dndStatus==0){
     fabric.Image.fromURL('img/doorbell.png', function(doorbell) {
       doorbell.set({left: 140,
       top: 500, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
@@ -516,7 +516,6 @@ function outDoor(){
 
     });
     });
-
     fabric.Image.fromURL('img/package.png', function(package) {
       package.set({left: 520,
       top: 500, lockMovementX: true, lockMovementY: true});    
@@ -524,7 +523,28 @@ function outDoor(){
       package.on('mousedown',function(){
 
     });    
+    });    
+    }
+    else{
+      fabric.Image.fromURL('img/doorbellGray.png', function(doorbell) {
+      doorbell.set({left: 140,
+      top: 500, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
+      outApps.add(doorbell);
+      doorbell.on('mousedown',function(){
+
     });
+    });
+    fabric.Image.fromURL('img/packageGray.png', function(package) {
+      package.set({left: 520,
+      top: 500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
+      outApps.add(package);
+      package.on('mousedown',function(){
+
+    });    
+    });     
+        
+    }
+    
 
     fabric.Image.fromURL('img/message.png', function(message) {
       message.set({left: 910,
@@ -543,7 +563,10 @@ function outDoor(){
     });
 
     var helloText = new fabric.Text('default', { left: 615, top: 260, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-    helloText.text = (language == 0) ? 'Hello there!' : 'Hola!';
+    if(dndStatus == 0){
+    helloText.text = (language == 0) ? 'Hello there!' : 'Hola!';}
+    else{
+    helloText.text = (language == 0) ? 'Do Not Disturb!' : 'No Molestar!';}
     helloText.hasControls = helloText.hasBorders = false;
     helloText.lockMovementX = helloText.lockMovementY = true;
     helloText.selectable = false;
@@ -583,6 +606,13 @@ function addInhandle(){
       inWindow.add(inhandle);
       inWindow.moveTo(inhandle, 50);
     });
+}
+    
+function restructureOutDoor(){
+    outApps.clear();
+    outDoor();
+    outApps.add(outTimeText);
+    outApps.add(outDateText);
 }
     
 mainscreen();
