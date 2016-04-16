@@ -1,5 +1,4 @@
 var canvas = this.__canvas = new fabric.Canvas('c');
-canvas.backgroundColor = "white";
 
 var mainApps = this.__canvas = new fabric.Canvas('main');
 mainApps.backgroundColor = "white";
@@ -22,6 +21,11 @@ var divOutApps = document.getElementById('outApps');
 var divInWindow = document.getElementById('insideWindow');
 var divOutWindow = document.getElementById('outsideWindow');
 
+mainApps.setBackgroundImage('img/sea.jpg', mainApps.renderAll.bind(mainApps));
+sideApps.setBackgroundImage('img/sea.jpg', sideApps.renderAll.bind(sideApps));
+outApps.setBackgroundImage('img/sea.jpg', outApps.renderAll.bind(outApps));
+inWindow.setBackgroundImage('img/sea.jpg', inWindow.renderAll.bind(inWindow));
+outWindow.setBackgroundImage('img/sea.jpg', outWindow.renderAll.bind(outWindow));
 
 var leftWidth = 225;    
 var topLength = 500;

@@ -168,11 +168,15 @@ function alarmSwitch(){
 function dndSwitch(){
     inWindow.deactivateAll();
     if(dndStatus == 1){
+        packageText.fill = 'white';
+        doorbellText.fill = 'white';
         dndStatus = 0;
         dndCircle.set({left: 590, shadow: '#CECECE 2px 2px 2px'});
         dndSwitchRect.set({fill: '#EAEAEA', stroke: '#B7B7B7'});
     }
     else{
+        packageText.fill = '#777777';
+        doorbellText.fill = '#777777';
         dndStatus = 1;
         dndCircle.set({left: 640, shadow: 'none'});
         dndSwitchRect.set({fill: '#4CD964', stroke: '#4CD964'});

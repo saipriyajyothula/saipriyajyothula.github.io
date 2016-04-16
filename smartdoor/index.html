@@ -405,6 +405,20 @@ function sidescreen(){
     sideApps.add(mapsText);
 }    
 
+var doorbellText = new fabric.Text('default', { left: 240, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+doorbellText.text = (language == 0) ? 'Ring Bell' : 'Anillo de\nCampana';
+doorbellText.hasControls = doorbellText.hasBorders = false;
+doorbellText.lockMovementX = doorbellText.lockMovementY = true;
+doorbellText.selectable = false;
+doorbellText.evented = false;
+
+var packageText = new fabric.Text('default', { left: 620, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+packageText.text = (language == 0) ? 'Deliver a\nPackage' : 'Entregar\nun Paquete';
+packageText.hasControls = packageText.hasBorders = false;
+packageText.lockMovementX = packageText.lockMovementY = true;
+packageText.selectable = false;
+packageText.evented = false;    
+    
 function outDoor(){
     
     divOutApps.style.display = 'block';
@@ -441,21 +455,7 @@ function outDoor(){
     helloText.hasControls = helloText.hasBorders = false;
     helloText.lockMovementX = helloText.lockMovementY = true;
     helloText.selectable = false;
-    helloText.evented = false;    
-
-    var doorbellText = new fabric.Text('default', { left: 240, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
-    doorbellText.text = (language == 0) ? 'Ring Bell' : 'Anillo de\nCampana';
-    doorbellText.hasControls = doorbellText.hasBorders = false;
-    doorbellText.lockMovementX = doorbellText.lockMovementY = true;
-    doorbellText.selectable = false;
-    doorbellText.evented = false;
-
-    var packageText = new fabric.Text('default', { left: 620, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
-    packageText.text = (language == 0) ? 'Deliver a\nPackage' : 'Entregar\nun Paquete';
-    packageText.hasControls = packageText.hasBorders = false;
-    packageText.lockMovementX = packageText.lockMovementY = true;
-    packageText.selectable = false;
-    packageText.evented = false;    
+    helloText.evented = false;        
 
     var outMessageText = new fabric.Text('default', { left: 1010, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
     outMessageText.text = (language == 0) ? 'Leave a\nMessage' : 'Deja un\nMensaje';
