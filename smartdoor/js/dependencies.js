@@ -1,37 +1,63 @@
 var canvas = this.__canvas = new fabric.Canvas('c');
-canvas.backgroundColor = "white";  // light grey
+canvas.backgroundColor = "white";
 
-var leftWidth = 280;    
+var mainApps = this.__canvas = new fabric.Canvas('main');
+mainApps.backgroundColor = "white";
+
+var sideApps = this.__canvas = new fabric.Canvas('side');
+sideApps.backgroundColor = "white";
+
+var outApps = this.__canvas = new fabric.Canvas('out');
+outApps.backgroundColor = "white";
+
+var inWindow = this.__canvas = new fabric.Canvas('inWindow');
+inWindow.backgroundColor = "white";
+
+var outWindow = this.__canvas = new fabric.Canvas('outWindow');
+outWindow.backgroundColor = "white";
+
+var divMain = document.getElementById('mainApps');
+var divSide = document.getElementById('sideApps');
+var divOutApps = document.getElementById('outApps');
+var divInWindow = document.getElementById('insideWindow');
+var divOutWindow = document.getElementById('outsideWindow');
+
+
+var leftWidth = 225;    
 var topLength = 500;
 var tempUnits = 'C';
 var language = 0;
 var alarmStatus = 1;
 var dndStatus = 0;
 
-function cross(){
+function crossMain(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {
-    crossImg.set({left: 1195+25, top: topLength-25, originX: 'center', originY: 'center'});    
-    canvas.add(crossImg);
+    crossImg.set({left: 1170, top: topLength-25, originX: 'center', originY: 'center'});    
+    inWindow.add(crossImg);
     crossImg.hasControls = crossImg.hasBorders = false;
     crossImg.lockMovementX = crossImg.lockMovementY = true;
     crossImg.on('mousedown',function(){
-            canvas.deactivateAll();
-            canvas.clear();
-            mainscreen();
+            inWindow.clear();
+            divInWindow.style.display = 'none';
+            divMain.style.display = 'block';
+            getWeather();
+            getTime();
         });
     });
 }
 
 function crossSide(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {
-    crossImg.set({left: 1195+25, top: topLength-25, originX: 'center', originY: 'center'});    
-    canvas.add(crossImg);
+    crossImg.set({left: 1170, top: topLength-25, originX: 'center', originY: 'center'});    
+    inWindow.add(crossImg);
     crossImg.hasControls = crossImg.hasBorders = false;
     crossImg.lockMovementX = crossImg.lockMovementY = true;
     crossImg.on('mousedown',function(){
-            canvas.deactivateAll();
-            canvas.clear();
-            sidescreen();
+            inWindow.clear();
+            divInWindow.style.display = 'none';
+            divSide.style.display = 'block';
+            getTime();
+            getWeather();
         });
     });
 }

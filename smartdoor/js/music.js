@@ -4,7 +4,7 @@ var musicId = 1;
 var volStatus = 10;
 
 var musicRect = new fabric.Rect({
-  left: 135,
+  left: 85,
   top: topLength,
   fill: 'white',
   stroke: 'black',
@@ -19,31 +19,32 @@ var musicRect = new fabric.Rect({
 musicRect.hasControls = musicRect.hasBorders = false;
 musicRect.lockMovementX = musicRect.lockMovementY = true; 
 
-var titleText = new fabric.Text(musicTitle[musicId], { left: 868, top: topLength+170, fontFamily: 'HelveticaLight', fontSize: 44, originX: 'center', originY: 'top'});
+var titleText = new fabric.Text(musicTitle[musicId], { left: 818, top: topLength+170, fontFamily: 'HelveticaLight', fontSize: 44, originX: 'center', originY: 'top'});
 titleText.hasControls = titleText.hasBorders = false;
 titleText.lockMovementX = titleText.lockMovementY = true;
 
-var artistText = new fabric.Text(musicArtist[musicId], { left: 868, top: topLength+240, fontFamily: 'HelveticaLight', fontSize: 22, originX: 'center', originY: 'top'});
+var artistText = new fabric.Text(musicArtist[musicId], { left: 818, top: topLength+240, fontFamily: 'HelveticaLight', fontSize: 22, originX: 'center', originY: 'top'});
 artistText.hasControls = artistText.hasBorders = false;
 artistText.lockMovementX = artistText.lockMovementY = true;
 
-var volLine = new fabric.Line([315,topLength+509,463,topLength+509],{stroke: 'black', strokeWidth: 3});
+var volLine = new fabric.Line([265,topLength+509,413,topLength+509],{stroke: 'black', strokeWidth: 3});
 volLine.lockMovementX = volLine.lockMovementY = true;
 volLine.hasControls = volLine.hasBorders = false;
 
-var volCircle = new fabric.Circle({left: 453, top: topLength+510, radius: 10, originY: 'center'});
+var volCircle = new fabric.Circle({left: 403, top: topLength+510, radius: 10, originY: 'center'});
 volCircle.lockMovementX = volCircle.lockMovementY = true;
 volCircle.hasControls = volCircle.hasBorders = false;
 
 function playFront(){
     fabric.Image.fromURL('img/play.png', function(play) {
-    play.set({left: 835, top: topLength+325});    
-    canvas.add(play);
+    play.set({left: 785, top: topLength+325});    
+    inWindow.add(play);
     play.hasControls = play.hasBorders = false;
     play.lockMovementX = play.lockMovementY = true;
         play.on('mousedown',function(){
             changeMetadata();
             playMusic();
+            inWindow.remove(play);
             pauseFront();
         });
     });
@@ -51,23 +52,24 @@ function playFront(){
 
 function pauseFront(){
     fabric.Image.fromURL('img/pause.png', function(pause) {
-    pause.set({left: 835, top: topLength+325});    
-    canvas.add(pause);
+    pause.set({left: 785, top: topLength+325});    
+    inWindow.add(pause);
     pause.hasControls = pause.hasBorders = false;
     pause.lockMovementX = pause.lockMovementY = true;
         pause.on('mousedown',function(){
             changeMetadata();
             pauseMusic();
+            inWindow.remove(pause);
             playFront();
-            canvas.deactivateAll();
+            inWindow.deactivateAll();
         });
     });
 }
 
 function prevButton(){
     fabric.Image.fromURL('img/prev.png', function(prev) {
-    prev.set({left: 705, top: topLength+350});    
-    canvas.add(prev);
+    prev.set({left: 655, top: topLength+350});    
+    inWindow.add(prev);
     prev.hasControls = prev.hasBorders = false;
     prev.lockMovementX = prev.lockMovementY = true;
         prev.on('mousedown',function(){
@@ -81,15 +83,15 @@ function prevButton(){
         changeMetadata();
         playMusic();
         pauseFront();
-        canvas.deactivateAll();
+        inWindow.deactivateAll();
         });
     }); 
 }
 
 function nextButton(){
     fabric.Image.fromURL('img/next.png', function(next) {
-    next.set({left: 995, top: topLength+350});    
-    canvas.add(next);
+    next.set({left: 945, top: topLength+350});    
+    inWindow.add(next);
     next.hasControls = next.hasBorders = false;
     next.lockMovementX = next.lockMovementY = true;
         next.on('mousedown',function(){
@@ -109,8 +111,8 @@ function nextButton(){
 
 function lowButton(){
     fabric.Image.fromURL('img/low.png', function(low) {
-    low.set({left: 235, top: topLength+490});    
-    canvas.add(low);
+    low.set({left: 185, top: topLength+490});    
+    inWindow.add(low);
     low.hasControls = low.hasBorders = false;
     low.lockMovementX = low.lockMovementY = true;
         low.on('mousedown',function(){
@@ -121,8 +123,8 @@ function lowButton(){
 
 function highButton(){
     fabric.Image.fromURL('img/high.png', function(high) {
-    high.set({left: 485, top: topLength+490});    
-    canvas.add(high);
+    high.set({left: 435, top: topLength+490});    
+    inWindow.add(high);
     high.hasControls = high.hasBorders = false;
     high.lockMovementX = high.lockMovementY = true;
         high.on('mousedown',function(){
@@ -133,8 +135,8 @@ function highButton(){
 
 function uptownArtwork(){
     fabric.Image.fromURL('img/uptown.png', function(uptownImg) {
-    uptownImg.set({left: 235, top: topLength+140});    
-    canvas.add(uptownImg);
+    uptownImg.set({left: 185, top: topLength+140});    
+    inWindow.add(uptownImg);
     uptownImg.hasControls = uptownImg.hasBorders = false;
     uptownImg.lockMovementX = uptownImg.lockMovementY = true;
     });
@@ -142,8 +144,8 @@ function uptownArtwork(){
 
 function sugarArtwork(){
     fabric.Image.fromURL('img/sugar.png', function(sugarImg) {
-    sugarImg.set({left: 235, top: topLength+140});    
-    canvas.add(sugarImg);
+    sugarImg.set({left: 185, top: topLength+140});    
+    inWindow.add(sugarImg);
     sugarImg.hasControls = sugarImg.hasBorders = false;
     sugarImg.lockMovementX = sugarImg.lockMovementY = true;
     });
@@ -151,8 +153,8 @@ function sugarArtwork(){
 
 function marvinArtwork(){
     fabric.Image.fromURL('img/marvin.png', function(marvinImg) {
-    marvinImg.set({left: 235, top: topLength+140});    
-    canvas.add(marvinImg);
+    marvinImg.set({left: 185, top: topLength+140});    
+    inWindow.add(marvinImg);
     marvinImg.hasControls = marvinImg.hasBorders = false;
     marvinImg.lockMovementX = marvinImg.lockMovementY = true;
     });
@@ -168,7 +170,7 @@ function playMusic(){
     else{
         marvin.play();
     }
-    canvas.deactivateAll();
+    inWindow.deactivateAll();
 }
 
 function pauseMusic(){
@@ -181,7 +183,7 @@ function pauseMusic(){
     else{
         marvin.pause();
     }
-    canvas.deactivateAll();
+    inWindow.deactivateAll();
 }
 
 function changeMetadata(){
@@ -205,7 +207,7 @@ function volumeUp(){
         volStatus += 2;
     }
     changeVolume(volStatus, '+');
-    canvas.deactivateAll();
+    inWindow.deactivateAll();
 }
 
 function volumeDown(){
@@ -215,16 +217,16 @@ function volumeDown(){
         volStatus -= 2;
     }
     changeVolume(volStatus, '-');
-    canvas.deactivateAll();
+    inWindow.deactivateAll();
 }
 
 function changeVolume(volStatus, sign){
         uptown.volume = volStatus/10;
         sugar.volume = volStatus/10;
         marvin.volume = volStatus/10;
-        if((volCircle.left <= 306)&&(sign == '-')){
+        if((volCircle.left <= 256)&&(sign == '-')){
         }
-        else if((volCircle.left == 453)&&(sign == '+')){
+        else if((volCircle.left == 403)&&(sign == '+')){
         }
         else{
             if(sign == '+'){
@@ -237,11 +239,13 @@ function changeVolume(volStatus, sign){
 }
 
 function musicPlayer(){
-    canvas.add(musicRect);
-    canvas.add(titleText);
-    canvas.add(artistText);
-    canvas.add(volLine);
-    canvas.add(volCircle);
+    divMain.style.display = 'none';
+    divInWindow.style.display = 'block';
+    inWindow.add(musicRect);
+    inWindow.add(titleText);
+    inWindow.add(artistText);
+    inWindow.add(volLine);
+    inWindow.add(volCircle);
     playFront();
     prevButton();
     nextButton();
@@ -253,15 +257,17 @@ function musicPlayer(){
 
 function closeMusicPlayer(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {
-    crossImg.set({left: 1195+25, top: topLength-25, originX: 'center', originY: 'center'});    
-    canvas.add(crossImg);
+    crossImg.set({left: 1170, top: topLength-25, originX: 'center', originY: 'center'});    
+    inWindow.add(crossImg);
     crossImg.hasControls = crossImg.hasBorders = false;
     crossImg.lockMovementX = crossImg.lockMovementY = true;
     crossImg.on('mousedown',function(){
             pauseMusic();
-            canvas.deactivateAll();
-            canvas.clear();
-            mainscreen();
+            inWindow.clear();
+            divInWindow.style.display = 'none';
+            divMain.style.display = 'block';
+            getWeather();
+            getTime();
         });
     });
 }

@@ -1,7 +1,7 @@
 <html>    
 <head>
     <meta charset="utf-8">
-    <title>New beginnings!</title>
+    <title>Another beginning!</title>
 	
 	<!-- Get version 1.5.0 of Fabric.js from CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" ></script>
@@ -12,422 +12,313 @@
     <link href="css/style.css" rel="stylesheet">
 	 
 <body>
-		<!-- canvas tag for Fabric.js to draw into -->
-    <!-- set this to some appropriate size for your development work -->
-    <!-- but keep the same aspect ratio -->
-    <!-- we will use width="2714" height="2200" for presentations and evaluation -->
-		<canvas id="c" width="2714" height="2200" style="border:2px solid black;" ></canvas>
+    
+    <canvas id="c" width="2714" height="2200" style="border:2px solid black"></canvas>
+    
+    <div id = "mainApps" style="position:absolute; top:8; left:58; display: none">
+        <canvas id="main" width="1230" height="2200" style="border:2px solid black" ></canvas>
+    </div>
+    
+    <div id = "sideApps" style="position:absolute; top:8; left:58; display: none">
+        <canvas id="side" width="1230" height="2200" style="border:2px solid black" ></canvas>
+    </div>
+    
+    <div id = "outApps" style="position:absolute; top:8; left:1428; display: none">
+        <canvas id="out" width="1230" height="2200" style="border:2px solid black" ></canvas>
+    </div>
+    
+    <div id = "insideWindow" style="position:absolute; top:8; left:58; display: none">
+        <canvas id="inWindow" width="1230" height="2200" style="border:2px solid black" ></canvas>
+    </div>
+    
+    <div id = "outsideWindow" style="position:absolute; top:8; left:1428; display: none">
+        <canvas id="outWindow" width="1230" height="2200" style="border:2px solid black" ></canvas>
+    </div>
+    
 </body>
 
 <script src = "js/dependencies.js"></script>
 <script src = "js/timeweather.js"></script>
 <script src = "js/emergency.js"></script>
-<script src = "js/alarmdnd.js"></script>
 <script src = "js/news.js"></script>
+<script src = "js/alarmdnd.js"></script>
 <script src = "js/music.js"></script>
     
 <script>
-
-function outDoor(){
-var outsideDoor = new fabric.Rect({
-  left: 1420,
-  top: 0,
-  fill: 'white',
-  stroke: 'black',
-  width: 1230,
-  height: 2200,
-  angle: 0
-});
-
-outsideDoor.hasControls = outsideDoor.hasBorders = false;
-outsideDoor.lockMovementX = outsideDoor.lockMovementY = true;
-
-canvas.add(outsideDoor);    
-getTime(language);
     
-fabric.Image.fromURL('img/doorbell.png', function(doorbell) {
-  doorbell.set({left: 1560,
-  top: topLength, originX: 'left', originY: 'top'});    
-  canvas.add(doorbell);
-  doorbell.on('mousedown',function(){
-       
-});
-});
-
-fabric.Image.fromURL('img/package.png', function(package) {
-  package.set({left: 1940,
-  top: topLength});    
-  canvas.add(package);
-  package.on('mousedown',function(){
-      
-});    
-});
-    
-fabric.Image.fromURL('img/message.png', function(message) {
-  message.set({left: 2330,
-  top: topLength});    
-  canvas.add(message);
-  message.on('mousedown',function(){
-      
-});    
-});
-
-var helloText = new fabric.Text('default', { left: 2035, top: 260, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center'});
-helloText.text = (language == 0) ? 'Hello there!' : '¡Hola!';
-helloText.hasControls = helloText.hasBorders = false;
-helloText.lockMovementX = helloText.lockMovementY = true;
-helloText.selectable = false;
-helloText.evented = false;    
-    
-var doorbellText = new fabric.Text('default', { left: 1665, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-doorbellText.text = (language == 0) ? 'Ring Bell' : 'Anillo de\nCampana';
-doorbellText.hasControls = doorbellText.hasBorders = false;
-doorbellText.lockMovementX = doorbellText.lockMovementY = true;
-doorbellText.selectable = false;
-doorbellText.evented = false;
-
-var packageText = new fabric.Text('default', { left: 2035, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-packageText.text = (language == 0) ? 'Deliver a\nPackage' : 'Entregar\nun Paquete';
-packageText.hasControls = packageText.hasBorders = false;
-packageText.lockMovementX = packageText.lockMovementY = true;
-packageText.selectable = false;
-packageText.evented = false;    
-
-var outMessageText = new fabric.Text('default', { left: 2435, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-outMessageText.text = (language == 0) ? 'Leave a\nMessage' : 'Deja un\nMensaje';
-outMessageText.hasControls = outMessageText.hasBorders = false;
-outMessageText.lockMovementX = outMessageText.lockMovementY = true;
-outMessageText.selectable = false;
-outMessageText.evented = false;    
-
-canvas.add(helloText);    
-canvas.add(doorbellText);    
-canvas.add(packageText);    
-canvas.add(outMessageText);    
-}    
-    
-function doors(){
-var insideDoor = new fabric.Rect({
-  left: 50,
-  top: 0,
-  fill: 'white',
-  stroke: 'black',
-  width: 1230,
-  height: 2200,
-  angle: 0
-});
-
-// the doors will not be selectable or movable
-insideDoor.hasControls = insideDoor.hasBorders = false;
-insideDoor.lockMovementX = insideDoor.lockMovementY = true;
-    
-canvas.add(insideDoor);
-    
-outDoor();
-getWeather(tempUnits, language);        
-}    
-
 function arrowsMain(){
     fabric.Image.fromURL('img/arrowleft.png', function(arrowleft) {
-      arrowleft.set({left: 165,
+      arrowleft.set({left: 110,
       top: topLength+310, originY: 'center'});    
-      canvas.add(arrowleft);
+      mainApps.add(arrowleft);
       arrowleft.on('mousedown',function(){
-          canvas.deactivateAll();
-          canvas.clear();
-          sidescreen();
+          mainApps.deactivateAll();
+          divMain.style.display = 'none';
+          divSide.style.display = 'block';
     });
     });
     
     fabric.Image.fromURL('img/arrowright.png', function(arrowright) {
-      arrowright.set({left: 1165,
+      arrowright.set({left: 1120,
       top: topLength+310, originX: 'right', originY: 'center'});    
-      canvas.add(arrowright);
+      mainApps.add(arrowright);
       arrowright.on('mousedown',function(){
-          canvas.deactivateAll();
-          canvas.clear();
-          sidescreen();
+          mainApps.deactivateAll();
+          divMain.style.display = 'none';
+          divSide.style.display = 'block';
     });
     });
 }
+
+function mainscreen() {
     
+    divMain.style.display = 'block';
+    arrowsMain();
+    
+    fabric.Image.fromURL('img/Mirror.png', function(mirror) {
+      mirror.set({left:leftWidth,
+      top: topLength, originX: 'left', originY: 'top'});    
+      mainApps.add(mirror);
+      mirror.on('mousedown',function(){
+
+    });
+    });
+
+    fabric.Image.fromURL('img/Messages.png', function(messages) {
+      messages.set({left:leftWidth+220,
+      top: topLength});    
+      mainApps.add(messages);
+      messages.on('mousedown',function(){
+
+    });    
+    });
+
+    fabric.Image.fromURL('img/Camera.png', function(camera) {
+      camera.set({left:leftWidth+440,
+      top: topLength});    
+      mainApps.add(camera);
+      camera.on('mousedown',function(){
+
+    });    
+    });
+
+
+    fabric.Image.fromURL('img/Emergency.png', function(emergency) {
+      emergency.set({left:leftWidth+660,
+      top: topLength});    
+      mainApps.add(emergency);
+      emergency.lockMovementX = emergency.lockMovementY = true;
+      emergency.selectable = false;
+      emergency.on('mousedown',function(){
+          mainApps.deactivateAll();
+          emergencyWindow1();
+    });
+    }); 
+
+    fabric.Image.fromURL('img/Alarm.png', function(alarm) {
+      alarm.set({left: leftWidth,
+      top: topLength+250});    
+      mainApps.add(alarm);
+      alarm.on('mousedown',function(){
+          alarmWindow();
+    });
+    });
+
+    fabric.Image.fromURL('img/Themes.png', function(themes) {
+      themes.set({left: leftWidth+220,
+      top: topLength+250});    
+      mainApps.add(themes);
+      themes.on('mousedown',function(){
+
+    });
+    });    
+
+    fabric.Image.fromURL('img/Music.png', function(music) {
+      music.set({left: leftWidth+440,
+      top: topLength+250});    
+      mainApps.add(music);
+      music.on('mousedown',function(){
+          mainApps.deactivateAll();
+          musicPlayer();
+    });
+    });    
+
+    fabric.Image.fromURL('img/News.png', function(news) {
+      news.set({left: leftWidth+660,
+      top: topLength+250});    
+      mainApps.add(news);
+      news.on('mousedown',function(){
+          mainApps.deactivateAll();
+          getNews();
+    });
+    });    
+
+    fabric.Image.fromURL('img/Logs.png', function(logs) {
+      logs.set({left: leftWidth,
+      top: topLength+500});    
+      mainApps.add(logs);
+      logs.on('mousedown',function(){
+
+    });
+    });    
+
+    fabric.Image.fromURL('img/Settings.png', function(settings) {
+      settings.set({left: leftWidth+220,
+      top: topLength+500});    
+      mainApps.add(settings);
+      settings.on('mousedown',function(){
+
+    });
+    });    
+
+    fabric.Image.fromURL('img/DND.png', function(dnd) {
+      dnd.set({left: leftWidth+440,
+      top: topLength+500});    
+      mainApps.add(dnd);
+      dnd.on('mousedown',function(){
+          dndWindow();
+    });
+    });    
+
+    fabric.Image.fromURL('img/Help.png', function(help) {
+      help.set({left: leftWidth+660,
+      top: topLength+500});    
+      mainApps.add(help);
+      help.on('mousedown',function(){
+
+    });
+    });
+
+    var mirrorText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    mirrorText.text = (language == 0) ? 'Mirror' : 'Espejo';
+    mirrorText.hasControls = mirrorText.hasBorders = false;
+    mirrorText.lockMovementX = mirrorText.lockMovementY = true;
+    mirrorText.selectable = false;
+    mirrorText.evented = false;
+
+    var messagesText = new fabric.Text('default', { left: leftWidth+280, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    messagesText.text = (language == 0) ? 'Messages' : 'Mensajes';
+    messagesText.hasControls = messagesText.hasBorders = false;
+    messagesText.lockMovementX = messagesText.lockMovementY = true;
+    messagesText.selectable = false;
+    messagesText.evented = false;    
+
+    var cameraText = new fabric.Text('default', { left: leftWidth+500, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    cameraText.text = (language == 0) ? 'Camera' : 'Cámara';
+    cameraText.hasControls = cameraText.hasBorders = false;
+    cameraText.lockMovementX = cameraText.lockMovementY = true;
+    cameraText.selectable = false;
+    cameraText.evented = false;
+
+    var emergencyText = new fabric.Text('default', { left: leftWidth+720, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    emergencyText.text = (language == 0) ? 'Emergency' : 'Emergenc..';
+    emergencyText.hasControls = emergencyText.hasBorders = false;
+    emergencyText.lockMovementX = emergencyText.lockMovementY = true;
+    emergencyText.selectable = false;
+    emergencyText.evented = false;    
+
+    var alarmText = new fabric.Text('default', { left: leftWidth+60, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    alarmText.text = (language == 0) ? 'Alarm' : 'Alarma';
+    alarmText.hasControls = alarmText.hasBorders = false;
+    alarmText.lockMovementX = alarmText.lockMovementY = true;
+    alarmText.selectable = false;
+    alarmText.evented = false;    
+
+    var themesText = new fabric.Text('default', { left: leftWidth+280, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    themesText.text = (language == 0) ? 'Themes' : 'Temas';
+    themesText.hasControls = themesText.hasBorders = false;
+    themesText.lockMovementX = themesText.lockMovementY = true;
+    themesText.selectable = false;
+    themesText.evented = false;    
+
+    var musicText= new fabric.Text('default', { left: leftWidth+500, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    musicText.text = (language == 0) ? 'Music' : 'Música';
+    musicText.hasControls = musicText.hasBorders = false;
+    musicText.lockMovementX = musicText.lockMovementY = true;
+    musicText.selectable = false;
+    musicText.evented = false;
+
+    var newsText = new fabric.Text('default', { left: leftWidth+720, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    newsText.text = (language == 0) ? 'News' : 'Noticias';
+    newsText.hasControls = newsText.hasBorders = false;
+    newsText.lockMovementX = newsText.lockMovementY = true;
+    newsText.selectable = false;
+    newsText.evented = false;    
+
+    var logsText = new fabric.Text('default', { left: leftWidth+60, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    logsText.text = (language == 0) ? 'Logs' : 'Registros';
+    logsText.hasControls = logsText.hasBorders = false;
+    logsText.lockMovementX = logsText.lockMovementY = true;
+    logsText.selectable = false;
+    logsText.evented = false;    
+
+    var settingsText = new fabric.Text('default', { left: leftWidth+280, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    settingsText.text = (language == 0) ? 'Settings' : 'Ajustes';
+    settingsText.hasControls = settingsText.hasBorders = false;
+    settingsText.lockMovementX = settingsText.lockMovementY = true;
+    settingsText.selectable = false;
+    settingsText.evented = false;    
+
+    var  dndText= new fabric.Text('default', { left: leftWidth+500, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    dndText.text = (language == 0) ? 'DND' : 'DND';
+    dndText.hasControls = dndText.hasBorders = false;
+    dndText.lockMovementX = dndText.lockMovementY = true;
+    dndText.selectable = false;
+    dndText.evented = false;
+
+    var helpText = new fabric.Text('default', { left: leftWidth+720, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    helpText.text = (language == 0) ? 'Help' : 'Ayuda';
+    helpText.hasControls = helpText.hasBorders = false;
+    helpText.lockMovementX = helpText.lockMovementY = true;
+    helpText.selectable = false;
+    helpText.evented = false;    
+
+    mainApps.add(mirrorText);
+    mainApps.add(messagesText);
+    mainApps.add(cameraText);
+    mainApps.add(emergencyText);
+    mainApps.add(alarmText);
+    mainApps.add(themesText);
+    mainApps.add(musicText);
+    mainApps.add(newsText);
+    mainApps.add(logsText);
+    mainApps.add(settingsText);
+    mainApps.add(dndText);
+    mainApps.add(helpText);
+}        
+
 function arrowsSide(){
     fabric.Image.fromURL('img/arrowleft.png', function(arrowleft) {
-      arrowleft.set({left: 165,
+      arrowleft.set({left: 110,
       top: topLength+310, originY: 'center'});    
-      canvas.add(arrowleft);
+      sideApps.add(arrowleft);
       arrowleft.on('mousedown',function(){
-          canvas.deactivateAll();
-          canvas.clear();
-          mainscreen();
+          sideApps.deactivateAll();
+          divSide.style.display = 'none';
+          divMain.style.display = 'block';
     });
     });
     
     fabric.Image.fromURL('img/arrowright.png', function(arrowright) {
-      arrowright.set({left: 1165,
+      arrowright.set({left: 1120,
       top: topLength+310, originX: 'right', originY: 'center'});    
-      canvas.add(arrowright);
+      sideApps.add(arrowright);
       arrowright.on('mousedown',function(){
-          canvas.deactivateAll();
-          canvas.clear();
-          mainscreen();
+          sideApps.deactivateAll();
+          divSide.style.display = 'none';
+          divMain.style.display = 'block';
     });
     });
-}
+}    
     
-function mainscreen() {
-doors();
-arrowsMain();
-fabric.Image.fromURL('img/Mirror.png', function(mirror) {
-  mirror.set({left:leftWidth,
-  top: topLength, originX: 'left', originY: 'top'});    
-  canvas.add(mirror);
-  mirror.on('mousedown',function(){
-       
-});
-});
-
-fabric.Image.fromURL('img/Messages.png', function(messages) {
-  messages.set({left:leftWidth+220,
-  top: topLength});    
-  canvas.add(messages);
-  messages.on('mousedown',function(){
-      
-});    
-});
-    
-fabric.Image.fromURL('img/Camera.png', function(camera) {
-  camera.set({left:leftWidth+440,
-  top: topLength});    
-  canvas.add(camera);
-  camera.on('mousedown',function(){
-    canvas.moveTo(insideDoor,50);
-    var tempImg = document.createElement('video');
-        tempImg.setAttribute('src','music/Out.mp4');
-        tempImg.setAttribute('style','display:none');
-        tempImg.setAttribute('loop','loop');
-        document.body.appendChild(tempImg);  
-    var imgInstance = new fabric.Image(tempImg, {
-        left: 50,
-        top: 0,
-        width: 1230,
-        height: 2200
-});   
-    canvas.add(imgInstance);
-    canvas.moveTo(imgInstance,50);
-    imgInstance.getElement().play();  
-    fabric.util.requestAnimFrame(function render() {
-    canvas.renderAll();
-    fabric.util.requestAnimFrame(render);
-});    
-  canvas.deactivateAll();         
-});    
-});
-
-    
-fabric.Image.fromURL('img/Emergency.png', function(emergency) {
-  emergency.set({left:leftWidth+660,
-  top: topLength});    
-  canvas.add(emergency);
-  emergency.lockMovementX = emergency.lockMovementY = true;
-  emergency.selectable = false;
-  emergency.on('mousedown',function(){
-      emergencyWindow1();
-      canvas.deactivateAll();
-});
-}); 
-    
-fabric.Image.fromURL('img/Alarm.png', function(alarm) {
-  alarm.set({left: leftWidth,
-  top: topLength+250});    
-  canvas.add(alarm);
-  if(alarmStatus == 0){
-    canvas.add(alarmRedCircle);
-  }
-  alarm.on('mousedown',function(){
-      alarmWindow();
-});
-});
-
-fabric.Image.fromURL('img/Themes.png', function(themes) {
-  themes.set({left: leftWidth+220,
-  top: topLength+250});    
-  canvas.add(themes);
-  themes.on('mousedown',function(){
-      
-});
-});    
-
-fabric.Image.fromURL('img/Music.png', function(music) {
-  music.set({left: leftWidth+440,
-  top: topLength+250});    
-  canvas.add(music);
-  music.on('mousedown',function(){
-      musicPlayer();
-});
-});    
-
-fabric.Image.fromURL('img/News.png', function(news) {
-  news.set({left: leftWidth+660,
-  top: topLength+250});    
-  canvas.add(news);
-  news.on('mousedown',function(){
-      getNews(language);
-});
-});    
- 
-fabric.Image.fromURL('img/Logs.png', function(logs) {
-  logs.set({left: leftWidth,
-  top: topLength+500});    
-  canvas.add(logs);
-  logs.on('mousedown',function(){
-      
-});
-});    
-
-fabric.Image.fromURL('img/Settings.png', function(settings) {
-  settings.set({left: leftWidth+220,
-  top: topLength+500});    
-  canvas.add(settings);
-  settings.on('mousedown',function(){
-      
-});
-});    
-
-fabric.Image.fromURL('img/DND.png', function(dnd) {
-  dnd.set({left: leftWidth+440,
-  top: topLength+500});    
-  canvas.add(dnd);
-  if(dndStatus == 1){
-    canvas.add(dndRedCircle);
-  }
-  dnd.on('mousedown',function(){
-      dndWindow();
-});
-});    
-    
-fabric.Image.fromURL('img/Help.png', function(help) {
-  help.set({left: leftWidth+660,
-  top: topLength+500});    
-  canvas.add(help);
-  help.on('mousedown',function(){
-      
-});
-});
-
-var mirrorText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-mirrorText.text = (language == 0) ? 'Mirror' : 'Espejo';
-mirrorText.hasControls = mirrorText.hasBorders = false;
-mirrorText.lockMovementX = mirrorText.lockMovementY = true;
-mirrorText.selectable = false;
-mirrorText.evented = false;
-
-var messagesText = new fabric.Text('default', { left: leftWidth+280, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-messagesText.text = (language == 0) ? 'Messages' : 'Mensajes';
-messagesText.hasControls = messagesText.hasBorders = false;
-messagesText.lockMovementX = messagesText.lockMovementY = true;
-messagesText.selectable = false;
-messagesText.evented = false;    
-
-var cameraText = new fabric.Text('default', { left: leftWidth+500, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-cameraText.text = (language == 0) ? 'Camera' : 'Cámara';
-cameraText.hasControls = cameraText.hasBorders = false;
-cameraText.lockMovementX = cameraText.lockMovementY = true;
-cameraText.selectable = false;
-cameraText.evented = false;
-
-var emergencyText = new fabric.Text('default', { left: leftWidth+720, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-emergencyText.text = (language == 0) ? 'Emergency' : 'Emergenc..';
-emergencyText.hasControls = emergencyText.hasBorders = false;
-emergencyText.lockMovementX = emergencyText.lockMovementY = true;
-emergencyText.selectable = false;
-emergencyText.evented = false;    
-
-var alarmText = new fabric.Text('default', { left: leftWidth+60, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-alarmText.text = (language == 0) ? 'Alarm' : 'Alarma';
-alarmText.hasControls = alarmText.hasBorders = false;
-alarmText.lockMovementX = alarmText.lockMovementY = true;
-alarmText.selectable = false;
-alarmText.evented = false;    
-
-var themesText = new fabric.Text('default', { left: leftWidth+280, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-themesText.text = (language == 0) ? 'Themes' : 'Temas';
-themesText.hasControls = themesText.hasBorders = false;
-themesText.lockMovementX = themesText.lockMovementY = true;
-themesText.selectable = false;
-themesText.evented = false;    
-
-var musicText= new fabric.Text('default', { left: leftWidth+500, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-musicText.text = (language == 0) ? 'Music' : 'Música';
-musicText.hasControls = musicText.hasBorders = false;
-musicText.lockMovementX = musicText.lockMovementY = true;
-musicText.selectable = false;
-musicText.evented = false;
-
-var newsText = new fabric.Text('default', { left: leftWidth+720, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-newsText.text = (language == 0) ? 'News' : 'Noticias';
-newsText.hasControls = newsText.hasBorders = false;
-newsText.lockMovementX = newsText.lockMovementY = true;
-newsText.selectable = false;
-newsText.evented = false;    
-    
-var logsText = new fabric.Text('default', { left: leftWidth+60, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-logsText.text = (language == 0) ? 'Logs' : 'Registros';
-logsText.hasControls = logsText.hasBorders = false;
-logsText.lockMovementX = logsText.lockMovementY = true;
-logsText.selectable = false;
-logsText.evented = false;    
-
-var settingsText = new fabric.Text('default', { left: leftWidth+280, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-settingsText.text = (language == 0) ? 'Settings' : 'Ajustes';
-settingsText.hasControls = settingsText.hasBorders = false;
-settingsText.lockMovementX = settingsText.lockMovementY = true;
-settingsText.selectable = false;
-settingsText.evented = false;    
-
-var  dndText= new fabric.Text('default', { left: leftWidth+500, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-dndText.text = (language == 0) ? 'DND' : 'DND';
-dndText.hasControls = dndText.hasBorders = false;
-dndText.lockMovementX = dndText.lockMovementY = true;
-dndText.selectable = false;
-dndText.evented = false;
-
-var helpText = new fabric.Text('default', { left: leftWidth+720, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-helpText.text = (language == 0) ? 'Help' : 'Ayuda';
-helpText.hasControls = helpText.hasBorders = false;
-helpText.lockMovementX = helpText.lockMovementY = true;
-helpText.selectable = false;
-helpText.evented = false;    
-
-var alarmRedCircle = new fabric.Circle({left: leftWidth + 120, top: topLength+250, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
-alarmRedCircle.lockMovementX = alarmRedCircle.lockMovementY = true;
-alarmRedCircle.hasControls = alarmRedCircle.hasBorders = false;
-    
-var dndRedCircle = new fabric.Circle({left: leftWidth + 560, top: topLength+500, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
-dndRedCircle.lockMovementX = dndRedCircle.lockMovementY = true;
-dndRedCircle.hasControls = dndRedCircle.hasBorders = false;
-    
-canvas.add(mirrorText);
-canvas.add(messagesText);
-canvas.add(cameraText);
-canvas.add(emergencyText);
-canvas.add(alarmText);
-canvas.add(themesText);
-canvas.add(musicText);
-canvas.add(newsText);
-canvas.add(logsText);
-canvas.add(settingsText);
-canvas.add(dndText);
-canvas.add(helpText);
-}
-
 function sidescreen(){
-    doors();
+    
     arrowsSide();
+    
     fabric.Image.fromURL('img/Doodle.png', function(doodle) {
       doodle.set({left:leftWidth,
       top: topLength, originX: 'left', originY: 'top'});    
-      canvas.add(doodle);
+      sideApps.add(doodle);
       doodle.on('mousedown',function(){
 
     });
@@ -436,7 +327,7 @@ function sidescreen(){
     fabric.Image.fromURL('img/ScreenCast.png', function(screencast) {
       screencast.set({left:leftWidth+220,
       top: topLength});    
-      canvas.add(screencast);
+      sideApps.add(screencast);
       screencast.on('mousedown',function(){
 
     });    
@@ -445,7 +336,7 @@ function sidescreen(){
     fabric.Image.fromURL('img/Gallery.png', function(gallery) {
       gallery.set({left:leftWidth+440,
       top: topLength});    
-      canvas.add(gallery);
+      sideApps.add(gallery);
       gallery.on('mousedown',function(){
         
     });   
@@ -455,7 +346,7 @@ function sidescreen(){
     fabric.Image.fromURL('img/Store.png', function(store) {
       store.set({left:leftWidth+660,
       top: topLength});    
-      canvas.add(store);
+      sideApps.add(store);
       store.lockMovementX = store.lockMovementY = true;
       store.selectable = false;
       store.on('mousedown',function(){
@@ -466,55 +357,124 @@ function sidescreen(){
     fabric.Image.fromURL('img/Maps.png', function(maps) {
       maps.set({left: leftWidth,
       top: topLength+250});    
-      canvas.add(maps);
+      sideApps.add(maps);
       maps.on('mousedown',function(){
           
-});
-});
-    
-var doodleText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-doodleText.text = (language == 0) ? 'Doodle' : 'Garabate..';
-doodleText.hasControls = doodleText.hasBorders = false;
-doodleText.lockMovementX = doodleText.lockMovementY = true;
-doodleText.selectable = false;
-doodleText.evented = false;
+    });
+    });
 
-var screencastText = new fabric.Text('default', { left: leftWidth+280, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-screencastText.text = (language == 0) ? 'ScreenCast' : 'ScreenCast';
-screencastText.hasControls = screencastText.hasBorders = false;
-screencastText.lockMovementX = screencastText.lockMovementY = true;
-screencastText.selectable = false;
-screencastText.evented = false;    
+    var doodleText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    doodleText.text = (language == 0) ? 'Doodle' : 'Garabate..';
+    doodleText.hasControls = doodleText.hasBorders = false;
+    doodleText.lockMovementX = doodleText.lockMovementY = true;
+    doodleText.selectable = false;
+    doodleText.evented = false;
 
-var galleryText = new fabric.Text('default', { left: leftWidth+500, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-galleryText.text = (language == 0) ? 'Gallery' : 'Galería';
-galleryText.hasControls = galleryText.hasBorders = false;
-galleryText.lockMovementX = galleryText.lockMovementY = true;
-galleryText.selectable = false;
-galleryText.evented = false;
+    var screencastText = new fabric.Text('default', { left: leftWidth+280, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    screencastText.text = (language == 0) ? 'ScreenCast' : 'ScreenCast';
+    screencastText.hasControls = screencastText.hasBorders = false;
+    screencastText.lockMovementX = screencastText.lockMovementY = true;
+    screencastText.selectable = false;
+    screencastText.evented = false;    
 
-var storeText = new fabric.Text('default', { left: leftWidth+720, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-storeText.text = (language == 0) ? 'Store' : 'Almacenar';
-storeText.hasControls = storeText.hasBorders = false;
-storeText.lockMovementX = storeText.lockMovementY = true;
-storeText.selectable = false;
-storeText.evented = false;    
+    var galleryText = new fabric.Text('default', { left: leftWidth+500, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    galleryText.text = (language == 0) ? 'Gallery' : 'Galería';
+    galleryText.hasControls = galleryText.hasBorders = false;
+    galleryText.lockMovementX = galleryText.lockMovementY = true;
+    galleryText.selectable = false;
+    galleryText.evented = false;
 
-var mapsText = new fabric.Text('default', { left: leftWidth+60, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
-mapsText.text = (language == 0) ? 'Maps' : 'Mapas';
-mapsText.hasControls = mapsText.hasBorders = false;
-mapsText.lockMovementX = mapsText.lockMovementY = true;
-mapsText.selectable = false;
-mapsText.evented = false;    
+    var storeText = new fabric.Text('default', { left: leftWidth+720, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    storeText.text = (language == 0) ? 'Store' : 'Almacenar';
+    storeText.hasControls = storeText.hasBorders = false;
+    storeText.lockMovementX = storeText.lockMovementY = true;
+    storeText.selectable = false;
+    storeText.evented = false;    
 
-canvas.add(doodleText);
-canvas.add(screencastText);
-canvas.add(galleryText);
-canvas.add(storeText);
-canvas.add(mapsText);
+    var mapsText = new fabric.Text('default', { left: leftWidth+60, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    mapsText.text = (language == 0) ? 'Maps' : 'Mapas';
+    mapsText.hasControls = mapsText.hasBorders = false;
+    mapsText.lockMovementX = mapsText.lockMovementY = true;
+    mapsText.selectable = false;
+    mapsText.evented = false;    
+
+    sideApps.add(doodleText);
+    sideApps.add(screencastText);
+    sideApps.add(galleryText);
+    sideApps.add(storeText);
+    sideApps.add(mapsText);
 }    
+
+function outDoor(){
+    
+    divOutApps.style.display = 'block';
+    
+    fabric.Image.fromURL('img/doorbell.png', function(doorbell) {
+      doorbell.set({left: 140,
+      top: topLength, originX: 'left', originY: 'top'});    
+      outApps.add(doorbell);
+      doorbell.on('mousedown',function(){
+
+    });
+    });
+
+    fabric.Image.fromURL('img/package.png', function(package) {
+      package.set({left: 520,
+      top: topLength});    
+      outApps.add(package);
+      package.on('mousedown',function(){
+
+    });    
+    });
+
+    fabric.Image.fromURL('img/message.png', function(message) {
+      message.set({left: 910,
+      top: topLength});    
+      outApps.add(message);
+      message.on('mousedown',function(){
+
+    });    
+    });
+
+    var helloText = new fabric.Text('default', { left: 615, top: 260, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    helloText.text = (language == 0) ? 'Hello there!' : 'Hola!';
+    helloText.hasControls = helloText.hasBorders = false;
+    helloText.lockMovementX = helloText.lockMovementY = true;
+    helloText.selectable = false;
+    helloText.evented = false;    
+
+    var doorbellText = new fabric.Text('default', { left: 245, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    doorbellText.text = (language == 0) ? 'Ring Bell' : ' Anillo de\nCampana';
+    doorbellText.hasControls = doorbellText.hasBorders = false;
+    doorbellText.lockMovementX = doorbellText.lockMovementY = true;
+    doorbellText.selectable = false;
+    doorbellText.evented = false;
+
+    var packageText = new fabric.Text('default', { left: 615, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    packageText.text = (language == 0) ? 'Deliver a\nPackage' : '  Entregar\nun Paquete';
+    packageText.hasControls = packageText.hasBorders = false;
+    packageText.lockMovementX = packageText.lockMovementY = true;
+    packageText.selectable = false;
+    packageText.evented = false;    
+
+    var outMessageText = new fabric.Text('default', { left: 1015, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    outMessageText.text = (language == 0) ? ' Leave a\nMessage' : 'Deja un\nMensaje';
+    outMessageText.hasControls = outMessageText.hasBorders = false;
+    outMessageText.lockMovementX = outMessageText.lockMovementY = true;
+    outMessageText.selectable = false;
+    outMessageText.evented = false;    
+
+    outApps.add(helloText);    
+    outApps.add(doorbellText);    
+    outApps.add(packageText);    
+    outApps.add(outMessageText);    
+}
     
 mainscreen();
+sidescreen();
+outDoor();
+getTime();
+getWeather();
     
 </script>		
 </head>
