@@ -1,19 +1,14 @@
 var canvas = this.__canvas = new fabric.Canvas('c');
 
 var mainApps = this.__canvas = new fabric.Canvas('main');
-mainApps.backgroundColor = "white";
 
 var sideApps = this.__canvas = new fabric.Canvas('side');
-sideApps.backgroundColor = "white";
 
 var outApps = this.__canvas = new fabric.Canvas('out');
-outApps.backgroundColor = "white";
 
 var inWindow = this.__canvas = new fabric.Canvas('inWindow');
-inWindow.backgroundColor = "white";
 
 var outWindow = this.__canvas = new fabric.Canvas('outWindow');
-outWindow.backgroundColor = "white";
 
 var divMain = document.getElementById('mainApps');
 var divSide = document.getElementById('sideApps');
@@ -42,7 +37,6 @@ alarmRedCircle.hasControls = alarmRedCircle.hasBorders = false;
 var dndRedCircle = new fabric.Circle({left: leftWidth + 560, top: topLength+500, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
 dndRedCircle.lockMovementX = dndRedCircle.lockMovementY = true;
 dndRedCircle.hasControls = dndRedCircle.hasBorders = false;
-
 
 function crossMain(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {

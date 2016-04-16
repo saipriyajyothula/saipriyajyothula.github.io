@@ -9,6 +9,8 @@
     <audio src="music/uptown.mp3" id="uptown" style="display:none"></audio>
     <audio src="music/marvin.mp3" id="marvin" style="display:none"></audio>
     <audio src="music/sugar.mp3" id="sugar" style="display:none"></audio>
+    <img src="img/doorbellGray.png" id="dg" style="display:none">
+    <img src="img/packageGray.png" id="pg" style="display:none">
     <link href="css/style.css" rel="stylesheet">
 	 
 <body>
@@ -310,6 +312,22 @@ function mainscreen() {
     mainApps.add(settingsText);
     mainApps.add(dndText);
     mainApps.add(helpText);
+    
+    if(up == 1){alarmRedCircle.top = 700;}
+    else{alarmRedCircle.top = 1150;}
+    if(alarmStatus == 1){
+    alarmRedCircle.strokeWidth = 0;
+    alarmRedCircle.fill = 'transparent';
+    }
+    mainApps.add(alarmRedCircle);
+    
+    if(up == 1){dndRedCircle.top = 950;}
+    else{dndRedCircle.top = 1400;}
+    if(dndStatus == 0){
+    dndRedCircle.strokeWidth = 0;
+    dndRedCircle.fill = 'transparent';
+    }
+    mainApps.add(dndRedCircle);
 }        
 
 function changeTopLength(){
@@ -484,21 +502,7 @@ function sidescreen(){
     sideApps.add(galleryText);
     sideApps.add(storeText);
     sideApps.add(mapsText);
-}    
-
-var doorbellText = new fabric.Text('default', { left: 240, top: 750, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
-doorbellText.text = (language == 0) ? 'Ring Bell' : 'Anillo de\nCampana';
-doorbellText.hasControls = doorbellText.hasBorders = false;
-doorbellText.lockMovementX = doorbellText.lockMovementY = true;
-doorbellText.selectable = false;
-doorbellText.evented = false;
-
-var packageText = new fabric.Text('default', { left: 620, top: 750, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
-packageText.text = (language == 0) ? 'Deliver a\nPackage' : 'Entregar\nun Paquete';
-packageText.hasControls = packageText.hasBorders = false;
-packageText.lockMovementX = packageText.lockMovementY = true;
-packageText.selectable = false;
-packageText.evented = false;    
+}        
     
 function outDoor(){
     
@@ -532,7 +536,7 @@ function outDoor(){
     });
     
     fabric.Image.fromURL('img/outhandle.png', function(outhandle) {
-      outhandle.set({left: 70,
+      outhandle.set({left: 65,
       top: 1325, originX: 'left', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
       outApps.add(outhandle);
       outApps.moveTo(outhandle, 50);
@@ -545,6 +549,20 @@ function outDoor(){
     helloText.selectable = false;
     helloText.evented = false;        
 
+    var doorbellText = new fabric.Text('default', { left: 240, top: 750, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    doorbellText.text = (language == 0) ? 'Ring Bell' : 'Anillo de\nCampana';
+    doorbellText.hasControls = doorbellText.hasBorders = false;
+    doorbellText.lockMovementX = doorbellText.lockMovementY = true;
+    doorbellText.selectable = false;
+    doorbellText.evented = false;
+
+    var packageText = new fabric.Text('default', { left: 620, top: 750, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    packageText.text = (language == 0) ? 'Deliver a\nPackage' : 'Entregar\nun Paquete';
+    packageText.hasControls = packageText.hasBorders = false;
+    packageText.lockMovementX = packageText.lockMovementY = true;
+    packageText.selectable = false;
+    packageText.evented = false;
+    
     var outMessageText = new fabric.Text('default', { left: 1010, top: 750, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
     outMessageText.text = (language == 0) ? 'Leave a\nMessage' : 'Deja un\nMensaje';
     outMessageText.hasControls = outMessageText.hasBorders = false;

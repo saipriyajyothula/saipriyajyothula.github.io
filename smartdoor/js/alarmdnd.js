@@ -1,3 +1,25 @@
+var doorbellInstance = document.getElementById('dg');
+var doorbellImg = new fabric.Image(doorbellInstance, {
+left: 140,
+top: 500,
+});
+doorbellImg.lockMovementX = doorbellImg.lockMovementY = true;
+doorbellImg.hasControls = doorbellImg.hasBorders = false;
+
+outApps.add(doorbellImg);
+outApps.moveTo(doorbellImg, -50);
+
+var packageInstance = document.getElementById('pg');
+var packageImg = new fabric.Image(packageInstance, {
+left: 520,
+top: 500,
+});
+packageImg.lockMovementX = packageImg.lockMovementY = true;
+packageImg.hasControls = packageImg.hasBorders = false;
+
+outApps.add(packageImg);
+outApps.moveTo(packageImg, -50);
+
 function alarmWindow(){
     
     var alarmRect = new fabric.Rect({
@@ -68,10 +90,15 @@ function alarmWindow(){
     
     function alarmPosition(){
         if(alarmStatus == 0){
+            alarmRedCircle.strokeWidth = 5;
+            alarmRedCircle.fill = 'red';
+            mainApps.renderAll.bind(mainApps);
             alarmCircle.set({left: 590, shadow: '#CECECE 2px 2px 2px'});
             alarmSwitchRect.set({fill: '#EAEAEA', stroke: '#B7B7B7'});
         }
         else{
+            alarmRedCircle.strokeWidth = 0;
+            alarmRedCircle.fill = 'transparent';
             alarmCircle.set({left: 640, shadow: 'none'});
             alarmSwitchRect.set({fill: '#4CD964', stroke: '#4CD964'});
         }
@@ -162,20 +189,29 @@ function dndWindow(){
     function dndSwitch(){
         inWindow.deactivateAll();
         if(dndStatus == 1){
+            outApps.moveTo(doorbellImg, -50);            
+            outApps.moveTo(packageImg, -50);            
             dndStatus = 0;
         }
         else{
             dndStatus = 1;
+            outApps.moveTo(doorbellImg, 50);
+            outApps.moveTo(packageImg, 50);
         }
         dndPosition();
     }
     
     function dndPosition(){
         if(dndStatus == 0){
+            dndRedCircle.strokeWidth = 0;
+            dndRedCircle.fill = 'transparent';
             dndCircle.set({left: 590, shadow: '#CECECE 2px 2px 2px'});
             dndSwitchRect.set({fill: '#EAEAEA', stroke: '#B7B7B7'});
         }
         else{
+            dndRedCircle.strokeWidth = 5;
+            dndRedCircle.fill = 'red';
+            mainApps.renderAll.bind(mainApps);
             dndCircle.set({left: 640, shadow: 'none'});
             dndSwitchRect.set({fill: '#4CD964', stroke: '#4CD964'});
         }
