@@ -63,17 +63,19 @@ function getNews(){
 
         fabric.Image.fromURL(s[0][1], function(i1) {
         i1.set({left: 165,
-        top: topLength+180, scaleX: 2/3, scaleY: 2/3});    
+        top: topLength+180, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});  
         inWindow.add(i1);
         });
+            
         fabric.Image.fromURL(s[1][1], function(i2) {
         i2.set({left: 165,
-        top: topLength+330, scaleX: 2/3, scaleY: 2/3});    
+        top: topLength+330, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});  
         inWindow.add(i2);
         });
+            
         fabric.Image.fromURL(s[2][1], function(i3) {
         i3.set({left: 165,
-        top: topLength+480, scaleX: 2/3, scaleY: 2/3});    
+        top: topLength+480, scaleX: 2/3, scaleY: 2/3, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});  
         inWindow.add(i3);
         });
 

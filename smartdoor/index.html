@@ -49,7 +49,7 @@
 function arrowsMain(){
     fabric.Image.fromURL('img/arrowleft.png', function(arrowleft) {
       arrowleft.set({left: 110,
-      top: topLength+310, originY: 'center'});    
+      top: topLength+310, originY: 'center', lockMovementX: true, lockMovementY: true});    
       mainApps.add(arrowleft);
       arrowleft.on('mousedown',function(){
           mainApps.deactivateAll();
@@ -60,7 +60,7 @@ function arrowsMain(){
     
     fabric.Image.fromURL('img/arrowright.png', function(arrowright) {
       arrowright.set({left: 1120,
-      top: topLength+310, originX: 'right', originY: 'center'});    
+      top: topLength+310, originX: 'right', originY: 'center', lockMovementX: true, lockMovementY: true});    
       mainApps.add(arrowright);
       arrowright.on('mousedown',function(){
           mainApps.deactivateAll();
@@ -77,7 +77,7 @@ function mainscreen() {
     
     fabric.Image.fromURL('img/Mirror.png', function(mirror) {
       mirror.set({left:leftWidth,
-      top: topLength, originX: 'left', originY: 'top'});    
+      top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
       mainApps.add(mirror);
       mirror.on('mousedown',function(){
 
@@ -86,7 +86,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Messages.png', function(messages) {
       messages.set({left:leftWidth+220,
-      top: topLength});    
+      top: topLength, lockMovementX: true, lockMovementY: true});    
       mainApps.add(messages);
       messages.on('mousedown',function(){
 
@@ -95,7 +95,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Camera.png', function(camera) {
       camera.set({left:leftWidth+440,
-      top: topLength});    
+      top: topLength, lockMovementX: true, lockMovementY: true});    
       mainApps.add(camera);
       camera.on('mousedown',function(){
 
@@ -117,7 +117,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Alarm.png', function(alarm) {
       alarm.set({left: leftWidth,
-      top: topLength+250});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true});    
       mainApps.add(alarm);
       alarm.on('mousedown',function(){
           alarmWindow();
@@ -126,7 +126,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Themes.png', function(themes) {
       themes.set({left: leftWidth+220,
-      top: topLength+250});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true});    
       mainApps.add(themes);
       themes.on('mousedown',function(){
 
@@ -135,7 +135,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Music.png', function(music) {
       music.set({left: leftWidth+440,
-      top: topLength+250});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true});    
       mainApps.add(music);
       music.on('mousedown',function(){
           mainApps.deactivateAll();
@@ -145,7 +145,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/News.png', function(news) {
       news.set({left: leftWidth+660,
-      top: topLength+250});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true});    
       mainApps.add(news);
       news.on('mousedown',function(){
           mainApps.deactivateAll();
@@ -155,7 +155,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Logs.png', function(logs) {
       logs.set({left: leftWidth,
-      top: topLength+500});    
+      top: topLength+500, lockMovementX: true, lockMovementY: true});    
       mainApps.add(logs);
       logs.on('mousedown',function(){
 
@@ -164,7 +164,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Settings.png', function(settings) {
       settings.set({left: leftWidth+220,
-      top: topLength+500});    
+      top: topLength+500, lockMovementX: true, lockMovementY: true});    
       mainApps.add(settings);
       settings.on('mousedown',function(){
 
@@ -173,7 +173,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/DND.png', function(dnd) {
       dnd.set({left: leftWidth+440,
-      top: topLength+500});    
+      top: topLength+500, lockMovementX: true, lockMovementY: true});    
       mainApps.add(dnd);
       dnd.on('mousedown',function(){
           dndWindow();
@@ -182,7 +182,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Help.png', function(help) {
       help.set({left: leftWidth+660,
-      top: topLength+500});    
+      top: topLength+500, lockMovementX: true, lockMovementY: true});    
       mainApps.add(help);
       help.on('mousedown',function(){
 
@@ -290,7 +290,7 @@ function mainscreen() {
 function arrowsSide(){
     fabric.Image.fromURL('img/arrowleft.png', function(arrowleft) {
       arrowleft.set({left: 110,
-      top: topLength+310, originY: 'center'});    
+      top: topLength+310, originY: 'center', lockMovementX: true, lockMovementY: true});    
       sideApps.add(arrowleft);
       arrowleft.on('mousedown',function(){
           sideApps.deactivateAll();
@@ -301,7 +301,7 @@ function arrowsSide(){
     
     fabric.Image.fromURL('img/arrowright.png', function(arrowright) {
       arrowright.set({left: 1120,
-      top: topLength+310, originX: 'right', originY: 'center'});    
+      top: topLength+310, originX: 'right', originY: 'center', lockMovementX: true, lockMovementY: true});    
       sideApps.add(arrowright);
       arrowright.on('mousedown',function(){
           sideApps.deactivateAll();
@@ -317,7 +317,7 @@ function sidescreen(){
     
     fabric.Image.fromURL('img/Doodle.png', function(doodle) {
       doodle.set({left:leftWidth,
-      top: topLength, originX: 'left', originY: 'top'});    
+      top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
       sideApps.add(doodle);
       doodle.on('mousedown',function(){
 
@@ -326,7 +326,7 @@ function sidescreen(){
 
     fabric.Image.fromURL('img/ScreenCast.png', function(screencast) {
       screencast.set({left:leftWidth+220,
-      top: topLength});    
+      top: topLength, lockMovementX: true, lockMovementY: true});    
       sideApps.add(screencast);
       screencast.on('mousedown',function(){
 
@@ -335,7 +335,7 @@ function sidescreen(){
 
     fabric.Image.fromURL('img/Gallery.png', function(gallery) {
       gallery.set({left:leftWidth+440,
-      top: topLength});    
+      top: topLength, lockMovementX: true, lockMovementY: true});    
       sideApps.add(gallery);
       gallery.on('mousedown',function(){
         
@@ -345,7 +345,7 @@ function sidescreen(){
 
     fabric.Image.fromURL('img/Store.png', function(store) {
       store.set({left:leftWidth+660,
-      top: topLength});    
+      top: topLength, lockMovementX: true, lockMovementY: true});    
       sideApps.add(store);
       store.lockMovementX = store.lockMovementY = true;
       store.selectable = false;
@@ -356,7 +356,7 @@ function sidescreen(){
 
     fabric.Image.fromURL('img/Maps.png', function(maps) {
       maps.set({left: leftWidth,
-      top: topLength+250});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true});    
       sideApps.add(maps);
       maps.on('mousedown',function(){
           
@@ -411,7 +411,7 @@ function outDoor(){
     
     fabric.Image.fromURL('img/doorbell.png', function(doorbell) {
       doorbell.set({left: 140,
-      top: topLength, originX: 'left', originY: 'top'});    
+      top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
       outApps.add(doorbell);
       doorbell.on('mousedown',function(){
 
@@ -420,7 +420,7 @@ function outDoor(){
 
     fabric.Image.fromURL('img/package.png', function(package) {
       package.set({left: 520,
-      top: topLength});    
+      top: topLength, lockMovementX: true, lockMovementY: true});    
       outApps.add(package);
       package.on('mousedown',function(){
 
@@ -429,7 +429,7 @@ function outDoor(){
 
     fabric.Image.fromURL('img/message.png', function(message) {
       message.set({left: 910,
-      top: topLength});    
+      top: topLength, lockMovementX: true, lockMovementY: true});    
       outApps.add(message);
       message.on('mousedown',function(){
 
