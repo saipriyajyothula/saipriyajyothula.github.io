@@ -189,84 +189,84 @@ function mainscreen() {
     });
     });
 
-    var mirrorText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var mirrorText = new fabric.Text('default', { left: leftWidth+58, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     mirrorText.text = (language == 0) ? 'Mirror' : 'Espejo';
     mirrorText.hasControls = mirrorText.hasBorders = false;
     mirrorText.lockMovementX = mirrorText.lockMovementY = true;
     mirrorText.selectable = false;
     mirrorText.evented = false;
 
-    var messagesText = new fabric.Text('default', { left: leftWidth+280, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var messagesText = new fabric.Text('default', { left: leftWidth+278, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     messagesText.text = (language == 0) ? 'Messages' : 'Mensajes';
     messagesText.hasControls = messagesText.hasBorders = false;
     messagesText.lockMovementX = messagesText.lockMovementY = true;
     messagesText.selectable = false;
     messagesText.evented = false;    
 
-    var cameraText = new fabric.Text('default', { left: leftWidth+500, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var cameraText = new fabric.Text('default', { left: leftWidth+498, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     cameraText.text = (language == 0) ? 'Camera' : 'Cámara';
     cameraText.hasControls = cameraText.hasBorders = false;
     cameraText.lockMovementX = cameraText.lockMovementY = true;
     cameraText.selectable = false;
     cameraText.evented = false;
 
-    var emergencyText = new fabric.Text('default', { left: leftWidth+720, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var emergencyText = new fabric.Text('default', { left: leftWidth+718, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     emergencyText.text = (language == 0) ? 'Emergency' : 'Emergenc..';
     emergencyText.hasControls = emergencyText.hasBorders = false;
     emergencyText.lockMovementX = emergencyText.lockMovementY = true;
     emergencyText.selectable = false;
     emergencyText.evented = false;    
 
-    var alarmText = new fabric.Text('default', { left: leftWidth+60, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var alarmText = new fabric.Text('default', { left: leftWidth+58, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     alarmText.text = (language == 0) ? 'Alarm' : 'Alarma';
     alarmText.hasControls = alarmText.hasBorders = false;
     alarmText.lockMovementX = alarmText.lockMovementY = true;
     alarmText.selectable = false;
     alarmText.evented = false;    
 
-    var themesText = new fabric.Text('default', { left: leftWidth+280, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var themesText = new fabric.Text('default', { left: leftWidth+278, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     themesText.text = (language == 0) ? 'Themes' : 'Temas';
     themesText.hasControls = themesText.hasBorders = false;
     themesText.lockMovementX = themesText.lockMovementY = true;
     themesText.selectable = false;
     themesText.evented = false;    
 
-    var musicText= new fabric.Text('default', { left: leftWidth+500, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var musicText= new fabric.Text('default', { left: leftWidth+498, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     musicText.text = (language == 0) ? 'Music' : 'Música';
     musicText.hasControls = musicText.hasBorders = false;
     musicText.lockMovementX = musicText.lockMovementY = true;
     musicText.selectable = false;
     musicText.evented = false;
 
-    var newsText = new fabric.Text('default', { left: leftWidth+720, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var newsText = new fabric.Text('default', { left: leftWidth+718, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     newsText.text = (language == 0) ? 'News' : 'Noticias';
     newsText.hasControls = newsText.hasBorders = false;
     newsText.lockMovementX = newsText.lockMovementY = true;
     newsText.selectable = false;
     newsText.evented = false;    
 
-    var logsText = new fabric.Text('default', { left: leftWidth+60, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var logsText = new fabric.Text('default', { left: leftWidth+58, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     logsText.text = (language == 0) ? 'Logs' : 'Registros';
     logsText.hasControls = logsText.hasBorders = false;
     logsText.lockMovementX = logsText.lockMovementY = true;
     logsText.selectable = false;
     logsText.evented = false;    
 
-    var settingsText = new fabric.Text('default', { left: leftWidth+280, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var settingsText = new fabric.Text('default', { left: leftWidth+278, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     settingsText.text = (language == 0) ? 'Settings' : 'Ajustes';
     settingsText.hasControls = settingsText.hasBorders = false;
     settingsText.lockMovementX = settingsText.lockMovementY = true;
     settingsText.selectable = false;
     settingsText.evented = false;    
 
-    var  dndText= new fabric.Text('default', { left: leftWidth+500, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var  dndText= new fabric.Text('default', { left: leftWidth+498, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     dndText.text = (language == 0) ? 'DND' : 'DND';
     dndText.hasControls = dndText.hasBorders = false;
     dndText.lockMovementX = dndText.lockMovementY = true;
     dndText.selectable = false;
     dndText.evented = false;
 
-    var helpText = new fabric.Text('default', { left: leftWidth+720, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var helpText = new fabric.Text('default', { left: leftWidth+718, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     helpText.text = (language == 0) ? 'Help' : 'Ayuda';
     helpText.hasControls = helpText.hasBorders = false;
     helpText.lockMovementX = helpText.lockMovementY = true;
@@ -363,35 +363,35 @@ function sidescreen(){
     });
     });
 
-    var doodleText = new fabric.Text('default', { left: leftWidth+60, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var doodleText = new fabric.Text('default', { left: leftWidth+58, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     doodleText.text = (language == 0) ? 'Doodle' : 'Garabate..';
     doodleText.hasControls = doodleText.hasBorders = false;
     doodleText.lockMovementX = doodleText.lockMovementY = true;
     doodleText.selectable = false;
     doodleText.evented = false;
 
-    var screencastText = new fabric.Text('default', { left: leftWidth+280, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var screencastText = new fabric.Text('default', { left: leftWidth+278, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     screencastText.text = (language == 0) ? 'ScreenCast' : 'ScreenCast';
     screencastText.hasControls = screencastText.hasBorders = false;
     screencastText.lockMovementX = screencastText.lockMovementY = true;
     screencastText.selectable = false;
     screencastText.evented = false;    
 
-    var galleryText = new fabric.Text('default', { left: leftWidth+500, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var galleryText = new fabric.Text('default', { left: leftWidth+498, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     galleryText.text = (language == 0) ? 'Gallery' : 'Galería';
     galleryText.hasControls = galleryText.hasBorders = false;
     galleryText.lockMovementX = galleryText.lockMovementY = true;
     galleryText.selectable = false;
     galleryText.evented = false;
 
-    var storeText = new fabric.Text('default', { left: leftWidth+720, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var storeText = new fabric.Text('default', { left: leftWidth+718, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     storeText.text = (language == 0) ? 'Store' : 'Almacenar';
     storeText.hasControls = storeText.hasBorders = false;
     storeText.lockMovementX = storeText.lockMovementY = true;
     storeText.selectable = false;
     storeText.evented = false;    
 
-    var mapsText = new fabric.Text('default', { left: leftWidth+60, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var mapsText = new fabric.Text('default', { left: leftWidth+58, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     mapsText.text = (language == 0) ? 'Maps' : 'Mapas';
     mapsText.hasControls = mapsText.hasBorders = false;
     mapsText.lockMovementX = mapsText.lockMovementY = true;
@@ -443,21 +443,21 @@ function outDoor(){
     helloText.selectable = false;
     helloText.evented = false;    
 
-    var doorbellText = new fabric.Text('default', { left: 245, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var doorbellText = new fabric.Text('default', { left: 240, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     doorbellText.text = (language == 0) ? 'Ring Bell' : ' Anillo de\nCampana';
     doorbellText.hasControls = doorbellText.hasBorders = false;
     doorbellText.lockMovementX = doorbellText.lockMovementY = true;
     doorbellText.selectable = false;
     doorbellText.evented = false;
 
-    var packageText = new fabric.Text('default', { left: 615, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var packageText = new fabric.Text('default', { left: 620, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     packageText.text = (language == 0) ? 'Deliver a\nPackage' : '  Entregar\nun Paquete';
     packageText.hasControls = packageText.hasBorders = false;
     packageText.lockMovementX = packageText.lockMovementY = true;
     packageText.selectable = false;
     packageText.evented = false;    
 
-    var outMessageText = new fabric.Text('default', { left: 1015, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
+    var outMessageText = new fabric.Text('default', { left: 1010, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     outMessageText.text = (language == 0) ? ' Leave a\nMessage' : 'Deja un\nMensaje';
     outMessageText.hasControls = outMessageText.hasBorders = false;
     outMessageText.lockMovementX = outMessageText.lockMovementY = true;
