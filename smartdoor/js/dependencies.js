@@ -27,12 +27,22 @@ outApps.setBackgroundImage('img/sea.jpg', outApps.renderAll.bind(outApps));
 inWindow.setBackgroundImage('img/sea.jpg', inWindow.renderAll.bind(inWindow));
 outWindow.setBackgroundImage('img/sea.jpg', outWindow.renderAll.bind(outWindow));
 
-var leftWidth = 225;    
-var topLength = 500;
+var leftWidth = 225;
+var up = 1;
+var topLength = 450;
 var tempUnits = 'C';
 var language = 0;
 var alarmStatus = 1;
 var dndStatus = 0;
+
+var alarmRedCircle = new fabric.Circle({left: leftWidth + 120, top: topLength+250, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
+alarmRedCircle.lockMovementX = alarmRedCircle.lockMovementY = true;
+alarmRedCircle.hasControls = alarmRedCircle.hasBorders = false;
+
+var dndRedCircle = new fabric.Circle({left: leftWidth + 560, top: topLength+500, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
+dndRedCircle.lockMovementX = dndRedCircle.lockMovementY = true;
+dndRedCircle.hasControls = dndRedCircle.hasBorders = false;
+
 
 function crossMain(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {
@@ -43,6 +53,7 @@ function crossMain(){
     crossImg.on('mousedown',function(){
             inWindow.clear();
             divInWindow.style.display = 'none';
+            addInhandle();
             divMain.style.display = 'block';
             getWeather();
             getTime();
@@ -59,6 +70,7 @@ function crossSide(){
     crossImg.on('mousedown',function(){
             inWindow.clear();
             divInWindow.style.display = 'none';
+            addInhandle();
             divSide.style.display = 'block';
             getTime();
             getWeather();

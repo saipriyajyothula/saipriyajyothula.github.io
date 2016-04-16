@@ -1,3 +1,5 @@
+function getNews(){
+    
 var newsRect = new fabric.Rect({
   left: 85,
   top: topLength,
@@ -32,8 +34,6 @@ secondText.lockMovementX = secondText.lockMovementY = true;
 var thirdText = new fabric.Text('default', { left: 290, top: topLength + 530, fontFamily: 'HelveticaLight', fontSize: 28, originY: 'center', fontWeight: 300});
 thirdText.hasControls = thirdText.hasBorders = false;
 thirdText.lockMovementX = thirdText.lockMovementY = true;
-
-function getNews(){
 
     divMain.style.display = 'none';
     divInWindow.style.display = 'block';

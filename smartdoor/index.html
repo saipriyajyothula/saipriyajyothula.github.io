@@ -188,6 +188,31 @@ function mainscreen() {
 
     });
     });
+    
+    fabric.Image.fromURL('img/inhandle.png', function(inhandle) {
+      inhandle.set({left: 1165,
+      top: 1325, originX: 'right', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
+      mainApps.add(inhandle);
+      mainApps.moveTo(inhandle, 50);
+    });
+    
+    fabric.Image.fromURL('img/accessibility.png', function(accessibility) {
+      accessibility.set({left: 1165,
+      top: 1450, originX: 'right', originY: 'top', lockMovementX: true, lockMovementY: true, scaleX: 0.6, scaleY: 0.6, hasControls: false, hasBorders: false});   
+      mainApps.add(accessibility); 
+      var timer = 0;
+      accessibility.on('mouseup', function() {
+           var d = new Date();
+           timer = d.getTime();
+      });
+      accessibility.on('mousedown', function() {
+           var d = new Date();
+           if ((d.getTime() - timer) < 500) {
+               changeTopLength();
+           }
+      mainApps.deactivateAll();
+      });
+    });
 
     var mirrorText = new fabric.Text('default', { left: leftWidth+58, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
     mirrorText.text = (language == 0) ? 'Mirror' : 'Espejo';
@@ -272,7 +297,7 @@ function mainscreen() {
     helpText.lockMovementX = helpText.lockMovementY = true;
     helpText.selectable = false;
     helpText.evented = false;    
-
+    
     mainApps.add(mirrorText);
     mainApps.add(messagesText);
     mainApps.add(cameraText);
@@ -287,6 +312,37 @@ function mainscreen() {
     mainApps.add(helpText);
 }        
 
+function changeTopLength(){
+    if(up == 0){
+        up = 1;
+        topLength = 450;
+    }
+    else{
+        up = 0;
+        topLength = 900;
+    }
+    restructureMainSide();
+}    
+
+function restructureMainSide(){
+    mainApps.clear();
+    mainscreen();
+    sideApps.clear();
+    sidescreen();
+    mainApps.renderAll.bind(mainApps);
+    inWindow.renderAll.bind(inWindow);
+    sideApps.renderAll.bind(sideApps);
+    getWeather();
+    mainApps.add(timeText);
+    mainApps.add(dateText);
+    sideApps.add(timeText);
+    sideApps.add(dateText);
+    mainApps.add(tempText);
+    mainApps.add(tempDesText);
+    sideApps.add(tempText);
+    sideApps.add(tempDesText);
+}    
+    
 function arrowsSide(){
     fabric.Image.fromURL('img/arrowleft.png', function(arrowleft) {
       arrowleft.set({left: 110,
@@ -353,7 +409,7 @@ function sidescreen(){
           
     });
     }); 
-
+    
     fabric.Image.fromURL('img/Maps.png', function(maps) {
       maps.set({left: leftWidth,
       top: topLength+250, lockMovementX: true, lockMovementY: true});    
@@ -361,6 +417,31 @@ function sidescreen(){
       maps.on('mousedown',function(){
           
     });
+    });
+    
+    fabric.Image.fromURL('img/inhandle.png', function(inhandle) {
+      inhandle.set({left: 1165,
+      top: 1325, originX: 'right', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
+      sideApps.add(inhandle);
+      sideApps.moveTo(inhandle, 50);
+    });
+    
+    fabric.Image.fromURL('img/accessibility.png', function(accessibility) {
+      accessibility.set({left: 1165,
+      top: 1450, originX: 'right', originY: 'top', lockMovementX: true, lockMovementY: true, scaleX: 0.6, scaleY: 0.6, hasControls: false, hasBorders: false});   
+      sideApps.add(accessibility); 
+      var timer = 0;
+      accessibility.on('mouseup', function() {
+           var d = new Date();
+           timer = d.getTime();
+      });
+      accessibility.on('mousedown', function() {
+           var d = new Date();
+           if ((d.getTime() - timer) < 500) {
+               changeTopLength();
+           }
+      sideApps.deactivateAll();
+      });
     });
 
     var doodleText = new fabric.Text('default', { left: leftWidth+58, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
@@ -405,14 +486,14 @@ function sidescreen(){
     sideApps.add(mapsText);
 }    
 
-var doorbellText = new fabric.Text('default', { left: 240, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+var doorbellText = new fabric.Text('default', { left: 240, top: 750, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
 doorbellText.text = (language == 0) ? 'Ring Bell' : 'Anillo de\nCampana';
 doorbellText.hasControls = doorbellText.hasBorders = false;
 doorbellText.lockMovementX = doorbellText.lockMovementY = true;
 doorbellText.selectable = false;
 doorbellText.evented = false;
 
-var packageText = new fabric.Text('default', { left: 620, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+var packageText = new fabric.Text('default', { left: 620, top: 750, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
 packageText.text = (language == 0) ? 'Deliver a\nPackage' : 'Entregar\nun Paquete';
 packageText.hasControls = packageText.hasBorders = false;
 packageText.lockMovementX = packageText.lockMovementY = true;
@@ -425,7 +506,7 @@ function outDoor(){
     
     fabric.Image.fromURL('img/doorbell.png', function(doorbell) {
       doorbell.set({left: 140,
-      top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
+      top: 500, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
       outApps.add(doorbell);
       doorbell.on('mousedown',function(){
 
@@ -434,7 +515,7 @@ function outDoor(){
 
     fabric.Image.fromURL('img/package.png', function(package) {
       package.set({left: 520,
-      top: topLength, lockMovementX: true, lockMovementY: true});    
+      top: 500, lockMovementX: true, lockMovementY: true});    
       outApps.add(package);
       package.on('mousedown',function(){
 
@@ -443,11 +524,18 @@ function outDoor(){
 
     fabric.Image.fromURL('img/message.png', function(message) {
       message.set({left: 910,
-      top: topLength, lockMovementX: true, lockMovementY: true});    
+      top: 500, lockMovementX: true, lockMovementY: true});    
       outApps.add(message);
       message.on('mousedown',function(){
 
     });    
+    });
+    
+    fabric.Image.fromURL('img/outhandle.png', function(outhandle) {
+      outhandle.set({left: 70,
+      top: 1325, originX: 'left', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
+      outApps.add(outhandle);
+      outApps.moveTo(outhandle, 50);
     });
 
     var helloText = new fabric.Text('default', { left: 615, top: 260, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
@@ -457,7 +545,7 @@ function outDoor(){
     helloText.selectable = false;
     helloText.evented = false;        
 
-    var outMessageText = new fabric.Text('default', { left: 1010, top: topLength+250, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var outMessageText = new fabric.Text('default', { left: 1010, top: 750, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
     outMessageText.text = (language == 0) ? 'Leave a\nMessage' : 'Deja un\nMensaje';
     outMessageText.hasControls = outMessageText.hasBorders = false;
     outMessageText.lockMovementX = outMessageText.lockMovementY = true;
@@ -470,8 +558,18 @@ function outDoor(){
     outApps.add(outMessageText);    
 }
     
+function addInhandle(){
+    fabric.Image.fromURL('img/inhandle.png', function(inhandle) {
+      inhandle.set({left: 1165,
+      top: 1325, originX: 'right', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
+      inWindow.add(inhandle);
+      inWindow.moveTo(inhandle, 50);
+    });
+}
+    
 mainscreen();
 sidescreen();
+addInhandle();
 outDoor();
 getTime();
 getWeather();
