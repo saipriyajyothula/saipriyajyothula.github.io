@@ -23,7 +23,7 @@ function updateTheme(){
       top: topLength,
       opacity: 0,
       width: 530,
-      height: 182
+      height: 98
     });
     inThemesRect.hasControls = inThemesRect.hasBorders = false;
     inThemesRect.lockMovementX = inThemesRect.lockMovementY = true;
@@ -33,16 +33,16 @@ function updateTheme(){
       top: topLength,
       opacity: 0,
       width: 530,
-      height: 182
+      height: 98
     });
     outThemesRect.hasControls = outThemesRect.hasBorders = false;
     outThemesRect.lockMovementX = outThemesRect.lockMovementY = true;
     
-    var themeLine = new fabric.Line([85,topLength+182,1145,topLength+182],{stroke: 'black', strokeWidth: 3});
+    var themeLine = new fabric.Line([85,topLength+98,1145,topLength+98],{stroke: 'black', strokeWidth: 3});
     themeLine.lockMovementX = themeLine.lockMovementY = true;
     themeLine.hasControls = themeLine.hasBorders = false;
      
-    var divideLine = new fabric.Line([615,topLength,615,topLength+182],{stroke: 'black', strokeWidth: 3});
+    var divideLine = new fabric.Line([615,topLength,615,topLength+98],{stroke: 'black', strokeWidth: 3});
     divideLine.lockMovementX = divideLine.lockMovementY = true;
     divideLine.hasControls = divideLine.hasBorders = false;
     
@@ -53,7 +53,7 @@ function updateTheme(){
     
     fabric.Image.fromURL('img/random/birthday.png', function(birthday) {
       birthday.set({left: leftWidth,
-      top: topLength+250, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      top: topLength+168, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       inWindow.add(birthday);
       birthday.on('mousedown',function(){
           tempThemeName = 'birthday';
@@ -63,7 +63,7 @@ function updateTheme(){
 
     fabric.Image.fromURL('img/random/christmas.png', function(christmas) {
       christmas.set({left: leftWidth+220,
-      top: topLength+250, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      top: topLength+168, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       inWindow.add(christmas);
       christmas.on('mousedown',function(){
           tempThemeName = 'christmas';
@@ -73,7 +73,7 @@ function updateTheme(){
 
     fabric.Image.fromURL('img/random/halloween.png', function(halloween) {
       halloween.set({left: leftWidth+440,
-      top: topLength+250, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      top: topLength+168, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       inWindow.add(halloween);
       halloween.on('mousedown',function(){
           tempThemeName = 'halloween';
@@ -83,7 +83,7 @@ function updateTheme(){
 
     fabric.Image.fromURL('img/random/metal.png', function(metal) {
       metal.set({left: leftWidth+660,
-      top: topLength+250, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      top: topLength+168, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       inWindow.add(metal);
       metal.on('mousedown',function(){
           tempThemeName = 'metal';
@@ -93,7 +93,7 @@ function updateTheme(){
 
     fabric.Image.fromURL('img/random/red.png', function(red) {
       red.set({left: leftWidth,
-      top: topLength+500, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      top: topLength+418, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       inWindow.add(red);
       red.on('mousedown',function(){
           tempThemeName = 'red';
@@ -103,7 +103,7 @@ function updateTheme(){
 
     fabric.Image.fromURL('img/random/sea.png', function(sea) {
       sea.set({left: leftWidth+220,
-      top: topLength+500, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      top: topLength+418, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       inWindow.add(sea);
       sea.on('mousedown',function(){
           tempThemeName = 'sea';
@@ -113,7 +113,7 @@ function updateTheme(){
 
     fabric.Image.fromURL('img/random/stars.png', function(stars) {
       stars.set({left: leftWidth+440,
-      top: topLength+500, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      top: topLength+418, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       inWindow.add(stars);
       stars.on('mousedown',function(){
           tempThemeName = 'stars';
@@ -123,7 +123,7 @@ function updateTheme(){
 
     fabric.Image.fromURL('img/random/wood.png', function(wood) {
       wood.set({left: leftWidth+660,
-      top: topLength+500, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      top: topLength+418, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       inWindow.add(wood);
       wood.on('mousedown',function(){
           tempThemeName = 'wood';
@@ -131,67 +131,67 @@ function updateTheme(){
     });
     });
     
-    var insideThemeHeaderText = new fabric.Text('Inside theme', { left: 350, top: topLength + 80, fontFamily: 'HelveticaLight', fontSize: 50, originX: 'center', originY: 'top', fontWeight: 900, textAlign: 'center'});
+    var insideThemeHeaderText = new fabric.Text('Inside theme', { left: 350, top: topLength + 30, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'center', originY: 'top', fontWeight: 900, textAlign: 'center'});
     insideThemeHeaderText.hasControls = insideThemeHeaderText.hasBorders = false;
     insideThemeHeaderText.lockMovementX = insideThemeHeaderText.lockMovementY = true;
 
-    var outsideThemeHeaderText = new fabric.Text('Outside theme', { left: 880, top: topLength + 80, fontFamily: 'HelveticaLight', fontSize: 44, originX: 'center', originY: 'top', fontWeight: 300, textAlign: 'center'});
+    var outsideThemeHeaderText = new fabric.Text('Outside theme', { left: 880, top: topLength + 30, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'center', originY: 'top', fontWeight: 300, textAlign: 'center'});
     outsideThemeHeaderText.hasControls = outsideThemeHeaderText.hasBorders = false;
     outsideThemeHeaderText.lockMovementX = outsideThemeHeaderText.lockMovementY = true;
     
     insideThemeHeaderText.text = (language == 0) ? 'Inside theme' : 'Tema en el interior';
     outsideThemeHeaderText.text = (language == 0) ? 'Outside theme' : 'El tema fuera';
     
-    var birthdayText = new fabric.Text('default', { left: leftWidth+58, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var birthdayText = new fabric.Text('default', { left: leftWidth+58, top: topLength+313, fontFamily: 'HelveticaLight', fontSize: 28, fontWeight:300, originX: 'center', textAlign: 'center'});
     birthdayText.text = (language == 0) ? 'Birthday' : 'Cumpleaños';
     birthdayText.hasControls = birthdayText.hasBorders = false;
     birthdayText.lockMovementX = birthdayText.lockMovementY = true;
     birthdayText.selectable = false;
     birthdayText.evented = false;    
 
-    var christmasText = new fabric.Text('default', { left: leftWidth+278, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var christmasText = new fabric.Text('default', { left: leftWidth+278, top: topLength+313, fontFamily: 'HelveticaLight', fontSize: 28, fontWeight:300, originX: 'center', textAlign: 'center'});
     christmasText.text = (language == 0) ? 'Christmas' : 'Navidad';
     christmasText.hasControls = christmasText.hasBorders = false;
     christmasText.lockMovementX = christmasText.lockMovementY = true;
     christmasText.selectable = false;
     christmasText.evented = false;    
 
-    var halloweenText= new fabric.Text('default', { left: leftWidth+498, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var halloweenText= new fabric.Text('default', { left: leftWidth+498, top: topLength+313, fontFamily: 'HelveticaLight', fontSize: 28, fontWeight:300, originX: 'center', textAlign: 'center'});
     halloweenText.text = (language == 0) ? 'Halloween' : 'Halloween';
     halloweenText.hasControls = halloweenText.hasBorders = false;
     halloweenText.lockMovementX = halloweenText.lockMovementY = true;
     halloweenText.selectable = false;
     halloweenText.evented = false;
 
-    var metalText = new fabric.Text('default', { left: leftWidth+718, top: topLength+395, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var metalText = new fabric.Text('default', { left: leftWidth+718, top: topLength+313, fontFamily: 'HelveticaLight', fontSize: 28, fontWeight:300, originX: 'center', textAlign: 'center'});
     metalText.text = (language == 0) ? 'Metal' : 'Metal';
     metalText.hasControls = metalText.hasBorders = false;
     metalText.lockMovementX = metalText.lockMovementY = true;
     metalText.selectable = false;
     metalText.evented = false;    
 
-    var redText = new fabric.Text('default', { left: leftWidth+58, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var redText = new fabric.Text('default', { left: leftWidth+58, top: topLength+563, fontFamily: 'HelveticaLight', fontSize: 28, fontWeight:300, originX: 'center', textAlign: 'center'});
     redText.text = (language == 0) ? 'Red' : 'Rojo';
     redText.hasControls = redText.hasBorders = false;
     redText.lockMovementX = redText.lockMovementY = true;
     redText.selectable = false;
     redText.evented = false;    
 
-    var seaText = new fabric.Text('default', { left: leftWidth+278, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var seaText = new fabric.Text('default', { left: leftWidth+278, top: topLength+563, fontFamily: 'HelveticaLight', fontSize: 28, fontWeight:300, originX: 'center', textAlign: 'center'});
     seaText.text = (language == 0) ? 'Sea' : 'Mar';
     seaText.hasControls = seaText.hasBorders = false;
     seaText.lockMovementX = seaText.lockMovementY = true;
     seaText.selectable = false;
     seaText.evented = false;    
 
-    var  starsText= new fabric.Text('default', { left: leftWidth+498, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var  starsText= new fabric.Text('default', { left: leftWidth+498, top: topLength+563, fontFamily: 'HelveticaLight', fontSize: 28, fontWeight:300, originX: 'center', textAlign: 'center'});
     starsText.text = (language == 0) ? 'Stars' : 'Estrellas';
     starsText.hasControls = starsText.hasBorders = false;
     starsText.lockMovementX = starsText.lockMovementY = true;
     starsText.selectable = false;
     starsText.evented = false;
 
-    var woodText = new fabric.Text('default', { left: leftWidth+718, top: topLength+645, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var woodText = new fabric.Text('default', { left: leftWidth+718, top: topLength+563, fontFamily: 'HelveticaLight', fontSize: 28, fontWeight:300, originX: 'center', textAlign: 'center'});
     woodText.text = (language == 0) ? 'Wood' : 'Madera';
     woodText.hasControls = woodText.hasBorders = false;
     woodText.lockMovementX = woodText.lockMovementY = true;
@@ -202,6 +202,21 @@ function updateTheme(){
     applyText.text = (language == 0) ? 'Apply' : 'Aplicar';
     applyText.hasControls = applyText.hasBorders = false;
     applyText.lockMovementX = applyText.lockMovementY = true;
+    
+    fabric.Image.fromURL('img/apply.png', function(apply) {
+      apply.set({left: 615,
+      top: topLength+750, originX: 'center', lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      inWindow.add(apply);
+      apply.on('mousedown',function(){
+          inWindow.deactivateAll();
+            if(sideVariable == 'in'){
+                inThemeName = tempThemeName;
+            }
+            else{
+                outThemeName = tempThemeName;
+            }
+    });
+    });
     
     inThemesRect.on('mousedown',function(){
           selectInTheme();
@@ -217,16 +232,6 @@ function updateTheme(){
     
     outsideThemeHeaderText.on('mousedown',function(){
           selectOutTheme();
-    });
-    
-    applyText.on('mousedown',function(){
-        inWindow.deactivateAll();
-        if(sideVariable == 'in'){
-            inThemeName = tempThemeName;
-        }
-        else{
-            outThemeName = tempThemeName;
-        }      
     });
     
     divMain.style.display = 'none';
@@ -245,15 +250,15 @@ function updateTheme(){
     inWindow.add(seaText);
     inWindow.add(starsText);
     inWindow.add(woodText);
-    inWindow.add(applyText);
+    //inWindow.add(applyText);
     crossThemes();
     
     function selectInTheme(){
       inWindow.deactivateAll();
       insideThemeHeaderText.fontWeight = 900;
-      insideThemeHeaderText.fontSize = 50;
+      insideThemeHeaderText.fontSize = 40;
       outsideThemeHeaderText.fontWeight = 300;
-      outsideThemeHeaderText.fontSize = 44;
+      outsideThemeHeaderText.fontSize = 38;
       inWindow.renderAll.bind(inWindow);
       sideVariable = 'in';
     }
@@ -261,9 +266,9 @@ function updateTheme(){
     function selectOutTheme(){
       inWindow.deactivateAll();
       outsideThemeHeaderText.fontWeight = 900;
-      outsideThemeHeaderText.fontSize = 50; 
+      outsideThemeHeaderText.fontSize = 40; 
       insideThemeHeaderText.fontWeight = 300;
-      insideThemeHeaderText.fontSize = 44;   
+      insideThemeHeaderText.fontSize = 38;   
       inWindow.renderAll.bind(inWindow);
       sideVariable = 'out';
     }

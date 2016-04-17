@@ -47,6 +47,7 @@
 <script src = "js/music.js"></script>
 <script src = "js/themes.js"></script>
 <script src = "js/logs.js"></script>
+<script src = "js/settings.js"></script>    
     
 <script>
     
@@ -171,7 +172,7 @@ function mainscreen() {
       top: topLength+500, lockMovementX: true, lockMovementY: true});    
       mainApps.add(settings);
       settings.on('mousedown',function(){
-
+        updateSettings();
     });
     });    
 
@@ -300,7 +301,61 @@ function mainscreen() {
     helpText.hasControls = helpText.hasBorders = false;
     helpText.lockMovementX = helpText.lockMovementY = true;
     helpText.selectable = false;
-    helpText.evented = false;    
+    helpText.evented = false;
+    
+//    fabric.Image.fromURL('img/lockRect.png', function(lockRect){
+//        lockRect.set({left :  225, top: 1366});
+//        mainApps.add(lockRect);
+//    });
+    
+//    var lockRect = new fabric.Rect({
+//          left: 225,
+//          top: 1366,
+//          fill: 'white',
+//          stroke: 'white',
+//          width: 660,
+//          height: 160,
+//          originX: 'left',
+//          originY: 'center',
+//          rx: 80,
+//          ry: 80,
+//          angle: 0
+//          });
+//    lockRect.hasControls = lockRect.hasBorders = false;
+//    lockRect.lockMovementX = lockRect.lockMovementY = true;
+//    
+//    if(up == 1){
+//        mainApps.add(lockRect);
+//          fabric.Image.fromURL('img/doorbell.png', function(lock) {
+//          lock.set({left: 225,
+//          top: 1366, originY: 'center', lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasBorders: false, hasControls: false});    
+//          mainApps.add(lock);
+//              fabric.Image.fromURL('img/package.png', function(unlock) {
+//          unlock.set({left: 725,
+//          top: 1366, originY: 'center', lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasBorders: false, hasControls: false});
+//          mainApps.on('object:moving',function(){
+//              mainApps.deactivateAll();
+//              if(lock.getLeft() < 225){
+//                  lock.set({left: 225});
+//              }
+//              else if(lock.getLeft() > 475){
+//                  mainApps.remove(lock);
+//                  //unlock.set({left: 725});
+//                  mainApps.add(unlock);
+//              }
+//              if(unlock.getLeft() > 725){
+//                  unlock.set({left: 725});
+//              }
+//              if(unlock.getLeft() < 475){ 
+//                  lock.set({left: 225});
+//                  mainApps.add(lock);
+//                  mainApps.remove(unlock);
+//              }
+//            });
+//        });  
+//        });
+//    }
+//    
     
     mainApps.add(mirrorText);
     mainApps.add(messagesText);

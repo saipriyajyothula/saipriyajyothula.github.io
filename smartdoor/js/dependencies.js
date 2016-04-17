@@ -31,6 +31,7 @@ var alarmStatus = 1;
 var dndStatus = 0;
 var inThemeName = 'sea';
 var outThemeName = 'sea';
+var settingsFlag = 'l';
 
 var alarmRedCircle = new fabric.Circle({left: leftWidth + 120, top: topLength+250, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
 alarmRedCircle.lockMovementX = alarmRedCircle.lockMovementY = true;
