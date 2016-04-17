@@ -47,7 +47,8 @@
 <script src = "js/music.js"></script>
 <script src = "js/themes.js"></script>
 <script src = "js/logs.js"></script>
-<script src = "js/settings.js"></script>    
+<script src = "js/settings.js"></script> 
+<script src = "js/scrmaps.js"></script> 
     
 <script>
     
@@ -462,7 +463,7 @@ function sidescreen(){
       top: topLength, lockMovementX: true, lockMovementY: true});    
       sideApps.add(screencast);
       screencast.on('mousedown',function(){
-
+            getScreencast();
     });    
     });
 
@@ -492,7 +493,7 @@ function sidescreen(){
       top: topLength+250, lockMovementX: true, lockMovementY: true});    
       sideApps.add(maps);
       maps.on('mousedown',function(){
-          
+          getMaps();
     });
     });
     

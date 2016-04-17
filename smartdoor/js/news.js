@@ -106,6 +106,7 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
                     {
                         s1Extract = d;
                         firstText.text = truncate(s1Extract.text[0]);
+                        inWindow.add(firstText);
                     }
                 var s2Url = 'https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20160403T075912Z.9381e511060b9142.5b7b4a73ebe51c4e5fe59d701f8ea99fd23032d3&text='+s[1][0]+'&lang=en-es&format=plain';
                 var s2Extract = [];
@@ -116,6 +117,7 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
                     {
                         s2Extract = d;
                         secondText.text = truncate(s2Extract.text[0]);
+                        inWindow.add(secondText);
                     }
                 var s3Url = 'https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20160403T075912Z.9381e511060b9142.5b7b4a73ebe51c4e5fe59d701f8ea99fd23032d3&text='+s[2][0]+'&lang=en-es&format=plain';
                 var s3Extract = [];
@@ -126,10 +128,8 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
                     {
                         s3Extract = d;
                         thirdText.text = truncate(s3Extract.text[0]);
+                        inWindow.add(thirdText);
                     }
-            inWindow.add(firstText);
-            inWindow.add(secondText);
-            inWindow.add(thirdText);
             inWindow.add(newsFooterText);
             inWindow.deactivateAll();
             inWindow.renderAll.bind(inWindow);

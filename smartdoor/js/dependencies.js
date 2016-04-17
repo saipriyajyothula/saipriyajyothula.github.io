@@ -61,6 +61,7 @@ function crossSide(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {
     crossImg.set({left: 1170, top: topLength-25, originX: 'center', originY: 'center'});    
     inWindow.add(crossImg);
+    inWindow.moveTo(crossImg, 50);
     crossImg.hasControls = crossImg.hasBorders = false;
     crossImg.lockMovementX = crossImg.lockMovementY = true;
     crossImg.on('mousedown',function(){

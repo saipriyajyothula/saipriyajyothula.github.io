@@ -1,4 +1,7 @@
 function updateSettings(){
+    
+    var tempSettingsFlag = 'l';
+    
     var settingsRect = new fabric.Rect({
       left: 85,
       top: topLength,
@@ -38,35 +41,65 @@ function updateSettings(){
     mainApps.deactivateAll();
     crossMain();
     
-    var languageText = new fabric.Text('Language', { left: 115, top: topLength + 128, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
+    var languageText = new fabric.Text('Language', { left: 115, top: topLength + 138, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
     languageText.hasControls = languageText.hasBorders = false;
     languageText.lockMovementX = languageText.lockMovementY = true;
     languageText.text = language==0 ? 'Language': 'Idioma';
+    languageText.on('mousedown',function(){
+          tempSettingsFlag = settingsFlag;
+          settingsFlag = 'l';
+          changeSettingsBold();
+    });
     
-    var chimeText = new fabric.Text('Chime', { left: 115, top: topLength + 186, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
+    var chimeText = new fabric.Text('Chime', { left: 115, top: topLength + 206, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
     chimeText.hasControls = chimeText.hasBorders = false;
     chimeText.lockMovementX = chimeText.lockMovementY = true;
     chimeText.text = language==0 ? 'Chime':'Repicar';
+    chimeText.on('mousedown',function(){
+          tempSettingsFlag = settingsFlag;
+          settingsFlag = 'c';
+          changeSettingsBold();
+    });
     
-    var dateAndTimeText = new fabric.Text('Date \u0026 Time', { left: 115, top: topLength + 244, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
+    var dateAndTimeText = new fabric.Text('Date \u0026 Time', { left: 115, top: topLength + 274, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
     dateAndTimeText.hasControls = dateAndTimeText.hasBorders = false;
     dateAndTimeText.lockMovementX = dateAndTimeText.lockMovementY = true;
     dateAndTimeText.text = language==0 ? 'Date \u0026 Time':'Fecha y hora';
+    dateAndTimeText.on('mousedown',function(){
+          tempSettingsFlag = settingsFlag;
+          settingsFlag = 'd';
+          changeSettingsBold();
+    });
     
-    var temperatureText = new fabric.Text('Temperature', { left: 115, top: topLength + 302, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
+    var temperatureText = new fabric.Text('Temperature', { left: 115, top: topLength + 342, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
     temperatureText.hasControls = temperatureText.hasBorders = false;
     temperatureText.lockMovementX = temperatureText.lockMovementY = true;
     temperatureText.text = language==0 ? 'Temperature': 'Temperatura';
+    temperatureText.on('mousedown',function(){
+          tempSettingsFlag = settingsFlag;
+          settingsFlag = 't';
+          changeSettingsBold();
+    });
     
-    var fingerprintText = new fabric.Text('Fingerprint', { left: 115, top: topLength + 360, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
+    var fingerprintText = new fabric.Text('Fingerprint', { left: 115, top: topLength + 410, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
     fingerprintText.hasControls = fingerprintText.hasBorders = false;
     fingerprintText.lockMovementX = fingerprintText.lockMovementY = true;
     fingerprintText.text = language==0 ? 'Fingerprint': 'Huella dactilar';
+    fingerprintText.on('mousedown',function(){
+          tempSettingsFlag = settingsFlag;
+          settingsFlag = 'f';
+          changeSettingsBold();
+    });
     
-    var passcodeText = new fabric.Text('Passcode', { left: 115, top: topLength + 418, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
+    var passcodeText = new fabric.Text('Passcode', { left: 115, top: topLength + 478, fontFamily: 'HelveticaLight', fontSize: 30, originY: 'top', fontWeight: 300});
     passcodeText.hasControls = passcodeText.hasBorders = false;
     passcodeText.lockMovementX = passcodeText.lockMovementY = true;
     passcodeText.text = language==0 ? 'Passcode': 'Código de accesx`o';
+    passcodeText.on('mousedown',function(){
+          tempSettingsFlag = settingsFlag;
+          settingsFlag = 'p';
+          changeSettingsBold();
+    });
     
     inWindow.add(languageText);
     inWindow.add(chimeText);
@@ -74,4 +107,65 @@ function updateSettings(){
     inWindow.add(temperatureText);
     inWindow.add(fingerprintText);
     inWindow.add(passcodeText);
+    
+    function changeSettingsBold(){
+        inWindow.deactivateAll();
+        switch(tempSettingsFlag) {
+            case 'l':
+                languageText.fontWeight = 300;
+                languageText.fontSize = 30;
+                break;
+            case 'c':
+                chimeText.fontWeight = 300;
+                chimeText.fontSize = 30;
+                break;
+            case 'd':
+                dateAndTimeText.fontWeight = 300;
+                dateAndTimeText.fontSize = 30;
+                break;
+            case 't':
+                temperatureText.fontWeight = 300;
+                temperatureText.fontSize = 30;
+                break;
+            case 'f':
+                fingerprintText.fontWeight = 300;
+                fingerprintText.fontSize = 30;
+                break;
+            case 'p':
+                passcodeText.fontWeight = 300;
+                passcodeText.fontSize = 30;
+                break;    
+        }
+        switch(settingsFlag) {
+            case 'l':
+                languageText.fontWeight = 900;
+                languageText.fontSize = 32;
+                break;
+            case 'c':
+                chimeText.fontWeight = 900;
+                chimeText.fontSize = 32;
+                break;
+            case 'd':
+                dateAndTimeText.fontWeight = 900;
+                dateAndTimeText.fontSize = 32;
+                break;
+            case 't':
+                temperatureText.fontWeight = 900;
+                temperatureText.fontSize = 32;
+                break;
+            case 'f':
+                fingerprintText.fontWeight = 900;
+                fingerprintText.fontSize = 32;
+                break;
+            case 'p':
+                passcodeText.fontWeight = 900;
+                passcodeText.fontSize = 32;
+                break;    
+        }
+    }
+    changeSettingsBold();
+    
+    function languageMenu(){
+        
+    }
 }
