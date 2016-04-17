@@ -131,7 +131,7 @@ function updateTheme(){
     });
     });
     
-    var insideThemeHeaderText = new fabric.Text('Inside theme', { left: 350, top: topLength + 30, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'center', originY: 'top', fontWeight: 900, textAlign: 'center'});
+    var insideThemeHeaderText = new fabric.Text('Inside theme', { left: 350, top: topLength + 30, fontFamily: 'HelveticaLight', fontSize: 40, originX: 'center', originY: 'top', fontWeight: 900, textAlign: 'center'});
     insideThemeHeaderText.hasControls = insideThemeHeaderText.hasBorders = false;
     insideThemeHeaderText.lockMovementX = insideThemeHeaderText.lockMovementY = true;
 
@@ -215,6 +215,7 @@ function updateTheme(){
             else{
                 outThemeName = tempThemeName;
             }
+          closeThemes();
     });
     });
     
@@ -293,18 +294,22 @@ function updateTheme(){
         crossImg.hasControls = crossImg.hasBorders = false;
         crossImg.lockMovementX = crossImg.lockMovementY = true;
         crossImg.on('mousedown',function(){
-                inWindow.clear();
-                mainApps.setBackgroundImage('img/' + inThemeName + '.jpg', mainApps.renderAll.bind(mainApps));
-                sideApps.setBackgroundImage('img/' + inThemeName + '.jpg', sideApps.renderAll.bind(sideApps));
-                outApps.setBackgroundImage('img/' + outThemeName + '.jpg', outApps.renderAll.bind(outApps));
-                inWindow.setBackgroundImage('img/' + inThemeName + '.jpg', inWindow.renderAll.bind(inWindow));
-                outWindow.setBackgroundImage('img/' + outThemeName + '.jpg', outWindow.renderAll.bind(outWindow));
-                divInWindow.style.display = 'none';
-                addInhandle();
-                divMain.style.display = 'block';
-                getWeather();
-                getTime();
+                closeThemes();
             });
         });
     }
+}
+
+function closeThemes(){
+    inWindow.clear();
+    mainApps.setBackgroundImage('img/' + inThemeName + '.jpg', mainApps.renderAll.bind(mainApps));
+    sideApps.setBackgroundImage('img/' + inThemeName + '.jpg', sideApps.renderAll.bind(sideApps));
+    outApps.setBackgroundImage('img/' + outThemeName + '.jpg', outApps.renderAll.bind(outApps));
+    inWindow.setBackgroundImage('img/' + inThemeName + '.jpg', inWindow.renderAll.bind(inWindow));
+    outWindow.setBackgroundImage('img/' + outThemeName + '.jpg', outWindow.renderAll.bind(outWindow));
+    divInWindow.style.display = 'none';
+    addInhandle();
+    divMain.style.display = 'block';
+    getWeather();
+    getTime();
 }

@@ -589,17 +589,11 @@ function outDoor(){
       doorbell.set({left: 140,
       top: 500, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       outApps.add(doorbell);
-      doorbell.on('mousedown',function(){
-
-    });
     });
     fabric.Image.fromURL('img/packageGray.png', function(package) {
       package.set({left: 520,
       top: 500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       outApps.add(package);
-      package.on('mousedown',function(){
-
-    });    
     });     
         
     }
