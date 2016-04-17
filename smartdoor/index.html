@@ -45,6 +45,8 @@
 <script src = "js/news.js"></script>
 <script src = "js/alarmdnd.js"></script>
 <script src = "js/music.js"></script>
+<script src = "js/themes.js"></script>
+<script src = "js/logs.js"></script>
     
 <script>
     
@@ -131,7 +133,7 @@ function mainscreen() {
       top: topLength+250, lockMovementX: true, lockMovementY: true});    
       mainApps.add(themes);
       themes.on('mousedown',function(){
-
+          updateTheme();
     });
     });    
 
@@ -160,7 +162,7 @@ function mainscreen() {
       top: topLength+500, lockMovementX: true, lockMovementY: true});    
       mainApps.add(logs);
       logs.on('mousedown',function(){
-
+          getLogs();
     });
     });    
 
@@ -320,6 +322,7 @@ function mainscreen() {
     alarmRedCircle.fill = 'transparent';
     }
     mainApps.add(alarmRedCircle);
+    mainApps.moveTo(alarmRedCircle, 100);
     
     if(up == 1){dndRedCircle.top = 950;}
     else{dndRedCircle.top = 1400;}
@@ -328,6 +331,7 @@ function mainscreen() {
     dndRedCircle.fill = 'transparent';
     }
     mainApps.add(dndRedCircle);
+    mainApps.moveTo(dndRedCircle, 100);
 }        
 
 function changeTopLength(){

@@ -37,6 +37,7 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
 
     divMain.style.display = 'none';
     divInWindow.style.display = 'block';
+    addInhandle();
     inWindow.add(newsRect);
     crossMain();
 
@@ -89,6 +90,8 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
             inWindow.add(secondText);
             inWindow.add(thirdText);
             inWindow.add(newsFooterText);
+            inWindow.deactivateAll();
+            inWindow.renderAll.bind(inWindow);
         }
 
         if(language == 1){
@@ -127,6 +130,9 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
             inWindow.add(firstText);
             inWindow.add(secondText);
             inWindow.add(thirdText);
+            inWindow.add(newsFooterText);
+            inWindow.deactivateAll();
+            inWindow.renderAll.bind(inWindow);
         }
         }
 }

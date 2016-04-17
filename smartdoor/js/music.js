@@ -40,6 +40,7 @@ function musicPlayer(){
     divMain.style.display = 'none';
     divInWindow.style.display = 'block';
     inWindow.add(musicRect);
+    addInhandle();
     inWindow.add(titleText);
     inWindow.add(artistText);
     inWindow.add(volLine);

@@ -86,6 +86,7 @@ function alarmWindow(){
     divMain.style.display = 'none';
     divInWindow.style.display = 'block';
     inWindow.add(alarmRect);
+    addInhandle();
     inWindow.add(alarmHeaderText);
     inWindow.add(alarmOnText);
     inWindow.add(alarmOffText);
@@ -199,6 +200,7 @@ function dndWindow(){
     divMain.style.display = 'none';
     divInWindow.style.display = 'block';
     inWindow.add(dndRect);
+    addInhandle();
     inWindow.add(dndHeaderText);
     inWindow.add(dndOnText);
     inWindow.add(dndOffText);
