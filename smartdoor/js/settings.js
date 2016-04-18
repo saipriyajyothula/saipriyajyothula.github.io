@@ -326,7 +326,7 @@ function updateSettings(){
     timeSwitchRect.hasControls = timeSwitchRect.hasBorders = false;
     timeSwitchRect.lockMovementX = timeSwitchRect.lockMovementY = true;
     
-    var timeCircle = new fabric.Circle({left: 817.5, top: topLength+336, radius: 25, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: '#CECECE 2px 2px 2px'});
+    var timeCircle = new fabric.Circle({left: 818.5, top: topLength+336, radius: 25, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: '#CECECE 2px 2px 2px'});
     timeCircle.lockMovementX = timeCircle.lockMovementY = true;
     timeCircle.hasControls = timeCircle.hasBorders = false;
     
@@ -354,7 +354,7 @@ function updateSettings(){
     temperatureSwitchRect.hasControls = temperatureSwitchRect.hasBorders = false;
     temperatureSwitchRect.lockMovementX = temperatureSwitchRect.lockMovementY = true;
     
-    var temperatureCircle = new fabric.Circle({left: 817.5, top: topLength+336, radius: 25, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: '#CECECE 2px 2px 2px'});
+    var temperatureCircle = new fabric.Circle({left: 818.5, top: topLength+336, radius: 25, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: '#CECECE 2px 2px 2px'});
     temperatureCircle.lockMovementX = temperatureCircle.lockMovementY = true;
     temperatureCircle.hasControls = temperatureCircle.hasBorders = false;
     
@@ -732,7 +732,7 @@ function updateSettings(){
         }
         else{
             getTime();
-            timeCircle.set({left: 817.5});
+            timeCircle.set({left: 818.5});
         }
     }
     
@@ -777,7 +777,7 @@ function updateSettings(){
         }
         else{
             getWeather();
-            temperatureCircle.set({left: 817.5});
+            temperatureCircle.set({left: 818.5});
         }
     }
 
