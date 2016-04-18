@@ -41,7 +41,7 @@ thirdText.lockMovementX = thirdText.lockMovementY = true;
     inWindow.add(newsRect);
     crossMain();
 
-    var url = 'http://api.nytimes.com/svc/topstories/v1/world.json?api-key=141a890ea8bc94b8dd5afc9c4a88bd53:17:74891958';
+    var url = 'https://api.nytimes.com/svc/topstories/v1/world.json?api-key=141a890ea8bc94b8dd5afc9c4a88bd53:17:74891958';
     var newsExtract = [];
     var s = [];
     var count = 0, i = 0, j = 0;

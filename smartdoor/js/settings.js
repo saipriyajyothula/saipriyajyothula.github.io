@@ -782,12 +782,50 @@ function updateSettings(){
     }
 
     function fingerprintMenu(){
-        fabric.Image.fromURL('img/fingerprint'+language+'.png', function(fingerprint) {
+        fabric.Image.fromURL('img/fingerprint1'+language+'.png', function(fingerprint) {
     fingerprint.set({left: 440, top: topLength+98});    
     inWindow.add(fingerprint);
     fingerprint.hasControls = fingerprint.hasBorders = false;
-    fingerprint.lockMovementX = fingerprint.lockMovementY = true;
+    fingerprint.lockMovementX = fingerprint.lockMovementY = true;        
+    
+    var fingerprintCircle = new fabric.Circle({left: 1002, top: topLength+464, radius: 56, fill: 'white', stroke: 'black', originX: 'center', originY: 'center', opacity: 0});
+    fingerprintCircle.lockMovementX = fingerprintCircle.lockMovementY = true;
+    fingerprintCircle.hasControls = fingerprintCircle.hasBorders = false;
+    
+    fingerprintCircle.on('mousedown', function(){
+        removeFingerprintMenu();
+        fingerprintWindow2();
+    });        
+            
+    inWindow.add(fingerprintCircle);
+    
     });
+    }
+    
+    function fingerprintWindow2(){
+        fabric.Image.fromURL('img/fingerprint2'+language+'.png', function(fingerprintShow) {
+          fingerprintShow.set({left: 440, top: topLength+98, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+          inWindow.add(fingerprintShow); 
+          crossfingerprintWindow2();
+        });
+    }
+    
+    function crossfingerprintWindow2(){
+        fabric.Image.fromURL('img/cross.png', function(crossImg) {
+        crossImg.set({left: 1170, top: topLength-25, originX: 'center', originY: 'center'});    
+        inWindow.add(crossImg);
+        inWindow.moveTo(crossImg, 50);
+        crossImg.hasControls = crossImg.hasBorders = false;
+        crossImg.lockMovementX = crossImg.lockMovementY = true;
+        crossImg.on('mousedown',function(){
+                inWindow.clear();
+                getWeather();
+                getTime();
+                settingsMenu();
+                crossSettings();
+                fingerprintMenu();
+            });
+        });
     }
     
     function removeFingerprintMenu(){

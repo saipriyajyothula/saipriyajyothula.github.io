@@ -507,7 +507,7 @@ function sidescreen(){
       top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(gallery);
       gallery.on('mousedown',function(){
-        
+            getGallery();
     });   
     });
 
@@ -554,7 +554,7 @@ function sidescreen(){
            if ((d.getTime() - timer) < 500) {
                changeTopLength();
            }
-           else if((d.getTime() - timer) > 300) {
+           else if(((d.getTime() - timer) > 500)) {
            sideApps.add(openRect);      
            openRect.opacity=1;
            setTimeout(function(){

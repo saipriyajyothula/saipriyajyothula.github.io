@@ -4,8 +4,8 @@ function getScreencast()
   divSide.style.display = 'none';  
   divInWindow.style.display = 'block';  
   fabric.Image.fromURL('img/screencast.jpg', function(scrcast) {
-      scrcast.set({left:85,width:1060,height: 1750,
-      top: 450, lockMovementX: true, lockMovementY: true});    
+      scrcast.set({left:85,
+      top: 450, lockMovementX: true, lockMovementY: true, scaleX: 0.861, scaleY: 0.795});    
       inWindow.add(scrcast); 
       addInhandle();
     }); 

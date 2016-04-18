@@ -198,25 +198,21 @@ function updateTheme(){
     woodText.selectable = false;
     woodText.evented = false;    
     
-    var applyText = new fabric.Text('default', { left: 615, top: topLength+750, fontFamily: 'HelveticaLight', fontSize: 44, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+    var applyText = new fabric.Text('default', { left: 615, top: topLength+773, fontFamily: 'HelveticaLight', fontSize: 38, fontWeight:300, originX: 'center', fill: 'white', shadow: 'rgba(0,0,0,0.5) 0px 2px 3px', textAlign: 'center'});
     applyText.text = (language == 0) ? 'Apply' : 'Aplicar';
     applyText.hasControls = applyText.hasBorders = false;
     applyText.lockMovementX = applyText.lockMovementY = true;
     
-    fabric.Image.fromURL('img/apply.png', function(apply) {
-      apply.set({left: 615,
-      top: topLength+750, originX: 'center', lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
-      inWindow.add(apply);
-      apply.on('mousedown',function(){
-          inWindow.deactivateAll();
-            if(sideVariable == 'in'){
-                inThemeName = tempThemeName;
-            }
-            else{
-                outThemeName = tempThemeName;
-            }
-          closeThemes();
+    var applyRect = new fabric.Rect({ left: 615, top: topLength+750, width: 260, height: 90, originX: 'center', fill: '#3498db', rx: 10, ry: 10});
+    applyRect.hasControls = applyRect.hasBorders = false;
+    applyRect.lockMovementX = applyRect.lockMovementY = true;
+    
+    applyText.on('mousedown',function(){
+            applyThemes();   
     });
+    
+    applyRect.on('mousedown',function(){
+            applyThemes();   
     });
     
     inThemesRect.on('mousedown',function(){
@@ -251,7 +247,8 @@ function updateTheme(){
     inWindow.add(seaText);
     inWindow.add(starsText);
     inWindow.add(woodText);
-    //inWindow.add(applyText);
+    inWindow.add(applyRect);
+    inWindow.add(applyText);
     crossThemes();
     
     function selectInTheme(){
@@ -298,7 +295,20 @@ function updateTheme(){
             });
         });
     }
+
+    function applyThemes(){
+        inWindow.deactivateAll();
+                if(sideVariable == 'in'){
+                    inThemeName = tempThemeName;
+                }
+                else{
+                    outThemeName = tempThemeName;
+                }
+              closeThemes();
+    }
+
 }
+
 
 function closeThemes(){
     inWindow.clear();
