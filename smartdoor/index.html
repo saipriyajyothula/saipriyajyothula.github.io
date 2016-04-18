@@ -9,6 +9,9 @@
     <audio src="music/uptown.mp3" id="uptown" style="display:none"></audio>
     <audio src="music/marvin.mp3" id="marvin" style="display:none"></audio>
     <audio src="music/sugar.mp3" id="sugar" style="display:none"></audio>
+    <audio src="music/chime1.mp3" id="chime1" style="display:none"></audio>
+    <audio src="music/chime2.mp3" id="chime2" style="display:none"></audio>
+    <audio src="music/chime3.mp3" id="chime3" style="display:none"></audio>
     <img src="img/doorbellGray.png" id="dg" style="display:none">
     <img src="img/packageGray.png" id="pg" style="display:none">
     <link href="css/style.css" rel="stylesheet">
@@ -37,6 +40,14 @@
         <canvas id="outWindow" width="1230" height="2200" style="border:2px solid black" ></canvas>
     </div>
     
+    <div id = "DoodIt" style="position:absolute; top:0; left:0; display: none">
+        <canvas id="DoodleSheet" width="1060" height="1200" style="border: 2px solid black"></canvas>
+    </div>
+
+    <div id = "LoadDood" style="position:absolute; top:0; left:0; display: none">
+        <canvas id="LoadDoodSheet" width="1230" height="2200" style="border: 2px solid black"></canvas>
+    </div>
+    
 </body>
 
 <script src = "js/dependencies.js"></script>
@@ -48,9 +59,22 @@
 <script src = "js/themes.js"></script>
 <script src = "js/logs.js"></script>
 <script src = "js/settings.js"></script> 
-<script src = "js/scrmaps.js"></script> 
+<script src = "js/scrmaps.js"></script>
+<script src ="js/doodle.js"></script>
     
 <script>
+
+var openRect = new fabric.Rect({
+      left: 0,
+      top: 0,
+      fill: 'green',
+      stroke: 'white',
+      width: 1230,
+      height: 30,
+      angle: 0
+      });
+openRect.hasControls = openRect.hasBorders = false;
+openRect.lockMovementX = openRect.lockMovementY = true;    
     
 function arrowsMain(){
     fabric.Image.fromURL('img/arrowleft.png', function(arrowleft) {
@@ -83,7 +107,7 @@ function mainscreen() {
     
     fabric.Image.fromURL('img/Mirror.png', function(mirror) {
       mirror.set({left:leftWidth,
-      top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
+      top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(mirror);
       mirror.on('mousedown',function(){
 
@@ -92,7 +116,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Messages.png', function(messages) {
       messages.set({left:leftWidth+220,
-      top: topLength, lockMovementX: true, lockMovementY: true});    
+      top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(messages);
       messages.on('mousedown',function(){
 
@@ -101,7 +125,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Camera.png', function(camera) {
       camera.set({left:leftWidth+440,
-      top: topLength, lockMovementX: true, lockMovementY: true});    
+      top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(camera);
       camera.on('mousedown',function(){
 
@@ -123,7 +147,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Alarm.png', function(alarm) {
       alarm.set({left: leftWidth,
-      top: topLength+250, lockMovementX: true, lockMovementY: true});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(alarm);
       alarm.on('mousedown',function(){
           alarmWindow();
@@ -132,7 +156,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Themes.png', function(themes) {
       themes.set({left: leftWidth+220,
-      top: topLength+250, lockMovementX: true, lockMovementY: true});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(themes);
       themes.on('mousedown',function(){
           updateTheme();
@@ -141,7 +165,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Music.png', function(music) {
       music.set({left: leftWidth+440,
-      top: topLength+250, lockMovementX: true, lockMovementY: true});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(music);
       music.on('mousedown',function(){
           mainApps.deactivateAll();
@@ -151,7 +175,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/News.png', function(news) {
       news.set({left: leftWidth+660,
-      top: topLength+250, lockMovementX: true, lockMovementY: true});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(news);
       news.on('mousedown',function(){
           mainApps.deactivateAll();
@@ -161,7 +185,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Logs.png', function(logs) {
       logs.set({left: leftWidth,
-      top: topLength+500, lockMovementX: true, lockMovementY: true});    
+      top: topLength+500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(logs);
       logs.on('mousedown',function(){
           getLogs();
@@ -170,7 +194,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Settings.png', function(settings) {
       settings.set({left: leftWidth+220,
-      top: topLength+500, lockMovementX: true, lockMovementY: true});    
+      top: topLength+500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(settings);
       settings.on('mousedown',function(){
         updateSettings();
@@ -179,7 +203,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/DND.png', function(dnd) {
       dnd.set({left: leftWidth+440,
-      top: topLength+500, lockMovementX: true, lockMovementY: true});    
+      top: topLength+500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(dnd);
       dnd.on('mousedown',function(){
           dndWindow();
@@ -188,7 +212,7 @@ function mainscreen() {
 
     fabric.Image.fromURL('img/Help.png', function(help) {
       help.set({left: leftWidth+660,
-      top: topLength+500, lockMovementX: true, lockMovementY: true});    
+      top: topLength+500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(help);
       help.on('mousedown',function(){
 
@@ -216,6 +240,13 @@ function mainscreen() {
            if ((d.getTime() - timer) < 500) {
                changeTopLength();
            }
+           else if(((d.getTime() - timer) > 500)) {
+           mainApps.add(openRect);      
+           openRect.opacity=1;
+           setTimeout(function(){
+            mainApps.remove(openRect);  
+           },4000);          
+          }
       mainApps.deactivateAll();
       });
     });
@@ -308,20 +339,20 @@ function mainscreen() {
            fabric.Image.fromURL('img/lockRect.png', function(lockRect){
            lockRect.set({left :  225, top: 1286,hasControls: false,hasBorders: false,lockMovementX: true,lockMovementY:true});
            mainApps.add(lockRect);
-           mainApps.moveTo(lockRect, 100);
+           mainApps.moveTo(lockRect, -100);
            });
-           var  doorLockText= new fabric.Text('default', { left: 585, top: 1325, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300,                     originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
-           doorLockText.text = (language == 0) ? 'Door Locked \n\(Slide to Unlock\)' : 'Puerta Cerrada \n\(Deslice para desbloquear\)';
+           var  doorLockText= new fabric.Text('default', { left: 585, top: 1325, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
+           doorLockText.text = (language == 0) ? 'Door Unlocked \n\(Slide to Lock\)' : 'Desbloqueo de puerta \n\(Diapositiva a la cerradura\)';
            doorLockText.hasControls = doorLockText.hasBorders = false;
            doorLockText.lockMovementX = doorLockText.lockMovementY = true;
            doorLockText.selectable = false;
            doorLockText.evented = false;
            mainApps.add(doorLockText);
-             fabric.Image.fromURL('img/lock_door.png', function(lock) {
+             fabric.Image.fromURL('img/unlock_door.png', function(lock) {
              lock.set({left: 240,
              top: 1366, originY: 'center', lockMovementY: true, scaleX: 1, scaleY: 1, hasBorders: false, hasControls: false});    
              mainApps.add(lock);
-                 fabric.Image.fromURL('img/unlock_door.png', function(unlock) {
+                 fabric.Image.fromURL('img/lock_door.png', function(unlock) {
              unlock.set({left: 730,
              top: 1366, originY: 'center', lockMovementY: true, scaleX: 1, scaleY: 1, hasBorders: false, hasControls: false});
              mainApps.on('object:moving',function(){
@@ -338,7 +369,8 @@ function mainscreen() {
                      unlock.opacity=1;
                      mainApps.add(unlock);
                      doorLockText.set({left: 480});
-                     doorLockText.text = (language == 0) ? 'Door Unlocked \n\(Slide to Lock\)' : 'Desbloqueo de puerta \n\(Diapositiva a la cerradura\)';
+                     
+                     doorLockText.text = (language == 0) ? 'Door Locked \n\(Slide to Unlock\)' : 'Puerta Cerrada \n\(Deslice para desbloquear\)';
                  }
                  if(unlock.getLeft() > 730){
                      unlock.set({left: 730});
@@ -352,7 +384,8 @@ function mainscreen() {
                      lock.opacity=1;
                      mainApps.add(lock);
                      doorLockText.set({left: 585});
-                     doorLockText.text = (language == 0) ? 'Door Locked \n\(Slide to Unlock\)' : 'Puerta Cerrada \n\(Deslice para desbloquear\)';
+                     doorLockText.text = (language == 0) ? 'Door Unlocked \n\(Slide to Lock\)' : 'Desbloqueo de puerta \n\(Diapositiva a la cerradura\)';
+                     
                  }
                });
            });  
@@ -455,7 +488,7 @@ function sidescreen(){
       top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
       sideApps.add(doodle);
       doodle.on('mousedown',function(){
-
+          IfCanvasEmpty();
     });
     });
 
@@ -519,6 +552,14 @@ function sidescreen(){
            if ((d.getTime() - timer) < 500) {
                changeTopLength();
            }
+           else if((d.getTime() - timer) > 300) {
+           sideApps.add(openRect);      
+           openRect.opacity=1;
+           setTimeout(function(){
+            sideApps.remove(openRect);  
+           },4000);          
+                
+          }
       sideApps.deactivateAll();
       });
     });
@@ -571,18 +612,46 @@ function outDoor(){
     if(dndStatus==0){
     fabric.Image.fromURL('img/doorbell.png', function(doorbell) {
       doorbell.set({left: 140,
-      top: 500, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
+      top: 500, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       outApps.add(doorbell);
       doorbell.on('mousedown',function(){
-
+        outApps.deactivateAll();
+        switch(doorbellChimeName){
+            case 1:
+                chime1.load();
+                chime1.play();
+                break;
+            case 2:
+                chime2.load();
+                chime2.play();
+                break;
+            case 3:
+                chime3.load();
+                chime3.play();
+                break;
+        }
     });
     });
     fabric.Image.fromURL('img/package.png', function(package) {
       package.set({left: 520,
-      top: 500, lockMovementX: true, lockMovementY: true});    
+      top: 500, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
       outApps.add(package);
       package.on('mousedown',function(){
-
+          outApps.deactivateAll();
+          switch(packageChimeName){
+            case 1:
+                chime1.load();
+                chime1.play();
+                break;
+            case 2:
+                chime2.load();
+                chime2.play();
+                break;
+            case 3:
+                chime3.load();
+                chime3.play();
+                break;
+        }
     });    
     });    
     }
@@ -610,11 +679,25 @@ function outDoor(){
     });    
     });
     
+    fabric.Image.fromURL('img/keypad.png', function(keypad) {
+      keypad.set({left: 53,
+      top: 1150, lockMovementX: true, lockMovementY: true,scaleX: 0.9, scaleY:0.9, hasControls: false, hasBorders: false});    
+      outApps.add(keypad);
+      keypad.on('mousedown',function(){
+          outApps.deactivateAll();
+          logsJSON.unshift({"mode":"keypad","timeStamp":""+new Date().toLocaleTimeString()+""});
+
+    });    
+    });
+    
     fabric.Image.fromURL('img/outhandle.png', function(outhandle) {
       outhandle.set({left: 65,
       top: 1325, originX: 'left', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
       outApps.add(outhandle);
       outApps.moveTo(outhandle, 50);
+      outhandle.on('mousedown',function(){
+      logsJSON.unshift({"mode":"fingerprint","timeStamp":""+new Date().toLocaleTimeString()+""});
+      });
     });
 
     var helloText = new fabric.Text('default', { left: 615, top: 260, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});

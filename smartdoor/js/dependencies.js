@@ -35,6 +35,13 @@ var settingsFlag = 'l';
 var languageFlag = 'en';
 var tempSettingsFlag = 'l';
 var tempLanguageFlag = 'en';
+var chimeType = 'doorbell';
+var doorbellChimeName = 2;
+var tempDoorbellChimeName = 2;
+var packageChimeName = 1;
+var tempPackageChimeName = 1;
+var timeFormat = 0;
+var dateFormat = 0;
 
 var alarmRedCircle = new fabric.Circle({left: leftWidth + 120, top: topLength+250, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
 alarmRedCircle.lockMovementX = alarmRedCircle.lockMovementY = true;
@@ -77,3 +84,9 @@ function crossSide(){
         });
     });
 }
+
+var Doodcanvas = this.__canvas=new fabric.Canvas('DoodleSheet');
+
+var LoadDoodCanvas = this.__canvas=new fabric.Canvas('LoadDoodSheet');
+
+var DoodleApps = document.getElementById("DoodIt");

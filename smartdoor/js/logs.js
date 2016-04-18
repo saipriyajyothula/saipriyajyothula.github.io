@@ -1,5 +1,5 @@
 var persons = ['Sai', 'Sumanth', 'Gautam', 'Vinit'];
-var logsJSON = [{"mode": "keypad", "timeStamp": "6:00 PM"}, {"mode": "fingerprint", "timeStamp": "8:30 PM"}, {"mode": "fingerprint", "timeStamp": "9:16 PM"}];
+var logsJSON = [{"mode": "keypad", "timeStamp": "6:00:18 PM"}, {"mode": "fingerprint", "timeStamp": "8:30:25 PM"}, {"mode": "fingerprint", "timeStamp": "9:16:43 PM"}];
 
 function getLogs(){
     

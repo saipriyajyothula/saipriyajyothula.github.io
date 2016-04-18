@@ -51,13 +51,23 @@ function getTime() {
     month = (language==0) ? months0[mm] : months1[mm];
     weekdd = (language==0) ? days0[day] : days1[day];
     dd = checkdigit(dd);
+    if(timeFormat == 0){
     timeText.text = (h>12)? checkdigit(h-12) + ":" + m + ' PM': checkdigit(h) + ":" + m + ' AM';
     outTimeText.text = timeText.text;
-    dateText.text = weekdd +", "+ month + " "+ dd ;
-    outDateText.text = dateText.text;
+    }
+    else{
+    timeText.text = outTimeText.text = checkdigit(h) + ":" + m;    
+    }
+    if(dateFormat == 0){
+    dateText.text = outDateText.text = weekdd +", "+ month + " "+ dd ;
+    }
+    else{
+    mm +=1;
+    dateText.text =outDateText.text= weekdd +", "+ mm + "/"+ dd ;
+    }
     inWindow.add(timeText);
     inWindow.add(dateText);
-    setTimeout(getTime, 30000);
+    setTimeout(getTime, 5000);
 }
 
 function checkdigit(i) {
