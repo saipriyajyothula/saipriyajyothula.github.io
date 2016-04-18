@@ -231,6 +231,7 @@ function mainscreen() {
       accessibility.set({left: 1165,
       top: 1450, originX: 'right', originY: 'top', lockMovementX: true, lockMovementY: true, scaleX: 0.6, scaleY: 0.6, hasControls: false, hasBorders: false});   
       mainApps.add(accessibility); 
+      sideApps.add(accessibility); 
       var timer = 0;
       accessibility.on('mouseup', function() {
            var d = new Date();
@@ -243,12 +244,15 @@ function mainscreen() {
            }
            else if(((d.getTime() - timer) > 500)) {
            mainApps.add(openRect);      
+           sideApps.add(openRect);      
            openRect.opacity=1;
            setTimeout(function(){
             mainApps.remove(openRect);  
+            sideApps.remove(openRect);  
            },4000);          
           }
       mainApps.deactivateAll();
+      sideApps.deactivateAll();
       });
     });
 
@@ -483,10 +487,10 @@ function changeTopLength(){
 }    
 
 function restructureMainSide(){
-    mainApps.clear();
-    mainscreen();
     sideApps.clear();
     sidescreen();
+    mainApps.clear();
+    mainscreen();
     mainApps.renderAll.bind(mainApps);
     inWindow.renderAll.bind(inWindow);
     sideApps.renderAll.bind(sideApps);
@@ -583,32 +587,6 @@ function sidescreen(){
       top: 1325, originX: 'right', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
       sideApps.add(inhandle);
       sideApps.moveTo(inhandle, 50);
-    });
-    
-    fabric.Image.fromURL('img/accessibility.png', function(accessibility) {
-      accessibility.set({left: 1165,
-      top: 1450, originX: 'right', originY: 'top', lockMovementX: true, lockMovementY: true, scaleX: 0.6, scaleY: 0.6, hasControls: false, hasBorders: false});   
-      sideApps.add(accessibility); 
-      var timer = 0;
-      accessibility.on('mouseup', function() {
-           var d = new Date();
-           timer = d.getTime();
-      });
-      accessibility.on('mousedown', function() {
-           var d = new Date();
-           if ((d.getTime() - timer) < 500) {
-               changeTopLength();
-           }
-           else if(((d.getTime() - timer) > 500)) {
-           sideApps.add(openRect);      
-           openRect.opacity=1;
-           setTimeout(function(){
-            sideApps.remove(openRect);  
-           },4000);          
-                
-          }
-      sideApps.deactivateAll();
-      });
     });
 
     var doodleText = new fabric.Text('default', { left: leftWidth+58, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
