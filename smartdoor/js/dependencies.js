@@ -29,6 +29,7 @@ var tempUnits = 'C';
 var language = 0;
 var alarmStatus = 1;
 var dndStatus = 0;
+var lockStatus = 0;
 var inThemeName = 'sea';
 var outThemeName = 'sea';
 var settingsFlag = 'l';

@@ -60,7 +60,8 @@
 <script src = "js/logs.js"></script>
 <script src = "js/settings.js"></script> 
 <script src = "js/scrmaps.js"></script>
-<script src ="js/doodle.js"></script>
+<script src = "js/doodle.js"></script>
+<script src = "js/galleryStore.js"></script>
     
 <script>
 
@@ -485,7 +486,7 @@ function sidescreen(){
     
     fabric.Image.fromURL('img/Doodle.png', function(doodle) {
       doodle.set({left:leftWidth,
-      top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true});    
+      top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(doodle);
       doodle.on('mousedown',function(){
           IfCanvasEmpty();
@@ -494,7 +495,7 @@ function sidescreen(){
 
     fabric.Image.fromURL('img/ScreenCast.png', function(screencast) {
       screencast.set({left:leftWidth+220,
-      top: topLength, lockMovementX: true, lockMovementY: true});    
+      top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(screencast);
       screencast.on('mousedown',function(){
             getScreencast();
@@ -503,7 +504,7 @@ function sidescreen(){
 
     fabric.Image.fromURL('img/Gallery.png', function(gallery) {
       gallery.set({left:leftWidth+440,
-      top: topLength, lockMovementX: true, lockMovementY: true});    
+      top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(gallery);
       gallery.on('mousedown',function(){
         
@@ -513,18 +514,19 @@ function sidescreen(){
 
     fabric.Image.fromURL('img/Store.png', function(store) {
       store.set({left:leftWidth+660,
-      top: topLength, lockMovementX: true, lockMovementY: true});    
+      top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(store);
       store.lockMovementX = store.lockMovementY = true;
       store.selectable = false;
       store.on('mousedown',function(){
-          
+          sideApps.deactivateAll();
+          getStore();
     });
     }); 
     
     fabric.Image.fromURL('img/Maps.png', function(maps) {
       maps.set({left: leftWidth,
-      top: topLength+250, lockMovementX: true, lockMovementY: true});    
+      top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(maps);
       maps.on('mousedown',function(){
           getMaps();
