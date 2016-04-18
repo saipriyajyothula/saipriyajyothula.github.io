@@ -341,57 +341,102 @@ function mainscreen() {
            lockRect.set({left :  225, top: 1286,hasControls: false,hasBorders: false,lockMovementX: true,lockMovementY:true});
            mainApps.add(lockRect);
            mainApps.moveTo(lockRect, -100);
+           sideApps.add(lockRect);
+           sideApps.moveTo(lockRect, -100);
            });
+        
            var  doorLockText= new fabric.Text('default', { left: 585, top: 1325, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
            doorLockText.text = (language == 0) ? 'Door Unlocked \n\(Slide to Lock\)' : 'Desbloqueo de puerta \n\(Diapositiva a la cerradura\)';
            doorLockText.hasControls = doorLockText.hasBorders = false;
            doorLockText.lockMovementX = doorLockText.lockMovementY = true;
            doorLockText.selectable = false;
            doorLockText.evented = false;
-           mainApps.add(doorLockText);
+           mainApps.add(doorLockText);        
+           sideApps.add(doorLockText);
+        
              fabric.Image.fromURL('img/unlock_door.png', function(lock) {
              lock.set({left: 240,
              top: 1366, originY: 'center', lockMovementY: true, scaleX: 1, scaleY: 1, hasBorders: false, hasControls: false});    
              mainApps.add(lock);
-                 fabric.Image.fromURL('img/lock_door.png', function(unlock) {
+             sideApps.add(lock);
+             
+             fabric.Image.fromURL('img/lock_door.png', function(unlock) {
              unlock.set({left: 730,
              top: 1366, originY: 'center', lockMovementY: true, scaleX: 1, scaleY: 1, hasBorders: false, hasControls: false});
+                 
              mainApps.on('object:moving',function(){
                  mainApps.deactivateAll();
                  if(lock.getLeft() < 240){
+                     lockStatus = 0;
                      lock.set({left: 240});
                  }
                  else if(lock.getLeft() > 485){
-                     lock.opacity=0;
-                     mainApps.remove(lock);
-                     mainApps.remove(lock);
-                     unlock.set({left: 730});
-                     lock.set({left: 240});
-                     unlock.opacity=1;
-                     mainApps.add(unlock);
-                     doorLockText.set({left: 480});
-                     
-                     doorLockText.text = (language == 0) ? 'Door Locked \n\(Slide to Unlock\)' : 'Puerta Cerrada \n\(Deslice para desbloquear\)';
+                     moveRight();
                  }
                  if(unlock.getLeft() > 730){
+                     lockStatus = 1;
                      unlock.set({left: 730});
                  }
                  else if(unlock.getLeft() < 485){
-                     unlock.opacity=0;
-                     mainApps.remove(unlock);
-                     mainApps.remove(unlock);
-                     lock.set({left: 240});
-                     unlock.set({left: 730});
-                     lock.opacity=1;
-                     mainApps.add(lock);
-                     doorLockText.set({left: 585});
-                     doorLockText.text = (language == 0) ? 'Door Unlocked \n\(Slide to Lock\)' : 'Desbloqueo de puerta \n\(Diapositiva a la cerradura\)';
-                     
+                     moveLeft();
                  }
                });
+                 
+             sideApps.on('object:moving',function(){
+                 sideApps.deactivateAll();
+                 if(lock.getLeft() < 240){
+                     lockStatus = 0;
+                     lock.set({left: 240});
+                 }
+                 else if(lock.getLeft() > 485){
+                     moveRight();
+                 }
+                 if(unlock.getLeft() > 730){
+                     lockStatus = 1;
+                     unlock.set({left: 730});
+                 }
+                 else if(unlock.getLeft() < 485){
+                     moveLeft();
+                 }
+               });     
+                     
+            function moveLeft(){
+                lockStatus = 0;
+                 //console.log(lockStatus);
+                 unlock.opacity=0;
+                 mainApps.remove(unlock);
+                 mainApps.remove(unlock);
+                 sideApps.remove(unlock);
+                 sideApps.remove(unlock);
+                 lock.set({left: 240});
+                 unlock.set({left: 730});
+                 lock.opacity=1;
+                 mainApps.add(lock);
+                 sideApps.add(lock);
+                 doorLockText.set({left: 585});
+                 doorLockText.text = (language == 0) ? 'Door Unlocked \n\(Slide to Lock\)' : 'Desbloqueo de puerta \n\(Diapositiva a la cerradura\)';
+            }
+
+            function moveRight(){
+                lockStatus = 1;
+                 //console.log(lockStatus);
+                 lock.opacity=0;
+                 mainApps.remove(lock);
+                 mainApps.remove(lock);
+                 sideApps.remove(lock);
+                 sideApps.remove(lock);
+                 unlock.set({left: 730});
+                 lock.set({left: 240});
+                 unlock.opacity=1;
+                 mainApps.add(unlock);
+                 sideApps.add(unlock);
+                 doorLockText.set({left: 480});
+
+                 doorLockText.text = (language == 0) ? 'Door Locked \n\(Slide to Unlock\)' : 'Puerta Cerrada \n\(Deslice para desbloquear\)';
+            }
            });  
            });
-       } 
+    } 
     
     mainApps.add(mirrorText);
     mainApps.add(messagesText);
@@ -600,7 +645,7 @@ function sidescreen(){
     mapsText.lockMovementX = mapsText.lockMovementY = true;
     mapsText.selectable = false;
     mapsText.evented = false;    
-
+    
     sideApps.add(doodleText);
     sideApps.add(screencastText);
     sideApps.add(galleryText);
