@@ -51,6 +51,20 @@ outVideoEl.setAttribute('loop','loop');
 inVideoEl.setAttribute('loop','loop');
 helpVideoEl.setAttribute('loop','loop');
 
+if (annyang) {
+
+                var commands2 = {'Smart Door Alarm ON': function() {alarmStatus=1;responsiveVoice.speak('Security alarm enabled');}
+                    ,'Smart Door alarma activada': function() {alarmStatus=1;responsiveVoice.speak('alarma de seguridad habilitada');} 
+                    ,'Smart Door Alarm ON': function() {alarmStatus=1;responsiveVoice.speak('Security alarm enabled');}
+                    ,'Smart Door alarma activada': function() {alarmStatus=1;responsiveVoice.speak('alarma de seguridad habilitada');}            
+                    ,'Smart Door Play Music': function() {sugar.play(); setTimeout(function(){sugar.pause();},10000);}
+                    ,'Smart Door reproducir música': function() {sugar.play(); setTimeout(function(){sugar.pause();},10000);}              
+                                 
+               };
+               annyang.addCommands(commands2);
+               annyang.start();
+            }
+
 var alarmRedCircle = new fabric.Circle({left: leftWidth + 120, top: topLength+250, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
 alarmRedCircle.lockMovementX = alarmRedCircle.lockMovementY = true;
 alarmRedCircle.hasControls = alarmRedCircle.hasBorders = false;

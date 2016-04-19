@@ -514,7 +514,18 @@ function mainscreen() {
                      moveLeft();
                  }
                });     
-                     
+            
+            if (annyang) {
+
+                var commands = {'Smart Door Unlock': function() { moveLeft();}
+                    ,'Smart Door Desbloquear':function() { moveLeft();}
+                    ,'Smart Door Lock':function() { moveRight();}  
+                    ,'Smart Door Bloquear':function() { moveRight();}                 
+               };
+               annyang.addCommands(commands);
+               annyang.start();
+            }     
+                 
             function moveLeft(){
                 lockStatus = 0;
                  //console.log(lockStatus);
