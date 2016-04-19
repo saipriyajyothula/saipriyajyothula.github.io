@@ -46,7 +46,7 @@ function alarmWindow(){
     var alarmCircle = new fabric.Circle({left: 640, top: topLength+336, radius: 25, fill: 'white', stroke: '#B7B7B7', originX: 'center', originY: 'center', shadow: 'none'});
     alarmCircle.lockMovementX = alarmCircle.lockMovementY = true;
     alarmCircle.hasControls = alarmCircle.hasBorders = false;
-    
+//functionality of the alarm on and off    
     alarmSwitchRect.on('mousedown',function(){
                    alarmSwitch();
                    });
@@ -67,7 +67,7 @@ function alarmWindow(){
         }
         alarmPosition();
     }
-    
+    // draw the indication circle if the alarm is off
     function alarmPosition(){
         if(alarmStatus == 0){
             alarmRedCircle.strokeWidth = 5;
@@ -166,7 +166,7 @@ function dndWindow(){
     dndCircle.on('mousedown',function(){
                    dndSwitch();
                    });
-    
+    //dnd controls at the switch in dnd
     function dndSwitch(){
         inWindow.deactivateAll();
         if(dndStatus == 1){           
@@ -183,7 +183,7 @@ function dndWindow(){
         }
         dndPosition();
     }
-    
+    //indicate with a red circle if the dnd is on
     function dndPosition(){
         if(dndStatus == 0){
             dndRedCircle.strokeWidth = 0;

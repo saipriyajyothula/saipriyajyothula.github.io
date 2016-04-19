@@ -1,5 +1,6 @@
 function getCamera(){
       
+    // display just the basic functionalities during camera mode
     
     fabric.Image.fromURL('img/keypad.png', function(keypad) {
       keypad.set({left: 53,
@@ -31,6 +32,8 @@ function getCamera(){
       addAvatar();
       addOutVideo();
       
+    // add end call and microphone toggle icons
+    
       fabric.Image.fromURL('img/endcall.png', function(end) {
       end.set({left: 1095, top: topLength+504.75, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, scaleX: 0.5, scaleY: 0.5, originX: 'center', originY: 'center'});    
           inWindow.add(end);
@@ -63,6 +66,8 @@ function getCamera(){
           });
           });
     
+    // avatar mode on camera and muted video button
+    
     function addAvatar(){
           inVideoEl.pause();
           fabric.Image.fromURL('img/avatar.png', function(avatar) {
@@ -82,6 +87,8 @@ function getCamera(){
           });
           });
     }
+    
+    // original video mode and unmuted video button
     
     function addInVideo(){
         var inVideo = new fabric.Image(inVideoEl, {
@@ -109,6 +116,8 @@ function getCamera(){
           });
     }
     
+    // stream from the outside
+    
     function addOutVideo(){
         fabric.Image.fromURL('img/out.jpg', function(out) {
       out.set({left: 85, top: 450, width: 875, height: 1367, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
@@ -126,6 +135,8 @@ function getCamera(){
         });
         });
     }
+    
+    // cross to close the camera mode
     
     function crossCamera(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {

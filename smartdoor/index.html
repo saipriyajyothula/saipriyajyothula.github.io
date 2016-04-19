@@ -4,6 +4,9 @@
     <title>Another beginning!</title>
 	
 	<!-- Get version 1.5.0 of Fabric.js from CDN -->
+    
+<!--    adding the javascript libraries, audio, video and image sources-->
+    
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" ></script>
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
@@ -27,6 +30,8 @@
     </video>
     <link href="css/style.css" rel="stylesheet">
 	 
+<!--    creating canvases for main apps screen, side apps screen, inside window, outside apps and outside window-->
+    
 <body style="width: 3400px; position: relative;">
     
     <canvas id="c" width="2714" height="2200" style="border:2px solid black"></canvas>
@@ -58,6 +63,8 @@
     <div id = "LoadDood" style="position:absolute; top:0; left:0; display: none">
         <canvas id="LoadDoodSheet" width="1230" height="2200" style="border: 2px solid black"></canvas>
     </div>
+    
+<!--    adding buttons for external events-->
     
 <div style="position: absolute; top: 850;
             right: 0;">
@@ -155,6 +162,8 @@
     
 </body>
 
+<!--    script dependencies-->
+    
 <script src = "js/dependencies.js"></script>
 <script src = "js/timeweather.js"></script>
 <script src = "js/emergency.js"></script>
@@ -172,6 +181,8 @@
     
 <script>
 
+//top green rectangle for opening the door    
+    
 var openRect = new fabric.Rect({
       left: 0,
       top: 0,
@@ -183,6 +194,8 @@ var openRect = new fabric.Rect({
       });
 openRect.hasControls = openRect.hasBorders = false;
 openRect.lockMovementX = openRect.lockMovementY = true;    
+    
+//    navigation arrows on the main apps screen
     
 function arrowsMain(){
     fabric.Image.fromURL('img/arrowleft.png', function(arrowleft) {
@@ -208,10 +221,14 @@ function arrowsMain(){
     });
 }
 
+// function to display the main apps screen    
+    
 function mainscreen() {
     
     divMain.style.display = 'block';
     arrowsMain();
+    
+//    *********icons start
     
     fabric.Image.fromURL('img/Mirror.png', function(mirror) {
       mirror.set({left:leftWidth,
@@ -339,12 +356,19 @@ function mainscreen() {
     });
     });
     
+//    *********icons end
+    
+// Handle for inside door
+    
     fabric.Image.fromURL('img/inhandle.png', function(inhandle) {
       inhandle.set({left: 1165,
       top: 1325, originX: 'right', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
       mainApps.add(inhandle);
       mainApps.moveTo(inhandle, 50);
     });
+    
+    
+// accessibility icon
     
     fabric.Image.fromURL('img/accessibility.png', function(accessibility) {
       accessibility.set({left: 1165,
@@ -367,7 +391,7 @@ function mainscreen() {
            openRect.opacity=1;
            setTimeout(function(){
             mainApps.remove(openRect);  
-            sideApps.remove(openRect);  
+            sideApps.remove(openRect); 
            },4000);          
           }
       mainApps.deactivateAll();
@@ -375,6 +399,9 @@ function mainscreen() {
       });
     });
 
+    
+//    ******** text description below the app icons start
+    
     var mirrorText = new fabric.Text('default', { left: leftWidth+58, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
     mirrorText.text = (language == 0) ? 'Mirror' : 'Espejo';
     mirrorText.hasControls = mirrorText.hasBorders = false;
@@ -459,6 +486,11 @@ function mainscreen() {
     helpText.selectable = false;
     helpText.evented = false;
     
+    
+//    ******** text description below the app icons end
+    
+//    lock unlock swiping action 
+    
     if(up == 1){
            fabric.Image.fromURL('img/lockRect.png', function(lockRect){
            lockRect.set({left :  225, top: 1286,hasControls: false,hasBorders: false,lockMovementX: true,lockMovementY:true});
@@ -536,7 +568,36 @@ function mainscreen() {
                };
                annyang.addCommands(commands);
                annyang.start();
-            }     
+            }   
+            fabric.Image.fromURL('img/accessibility.png', function(accessibility) {
+      accessibility.set({left: 1165,
+      top: 1450, originX: 'right', originY: 'top', lockMovementX: true, lockMovementY: true, scaleX: 0.6, scaleY: 0.6, hasControls: false, hasBorders: false});   
+      mainApps.add(accessibility); 
+      sideApps.add(accessibility); 
+      var timer = 0;
+      accessibility.on('mouseup', function() {
+           var d = new Date();
+           timer = d.getTime();
+      });
+      accessibility.on('mousedown', function() {
+           var d = new Date();
+           if ((d.getTime() - timer) < 500) {
+               changeTopLength();
+           }
+           else if(((d.getTime() - timer) > 500)) {
+           mainApps.add(openRect);      
+           sideApps.add(openRect);      
+           openRect.opacity=1;
+           moveLeft();       
+           setTimeout(function(){
+            mainApps.remove(openRect);  
+            sideApps.remove(openRect); 
+           },4000);          
+          }
+      mainApps.deactivateAll();
+      sideApps.deactivateAll();
+      });
+    });     
                  
             function moveLeft(){
                 lockStatus = 0;
@@ -589,6 +650,8 @@ function mainscreen() {
     mainApps.add(settingsText);
     mainApps.add(dndText);
     mainApps.add(helpText);
+    
+    //add red badge to alarm and dnd icons in case of abnormal status
     
     if(up == 1){alarmRedCircle.top = 700;}
     else{alarmRedCircle.top = 1150;}
@@ -647,6 +710,8 @@ function mainscreen() {
 
 }
     
+// accessibility functionality    
+    
 function changeTopLength(){
     if(up == 0){
         up = 1;
@@ -659,6 +724,8 @@ function changeTopLength(){
     restructureMainSide();
 }    
 
+//clear and redraw the main and side apps screen    
+    
 function restructureMainSide(){
     sideApps.clear();
     sidescreen();
@@ -677,6 +744,8 @@ function restructureMainSide(){
     sideApps.add(tempText);
     sideApps.add(tempDesText);
 }    
+    
+//    navigation arrows on the side apps screen
     
 function arrowsSide(){
     fabric.Image.fromURL('img/arrowleft.png', function(arrowleft) {
@@ -701,10 +770,14 @@ function arrowsSide(){
     });
     });
 }    
+
+// function to display the side apps screen    
     
 function sidescreen(){
     
     arrowsSide();
+    
+    //    *********icons start
     
     fabric.Image.fromURL('img/Doodle.png', function(doodle) {
       doodle.set({left:leftWidth,
@@ -760,6 +833,8 @@ function sidescreen(){
     });
     });
     
+    //    *********icons end
+    
     fabric.Image.fromURL('img/inhandle.png', function(inhandle) {
       inhandle.set({left: 1165,
       top: 1325, originX: 'right', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
@@ -767,6 +842,8 @@ function sidescreen(){
       sideApps.moveTo(inhandle, 50);
     });
 
+    //    ******** text description below the app icons start
+    
     var doodleText = new fabric.Text('default', { left: leftWidth+58, top: topLength+145, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
     doodleText.text = (language == 0) ? 'Doodle' : 'Garabate..';
     doodleText.hasControls = doodleText.hasBorders = false;
@@ -800,7 +877,9 @@ function sidescreen(){
     mapsText.hasControls = mapsText.hasBorders = false;
     mapsText.lockMovementX = mapsText.lockMovementY = true;
     mapsText.selectable = false;
-    mapsText.evented = false;    
+    mapsText.evented = false;   
+    
+    //    ******** text description below the app icons end
     
     sideApps.add(doodleText);
     sideApps.add(screencastText);
@@ -808,10 +887,16 @@ function sidescreen(){
     sideApps.add(storeText);
     sideApps.add(mapsText);
 }        
+
+// function to display the outside door    
     
 function outDoor(){
     
     divOutApps.style.display = 'block';
+
+//    ******iconds start
+//    normal icons for doorbell and package
+    
     if(dndStatus==0){
     fabric.Image.fromURL('img/doorbell.png', function(doorbell) {
       doorbell.set({left: 140,
@@ -858,6 +943,9 @@ function outDoor(){
     });    
     });    
     }
+    
+    //greyed out icons for doorbell and package
+    
     else{
       fabric.Image.fromURL('img/doorbellGray.png', function(doorbell) {
       doorbell.set({left: 140,
@@ -882,6 +970,8 @@ function outDoor(){
     });    
     });
     
+    // ******icons end
+    
     fabric.Image.fromURL('img/keypad.png', function(keypad) {
       keypad.set({left: 53,
       top: 1150, lockMovementX: true, lockMovementY: true,scaleX: 0.9, scaleY:0.9, hasControls: false, hasBorders: false});    
@@ -892,6 +982,8 @@ function outDoor(){
           responsiveVoice.speak((language == 0) ? 'Door Unlocked' : 'Desbloqueo de puerta');
     });    
     });
+    
+    // handle on the outside door
     
     fabric.Image.fromURL('img/outhandle.png', function(outhandle) {
       outhandle.set({left: 65,
@@ -904,6 +996,8 @@ function outDoor(){
       });
     });
 
+    //    ******** text description below the app icons start
+    
     var helloText = new fabric.Text('default', { left: 615, top: 260, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px'});
     if(dndStatus == 0){
     helloText.text = (language == 0) ? 'Hello there!' : 'Hola!';}
@@ -939,6 +1033,8 @@ function outDoor(){
     outApps.add(doorbellText);    
     outApps.add(packageText);    
     outApps.add(outMessageText);    
+    
+    //    ******** text description below the app icons end
 }
     
 function addInhandle(){
@@ -949,6 +1045,8 @@ function addInhandle(){
       inWindow.moveTo(inhandle, 50);
     });
 }
+    
+//clear and redraw the outside door
     
 function restructureOutDoor(){
     outApps.clear();

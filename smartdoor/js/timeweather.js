@@ -1,7 +1,11 @@
+// arrays with months of the year and days of the week
+
 var months0 = ['Jan.','Feb.','Mar.','Apr.','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
 var months1 = ['enero','feb.','marzo','abr.','mayo','jun.','jul.','agosto','set.','oct.','nov','dic'];
 var days0 = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 var days1 = ['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
+
+// weather text
 
 var tempText = new fabric.Text('23 \u00B0C', { left: 1110, top: 125, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'right', originY: 'top', fill: 'white', shadow: 'black 2px 2px 2px'});
 tempText.hasControls = tempText.hasBorders = false;
@@ -11,6 +15,8 @@ var tempDesText = new fabric.Text('Partly cloudy', { left: 1110, top: 260, fontF
 tempDesText.hasControls = tempDesText.hasBorders = false;
 tempDesText.lockMovementX = tempDesText.lockMovementY = true;
 
+// time and date text on the inside
+
 var timeText = new fabric.Text('default', { left: 120, top: 125, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'left', originY: 'top', fill: 'white', shadow: 'black 2px 2px 2px'});
 timeText.lockMovementX = timeText.lockMovementY = true;
 timeText.hasControls = timeText.hasBorders = false;
@@ -18,6 +24,8 @@ timeText.hasControls = timeText.hasBorders = false;
 var dateText = new fabric.Text('default', { left: 120, top: 260, fontFamily: 'HelveticaLight', fontSize: 52, originX: 'left', originY: 'top', fill: 'white', shadow: 'black 2px 2px 2px'});
 dateText.lockMovementX = dateText.lockMovementY = true;
 dateText.hasControls = dateText.hasBorders = false;
+
+// time and date text on the outside
 
 var outTimeText = new fabric.Text('default', { left: 1165, top: 60, fontFamily: 'HelveticaLight', fontSize: 38, originX: 'right', originY: 'top', fill: 'white', shadow: 'black 2px 2px 2px'});
 outTimeText.lockMovementX = outTimeText.lockMovementY = true;
@@ -39,6 +47,8 @@ mainApps.add(tempText);
 mainApps.add(tempDesText);
 sideApps.add(tempText);
 sideApps.add(tempDesText);
+
+// get time
 
 function getTime() {
     var datetime = new Date();
@@ -67,6 +77,9 @@ function getTime() {
     }
     inWindow.add(timeText);
     inWindow.add(dateText);
+    
+    // update time every 5 seconds
+    
     setTimeout(getTime, 5000);
 }
 
@@ -84,6 +97,9 @@ function getWeather(){
     if(language==1){
         lang='es';    
     }
+    
+    // url for openweathermap API
+    
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=Chicago&units='+units+'&APPID=788adeb06070edb262bf78f315e1400a&lang='+lang;
 
     //metric for C and imperial for F

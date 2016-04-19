@@ -1,3 +1,5 @@
+// canvas variables for main apps screen, side apps screen, outside door, inside window and outside window
+
 var canvas = this.__canvas = new fabric.Canvas('c');
 
 var mainApps = this.__canvas = new fabric.Canvas('main');
@@ -16,11 +18,15 @@ var divOutApps = document.getElementById('outApps');
 var divInWindow = document.getElementById('insideWindow');
 var divOutWindow = document.getElementById('outsideWindow');
 
+// set default background image
+
 mainApps.setBackgroundImage('img/sea.jpg', mainApps.renderAll.bind(mainApps));
 sideApps.setBackgroundImage('img/sea.jpg', sideApps.renderAll.bind(sideApps));
 outApps.setBackgroundImage('img/sea.jpg', outApps.renderAll.bind(outApps));
 inWindow.setBackgroundImage('img/sea.jpg', inWindow.renderAll.bind(inWindow));
 outWindow.setBackgroundImage('img/sea.jpg', outWindow.renderAll.bind(outWindow));
+
+// various global variables with default values
 
 var leftWidth = 225;
 var up = 1;
@@ -44,12 +50,17 @@ var tempPackageChimeName = 1;
 var timeFormat = 0;
 var dateFormat = 0;
 var videoStatus = 0;
+
+// get the video elements from DOM and setting them on loop
+
 var inVideoEl = document.getElementById('inVideo');
 var outVideoEl = document.getElementById('outVideo');
 var helpVideoEl = document.getElementById('helpVideo');
 outVideoEl.setAttribute('loop','loop');
 inVideoEl.setAttribute('loop','loop');
 helpVideoEl.setAttribute('loop','loop');
+
+// voice commands
 
 if (annyang) {
 
@@ -72,6 +83,8 @@ alarmRedCircle.hasControls = alarmRedCircle.hasBorders = false;
 var dndRedCircle = new fabric.Circle({left: leftWidth + 560, top: topLength+500, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
 dndRedCircle.lockMovementX = dndRedCircle.lockMovementY = true;
 dndRedCircle.hasControls = dndRedCircle.hasBorders = false;
+
+// cross buttons
 
 function crossMain(){
     fabric.Image.fromURL('img/cross.png', function(crossImg) {
@@ -107,6 +120,8 @@ function crossSide(){
         });
     });
 }
+
+// adding lock icon on inside window
 
 function addLock(){
     if(up == 1){
