@@ -1,6 +1,5 @@
 function getCamera(){
       
-      cameraFlag = 1;
       mainApps.deactivateAll();    
       divSide.style.display = 'none';  
       divInWindow.style.display = 'block';
@@ -112,7 +111,7 @@ function getCamera(){
     crossImg.hasControls = crossImg.hasBorders = false;
     crossImg.lockMovementX = crossImg.lockMovementY = true;
     crossImg.on('mousedown',function(){
-            cameraFlag = 0;
+    crossImg.on('mousedown',function(){
             inWindow.clear();
             divInWindow.style.display = 'none';
             divMain.style.display = 'block';
@@ -124,5 +123,6 @@ function getCamera(){
             outDoor();
         });
     });
+});
 }
 }
