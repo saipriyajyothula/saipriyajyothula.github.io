@@ -1,7 +1,6 @@
 function getCamera(){
       
       cameraFlag = 1;
-      toDisplayorNot();
       mainApps.deactivateAll();    
       divSide.style.display = 'none';  
       divInWindow.style.display = 'block';
@@ -114,7 +113,6 @@ function getCamera(){
     crossImg.lockMovementX = crossImg.lockMovementY = true;
     crossImg.on('mousedown',function(){
             cameraFlag = 0;
-            toDisplayorNot();
             inWindow.clear();
             divInWindow.style.display = 'none';
             divMain.style.display = 'block';
