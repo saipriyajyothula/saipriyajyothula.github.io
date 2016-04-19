@@ -44,7 +44,6 @@ var tempPackageChimeName = 1;
 var timeFormat = 0;
 var dateFormat = 0;
 var videoStatus = 0;
-
 var inVideoEl = document.getElementById('inVideo');
 var outVideoEl = document.getElementById('outVideo');
 var helpVideoEl = document.getElementById('helpVideo');

@@ -7,7 +7,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" ></script>
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
-    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.4.0/annyang.min.js"></script>
     <audio src="music/uptown.mp3" id="uptown" style="display:none"></audio>
     <audio src="music/marvin.mp3" id="marvin" style="display:none"></audio>
     <audio src="music/sugar.mp3" id="sugar" style="display:none"></audio>
@@ -732,7 +732,7 @@ function outDoor(){
 
     fabric.Image.fromURL('img/message.png', function(message) {
       message.set({left: 910,
-      top: 500, lockMovementX: true, lockMovementY: true});    
+      top: 500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       outApps.add(message);
       message.on('mousedown',function(){
             
@@ -746,7 +746,7 @@ function outDoor(){
       keypad.on('mousedown',function(){
           outApps.deactivateAll();
           logsJSON.unshift({"mode":"keypad","timeStamp":""+new Date().toLocaleTimeString()+""});
-
+          responsiveVoice.speak((language == 0) ? 'Door Unlocked' : 'Desbloqueo de puerta');
     });    
     });
     
@@ -757,6 +757,7 @@ function outDoor(){
       outApps.moveTo(outhandle, 50);
       outhandle.on('mousedown',function(){
       logsJSON.unshift({"mode":"fingerprint","timeStamp":""+new Date().toLocaleTimeString()+""});
+      responsiveVoice.speak((language == 0) ? 'Door Unlocked' : 'Desbloqueo de puerta');      
       });
     });
 
