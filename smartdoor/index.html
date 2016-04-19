@@ -562,9 +562,9 @@ function mainscreen() {
             if (annyang) {
 
                 var commands = {'Smart Door Unlock': function() { moveLeft();}
-                    ,'Smart Door Desbloquear':function() { moveLeft();}
+                    ,'Smart Door abierto':function() { moveLeft();}
                     ,'Smart Door Lock':function() { moveRight();}  
-                    ,'Smart Door Bloquear':function() { moveRight();}                 
+                    ,'Smart Door cerca':function() { moveRight();}                 
                };
                annyang.addCommands(commands);
                annyang.start();
