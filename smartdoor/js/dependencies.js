@@ -44,6 +44,7 @@ var tempPackageChimeName = 1;
 var timeFormat = 0;
 var dateFormat = 0;
 var videoStatus = 0;
+var cameraFlag = 0;
 
 var inVideoEl = document.getElementById('inVideo');
 var outVideoEl = document.getElementById('outVideo');
@@ -70,6 +71,7 @@ function crossMain(){
             divMain.style.display = 'block';
             getWeather();
             getTime();
+            clearScreen();
         });
     });
 }
@@ -88,12 +90,99 @@ function crossSide(){
             divSide.style.display = 'block';
             getTime();
             getWeather();
+            saveDoodle();	
+            clearScreen();
         });
     });
 }
+
+function addLock(){
+    if(up == 1){
+    fabric.Image.fromURL('img/unlock_door.png', function(lock) {
+             lock.set({left: 1165, top: 1227.5, originX: 'right', originY: 'center', lockMovementY: true, hasBorders: false, hasControls: false});    
+             
+             fabric.Image.fromURL('img/lock_door.png', function(unlock) {
+             unlock.set({left: 1165, top: 1227.5, originX: 'right', originY: 'center', lockMovementY: true, hasBorders: false, hasControls: false});
+                if(lockStatus == 0){
+                    inWindow.add(lock);
+                }
+                else{
+                    inWindow.add(unlock);
+                }
+            
+                 lock.on('mousedown',function(){
+                     inWindow.remove(lock);
+                     inWindow.add(unlock);
+                 });
+                 unlock.on('mousedown',function(){
+                     inWindow.remove(unlock);
+                     inWindow.add(lock);
+                 });
+             });
+    });
+}}
 
 var Doodcanvas = this.__canvas=new fabric.Canvas('DoodleSheet');
 
 var LoadDoodCanvas = this.__canvas=new fabric.Canvas('LoadDoodSheet');
 
 var DoodleApps = document.getElementById("DoodIt");
+
+var Doodcanvas = this.__canvas=new fabric.Canvas('DoodleSheet');
+
+var LoadDoodCanvas = this.__canvas=new fabric.Canvas('LoadDoodSheet');
+
+var DisplayCanvas= this.__canvas=new fabric.Canvas('DisplayDoodC');
+
+var UserCanvasAl= this.__canvas=new fabric.Canvas('DisplayDoodCUAl');
+
+var UserCanvas1= this.__canvas=new fabric.Canvas('DisplayDoodCU1');
+
+var UserCanvas2= this.__canvas=new fabric.Canvas('DisplayDoodCU2');
+
+var UserCanvas3= this.__canvas=new fabric.Canvas('DisplayDoodCU3');
+
+var UserCanvas4= this.__canvas=new fabric.Canvas('DisplayDoodCU4');
+
+var UserTextCanvasAl= this.__canvas=new fabric.Canvas('DisplayTextCAl');
+
+var UserTextCanvas1= this.__canvas=new fabric.Canvas('DisplayTextCU1');
+
+var UserTextCanvas2= this.__canvas=new fabric.Canvas('DisplayTextCU2');
+
+var UserTextCanvas3= this.__canvas=new fabric.Canvas('DisplayTextCU3');
+
+var UserTextCanvas4= this.__canvas=new fabric.Canvas('DisplayTextCU4');
+
+var DefaultCanvas= this.__canvas=new fabric.Canvas('DefaultText');
+
+var InOutCanvas= this.__canvas=new fabric.Canvas('InOutText');
+
+var InOutCanvasMainDoor= this.__canvas=new fabric.Canvas('InOutTextMainD');
+
+var DisplayCanvasApps = document.getElementById("DisplayDood");
+var User1Apps = document.getElementById("DisplayDoodU1");
+var User2Apps = document.getElementById("DisplayDoodU2");
+var User3Apps = document.getElementById("DisplayDoodU3");
+var User4Apps = document.getElementById("DisplayDoodU4");
+var UserAlApps = document.getElementById("DisplayDoodUAl");
+
+var UserTextAlApps = document.getElementById("DisplayTextAl");
+var UserTextU1Apps = document.getElementById("DisplayTextU1");
+var UserTextU2Apps = document.getElementById("DisplayTextU2");
+var UserTextU3Apps = document.getElementById("DisplayTextU3");
+var UserTextU4Apps = document.getElementById("DisplayTextU4");
+
+var UserDefApps = document.getElementById("DefaultTe");
+
+var InoutApps = document.getElementById("InOut");
+
+var InoutAppsDoor = document.getElementById("InOutMainD");
+
+Doodcanvas.backgroundColor='white';
+DisplayCanvas.backgroundColor='white';
+DefaultCanvas.backgroundColor='white';
+
+InOutCanvas.backgroundColor='white';
+InOutCanvasMainDoor.backgroundColor='white';
+

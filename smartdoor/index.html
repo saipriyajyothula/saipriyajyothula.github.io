@@ -56,6 +56,88 @@
         <canvas id="LoadDoodSheet" width="1230" height="2200" style="border: 2px solid black"></canvas>
     </div>
     
+    <div style="padding-left:2800; float:right;">
+	<button onclick="displayTextA()">All</button>
+	<button onclick="displayTextSa()">Sai</button>
+    <p id="Sai"></p>
+	<button onclick="displayTextg()">Gautam</button>
+	<p id="Gautam"></p>
+	<button onclick="displayTextSu()">Sumanth</button>
+	<p id="Sumanth"></p>
+	<button onclick="displayTextVi()">Vinit</button>
+	<p id="Vinit"></p>
+    <p id="All"></p>
+	</div>
+	
+	<div id ="dood" style="padding-left:2500; float:right;">
+	<button onclick="displayDoodA()">All</button>
+    <p id="All"></p>
+	<button onclick="displayDoodSa()">Sai</button>
+    <p id="Sai"></p>
+	<button onclick="displayDoodg()">Gautam</button>
+	<p id="Gautam"></p>
+	<button onclick="displayDoodSu()">Sumanth</button>
+	<p id="Sumanth"></p>
+	<button onclick="displayDoodVi()">Vinit</button>
+	<p id="Vinit"></p>
+	 </div>
+    
+    <div id = "DisplayDood" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayDoodC" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayDoodU1" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayDoodCU1" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayDoodU2" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayDoodCU2" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayDoodU3" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayDoodCU3" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayDoodU4" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayDoodCU4" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+    
+	<div id = "DisplayDoodUAl" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayDoodCUAl" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayTextAl" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayTextCAl" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayTextU1" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayTextCU1" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayTextU2" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayTextCU2" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayTextU3" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayTextCU3" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DisplayTextU4" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DisplayTextCU4" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "DefaultTe" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="DefaultText" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "InOut" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="InOutText" width="885" height="480" style="border: 2px solid black"></canvas>
+	</div>
+	
+	<div id = "InOutMainD" style="position:absolute; top:0; left:0; display: none">
+		<canvas id="InOutTextMainD" width="1060" height="570" style="border: 2px solid black"></canvas>
+	</div>
+    
 </body>
 
 <script src = "js/dependencies.js"></script>
@@ -71,6 +153,7 @@
 <script src = "js/doodle.js"></script>
 <script src = "js/galleryStore.js"></script>
 <script src = "js/camera.js"></script>
+<script src = "js/messages.js"></script>
     
 <script>
 
@@ -120,7 +203,7 @@ function mainscreen() {
       top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(mirror);
       mirror.on('mousedown',function(){
-
+          getMirror();
     });
     });
 
@@ -129,7 +212,8 @@ function mainscreen() {
       top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(messages);
       messages.on('mousedown',function(){
-
+            addLock();
+            sendText();
     });    
     });
 
@@ -138,6 +222,7 @@ function mainscreen() {
       top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(camera);
       camera.on('mousedown',function(){
+          addLock();
           getCamera();
     });    
     });
@@ -151,6 +236,7 @@ function mainscreen() {
       emergency.selectable = false;
       emergency.on('mousedown',function(){
           mainApps.deactivateAll();
+          addLock();
           emergencyWindow1();
     });
     }); 
@@ -160,6 +246,7 @@ function mainscreen() {
       top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(alarm);
       alarm.on('mousedown',function(){
+          addLock();
           alarmWindow();
     });
     });
@@ -169,6 +256,7 @@ function mainscreen() {
       top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(themes);
       themes.on('mousedown',function(){
+          addLock();
           updateTheme();
     });
     });    
@@ -178,6 +266,7 @@ function mainscreen() {
       top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(music);
       music.on('mousedown',function(){
+          addLock();
           mainApps.deactivateAll();
           musicPlayer();
     });
@@ -188,6 +277,7 @@ function mainscreen() {
       top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(news);
       news.on('mousedown',function(){
+          addLock();
           mainApps.deactivateAll();
           getNews();
     });
@@ -198,6 +288,7 @@ function mainscreen() {
       top: topLength+500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(logs);
       logs.on('mousedown',function(){
+          addLock();
           getLogs();
     });
     });    
@@ -207,6 +298,7 @@ function mainscreen() {
       top: topLength+500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(settings);
       settings.on('mousedown',function(){
+        addLock();
         updateSettings();
     });
     });    
@@ -216,6 +308,7 @@ function mainscreen() {
       top: topLength+500, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(dnd);
       dnd.on('mousedown',function(){
+          addLock();
           dndWindow();
     });
     });    
@@ -486,6 +579,43 @@ function mainscreen() {
     }
     mainApps.add(dndRedCircle);
     mainApps.moveTo(dndRedCircle, 100);
+    
+    UserDefApps.style.display = 'block';
+	UserDefApps.style.left = '1600px';
+	UserDefApps.style.top = '1000px';
+	
+	var MessRect = new fabric.IText(' ',{
+      left: 0,
+      top: 0,
+      fill: 'black',
+      stroke: 'black',
+      strokeWidth: 5,
+	  fontFamily: 'Helvetica',
+	fontSize:50
+    });
+	//outApps.add(MessRect);
+    MessRect.hasControls = MessRect.hasBorders = false;
+    MessRect.lockMovementX = MessRect.lockMovementY = true;
+	
+	var MessageBoX = new fabric.Rect({
+      left: 0,
+      top: 0,
+      fill: 'white',
+      stroke: 'black',
+      strokeWidth: 5,
+      width: 5000,
+      height: 500,
+      rx: 10,
+      ry: 10,
+      angle: 0
+    });
+	//outApps.add(MessageBoX);
+	MessageBoX.hasControls = MessageBoX.hasBorders = false;
+    MessageBoX.lockMovementX = MessageBoX.lockMovementY = true;
+	
+	DefaultCanvas.add(MessageBoX);
+	DefaultCanvas.add(MessRect);
+	MessRect.setText('Jelly I love apple pie tart'+'\n'+'tootsie roll tiramisu bonbon I love.'+'\n'+'I love I love cookie cotton candy. Danish'+'\n'+'candy muffin lollipop tiramisu gingerbread sugar plum lollipop.'+'\n'+'Chocolate bar sweet I love.' +'\n'+'I love powder danish biscuit bear claw fruitcake'+'\n' +'I love liquorice I love');
 }        
 
 function changeTopLength(){
@@ -552,6 +682,7 @@ function sidescreen(){
       top: topLength, originX: 'left', originY: 'top', lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(doodle);
       doodle.on('mousedown',function(){
+          addLock();
           IfCanvasEmpty();
     });
     });
@@ -561,6 +692,7 @@ function sidescreen(){
       top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(screencast);
       screencast.on('mousedown',function(){
+            addLock();
             getScreencast();
     });    
     });
@@ -570,6 +702,7 @@ function sidescreen(){
       top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(gallery);
       gallery.on('mousedown',function(){
+            addLock();
             getGallery();
     });   
     });
@@ -582,6 +715,7 @@ function sidescreen(){
       store.lockMovementX = store.lockMovementY = true;
       store.selectable = false;
       store.on('mousedown',function(){
+          addLock();
           sideApps.deactivateAll();
           getStore();
     });
@@ -592,6 +726,7 @@ function sidescreen(){
       top: topLength+250, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       sideApps.add(maps);
       maps.on('mousedown',function(){
+          addLock();
           getMaps();
     });
     });
@@ -714,7 +849,7 @@ function outDoor(){
       top: 500, lockMovementX: true, lockMovementY: true});    
       outApps.add(message);
       message.on('mousedown',function(){
-
+            sendOutIn();
     });    
     });
     

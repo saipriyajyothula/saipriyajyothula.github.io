@@ -1,15 +1,7 @@
 	var messg;
 	var choiceUser={};
 	var userTxt=[];
-	//choiceUser['Default']=["Vinit"];
-	//UserDefApps.style.display = 'block';
-	
-	
-	
-	//console.log(outWindow)
-	//var message=
 function sendText(){
-	//addInhandle();
 	UserDefApps.style.display='none';
 	var MessageRect = new fabric.Rect({
       left: 85,
@@ -46,8 +38,8 @@ function sendText(){
       top: 700,
       fill: 'black',
       stroke: 'black',
-      strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+      strokeWidth: 2,
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
     BzRect.hasControls = BzRect.hasBorders = false;
@@ -61,7 +53,7 @@ function sendText(){
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
     OOTRect.hasControls = OOTRect.hasBorders = false;
@@ -75,7 +67,7 @@ function sendText(){
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
     GoRect.hasControls = GoRect.hasBorders = false;
@@ -87,7 +79,7 @@ function sendText(){
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
     AllTxt.hasControls = AllTxt.hasBorders = false;
@@ -100,7 +92,7 @@ function sendText(){
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
     GtmTxt.hasControls = GtmTxt.hasBorders = false;
@@ -113,7 +105,7 @@ function sendText(){
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
     SaiTxt.hasControls = SaiTxt.hasBorders = false;
@@ -126,11 +118,13 @@ function sendText(){
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
     SumanthTxt.hasControls = SumanthTxt.hasBorders = false;
     SumanthTxt.lockMovementX = SumanthTxt.lockMovementY = true;
+	
+	
 	
 	var VinitTxt = new fabric.IText('Vinit',{
       left: 1030,
@@ -138,7 +132,7 @@ function sendText(){
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
     VinitTxt.hasControls = VinitTxt.hasBorders = false;
@@ -181,8 +175,8 @@ function sendText(){
     divideLine2.lockMovementX = divideLine.lockMovementY = true;
     divideLine2.hasControls = divideLine.hasBorders = false;
 	
-	
     inWindow.add(MessageRect);
+	//inWindow.add(SumanthTxt1);
     addInhandle();
     inWindow.add(WriteMessRect);
     inWindow.add(RecMessRect);
@@ -196,6 +190,65 @@ function sendText(){
 	crossSide();
 	//inWindow.add(MessageBoX);
 	
+	var WriteMessTxt1 = new fabric.IText('Write a new Message',{
+      left: 100,
+      top: 500,
+      fill: 'black',
+      stroke: 'black',
+      strokeWidth: 5,
+	  fontFamily: 'HelveticaLight',
+	fontSize:50
+    });
+    WriteMessTxt1.hasControls = WriteMessTxt1.hasBorders = false;
+    WriteMessTxt1.lockMovementX = WriteMessTxt1.lockMovementY = true;
+	inWindow.add(WriteMessTxt1);
+	
+	WriteMessTxt1.on('mousedown',function(){
+		InoutAppsDoor.style.display='none';
+	})
+	
+	var displMessTxt1 = new fabric.IText(' ',{
+      left: 0,
+      top: 0,
+      fill: 'black',
+      stroke: 'black',
+      strokeWidth: 5,
+	  fontFamily: 'HelveticaLight',
+	fontSize:50
+    });
+    displMessTxt1.hasControls = displMessTxt1.hasBorders = false;
+    displMessTxt1.lockMovementX = displMessTxt1.lockMovementY = true;
+	InOutCanvasMainDoor.add(displMessTxt1);
+	
+	
+	var ReceivedMessTxt1 = new fabric.IText('Received Message',{
+      left: 700,
+      top: 500,
+      fill: 'black',
+      stroke: 'black',
+      strokeWidth: 5,
+	  fontFamily: 'HelveticaLight',
+	fontSize:50
+    });
+    ReceivedMessTxt1.hasControls = ReceivedMessTxt1.hasBorders = false;
+    ReceivedMessTxt1.lockMovementX = ReceivedMessTxt1.lockMovementY = true;
+	inWindow.add(ReceivedMessTxt1);
+	
+	ReceivedMessTxt1.on('mousedown',function(){
+		InoutAppsDoor.style.display='block';
+		InoutAppsDoor.style.top='565px'
+		InoutAppsDoor.style.left='148px'
+		if(mess[0]==null)
+		{
+			displMessTxt1.setText('No messages in the Inbox');
+		}
+		else{
+			len=mess.length
+			displMessTxt1.setText(mess[len-1]);	
+		}
+		
+	})
+	
 	fabric.Image.fromURL('img/message_keyboard.png', function(messageKey) {
       messageKey.set({left: leftWidth,
       top: topLength+168, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, left: 150});    
@@ -206,6 +259,11 @@ function sendText(){
 
 	function wriText()
 	{
+		DisplayCanvasApps.style.display = 'none';	
+	
+	////
+	
+		
 		inWindow.add(BzRect);
 		inWindow.add(OOTRect);
 		inWindow.add(GoRect);
@@ -214,6 +272,8 @@ function sendText(){
 		inWindow.add(AllTxt);
 		inWindow.add(SumanthTxt);
 		inWindow.add(VinitTxt);
+		inWindow.add(ReceivedMessTxt1);
+		
 		BzRect.on('mousedown', function(){
 			messg=BzRect.getText();
 			userTxt.push(messg);
@@ -330,7 +390,7 @@ function displayTextA()
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
 	UserTextCanvasAl.add(MessRect);
@@ -379,7 +439,7 @@ function displayTextSa()
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
 	UserTextCanvas1.add(MessRect);
@@ -434,7 +494,7 @@ function displayTextg()
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
 	UserTextCanvas2.add(MessRect);
@@ -487,7 +547,7 @@ function displayTextSu()
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
 	UserTextCanvas3.add(MessRect);
@@ -542,7 +602,7 @@ function displayTextVi()
       fill: 'black',
       stroke: 'black',
       strokeWidth: 5,
-	  fontFamily: 'Helvetica',
+	  fontFamily: 'HelveticaLight',
 	fontSize:50
     });
 	UserTextCanvas4.add(MessRect);
@@ -679,6 +739,7 @@ function clearScreen()
 	UserTextU3Apps.style.display='none';
 	UserTextU4Apps.style.display='none';
 	UserDefApps.style.display='block';
+	InoutAppsDoor.style.display='none';
 }
 
 function clearAll()
@@ -696,16 +757,15 @@ function clearAll()
 	UserTextU4Apps.style.display='none';
 	UserDefApps.style.display='none';
 }
-
 var mess=[];
 function sendOutIn()
 {
-	clearAll();
-	InoutApps.style.display='block';
-	InoutApps.style.left = '1600px';
+  clearAll();
+  InoutApps.style.display='block';
+  InoutApps.style.left = '1600px';
     InoutApps.style.top = '1000px';
-	
-	var MessageRect = new fabric.Rect({
+  
+  var MessageRect = new fabric.Rect({
       left: 0,
       top: 0,
       fill: 'white',
@@ -719,8 +779,8 @@ function sendOutIn()
     });
     MessageRect.hasControls = MessageRect.hasBorders = false;
     MessageRect.lockMovementX = MessageRect.lockMovementY = true;
-	InOutCanvas.add(MessageRect);
-	
+  InOutCanvas.add(MessageRect);
+  
     var MessageBoX = new fabric.Rect({
       left: 0,
       top: 0,
@@ -733,56 +793,62 @@ function sendOutIn()
       ry: 10,
       angle: 0
     });
-	MessageBoX.hasControls = MessageBoX.hasBorders = false;
+  MessageBoX.hasControls = MessageBoX.hasBorders = false;
     MessageBoX.lockMovementX = MessageBoX.lockMovementY = true;
-	InOutCanvas.add(MessageBoX);
-	
-	var divideLine2 = new fabric.Line([0,170,1000,170],{stroke: 'black', strokeWidth: 3,left: 0});
+  InOutCanvas.add(MessageBoX);
+  
+  var divideLine2 = new fabric.Line([0,170,1000,170],{stroke: 'black', strokeWidth: 3,left: 0});
     divideLine2.lockMovementX = divideLine2.lockMovementY = true;
     divideLine2.hasControls = divideLine2.hasBorders = false;
-	
-	InOutCanvas.add(divideLine2);
-	
-	var BzRect1 = new fabric.Text('Leave a message',{left: 80, top: 50, fontFamily: 'HelveticaLight', fontSize: 80, originY: 'top', fontWeight: 300
+  
+  InOutCanvas.add(divideLine2);
+  
+  var BzRect1 = new fabric.Text('Leave a message',{left: 80, top: 50, fontFamily: 'HelveticaLight', fontSize: 80, originY: 'top', fontWeight: 300
     });
     BzRect1.hasControls = BzRect1.hasBorders = false;
     BzRect1.lockMovementX = BzRect1.lockMovementY = true;
     BzRect1.text = language==0 ? 'Leave a message':'deja un mensaje';
-	
-	var oORect = new fabric.Text('delivered the package',{left: 70, top: 190, fontFamily: 'HelveticaLight', fontSize: 60, originY: 'top', fontWeight: 300
+  
+  var oORect = new fabric.Text('delivered the package',{left: 70, top: 190, fontFamily: 'HelveticaLight', fontSize: 60, originY: 'top', fontWeight: 300
     });
     oORect.hasControls = oORect.hasBorders = false;
     oORect.lockMovementX = oORect.lockMovementY = true;
     oORect.text = language==0 ? 'delivered the package':'entregado el paquete';
-	
-	var fgORect = new fabric.Text('Meet at the pub',{left: 70, top: 290, fontFamily: 'HelveticaLight', fontSize: 60, originY: 'top', fontWeight: 300
+  
+  var fgORect = new fabric.Text('Meet at the pub',{left: 70, top: 290, fontFamily: 'HelveticaLight', fontSize: 60, originY: 'top', fontWeight: 300
     });
     fgORect.hasControls = fgORect.hasBorders = false;
     fgORect.lockMovementX = fgORect.lockMovementY = true;
     fgORect.text = language==0 ? 'Meet at the pub':'Se reúnen en el pub';
-	
-	var iuyORect = new fabric.Text('You Suck!!',{left: 70, top: 370, fontFamily: 'HelveticaLight', fontSize: 60, originY: 'top', fontWeight: 300
+  
+  var iuyORect = new fabric.Text('You Suck!!',{left: 70, top: 370, fontFamily: 'HelveticaLight', fontSize: 60, originY: 'top', fontWeight: 300
     });
     iuyORect.hasControls = iuyORect.hasBorders = false;
     iuyORect.lockMovementX = iuyORect.lockMovementY = true;
-    iuyORect.text = language==0 ? 'You Suck!!':'Eres un inútil';
-	
-	InOutCanvas.add(BzRect1);
-	InOutCanvas.add(oORect);
-	InOutCanvas.add(fgORect);
-	InOutCanvas.add(iuyORect);
-	BzRect1.on('mousedown',function(){
-		mess.push(BzRect1.text);
-	})
-	oORect.on('mousedown',function(){
-		mess.push(oORect.text);
-	})
-	fgORect.on('mousedown',function(){
-		mess.push(fgORect);
-	})
-	iuyORect.on('mousedown',function(){
-		mess.push(iuyORect);
-	})
+    iuyORect.text = language==0 ? 'Pick Up your from the Post Office':'recoger su paquete Oficina postal';
+  
+  InOutCanvas.add(BzRect1);
+  InOutCanvas.add(oORect);
+  InOutCanvas.add(fgORect);
+  InOutCanvas.add(iuyORect);
+  BzRect1.on('mousedown',function(){
+    mess.push(BzRect1.text);
+  })
+  oORect.on('mousedown',function(){
+    mess.push(oORect.text);
+  })
+  fgORect.on('mousedown',function(){
+    mess.push(fgORect.text);
+  })
+  iuyORect.on('mousedown',function(){
+    mess.push(iuyORect.text);
+  })
+  crossSide();
+  }
+  
+  {
+	  InoutAppsDoor.style.display='none';
+  }
+  //InoutAppsDoor.style.display='block';
 
-	}
 	//InoutAppsDoor.style.display='block';
