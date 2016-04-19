@@ -23,7 +23,7 @@ function sendText(){
 	
     var MessageBoX = new fabric.Rect({
       left: 500,
-      top: 1000,
+      top: topLength+550,
       fill: 'white',
       stroke: 'black',
       strokeWidth: 5,
@@ -38,7 +38,7 @@ function sendText(){
 	
 	var BzRect = new fabric.IText('Busy..will call later',{
       left: 300,
-      top: 700,
+      top: topLength+250,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -52,7 +52,7 @@ function sendText(){
 	
 	var OOTRect = new fabric.IText('Out of Town',{
       left: 300,
-      top: 770,
+      top: topLength+320,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -66,7 +66,7 @@ function sendText(){
 	
 	var GoRect = new fabric.IText('Trespassers will be shot down!!',{
       left: 300,
-      top: 840,
+      top: topLength+390,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -80,7 +80,7 @@ function sendText(){
 	
 	var AllTxt = new fabric.IText('All',{
       left: 310,
-      top: 580,
+      top: topLength+130,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -94,7 +94,7 @@ function sendText(){
 	
 	var GtmTxt = new fabric.IText('Gautam',{
       left: 395,
-      top: 580,
+      top: topLength+130,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -107,7 +107,7 @@ function sendText(){
 	
 	var SaiTxt = new fabric.IText('Sai',{
       left: 560,
-      top: 580,
+      top: topLength+130,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -120,7 +120,7 @@ function sendText(){
 	
 	var SumanthTxt = new fabric.IText('Sumanth',{
       left: 640,
-      top: 580,
+      top: topLength+130,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -132,7 +132,7 @@ function sendText(){
 	
 	var VinitTxt = new fabric.IText('Vinit',{
       left: 820,
-      top: 580,
+      top: topLength+130,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -171,11 +171,11 @@ function sendText(){
     divideLine.lockMovementX = divideLine.lockMovementY = true;
     divideLine.hasControls = divideLine.hasBorders = false;
     
-	var divideLine1 = new fabric.Line([250,topLength+98,1145,topLength+98],{stroke: 'black', strokeWidth: 3, top: 650});
+	var divideLine1 = new fabric.Line([250,topLength+98,1145,topLength+98],{stroke: 'black', strokeWidth: 3, top: topLength+200});
     divideLine1.lockMovementX = divideLine1.lockMovementY = true;
     divideLine1.hasControls = divideLine1.hasBorders = false;
 	
-	var divideLine2 = new fabric.Line([15,550,15,1125],{stroke: 'black', strokeWidth: 3,left: 250});
+	var divideLine2 = new fabric.Line([15,topLength+100,15,topLength+675],{stroke: 'black', strokeWidth: 3,left: 250});
     divideLine2.lockMovementX = divideLine.lockMovementY = true;
     divideLine2.hasControls = divideLine.hasBorders = false;
 	
@@ -196,7 +196,7 @@ function sendText(){
 	
 	var WriteMessTxt1 = new fabric.IText('Write a new message',{
       left: 170,
-      top: 480,
+      top: topLength+30,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -227,7 +227,7 @@ function sendText(){
 	
 	var ReceivedMessTxt1 = new fabric.IText('Received message',{
       left: 730,
-      top: 480,
+      top: topLength+30,
       fill: 'black',
       stroke: 'black',
       strokeWidth: 2,
@@ -338,8 +338,8 @@ function sendText(){
 		User1Apps.style.display = 'none';
 		UserDefApps.style.display='none';
 		DisplayCanvasApps.style.display = 'block';
-		DisplayCanvasApps.style.left = '318px';
-		DisplayCanvasApps.style.top = '655px';
+		DisplayCanvasApps.style.left = '312px';
+        DisplayCanvasApps.style.top = up==1?'655px':'1105px';
 		DisplayCanvas.isDrawingMode = true;
 		DisplayCanvas.freeDrawingBrush.width = 5;
 		DisplayCanvas.freeDrawingBrush.color = "#ff0000";
