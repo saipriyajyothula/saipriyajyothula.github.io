@@ -3,12 +3,14 @@ function getCamera(){
       mainApps.deactivateAll();    
       divSide.style.display = 'none';  
       divInWindow.style.display = 'block';
+      divOutApps.style.display = 'none';
+      divOutWindow.style.display = 'block';
       crossCamera();
       addAvatar();
       addOutVideo();
       
       fabric.Image.fromURL('img/endcall.png', function(end) {
-      end.set({left: 1110, top: topLength+644, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, scaleX: 0.5, scaleY: 0.5, originX: 'right'});    
+      end.set({left: 1095, top: topLength+504.75, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, scaleX: 0.5, scaleY: 0.5, originX: 'center', originY: 'center'});    
           inWindow.add(end);
       end.on('mousedown',function(){
             inWindow.clear();
@@ -22,11 +24,11 @@ function getCamera(){
       });
     
       fabric.Image.fromURL('img/mic.png', function(mic) {
-      mic.set({left: 120, top: topLength+900, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      mic.set({left: 1095, top: topLength+585.5, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, originX: 'center' });    
           inWindow.add(mic);
           
           fabric.Image.fromURL('img/mutemic.png', function(mutemic) {
-      mutemic.set({left: 120, top: topLength+900, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      mutemic.set({left: 120, top: topLength+585.5, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
                
           mutemic.on('mousedown',function(){
               inWindow.remove(mutemic);
@@ -42,16 +44,16 @@ function getCamera(){
     function addAvatar(){
           inVideoEl.pause();
           fabric.Image.fromURL('img/avatar.png', function(avatar) {
-      avatar.set({left: 120, top: topLength+120, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, scaleX: 0.5, scaleY: 0.5});    
+      avatar.set({left: 1200, top: topLength+120, originX: 'right', lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, scaleX: 0.777, scaleY: 0.777});    
           inWindow.add(avatar);
-          outApps.add(avatar);
+          outWindow.add(avatar);
           
           fabric.Image.fromURL('img/mutevideo.png', function(mutevideo) {
-      mutevideo.set({left: 120, top: topLength+474, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      mutevideo.set({left: 1095, top: topLength+403.375, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, originX: 'center', originY: 'center'});    
           inWindow.add(mutevideo);      
           mutevideo.on('mousedown',function(){
           inWindow.remove(avatar);
-          outApps.remove(avatar);
+          outWindow.remove(avatar);
           inWindow.remove(mutevideo);
             addInVideo();
             });      
@@ -61,13 +63,12 @@ function getCamera(){
     
     function addInVideo(){
         var inVideo = new fabric.Image(inVideoEl, {
-          left: 120,
-          top: topLength+120,
-          scaleX: 0.5, scaleY: 0.5,
+          left: 1200,
+          top: topLength+120, originX: 'right',
           lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false
         });
         inWindow.add(inVideo);
-        outApps.add(inVideo);
+        outWindow.add(inVideo);
         inVideo.getElement().play();
         inVideoEl.volume = 0;
         fabric.util.requestAnimFrame(function render() {
@@ -75,11 +76,11 @@ function getCamera(){
         fabric.util.requestAnimFrame(render);
         });
         fabric.Image.fromURL('img/video.png', function(video) {
-      video.set({left: 120, top: topLength+474, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      video.set({left: 1095, top: topLength+403.375, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, originX: 'center'});    
           inWindow.add(video);      
           video.on('mousedown',function(){
           inWindow.remove(inVideo);
-          outApps.remove(inVideo);
+          outWindow.remove(inVideo);
           inWindow.remove(video);
             addAvatar();
             });      
@@ -88,7 +89,7 @@ function getCamera(){
     
     function addOutVideo(){
         fabric.Image.fromURL('img/out.jpg', function(out) {
-      out.set({left: 85, top: 450, width: 701, height: 1095, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      out.set({left: 85, top: 450, width: 875, height: 1367, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
         inWindow.add(out);
         var outVideo = new fabric.Image(outVideoEl, {
           left: 85,
@@ -115,12 +116,13 @@ function getCamera(){
             inWindow.clear();
             divInWindow.style.display = 'none';
             divMain.style.display = 'block';
-            getWeather();
-            getTime();
+            divOutApps.style.display = 'block';
+            divOutWindow.style.display = 'none';
             inVideoEl.pause();
             outVideoEl.pause();
-            outApps.clear();
-            outDoor();
+            outWindow.clear();
+            getWeather();
+            getTime();
         });
     });
 });
