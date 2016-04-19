@@ -42,3 +42,39 @@ function getMirror()
    
     crossMain();
 }
+
+function getHelp(){
+   addLock();
+   mainApps.deactivateAll();    
+   divMain.style.display = 'none';  
+   divInWindow.style.display = 'block';
+   crossHelp();
+   var helpVideo = new fabric.Image(helpVideoEl, {
+          left: 85,
+          top: topLength,
+          lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false
+        });
+        inWindow.add(helpVideo);
+        helpVideo.getElement().play();
+        fabric.util.requestAnimFrame(function render() {
+        inWindow.renderAll();
+        fabric.util.requestAnimFrame(render);
+        });
+}
+
+function crossHelp(){
+    fabric.Image.fromURL('img/cross.png', function(crossImg) {
+    crossImg.set({left: 1170, top: topLength-25, originX: 'center', originY: 'center'});    
+    inWindow.add(crossImg);
+    crossImg.hasControls = crossImg.hasBorders = false;
+    crossImg.lockMovementX = crossImg.lockMovementY = true;
+    crossImg.on('mousedown',function(){
+            inWindow.clear();
+            divInWindow.style.display = 'none';
+            divMain.style.display = 'block';
+            getWeather();
+            getTime();
+            helpVideoEl.pause();
+        });
+    });
+}

@@ -3,11 +3,11 @@ var months1 = ['enero','feb.','marzo','abr.','mayo','jun.','jul.','agosto','set.
 var days0 = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 var days1 = ['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
 
-var tempText = new fabric.Text('default', { left: 1110, top: 125, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'right', originY: 'top', fill: 'white', shadow: 'black 2px 2px 2px'});
+var tempText = new fabric.Text('23 \u00B0C', { left: 1110, top: 125, fontFamily: 'HelveticaLight', fontSize: 105, originX: 'right', originY: 'top', fill: 'white', shadow: 'black 2px 2px 2px'});
 tempText.hasControls = tempText.hasBorders = false;
 tempText.lockMovementX = tempText.lockMovementY = true;
 
-var tempDesText = new fabric.Text('default', { left: 1110, top: 260, fontFamily: 'HelveticaLight', fontSize: 52, originX: 'right', originY: 'top', fill: 'white', shadow: 'black 2px 2px 2px'});
+var tempDesText = new fabric.Text('Partly cloudy', { left: 1110, top: 260, fontFamily: 'HelveticaLight', fontSize: 52, originX: 'right', originY: 'top', fill: 'white', shadow: 'black 2px 2px 2px'});
 tempDesText.hasControls = tempDesText.hasBorders = false;
 tempDesText.lockMovementX = tempDesText.lockMovementY = true;
 

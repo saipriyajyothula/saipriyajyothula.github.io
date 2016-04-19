@@ -47,8 +47,10 @@ var videoStatus = 0;
 
 var inVideoEl = document.getElementById('inVideo');
 var outVideoEl = document.getElementById('outVideo');
+var helpVideoEl = document.getElementById('helpVideo');
 outVideoEl.setAttribute('loop','loop');
 inVideoEl.setAttribute('loop','loop');
+helpVideoEl.setAttribute('loop','loop');
 
 var alarmRedCircle = new fabric.Circle({left: leftWidth + 120, top: topLength+250, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
 alarmRedCircle.lockMovementX = alarmRedCircle.lockMovementY = true;
