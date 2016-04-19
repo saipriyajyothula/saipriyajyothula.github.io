@@ -138,10 +138,12 @@ function addLock(){
                 }
             
                  lock.on('mousedown',function(){
+                     responsiveVoice.speak((language == 0) ? 'Door Unlocked' : 'Desbloqueo de puerta');
                      inWindow.remove(lock);
                      inWindow.add(unlock);
                  });
                  unlock.on('mousedown',function(){
+                     responsiveVoice.speak((language == 0) ? 'Door Locked' : 'Puerta Cerrada');
                      inWindow.remove(unlock);
                      inWindow.add(lock);
                  });
