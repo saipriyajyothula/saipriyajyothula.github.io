@@ -1,4 +1,4 @@
-<html>    
+<html >    
 <head>
     <meta charset="utf-8">
     <title>Another beginning!</title>
@@ -27,7 +27,7 @@
     </video>
     <link href="css/style.css" rel="stylesheet">
 	 
-<body>
+<body style="width: 3400px; position: relative;">
     
     <canvas id="c" width="2714" height="2200" style="border:2px solid black"></canvas>
     
@@ -59,8 +59,10 @@
         <canvas id="LoadDoodSheet" width="1230" height="2200" style="border: 2px solid black"></canvas>
     </div>
     
-<div style="padding-left:2800; float:right;">
+<div style="position: absolute; top: 0;
+            right: 0;">
 	<button onclick="displayTextA()">All</button>
+    <p id="All"></p>
 	<button onclick="displayTextSa()">Sai</button>
     <p id="Sai"></p>
 	<button onclick="displayTextg()">Gautam</button>
@@ -69,10 +71,11 @@
 	<p id="Sumanth"></p>
 	<button onclick="displayTextVi()">Vinit</button>
 	<p id="Vinit"></p>
-    <p id="All"></p>
+    
 	</div>
 	
-	<div id ="dood" style="padding-left:2500; float:right;">
+	<div id ="dood" style="position: absolute; top: 0;
+            right: 450px;">
 	<button onclick="displayDoodA()">All</button>
     <p id="All"></p>
 	<button onclick="displayDoodSa()">Sai</button>
