@@ -2,6 +2,7 @@
 	var choiceUser={};
 	var userTxt=[];
 	var js1, js2, js3, js4, js5;
+    outhandleM();
 	
 function sendText(){
 	UserDefApps.style.display='none';

@@ -55,8 +55,8 @@ if (annyang) {
 
                 var commands2 = {'Smart Door Alarm ON': function() {alarmStatus=1;responsiveVoice.speak('Security alarm enabled');}
                     ,'Smart Door alarma activada': function() {alarmStatus=1;responsiveVoice.speak('alarma de seguridad habilitada');} 
-                    ,'Smart Door Alarm ON': function() {alarmStatus=1;responsiveVoice.speak('Security alarm enabled');}
-                    ,'Smart Door alarma activada': function() {alarmStatus=1;responsiveVoice.speak('alarma de seguridad habilitada');}            
+                    ,'Smart Door Alarm Off': function() {alarmStatus=0;responsiveVoice.speak('Security alarm disabled');}
+                    ,'Smart Door alarma de seguridad fuera': function() {alarmStatus=0;responsiveVoice.speak('alarma de seguridad con discapacidad');}            
                     ,'Smart Door Play Music': function() {sugar.play(); setTimeout(function(){sugar.pause();},10000);}
                     ,'Smart Door reproducir música': function() {sugar.play(); setTimeout(function(){sugar.pause();},10000);}              
                                  
@@ -230,3 +230,14 @@ function crossOutsideCanvas(){
     });
 }
 
+function outhandleM(){
+    fabric.Image.fromURL('img/outhandle.png', function(outhandle) {
+      outhandle.set({left: -143,
+      top: 333, originX: 'left', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
+      DefaultCanvas.add(outhandle);
+      outhandle.on('mousedown',function(){
+      logsJSON.unshift({"mode":"fingerprint","timeStamp":""+new Date().toLocaleTimeString()+""});
+      responsiveVoice.speak((language == 0) ? 'Door Unlocked' : 'Desbloqueo de puerta');      
+      });
+    });
+}
