@@ -29,7 +29,7 @@ var tempUnits = 'C';
 var language = 0;
 var alarmStatus = 1;
 var dndStatus = 0;
-var lockStatus = 0;
+var lockStatus = 1;
 var inThemeName = 'sea';
 var outThemeName = 'sea';
 var settingsFlag = 'l';
@@ -43,6 +43,12 @@ var packageChimeName = 1;
 var tempPackageChimeName = 1;
 var timeFormat = 0;
 var dateFormat = 0;
+var videoStatus = 0;
+
+var inVideoEl = document.getElementById('inVideo');
+var outVideoEl = document.getElementById('outVideo');
+outVideoEl.setAttribute('loop','loop');
+inVideoEl.setAttribute('loop','loop');
 
 var alarmRedCircle = new fabric.Circle({left: leftWidth + 120, top: topLength+250, radius: 18, fill: 'red', originX: 'center', originY: 'center', stroke: 'white', strokeWidth: 5});
 alarmRedCircle.lockMovementX = alarmRedCircle.lockMovementY = true;

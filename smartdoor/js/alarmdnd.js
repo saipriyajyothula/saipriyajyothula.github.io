@@ -59,9 +59,11 @@ function alarmWindow(){
         inWindow.deactivateAll();
         if(alarmStatus == 1){
             alarmStatus = 0;
+            responsiveVoice.speak((language == 0) ? 'Security alarm disabled' : 'alarma de seguridad con discapacidad');
         }
         else{
             alarmStatus = 1;
+            responsiveVoice.speak((language == 0) ? 'Security alarm enabled' : 'alarma de seguridad habilitada');
         }
         alarmPosition();
     }
@@ -169,11 +171,13 @@ function dndWindow(){
         inWindow.deactivateAll();
         if(dndStatus == 1){           
             dndStatus = 0;
+            responsiveVoice.speak((language == 0) ? 'do not disturb mode disabled' : 'no el modo no molestar desactivado');
             restructureOutDoor();
             outApps.renderAll.bind(outApps);
         }
         else{
             dndStatus = 1;
+            responsiveVoice.speak((language == 0) ? 'do not disturb mode enabled' : 'no molestar activado el modo');
             restructureOutDoor();
             outApps.renderAll.bind(outApps);
         }

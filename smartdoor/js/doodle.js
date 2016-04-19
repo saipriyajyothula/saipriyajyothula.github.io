@@ -9,6 +9,7 @@ function IfCanvasEmpty(){
     loadDoodle();
   }
 }
+
 function getDoodle()
 {
   sideApps.deactivateAll();    
@@ -16,8 +17,8 @@ function getDoodle()
   divInWindow.style.display = 'block';
   DoodleApps.style.display = 'block';
   DoodleApps.style.backgroundColor='white';
-  DoodleApps.style.left = '135px';
-  DoodleApps.style.top = '500px';
+  DoodleApps.style.left = '170px';
+  DoodleApps.style.top = '450px';
   Doodcanvas.isDrawingMode = true;
   Doodcanvas.freeDrawingBrush.width = 5;
   Doodcanvas.freeDrawingBrush.color = "black";
@@ -32,22 +33,14 @@ js=JSON.stringify(Doodcanvas);
 }
 
 function clearDoodle()
-{
-var clearRect = new fabric.Rect({
-  left: 642,
-  top: 2040,
-  fill: 'yellow',
-  stroke: 'yellow',
-  width: 55,
-  height: 55,
-  angle: 0
-});
-inWindow.add(clearRect);
-
-clearRect.on('mousedown',function(){
-    
+{    
+fabric.Image.fromURL('img/eraser.png', function(eraser) {
+eraser.set({left: 1170, top: topLength+50, originX: 'center', hasBorders: false, hasControls: false, lockMovementX: true, lockMovementY: true});    
+inWindow.add(eraser); 
+eraser.on('mousedown',function(){    
 Doodcanvas.clear();
-})
+});
+});
 }
 
 function loadDoodle()
@@ -55,11 +48,9 @@ function loadDoodle()
 sideApps.deactivateAll();  
 divSide.style.display = 'none'; 
 divInWindow.style.display = 'block';
-//console.log("asd");
 DoodleApps.style.display = 'block';
 Doodcanvas.loadFromJSON(js);
 crossDoodle();
-//console.log(js)
 clearDoodle();
 }
 

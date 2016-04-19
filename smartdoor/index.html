@@ -6,6 +6,8 @@
 	<!-- Get version 1.5.0 of Fabric.js from CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" ></script>
     <script src="js/jquery-1.12.0.min.js"></script>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    
     <audio src="music/uptown.mp3" id="uptown" style="display:none"></audio>
     <audio src="music/marvin.mp3" id="marvin" style="display:none"></audio>
     <audio src="music/sugar.mp3" id="sugar" style="display:none"></audio>
@@ -14,6 +16,12 @@
     <audio src="music/chime3.mp3" id="chime3" style="display:none"></audio>
     <img src="img/doorbellGray.png" id="dg" style="display:none">
     <img src="img/packageGray.png" id="pg" style="display:none">
+    <video height="234" width="270" id="inVideo" style="display: none">
+        <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4">
+    </video>
+    <video height="1095" width="701" id="outVideo" style="display: none">
+        <source src="music/Out.mp4">
+    </video>
     <link href="css/style.css" rel="stylesheet">
 	 
 <body>
@@ -41,7 +49,7 @@
     </div>
     
     <div id = "DoodIt" style="position:absolute; top:0; left:0; display: none">
-        <canvas id="DoodleSheet" width="1060" height="1200" style="border: 2px solid black"></canvas>
+        <canvas id="DoodleSheet" width="1015" height="1200" style="border: 2px solid black"></canvas>
     </div>
 
     <div id = "LoadDood" style="position:absolute; top:0; left:0; display: none">
@@ -62,6 +70,7 @@
 <script src = "js/scrmaps.js"></script>
 <script src = "js/doodle.js"></script>
 <script src = "js/galleryStore.js"></script>
+<script src = "js/camera.js"></script>
     
 <script>
 
@@ -129,7 +138,7 @@ function mainscreen() {
       top: topLength, lockMovementX: true, lockMovementY: true, hasControls: false, hasBorders: false});    
       mainApps.add(camera);
       camera.on('mousedown',function(){
-
+          getCamera();
     });    
     });
 
@@ -350,7 +359,6 @@ function mainscreen() {
            });
         
            var  doorLockText= new fabric.Text('default', { left: 585, top: 1325, fontFamily: 'HelveticaLight', fontSize: 32, fontWeight:300, originX: 'center', fill: 'white', shadow: 'black 2px 2px 2px', textAlign: 'center'});
-           doorLockText.text = (language == 0) ? 'Door Unlocked \n\(Slide to Lock\)' : 'Desbloqueo de puerta \n\(Diapositiva a la cerradura\)';
            doorLockText.hasControls = doorLockText.hasBorders = false;
            doorLockText.lockMovementX = doorLockText.lockMovementY = true;
            doorLockText.selectable = false;
@@ -361,12 +369,17 @@ function mainscreen() {
              fabric.Image.fromURL('img/unlock_door.png', function(lock) {
              lock.set({left: 240,
              top: 1366, originY: 'center', lockMovementY: true, scaleX: 1, scaleY: 1, hasBorders: false, hasControls: false});    
-             mainApps.add(lock);
-             sideApps.add(lock);
              
              fabric.Image.fromURL('img/lock_door.png', function(unlock) {
              unlock.set({left: 730,
              top: 1366, originY: 'center', lockMovementY: true, scaleX: 1, scaleY: 1, hasBorders: false, hasControls: false});
+                 
+            if(lockStatus == 1){
+                moveRight();
+            }
+            else{
+                moveLeft();
+            }
                  
              mainApps.on('object:moving',function(){
                  mainApps.deactivateAll();
@@ -419,6 +432,7 @@ function mainscreen() {
                  sideApps.add(lock);
                  doorLockText.set({left: 585});
                  doorLockText.text = (language == 0) ? 'Door Unlocked \n\(Slide to Lock\)' : 'Desbloqueo de puerta \n\(Diapositiva a la cerradura\)';
+                 responsiveVoice.speak((language == 0) ? 'Door Unlocked' : 'Desbloqueo de puerta');
             }
 
             function moveRight(){
@@ -435,8 +449,8 @@ function mainscreen() {
                  mainApps.add(unlock);
                  sideApps.add(unlock);
                  doorLockText.set({left: 480});
-
                  doorLockText.text = (language == 0) ? 'Door Locked \n\(Slide to Unlock\)' : 'Puerta Cerrada \n\(Deslice para desbloquear\)';
+                 responsiveVoice.speak((language == 0) ? 'Door Locked' : 'Puerta Cerrada');
             }
            });  
            });
