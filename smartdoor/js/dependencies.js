@@ -71,7 +71,6 @@ function crossMain(){
             divMain.style.display = 'block';
             getWeather();
             getTime();
-            clearScreen();
         });
     });
 }
@@ -91,7 +90,6 @@ function crossSide(){
             getTime();
             getWeather();
             saveDoodle();	
-            clearScreen();
         });
     });
 }
