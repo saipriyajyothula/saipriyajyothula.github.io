@@ -53,7 +53,7 @@ function getCamera(){
           inWindow.add(mic);
           
           fabric.Image.fromURL('img/mutemic.png', function(mutemic) {
-      mutemic.set({left: 120, top: topLength+585.5, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false});    
+      mutemic.set({left: 1095, top: topLength+585.5, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, originX: 'center'});    
                
           mutemic.on('mousedown',function(){
               inWindow.remove(mutemic);
@@ -105,7 +105,7 @@ function getCamera(){
         fabric.util.requestAnimFrame(render);
         });
         fabric.Image.fromURL('img/video.png', function(video) {
-      video.set({left: 1095, top: topLength+403.375, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, originX: 'center'});    
+      video.set({left: 1095, top: topLength+403.375, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls: false, originX: 'center', originY: 'center'});    
           inWindow.add(video);      
           video.on('mousedown',function(){
           inWindow.remove(inVideo);
