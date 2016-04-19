@@ -78,3 +78,17 @@ function crossHelp(){
         });
     });
 }
+
+function approaching()
+{
+  addLock();
+  mainApps.deactivateAll();    
+  divMain.style.display = 'none';  
+  divInWindow.style.display = 'block';  
+  fabric.Image.fromURL('img/approaching.png', function(approach) {
+      approach.set({left:85, top: 450, lockMovementX: true, lockMovementY: true, hasBorders: false, hasControls:  false});    
+      inWindow.add(approach);
+      addInhandle();
+    }); 
+    crossMain();
+}

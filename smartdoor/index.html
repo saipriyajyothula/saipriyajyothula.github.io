@@ -83,7 +83,11 @@
 	<p id="Sumanth"></p>
 	<button onclick="displayDoodVi()">Vinit</button>
 	<p id="Vinit"></p>
+    
+    <button id="approach" onclick="approaching()">Approach</button>
+        
 	 </div>
+    
     
     <div id = "DisplayDood" style="position:absolute; top:0; left:0; display: none">
 		<canvas id="DisplayDoodC" width="885" height="480" style="border: 2px solid black"></canvas>
@@ -621,17 +625,17 @@ function mainscreen() {
       strokeWidth: 5,
       width: 5000,
       height: 500,
-      rx: 10,
-      ry: 10,
+      rx: 0,
+      ry: 0,
       angle: 0
     });
 	//outApps.add(MessageBoX);
 	MessageBoX.hasControls = MessageBoX.hasBorders = false;
     MessageBoX.lockMovementX = MessageBoX.lockMovementY = true;
 	
-	DefaultCanvas.add(MessageBoX);
+	//DefaultCanvas.add(MessageBoX);
 	DefaultCanvas.add(MessRect1);
-	MessRect1.setText('Jelly I love apple pie tart'+'\n'+'tootsie roll tiramisu bonbon I love.'+'\n'+'I love I love cookie cotton candy. Danish'+'\n'+'candy muffin lollipop tiramisu gingerbread sugar plum lollipop.'+'\n'+'Chocolate bar sweet I love.' +'\n'+'I love powder danish biscuit bear claw fruitcake'+'\n' +'I love liquorice I love');
+	MessRect1.setText('Hi! Have a great day.. Leave a message if you' +'\n'+ 'want to');
 
 }
     

@@ -193,7 +193,7 @@ function sendText(){
 	crossInsideCanvas();
 	//inWindow.add(MessageBoX);
 	
-	var WriteMessTxt1 = new fabric.IText('Write a new Message',{
+	var WriteMessTxt1 = new fabric.IText('Write a new message',{
       left: 170,
       top: 480,
       fill: 'black',
@@ -224,7 +224,7 @@ function sendText(){
 	InOutCanvasMainDoor.add(displMessTxt1);
 	
 	
-	var ReceivedMessTxt1 = new fabric.IText('Received Message',{
+	var ReceivedMessTxt1 = new fabric.IText('Received message',{
       left: 730,
       top: 480,
       fill: 'black',
@@ -467,7 +467,7 @@ function displayTextSa()
 	//console.log(rt[0]);
 	if(choiceUser['Sai']==null)
 	{
-		MessRect.setText('Jelly I love apple pie tart'+'\n'+'tootsie roll tiramisu bonbon I love.'+'\n'+'I love I love cookie cotton candy. Danish'+'\n'+'candy muffin lollipop tiramisu gingerbread sugar plum lollipop.'+'\n'+'Chocolate bar sweet I love.' +'\n'+'I love powder danish biscuit bear claw fruitcake'+'\n' +'I love liquorice I love');
+		MessRect.setText('Hi! Have a great day.. Leave a message if you' +'\n'+ 'want to');
 	}
 	else{
 	MessRect.setText(rt[0]+'\n'+' '+'~Sai');	
@@ -520,7 +520,7 @@ function displayTextg()
 	rt=choiceUser['Gtm'];
 	if(choiceUser['Gtm']==null)
 	{
-		MessRect.setText('Jelly I love apple pie tart'+'\n'+'tootsie roll tiramisu bonbon I love.'+'\n'+'I love I love cookie cotton candy. Danish'+'\n'+'candy muffin lollipop tiramisu gingerbread sugar plum lollipop.'+'\n'+'Chocolate bar sweet I love.' +'\n'+'I love powder danish biscuit bear claw fruitcake'+'\n' +'I love liquorice I love');
+		MessRect.setText('Hi! Have a great day.. Leave a message if you' +'\n'+ 'want to');
 	}
 	else{
 		MessRect.setText(rt[0]+'\n'+' '+'~Gautam');	
@@ -575,7 +575,7 @@ function displayTextSu()
 	//MessRect.setText(rt[0]);
 	if(choiceUser['Sum']==null)
 	{
-		MessRect.setText('Jelly I love apple pie tart'+'\n'+'tootsie roll tiramisu bonbon I love.'+'\n'+'I love I love cookie cotton candy. Danish'+'\n'+'candy muffin lollipop tiramisu gingerbread sugar plum lollipop.'+'\n'+'Chocolate bar sweet I love.' +'\n'+'I love powder danish biscuit bear claw fruitcake'+'\n' +'I love liquorice I love');
+		MessRect.setText('Hi! Have a great day.. Leave a message if you' +'\n'+ 'want to');
 	}
 	else{
 		MessRect.setText(rt[0]+'\n'+' '+'~Sumanth');	
@@ -628,7 +628,7 @@ function displayTextVi()
 	rt=choiceUser['Vinit'];
 	if(choiceUser['Vinit']==null)
 	{
-		MessRect.setText('Jelly I love apple pie tart'+'\n'+'tootsie roll tiramisu bonbon I love.'+'\n'+'I love I love cookie cotton candy. Danish'+'\n'+'candy muffin lollipop tiramisu gingerbread sugar plum lollipop.'+'\n'+'Chocolate bar sweet I love.' +'\n'+'I love powder danish biscuit bear claw fruitcake'+'\n' +'I love liquorice I love');
+		MessRect.setText('Hi! Have a great day.. Leave a message if you' +'\n'+ 'want to');
 	}
 	else{
 	MessRect.setText(rt[0]+'\n'+' '+'~Vinit');	

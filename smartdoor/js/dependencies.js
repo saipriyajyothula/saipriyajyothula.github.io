@@ -215,7 +215,7 @@ function crossInsideCanvas(){
 function crossOutsideCanvas(){
 	outApps.deactivateAll();
 	fabric.Image.fromURL('img/cross.png', function(crossImg) {
-    crossImg.set({left: 1170, top: 1000, originX: 'center', originY: 'center'});    
+    crossImg.set({left: 1085, top: 970, originX: 'center', originY: 'center'});    
     outApps.add(crossImg);
     crossImg.hasControls = crossImg.hasBorders = false;
     crossImg.lockMovementX = crossImg.lockMovementY = true;
