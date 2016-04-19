@@ -627,42 +627,6 @@ function mainscreen() {
     MessRect.setText('Jelly I love apple pie tart'+'\n'+'tootsie roll tiramisu bonbon I love.'+'\n'+'I love I love cookie cotton candy. Danish'+'\n'+'candy muffin lollipop tiramisu gingerbread sugar plum lollipop.'+'\n'+'Chocolate bar sweet I love.' +'\n'+'I love powder danish biscuit bear claw fruitcake'+'\n' +'I love liquorice I love');
     }
     
-    UserDefApps.style.display = 'block';
-	UserDefApps.style.left = '1600px';
-	UserDefApps.style.top = '1000px';
-	
-	var MessRect = new fabric.IText(' ',{
-      left: 0,
-      top: 0,
-      fill: 'black',
-      stroke: 'black',
-      strokeWidth: 5,
-	  fontFamily: 'Helvetica',
-	fontSize:50
-    });
-	//outApps.add(MessRect);
-    MessRect.hasControls = MessRect.hasBorders = false;
-    MessRect.lockMovementX = MessRect.lockMovementY = true;
-	
-	var MessageBoX = new fabric.Rect({
-      left: 0,
-      top: 0,
-      fill: 'white',
-      stroke: 'black',
-      strokeWidth: 5,
-      width: 5000,
-      height: 500,
-      rx: 10,
-      ry: 10,
-      angle: 0
-    });
-	//outApps.add(MessageBoX);
-	MessageBoX.hasControls = MessageBoX.hasBorders = false;
-    MessageBoX.lockMovementX = MessageBoX.lockMovementY = true;
-	
-	DefaultCanvas.add(MessageBoX);
-	DefaultCanvas.add(MessRect);
-	MessRect.setText('Jelly I love apple pie tart'+'\n'+'tootsie roll tiramisu bonbon I love.'+'\n'+'I love I love cookie cotton candy. Danish'+'\n'+'candy muffin lollipop tiramisu gingerbread sugar plum lollipop.'+'\n'+'Chocolate bar sweet I love.' +'\n'+'I love powder danish biscuit bear claw fruitcake'+'\n' +'I love liquorice I love');
 }        
 
 function changeTopLength(){
