@@ -1,5 +1,27 @@
 function getCamera(){
       
+    
+    fabric.Image.fromURL('img/keypad.png', function(keypad) {
+      keypad.set({left: 53,
+      top: 1150, lockMovementX: true, lockMovementY: true,scaleX: 0.9, scaleY:0.9, hasControls: false, hasBorders: false});    
+      outWindow.add(keypad);
+      keypad.on('mousedown',function(){
+          outWindow.deactivateAll();
+          logsJSON.unshift({"mode":"keypad","timeStamp":""+new Date().toLocaleTimeString()+""});
+
+    });    
+    });
+    
+    fabric.Image.fromURL('img/outhandle.png', function(outhandle) {
+      outhandle.set({left: 65,
+      top: 1325, originX: 'left', lockMovementX: true, lockMovementY: true, scaleX: 0.8, scaleY: 0.8, hasControls: false, hasBorders: false});    
+      outWindow.add(outhandle);
+      outWindow.moveTo(outhandle, 50);
+      outhandle.on('mousedown',function(){
+      logsJSON.unshift({"mode":"fingerprint","timeStamp":""+new Date().toLocaleTimeString()+""});
+      });
+    });
+    
       mainApps.deactivateAll();    
       divSide.style.display = 'none';  
       divInWindow.style.display = 'block';
