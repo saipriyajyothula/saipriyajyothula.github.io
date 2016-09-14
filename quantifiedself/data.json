@@ -1,0 +1,743 @@
+{
+  "name": "calls",
+  "children": [
+    {
+      "name": "25-Aug",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Google Voice",
+                  "time": [
+                    "9:17 AM",
+                    "10:47 AM"
+                  ],
+                  "duration": [
+                    "00:07",
+                    "00:27"
+                  ],
+                  "size": 34
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Whatsapp",
+                  "time": [
+                    "11:13 AM"
+                  ],
+                  "duration": [
+                    "00:05"
+                  ],
+                  "size": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "26-Aug",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Google Voice",
+                  "time": [
+                    "9:22 AM"
+                  ],
+                  "duration": [
+                    "00:19"
+                  ],
+                  "size": 19
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Whatsapp",
+                  "time": [
+                    "11:44 AM",
+                    "12:09 PM"
+                  ],
+                  "duration": [
+                    "00:05",
+                    "00:26"
+                  ],
+                  "size": 31
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Skype",
+                  "time": [
+                    "09:39 AM"
+                  ],
+                  "duration": [
+                    "01:13"
+                  ],
+                  "size": 73
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "27-Aug",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Google Voice",
+                  "time": [
+                    "1:59 PM",
+                    "8:02 PM",
+                    "8:09 PM"
+                  ],
+                  "duration": [
+                    "01:40",
+                    "00:05",
+                    "00:10"
+                  ],
+                  "size": 115
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Google Voice",
+                  "time": [
+                    "10:32 AM",
+                    "10:45 AM"
+                  ],
+                  "duration": [
+                    "00:12",
+                    "01:19"
+                  ],
+                  "size": 91
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Whatsapp",
+                  "time": [
+                    "03:38 PM"
+                  ],
+                  "duration": [
+                    "00:16"
+                  ],
+                  "size": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "28-Aug",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Google Voice",
+                  "time": [
+                    "7:43 PM"
+                  ],
+                  "duration": [
+                    "00:25"
+                  ],
+                  "size": 25
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Google Voice",
+                  "time": [
+                    "08:41 AM",
+                    "08:56 AM",
+                    "09:18 AM",
+                    "11:11 AM",
+                    "7:33 PM"
+                  ],
+                  "duration": [
+                    "00:16",
+                    "00:22",
+                    "00:05",
+                    "00:20",
+                    "00:10"
+                  ],
+                  "size": 73
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Whatsapp",
+                  "time": [
+                    "12:59 PM"
+                  ],
+                  "duration": [
+                    "00:33"
+                  ],
+                  "size": 33
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Skype",
+                  "time": [
+                    "10:53 PM"
+                  ],
+                  "duration": [
+                    "00:59"
+                  ],
+                  "size": 59
+                },
+                {
+                  "name": "Whatsapp",
+                  "time": [
+                    "09:23 AM"
+                  ],
+                  "duration": [
+                    "00:28"
+                  ],
+                  "size": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "29-Aug",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "12:58 AM",
+                    "9:46 PM"
+                  ],
+                  "duration": [
+                    "00:03",
+                    "00:07"
+                  ],
+                  "size": 10
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "01:28 AM",
+                    "7:37 AM",
+                    "08:21 AM",
+                    "10:38 PM"
+                  ],
+                  "duration": [
+                    "00:31",
+                    "00:28",
+                    "00:04",
+                    "00:11"
+                  ],
+                  "size": 74
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Chicago",
+              "children": [
+                {
+                  "name": "Voice Call",
+                  "time": [
+                    "9:46 PM"
+                  ],
+                  "duration": [
+                    "00:10"
+                  ],
+                  "size": 10
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Whatsapp",
+                  "time": [
+                    "01:51 AM"
+                  ],
+                  "duration": [
+                    "00:05"
+                  ],
+                  "size": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "30-Aug",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "01:09 AM",
+                    "11:15 PM"
+                  ],
+                  "duration": [
+                    "00:05",
+                    "00:08"
+                  ],
+                  "size": 13
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "09:33 AM"
+                  ],
+                  "duration": [
+                    "00:22"
+                  ],
+                  "size": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Chicago",
+              "children": [
+                {
+                  "name": "Voice Call",
+                  "time": [
+                    "5:11 PM"
+                  ],
+                  "duration": [
+                    "00:03"
+                  ],
+                  "size": 3
+                }
+              ]
+            },
+            {
+              "name": "San Francisco",
+              "children": [
+                {
+                  "name": "FaceTime",
+                  "time": [
+                    "10:34 PM"
+                  ],
+                  "duration": [
+                    "00:34"
+                  ],
+                  "size": 34
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "31-Aug",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "09:40 AM",
+                    "1:00 PM",
+                    "1:04 PM",
+                    "8:35 PM",
+                    "08:58 PM",
+                    "10:46 PM"
+                  ],
+                  "duration": [
+                    "00:03",
+                    "00:04",
+                    "00:03",
+                    "00:11",
+                    "00:43",
+                    "00:57"
+                  ],
+                  "size": 121
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Chicago",
+              "children": [
+                {
+                  "name": "Voice Call",
+                  "time": [
+                    "5:16 PM",
+                    "06:54 PM"
+                  ],
+                  "duration": [
+                    "00:08",
+                    "00:04"
+                  ],
+                  "size": 12
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Skype",
+                  "time": [
+                    "09:11 AM"
+                  ],
+                  "duration": [
+                    "00:14"
+                  ],
+                  "size": 14
+                }
+              ]
+            },
+            {
+              "name": "San Francisco",
+              "children": [
+                {
+                  "name": "FaceTime",
+                  "time": [
+                    "11:49 AM"
+                  ],
+                  "duration": [
+                    "01:03"
+                  ],
+                  "size": 63
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1-Sep",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "01:25 AM"
+                  ],
+                  "duration": [
+                    "00:13"
+                  ],
+                  "size": 13
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "10:29 PM"
+                  ],
+                  "duration": [
+                    "00:07"
+                  ],
+                  "size": 7
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Chicago",
+              "children": [
+                {
+                  "name": "Voice Call",
+                  "time": [
+                    "7:36 AM",
+                    "12:20 PM"
+                  ],
+                  "duration": [
+                    "00:04",
+                    "00:06"
+                  ],
+                  "size": 10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2-Sep",
+      "children": [
+        {
+          "name": "Family",
+          "children": [
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "12:29 AM"
+                  ],
+                  "duration": [
+                    "00:08"
+                  ],
+                  "size": 8
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "09:36 AM"
+                  ],
+                  "duration": [
+                    "00:57"
+                  ],
+                  "size": 57
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Chicago",
+              "children": [
+                {
+                  "name": "Voice Call",
+                  "time": [
+                    "12:34 AM",
+                    "2:40 PM",
+                    "5:44 PM",
+                    "5:15 PM"
+                  ],
+                  "duration": [
+                    "00:13",
+                    "00:08",
+                    "00:06",
+                    "00:12"
+                  ],
+                  "size": 39
+                }
+              ]
+            },
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Whatsapp",
+                  "time": [
+                    "10:24 PM"
+                  ],
+                  "duration": [
+                    "00:07"
+                  ],
+                  "size": 7
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3-Sep",
+      "children": [
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Chicago",
+              "children": [
+                {
+                  "name": "Voice Call",
+                  "time": [
+                    "12:38 AM"
+                  ],
+                  "duration": [
+                    "00:08"
+                  ],
+                  "size": 8
+                }
+              ]
+            },
+            {
+              "name": "Hyderabad",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "10:26 AM"
+                  ],
+                  "duration": [
+                    "00:42"
+                  ],
+                  "size": 42
+                }
+              ]
+            },
+            {
+              "name": "San Francisco",
+              "children": [
+                {
+                  "name": "Voice Call",
+                  "time": [
+                    "11:36 PM"
+                  ],
+                  "duration": [
+                    "00:35"
+                  ],
+                  "size": 35
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4-Sep",
+      "children": [
+        {
+          "name": "Friends",
+          "children": [
+            {
+              "name": "Kakinada",
+              "children": [
+                {
+                  "name": "Rebtel",
+                  "time": [
+                    "11:18 PM"
+                  ],
+                  "duration": [
+                    "00:14"
+                  ],
+                  "size": 14
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
