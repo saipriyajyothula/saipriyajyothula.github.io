@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VizBooks</title>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tipsy/1.0.3/jquery.tipsy.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <p id="top_label"></p>
+    </div>
+    
+    <div>
+        <svg width = 1440 height = 960 id= "topsvg"> </svg>
+    </div>
+	<script src = "js/first_page.js" type="text/javascript"></script>
+    <div style="position: absolute; top: 45px; left: 440px">
+        <p id="label"></p>
+        <p id="auth_label"></p>
+    </div>
+	<div id = "radialform" class = "hidden" style="padding-top: 135px">
+        <p id="first_title">Flow of sentiment and emotions in the book</p>
+		<p>Select view type and emotions :&#41;</p>
+	    <form>
+	        <div style="padding: 5px" >
+	            <input type="radio" name="typeofview" onclick="check('sth', this.id)" id="pn" checked="checked">Positivity and Negativity
+	            <div id = "allemotions">
+	                <input type="radio" name="typeofview" onclick="check('sth', this.id)" id="emotion">Emotions:
+	                <input type="checkbox" name="emotiontype" onclick="check(this.id, viewtype)" id="anticipation">Anticipation
+	                <input type="checkbox" name="emotiontype" onclick="check(this.id, viewtype)" id="sadness">Sadness
+	                <input type="checkbox" name="emotiontype" onclick="check(this.id, viewtype)" id="disgust">Disgust
+	                <input type="checkbox" name="emotiontype" onclick="check(this.id, viewtype)" id="joy">Joy
+	                <input type="checkbox" name="emotiontype" onclick="check(this.id, viewtype)" id="anger">Anger
+	                <input type="checkbox" name="emotiontype" onclick="check(this.id, viewtype)" id="surprise">Surprise
+	                <input type="checkbox" name="emotiontype" onclick="check(this.id, viewtype)" id="fear">Fear
+	                <input type="checkbox" name="emotiontype" onclick="check(this.id, viewtype)" id="trust">Trust
+	            </div>
+	        </div>
+            <p>Click or hover over nodes to interact and learn more!</p>
+	    </form>
+	    
+        <div id ="radialsvgdiv">
+            <svg id = "radialsvg"></svg>
+        </div>
+        
+	    <div align="right" style="position:absolute; left:790px; top:400px">
+	        <textarea class="scrollabletextbox" id="note"></textarea>
+	    </div>
+	    
+	    <div align="right" style="position:absolute; left:795px; top:600px">
+	        <canvas width="240" height="240"></canvas>
+	    </div>
+	<div>
+         <p id="second_title">Character emotions in the book</p>
+         <p id="third_title" style="position: absolute; left: 650px">Character interactions and underlying emotions in the interactions</p>
+         <br>
+         <p style="display: inline-block">Click on an emotion or character to analyze and understand the book better!</p>
+         <p style="display: inline-block; position: absolute; left: 650px">Click on a character to see the interaction of the character with others!</p>
+         <br><br>
+     </div> 
+    </div>
+    
+
+    <style>
+        p, form, text{
+            font: 14px Helvetica, Arial, sans-serif;
+            font-weight: 300;
+        }
+        
+        #first_title, #second_title, #third_title{
+            display: inline-block;
+            font: 18px Helvetica, Arial, sans-serif;
+            font-weight: 300;
+        }
+
+        #allemotions{
+            display: inline; padding: 3px; border: 1px solid #999
+        }
+
+        .node {
+            cursor: pointer;
+        }
+
+        .node circle {
+            fill: #fff;
+            stroke-width: 1px;
+        }
+
+        .node text {
+            font: 10px Helvetica, Arial, sans-serif;
+            font-weight: 300;
+        }
+
+        .scrollabletextbox {
+            height:150px;
+            width:250px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 300;
+            overflow:scroll;
+        }
+
+        #topsvg{
+            position: absolute;
+            padding-top: 20px;
+            top: 0;
+        }
+
+        #top_label{
+            padding-top: 20px;
+            position: absolute;
+            left: 600px;
+            text-align: center;
+        }
+
+        #label{
+            display: inline-block;
+            padding-right: 20px;
+        }
+
+        #auth_label{
+            display: inline-block;
+        }
+
+        .hidden{
+          display: none;
+        }
+
+        .thirdnode rect {
+          cursor: move;
+          fill-opacity: .9;
+          shape-rendering: crispEdges;
+        }
+
+        .thirdnode text {
+          pointer-events: none;
+          text-shadow: 0 1px 0 #fff;
+        }
+
+        .viz3link {
+          fill: none;
+          stroke: gray;
+          stroke-opacity: .5;
+        }
+
+
+        .forcelinks line {
+          stroke-opacity: 0.8;
+        }
+
+        .forcenodes circle {
+          stroke: #fff;
+          stroke-width: 1.5px;
+        }
+
+        .forcenodes text {
+          font: 12px Helvetica, Arial, sans-serif;
+          font-weight: 300;
+          pointer-events: None;
+        }
+    </style>
+    
+    <!--tipsy styles-->
+    
+    <style>
+        .tipsy{font-family: Helvetica, Arial, sans-serif; font-size:12px;position:absolute;padding:5px;word-wrap:break-word;z-index:100000}.tipsy-inner{background-color:#000;color:#FFF;max-width:200px;padding:5px 8px 4px;text-align:center;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px}.tipsy-arrow{position:absolute;width:0;height:0;line-height:0;border:5px dashed #000}.tipsy-arrow-n{border-bottom-color:#000}.tipsy-arrow-s{border-top-color:#000}.tipsy-arrow-e{border-left-color:#000}.tipsy-arrow-w{border-right-color:#000}.tipsy-n .tipsy-arrow,.tipsy-nw .tipsy-arrow{border-left-color:transparent;border-right-color:transparent;top:0;border-bottom-style:solid;border-top:none}.tipsy-n .tipsy-arrow{left:50%;margin-left:-5px}.tipsy-nw .tipsy-arrow{left:10px}.tipsy-ne .tipsy-arrow{top:0;right:10px;border-bottom-style:solid;border-top:none;border-left-color:transparent;border-right-color:transparent}.tipsy-s .tipsy-arrow,.tipsy-se .tipsy-arrow,.tipsy-sw .tipsy-arrow{bottom:0;border-top-style:solid;border-bottom:none;border-left-color:transparent;border-right-color:transparent}.tipsy-s .tipsy-arrow{left:50%;margin-left:-5px}.tipsy-sw .tipsy-arrow{left:10px}.tipsy-se .tipsy-arrow{right:10px}.tipsy-e .tipsy-arrow,.tipsy-w .tipsy-arrow{top:50%;margin-top:-5px;border-top-color:transparent;border-bottom-color:transparent}.tipsy-e .tipsy-arrow{right:0;border-left-style:solid;border-right:none}.tipsy-w .tipsy-arrow{left:0;border-right-style:solid;border-left:none}
+    </style>
+
+</body>
+<script src="js/viz3script.js"></script>
+<script src="js/d3-sankey.js"></script>
+<script src="js/viz3MainScript.js"></script>
+<script src="js/chapter_selector.js" type="text/javascript"></script>
+<script src="js/force.js" type="text/javascript"></script>
+
+<script src = "js/books.js" type="text/javascript"></script>
+<script src="js/leafsvg.js" type="text/javascript"></script>
+<script src="js/radialtree.js" type="text/javascript"></script>
+<script src="js/piechart.js" type="text/javascript"></script>
+
+</html>

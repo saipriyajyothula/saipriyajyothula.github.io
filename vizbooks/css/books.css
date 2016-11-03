@@ -1,0 +1,92 @@
+p, form, text{
+    font: 14px Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+#allemotions{
+    display: inline; padding: 3px; border: 1px solid #999
+}
+
+.node {
+    cursor: pointer;
+}
+
+.node circle {
+    fill: #fff;
+    stroke-width: 1px;
+}
+
+.node text {
+    font: 10px Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+.scrollabletextbox {
+    height:100px;
+    width:200px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    overflow:scroll;
+}
+
+#topsvg{
+    position: absolute;
+    padding-top: 20px;
+    top: 0;
+}
+
+#top_label{
+    padding-top: 20px;
+}
+
+#label{
+    display: inline-block;
+    padding-right: 50px;
+}
+
+#auth_label{
+    display: inline-block;
+}
+
+.hidden{
+  display: none;
+}
+
+.thirdnode rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.thirdnode text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.viz3link {
+  fill: none;
+  stroke: gray;
+  stroke-opacity: .5;
+}
+
+
+.forcelinks line {
+  stroke-opacity: 0.8;
+}
+
+.forcenodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.forcenodes text {
+  font: 12px Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  pointer-events: None;
+}
