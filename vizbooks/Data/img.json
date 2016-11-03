@@ -1,0 +1,36 @@
+{
+    "value":
+    [ 
+       
+        {"img" :"Data/Book_Covers/exp/200.jpg","name" : "Ten Years Later", "author_name" : "Alexander Dumas", "directory_name" : "Data/Json_Data/200/"},
+       {"img" :"Data/Book_Covers/exp/300.jpg","name" : "The Black Tulip", "author_name" : "Alexander Dumas", "directory_name" : "Data/Json_Data/300/"},
+        
+        {"img" :"Data/Book_Covers/exp/201.jpg","name" : "The Lair of the White Worm", "author_name" : "Bram Stroker", "directory_name" : "Data/Json_Data/201/"},
+        {"img" :"Data/Book_Covers/exp/401.jpg","name" : "The Jewel of Seven Stars", "author_name" : "Bram Stroker", "directory_name" : "Data/Json_Data/401/"},
+        
+        {"img" :"Data/Book_Covers/exp/102.jpg","name" : "A Christmas Carol", "author_name" : "Charles Dickens", "directory_name" : "Data/Json_Data/102/"},
+        {"img" :"Data/Book_Covers/exp/202.jpg","name" : "Oliver Twist", "author_name" : "Charles Dickens", "directory_name" : "Data/Json_Data/202/"},
+        
+        {"img" :"Data/Book_Covers/exp/103.jpg","name" : "A Study in Scarlet", "author_name" : "Conan Doyle", "directory_name" : "Data/Json_Data/103/"},
+        {"img" :"Data/Book_Covers/exp/203.jpg","name" : "The Hound of Baskervilles", "author_name" : "Conan Doyle", "directory_name" : "Data/Json_Data/203/"},
+        {"img" :"Data/Book_Covers/exp/303.jpg","name" : "The Sign of the Four", "author_name" : "Conan Doyle", "directory_name" : "Data/Json_Data/303/"},
+        
+        {"img" :"Data/Book_Covers/exp/104.jpg","name" : "Pride and Prejudice", "author_name" : "Jane Austen", "directory_name" : "Data/Json_Data/104/"},
+        {"img" :"Data/Book_Covers/exp/204.jpg","name" : "Sense and Sensibility", "author_name" : "Jane Austen", "directory_name" : "Data/Json_Data/204/"},
+        {"img" :"Data/Book_Covers/exp/304.jpg","name" : "Emma", "author_name" : "Jane Austen", "directory_name" : "Data/Json_Data/304/"},
+        {"img" :"Data/Book_Covers/exp/404.jpg","name" : "Northanger Abbey", "author_name" : "Jane Austen", "directory_name" : "Data/Json_Data/404/"},
+        {"img" :"Data/Book_Covers/exp/504.jpg","name" : "Persuasion", "author_name" : "Jane Austen", "directory_name" : "Data/Json_Data/504/"},
+        {"img" :"Data/Book_Covers/exp/604.jpg","name" : "Mansfield Park", "author_name" : "Jane Austen", "directory_name" : "Data/Json_Data/604/"},  
+        
+        {"img" :"Data/Book_Covers/exp/305.jpg","name" : "Around the World in 80 days", "author_name" : "Jules Verne", "directory_name" : "Data/Json_Data/305/"},
+        
+        {"img" :"Data/Book_Covers/exp/107.jpg","name" : "Adventures of Huckleberry Finn", "author_name" : "Mark Twain", "directory_name" : "Data/Json_Data/107/"},
+        {"img" :"Data/Book_Covers/exp/207.jpg","name" : "The Adventures of Tom Sawyer", "author_name" : "Mark Twain", "directory_name" : "Data/Json_Data/207/"},
+        {"img" :"Data/Book_Covers/exp/307.jpg","name" : "The Prince and the Pauper", "author_name" : "Mark Twain", "directory_name" : "Data/Json_Data/307/"},
+        
+        {"img" :"Data/Book_Covers/exp/111.jpg","name" : "Wuthering Heights", "author_name" : "Emily Bronte", "directory_name" : "Data/Json_Data/111/"},
+        
+         {"img" :"Data/Book_Covers/exp/114.jpg","name" : "The Wonderful Wizard of Oz", "author_name" : "Frank Baum", "directory_name" : "Data/Json_Data/114/"}
+        
+      
+]}
