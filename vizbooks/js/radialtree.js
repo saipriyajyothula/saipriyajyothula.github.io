@@ -212,7 +212,7 @@ function giveclass(d, flag){
     if(d.depth==2){
         var x = findmax(d.data.sentiment);
         classnames+=(" "+ x);
-        if((d.data.sentiment.Positive)<(d.data.sentiment.Negative)){
+        if((Number(d.data.sentiment.Positive))<(Number(d.data.sentiment.Negative))){
             classnames+=" negative";
         }
         else{
@@ -225,7 +225,7 @@ function giveclass(d, flag){
 function fillcolor(d){
     if(d._children){
         if(d.depth==2){
-             if(d.data.sentiment.Positive < d.data.sentiment.Negative){
+             if(Number(d.data.sentiment.Positive) < Number(d.data.sentiment.Negative)){
                  return "#ee7f7f";
              }
              else{
