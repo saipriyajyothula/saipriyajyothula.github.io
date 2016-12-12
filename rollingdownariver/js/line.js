@@ -163,6 +163,7 @@ function drawlinegraph(datafile){
     }
     
     document.getElementById('R'+datafile).style.display = 'block';
+    document.getElementById('separator'+datafile).style.display = 'block';
     document.getElementById('linegraphDiv'+datafile).style.display = 'inline-block';
     document.getElementById('river_name'+datafile).innerHTML = eval("R"+datafile).name;
     console.log(eval("R"+datafile).name);
