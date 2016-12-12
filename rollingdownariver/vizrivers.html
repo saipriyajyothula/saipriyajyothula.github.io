@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rolling Down a River</title>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="css/jquery.tipsy.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tipsy/1.0.3/jquery.tipsy.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="jumbotron" id="banner">
+            <h1 id="headline">Rolling Down a River</h1>
+        </div>
+        <div id = "R0" class="riverDiv">
+            <p id="river_name0" class="river_name"></p>
+            <button id="show_entire0" class="show_entire show_entire0">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv0" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_0" type="number" min="0" max="1600" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_0" type="number" min="10" max="1601" value="100">
+                    <input id = "button_0" type = "submit" class="redraw0" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow0" type="image" class="left_arrow left_arrow0" src="images/left.png">
+                <svg id = "linegraphsvg0" class= "linegraphsvg"></svg>
+                <input id="right_arrow0" type="image" class="right_arrow right_arrow0" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv0" class="asymmetryDiv">
+                <svg id="asymmetrysvg0" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading0">Pools and riffles in the entire river:</p>
+            <button id="close_arc0" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv0" class="arcDiv">
+                <button id="center_button0" class="center_button">Center</button>
+                <svg id = "arcsvg0" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence0" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R1" class="riverDiv">
+            <p id="river_name1" class="river_name"></p>
+            <button id="show_entire1" class="show_entire show_entire1">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv1" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_1" type="number" min="0" max="150" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_1" type="number" min="10" max="152" value="100">
+                    <input id = "button_1" type = "submit" class="redraw1" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow1" type="image" class="left_arrow left_arrow1"  src="images/left.png">
+                <svg id = "linegraphsvg1" class= "linegraphsvg"></svg>
+                <input id="right_arrow1" type="image" class="right_arrow right_arrow1" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv1" class="asymmetryDiv">
+                <svg id="asymmetrysvg1" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading1">Pools and riffles in the entire river:</p>
+            <button id="close_arc1" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv1" class="arcDiv">
+                <button id="center_button1" class="center_button">Center</button>
+                <svg id = "arcsvg1" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence1" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R2" class="riverDiv">
+            <p id="river_name2" class="river_name"></p>
+            <button id="show_entire2" class="show_entire show_entire2">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv2" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_2" type="number" min="0" max="150" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_2" type="number" min="10" max="152" value="100">
+                    <input id = "button_2" type = "submit" class="redraw2" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow2" type="image" class="left_arrow left_arrow2" src="images/left.png">
+                <svg id = "linegraphsvg2" class= "linegraphsvg"></svg>
+                <input id="right_arrow2" type="image" class="right_arrow right_arrow2" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv2" class="asymmetryDiv">
+                <svg id="asymmetrysvg2" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading2">Pools and riffles in the entire river:</p>
+            <button id="close_arc2" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv2" class="arcDiv">
+                <button id="center_button2" class="center_button">Center</button>
+                <svg id = "arcsvg2" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence2" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R3" class="riverDiv">
+            <p id="river_name3" class="river_name"></p>
+            <button id="show_entire3" class="show_entire show_entire3">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv3" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_3" type="number" min="0" max="2710" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_3" type="number" min="10" max="2717" value="100">
+                    <input id = "button_3" type = "submit" class="redraw3" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow3" type="image" class="left_arrow left_arrow3" src="images/left.png">
+                <svg id = "linegraphsvg3" class= "linegraphsvg"></svg>
+                <input id="right_arrow3" type="image" class="right_arrow right_arrow3" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv3" class="asymmetryDiv">
+                <svg id="asymmetrysvg3" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading3">Pools and riffles in the entire river:</p>
+            <button id="close_arc3" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv3" class="arcDiv">
+                <button id="center_button3" class="center_button">Center</button>
+                <svg id = "arcsvg3" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence3" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R4" class="riverDiv">
+            <p id="river_name4" class="river_name"></p>
+            <button id="show_entire4" class="show_entire show_entire4">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv4" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_4" type="number" min="0" max="2550" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_4" type="number" min="10" max="2559" value="100">
+                    <input id = "button_4" type = "submit" class="redraw4" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow4" type="image" class="left_arrow left_arrow4" src="images/left.png">
+                <svg id = "linegraphsvg4" class= "linegraphsvg"></svg>
+                <input id="right_arrow4" type="image" class="right_arrow right_arrow4" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv4" class="asymmetryDiv">
+                <svg id="asymmetrysvg4" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading4">Pools and riffles in the entire river:</p>
+            <button id="close_arc4" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv4" class="arcDiv">
+                <button id="center_button4" class="center_button">Center</button>
+                <svg id = "arcsvg4" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence4" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R5" class="riverDiv">
+            <p id="river_name5" class="river_name"></p>
+            <button id="show_entire5" class="show_entire show_entire5">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv5" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_5" type="number" min="0" max="510" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_5" type="number" min="10" max="512" value="100">
+                    <input id = "button_5" type = "submit" class="redraw5" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow5" type="image" class="left_arrow left_arrow5" src="images/left.png">
+                <svg id = "linegraphsvg5" class= "linegraphsvg"></svg>
+                <input id="right_arrow5" type="image" class="right_arrow right_arrow5" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv5" class="asymmetryDiv">
+                <svg id="asymmetrysvg5" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading5">Pools and riffles in the entire river:</p>
+            <button id="close_arc5" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv5" class="arcDiv">
+                <button id="center_button5" class="center_button">Center</button>
+                <svg id = "arcsvg5" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence5" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R6" class="riverDiv">
+            <p id="river_name6" class="river_name"></p>
+            <button id="show_entire6" class="show_entire show_entire6">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv6" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_6" type="number" min="0" max="37400" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_6" type="number" min="10" max="37409" value="100">
+                    <input id = "button_6" type = "submit" class="redraw6" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow6" type="image" class="left_arrow left_arrow6" src="images/left.png">
+                <svg id = "linegraphsvg6" class= "linegraphsvg"></svg>
+                <input id="right_arrow6" type="image" class="right_arrow right_arrow6" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv6" class="asymmetryDiv">
+                <svg id="asymmetrysvg6" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading6">Pools and riffles in the entire river:</p>
+            <button id="close_arc6" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv6" class="arcDiv">
+                <button id="center_button6" class="center_button">Center</button>
+                <svg id = "arcsvg6" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence6" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R10" class="riverDiv">
+            <p id="river_name10" class="river_name"></p>
+            <button id="show_entire10" class="show_entire show_entire10">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv10" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_10" type="number" min="0" max="1120" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_10" type="number" min="10" max="1123" value="100">
+                    <input id = "button_10" type = "submit" class="redraw10" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow10" type="image" class="left_arrow left_arrow10" src="images/left.png">
+                <svg id = "linegraphsvg10" class= "linegraphsvg"></svg>
+                <input id="right_arrow10" type="image" class="right_arrow right_arrow10" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv10" class="asymmetryDiv">
+                <svg id="asymmetrysvg10" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading10">Pools and riffles in the entire river:</p>
+            <button id="close_arc10" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv10" class="arcDiv">
+                <button id="center_button10" class="center_button">Center</button>
+                <svg id = "arcsvg10" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence10" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R11" class="riverDiv">
+            <p id="river_name11" class="river_name"></p>
+            <button id="show_entire11" class="show_entire show_entire11">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv11" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_11" type="number" min="0" max="370" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_11" type="number" min="10" max="377" value="100">
+                    <input id = "button_11" type = "submit" class="redraw11" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow11" type="image" class="left_arrow left_arrow11" src="images/left.png">
+                <svg id = "linegraphsvg11" class= "linegraphsvg"></svg>
+                <input id="right_arrow11" type="image" class="right_arrow right_arrow11" src="images/right.png">
+            </div>
+            </div>
+            <div id="asymmetryDiv11" class="asymmetryDiv">
+                <svg id="asymmetrysvg11" class="asymmetrysvg"> </svg>
+            </div>
+            <p id= "pools_heading11">Pools and riffles in the entire river:</p>
+            <button id="close_arc11" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv11" class="arcDiv">
+                <button id="center_button11" class="center_button">Center</button>
+                <svg id = "arcsvg11" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence11" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R12" class="riverDiv">
+            <p id="river_name12" class="river_name"></p>
+            <button id="show_entire12" class="show_entire show_entire12">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv12" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_12" type="number" min="0" max="520" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_12" type="number" min="10" max="525" value="100">
+                    <input id = "button_12" type = "submit" class="redraw12" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow12" type="image" class="left_arrow left_arrow12" src="images/left.png">
+                <svg id = "linegraphsvg12" class= "linegraphsvg"></svg>
+                <input id="right_arrow12" type="image" class="right_arrow right_arrow12" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv12" class="asymmetryDiv">
+                <svg id="asymmetrysvg12" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading12">Pools and riffles in the entire river:</p>
+            <button id="close_arc12" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv12" class="arcDiv">
+                <button id="center_button12" class="center_button">Center</button>
+                <svg id = "arcsvg12" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence12" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R13" class="riverDiv">
+            <p id="river_name13" class="river_name"></p>
+            <button id="show_entire13" class="show_entire show_entire13">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv13" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_13" type="number" min="0" max="670" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_13" type="number" min="10" max="670" value="100">
+                    <input id = "button_13" type = "submit" class="redraw13" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow13" type="image" class="left_arrow left_arrow13" src="images/left.png">
+                <svg id = "linegraphsvg13" class= "linegraphsvg"></svg>
+                <input id="right_arrow13" type="image" class="right_arrow right_arrow13" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv13" class="asymmetryDiv">
+                <svg id="asymmetrysvg13" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading13">Pools and riffles in the entire river:</p>
+            <button id="close_arc13" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv13" class="arcDiv">
+                <button id="center_button13" class="center_button">Center</button>
+                <svg id = "arcsvg13" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence13" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R14" class="riverDiv">
+            <p id="river_name14" class="river_name"></p>
+            <button id="show_entire14" class="show_entire show_entire14">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv14" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_14" type="number" min="0" max="3090" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_14" type="number" min="10" max="3098" value="100">
+                    <input id = "button_14" type = "submit" class="redraw14" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow14" type="image" class="left_arrow left_arrow14" src="images/left.png">
+                <svg id = "linegraphsvg14" class= "linegraphsvg"></svg>
+                <input id="right_arrow14" type="image" class="right_arrow right_arrow14" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv14" class="asymmetryDiv">
+                <svg id="asymmetrysvg14" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading14">Pools and riffles in the entire river:</p>
+            <button id="close_arc14" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv14" class="arcDiv">
+                <button id="center_button14" class="center_button">Center</button>
+                <svg id = "arcsvg14" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence14" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R16" class="riverDiv">
+            <p id="river_name16" class="river_name"></p>
+            <button id="show_entire16" class="show_entire show_entire16">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv16" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_16" type="number" min="0" max="3220" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_16" type="number" min="10" max="3222" value="100">
+                    <input id = "button_16" type = "submit" class="redraw16" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow16" type="image" class="left_arrow left_arrow16" src="images/left.png">
+                <svg id = "linegraphsvg16" class= "linegraphsvg"></svg>
+                <input id="right_arrow16" type="image" class="right_arrow right_arrow16" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv16" class="asymmetryDiv">
+                <svg id="asymmetrysvg16" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading16">Pools and riffles in the entire river:</p>
+            <button id="close_arc16" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv16" class="arcDiv">
+                <button id="center_button16" class="center_button">Center</button>
+                <svg id = "arcsvg16" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence16" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+        <div id= "R18" class="riverDiv">
+            <p id="river_name18" class="river_name"></p>
+            <button id="show_entire18" class="show_entire show_entire18">Show entire river profile</button><br>
+            <div>
+            <div id = "linegraphDiv18" class="linegraphDiv">
+                <form class="form">
+                    <p>Start position of river profile in meters:</p>
+                    <input id = "input_pos_18" type="number" min="0" max="2140" step="10" value="0">
+                    &nbsp;&nbsp;<p>Distance range in meters:</p>
+                    <input id = "input_ran_18" type="number" min="10" max="2144" value="100">
+                    <input id = "button_18" type = "submit" class="redraw18" value="Redraw the river profile">
+                </form>
+                <input id="left_arrow18" type="image" class="left_arrow left_arrow18" src="images/left.png">
+                <svg id = "linegraphsvg18" class= "linegraphsvg"></svg>
+                <input id="right_arrow18" type="image" class="right_arrow right_arrow18" src="images/right.png">
+            </div>
+            <div id="asymmetryDiv18" class="asymmetryDiv">
+                <svg id="asymmetrysvg18" class="asymmetrysvg"> </svg>
+            </div>
+            </div>
+            <p id= "pools_heading18">Pools and riffles in the entire river:</p>
+            <button id="close_arc18" class="close_arc">Close pools and riffles</button>
+            <div id="arcDiv18" class="arcDiv">
+                <button id="center_button18" class="center_button">Center</button>
+                <svg id = "arcsvg18" class = "arcsvg"></svg>
+            </div>
+            <br><p id="sequence18" class="sequence">Pool-Riffle sequence:</p>
+        </div>
+    </body>
+    <script src="js/0.js" type="text/javascript"></script>
+    <script src="js/1.js" type="text/javascript"></script>
+    <script src="js/2.js" type="text/javascript"></script>
+    <script src="js/3.js" type="text/javascript"></script>
+    <script src="js/4.js" type="text/javascript"></script>
+    <script src="js/5.js" type="text/javascript"></script>
+    <script src="js/6.js" type="text/javascript"></script>
+    <script src="js/10.js" type="text/javascript"></script>
+    <script src="js/11.js" type="text/javascript"></script>
+    <script src="js/12.js" type="text/javascript"></script>
+    <script src="js/13.js" type="text/javascript"></script>
+    <script src="js/14.js" type="text/javascript"></script>
+    <script src="js/16.js" type="text/javascript"></script>
+    <script src="js/18.js" type="text/javascript"></script>
+    <script src="js/line.js" type="text/javascript"></script>
+<!--    <script src="js/asymmetry.js" type="text/javascript"></script>-->
+    <script src="js/arc.js" type="text/javascript"></script>
+    <script src="js/mainviz.js" type="text/javascript"></script>
+</html>
