@@ -1,0 +1,17 @@
+{
+  "name": "river-site",
+  "version": "0.0.0",
+  "description": "Site for CS 424, Project 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e pug -x \"npm run build-html\"",
+    "build-html": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.11.0",
+    "open": "0.0.5",
+    "pug": "^2.0.0-beta6"
+  }
+}

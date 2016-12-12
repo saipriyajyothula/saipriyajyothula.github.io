@@ -1,0 +1,20 @@
+{
+  "name": {"type": String, "desc": "name of river"},
+  "x"   : {"type": Array,  "desc": "x-values"},
+  "z"   : {"type": Array,  "desc": "river bed z-values"},
+  "wse" : {"type": Array,  "desc": "water surface z-values"},
+  "fit" : {"type": Array,  "desc": "4th-order fit z-values"},
+  "sd"  : {"type": Number, "desc": "standard deviation of z"},
+  "ao"  : {"type": Number, "desc": "overall asymmetry of river"},
+  "ext" : [
+            {
+              "x"  : {"type": Number,  "desc": "x-location of riffle/pool"},
+              "h"  : {"type": Number,  "desc": "height of riffle/pool above fit line"},
+              "lb" : {"type": Number,  "desc": "left boundary of riffle/pool relative to x"},
+              "rb" : {"type": Number,  "desc": "right boundary of riffle/pool relative to x"},
+              "al" : {"type": Number,  "desc": "length asymmetry metric"},
+              "al1": {"type": Number,  "desc": "area asymmetry metric (broken)"},
+              "val": {"type": Number,  "desc": "-1 for pool, 1 for riffle"}
+            }
+          ]
+}

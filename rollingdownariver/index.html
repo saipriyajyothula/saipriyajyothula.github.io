@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rolling Down a River</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery.color.js"></script>
+    <script src="lib/d3.min.js"></script>
+    <script src="lib/leaflet.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron" id="banner">
+      <h1 id="headline">Rolling Down a River</h1>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">Select up to three rivers to compare</div>
+            <div class="panel-body">
+              <ul class="list-group" id="river-list">
+                <li class="river list-group-item" data-id="13">Carson River @ Lower Carson Canyon <span class='label label-default river-label'>671 m</span></li>
+                <li class="river list-group-item" data-id="18">Lost Man Creek <span class='label label-default river-label'>2145 m</span></li>
+                <li class="river list-group-item" data-id="6">Lower Yuba River <span class='label label-default river-label'>37410 m</span></li>
+                <li class="river list-group-item" data-id="4">Merced River - River Ranch <span class='label label-default river-label'>2560 m</span></li>
+                <li class="river list-group-item" data-id="3">Merced River - Robinson Reach <span class='label label-default river-label'>2718 m</span></li>
+                <li class="river list-group-item" data-id="5">Moras Creek <span class='label label-default river-label'>513 m</span></li>
+                <li class="river list-group-item" data-id="10">Motueka River @ Woodstock <span class='label label-default river-label'>1124 m</span></li>
+                <li class="river list-group-item" data-id="11">Motupiko River @ Korere <span class='label label-default river-label'>378 m</span></li>
+                <li class="river list-group-item" data-id="12">Motupiko River @ Quinnies Bush <span class='label label-default river-label'>526 m</span></li>
+                <li class="river list-group-item" data-id="16">Redwood Creek at Weir Creek <span class='label label-default river-label'>3223 m</span></li>
+                <li class="river list-group-item" data-id="0">San Joaquin River at Vulcan Reach <span class='label label-default river-label'>1602 m</span></li>
+                <li class="river list-group-item" data-id="1">San Joaquin River - R1 <span class='label label-default river-label'>153 m</span></li>
+                <li class="river list-group-item" data-id="2">San Joaquin River - R2 <span class='label label-default river-label'>153 m</span></li>
+                <li class="river list-group-item" data-id="14">Yampa River @ Lily Park <span class='label label-default river-label'>3099 m</span></li>
+              </ul>
+            </div>
+            <div class="panel-footer text-right">
+              <div class="btn-group" role="group">
+                <button class="btn btn-default" id="clear-btn" type="button">Clear All</button>
+                <button class="btn btn-default" id="go-btn" type="button">Go</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-8">
+          <div class="panel panel-default" id="worldMap">
+            <div class="panel-heading">River Locations</div>
+            <div class="panel-body" id="worldMapBox"></div>
+          </div>
+          <div class="panel panel-default"></div>
+          <div class="panel panel-default"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/maps.js"></script>
+  <script src="js/select-rivers.js"></script>
+</html>

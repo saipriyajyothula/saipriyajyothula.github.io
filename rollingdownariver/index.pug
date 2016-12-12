@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Rolling Down a River
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='css/leaflet.css')
+    link(rel='stylesheet', href='css/custom.css')
+
+    script(src='lib/jquery.min.js')
+    script(src='lib/jquery.color.js')
+    script(src='lib/d3.min.js')
+    script(src='lib/leaflet.js')
+    
+  body
+    .jumbotron#banner
+      h1#headline Rolling Down a River
+
+    .container-fluid
+      .row
+
+        .col-xs-12.col-md-4
+          .panel.panel-default
+            .panel-heading Select up to three rivers to compare
+            .panel-body
+              ul#river-list.list-group
+                for river in rivers
+                  li.river.list-group-item(data-id=river.id)
+                    | #{river.name} <span class='label label-default river-label'>#{river.length} m</span>
+            .panel-footer.text-right
+              .btn-group(role='group')
+                button#clear-btn.btn.btn-default(type='button') Clear All
+                button#go-btn.btn.btn-default(type='button') Go
+
+        .col-xs-12.col-md-8
+          #worldMap.panel.panel-default
+            .panel-heading River Locations
+            .panel-body#worldMapBox
+
+          .panel.panel-default
+          .panel.panel-default
+
+  script(src='js/maps.js')
+  script(src='js/select-rivers.js')

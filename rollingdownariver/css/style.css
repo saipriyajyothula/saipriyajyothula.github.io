@@ -1,0 +1,98 @@
+/*
+body{
+    background-color: #555;
+}
+*/
+
+.riverDiv{
+    display: none;
+    padding: 5px;
+}
+
+.river_name{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.show_entire{
+    margin-left: 5px;
+}
+
+p{
+    font: 14px Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    display: inline;
+}
+
+input{
+    font: 12px Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+.linegraphDiv{
+    display: none;
+    position: relative;
+    padding: 5px;
+    padding-top: 10px;
+}
+
+.arcDiv{
+    display: none;
+    position: relative;
+    padding: 5px;
+}
+
+.close_arc{
+    margin-left: 521px;
+}
+
+.center_button{
+    position: absolute;
+    top: 211px;
+    left: 36px; 
+}
+
+.arcsvg{
+    position: relative;
+    left: 123px;
+}
+
+.left_arrow{
+    position: absolute;
+    top:92px;
+    padding: 10px;
+    opacity: 0.6;
+}
+
+.linegraphsvg{
+    position: relative;
+    left: 72px;
+/*    border: 1px solid #777;*/
+/*    margin: 10px;*/
+}
+
+.right_arrow{
+    position: absolute;
+    top:92px;
+    left: 902px;
+    padding: 10px;
+    opacity: 0.6;
+}
+
+.asymmetryDiv{
+    display: none;
+    position: relative;
+    padding: 5px;
+    padding-top: 10px;
+    width: 208px;
+}
+
+.asymmetrysvg{
+    position: relative;
+    left: 174px;
+}
+
+/*
+.sequence{
+    float: left;
+}*/

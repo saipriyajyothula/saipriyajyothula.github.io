@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Carson River @ Lower Carson Canyon",
+        "length": 671,
+        "id": "13"
+    },
+    {
+        "name": "Lost Man Creek",
+        "length": 2145,
+        "id": "18"
+    },
+    {
+        "name": "Lower Yuba River",
+        "length": 37410,
+        "id": "6"
+    },
+    {
+        "name": "Merced River - River Ranch",
+        "length": 2560,
+        "id": "4"
+    },
+    {
+        "name": "Merced River - Robinson Reach",
+        "length": 2718,
+        "id": "3"
+    },
+    {
+        "name": "Moras Creek",
+        "length": 513,
+        "id": "5"
+    },
+    {
+        "name": "Motueka River @ Woodstock",
+        "length": 1124,
+        "id": "10"
+    },
+    {
+        "name": "Motupiko River @ Korere",
+        "length": 378,
+        "id": "11"
+    },
+    {
+        "name": "Motupiko River @ Quinnies Bush",
+        "length": 526,
+        "id": "12"
+    },
+    {
+        "name": "Redwood Creek at Weir Creek",
+        "length": 3223,
+        "id": "16"
+    },
+    {
+        "name": "San Joaquin River at Vulcan Reach",
+        "length": 1602,
+        "id": "0"
+    },
+    {
+        "name": "San Joaquin River - R1",
+        "length": 153,
+        "id": "1"
+    },
+    {
+        "name": "San Joaquin River - R2",
+        "length": 153,
+        "id": "2"
+    },
+    {
+        "name": "Yampa River @ Lily Park",
+        "length": 3099,
+        "id": "14"
+    }
+]
