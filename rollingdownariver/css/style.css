@@ -4,6 +4,12 @@ body{
 }
 */
 
+#back_button{
+    margin-top: 5px;
+    position: relative;
+    left: 50%;
+}
+
 .riverDiv{
     display: none;
     padding: 5px;
@@ -40,6 +46,14 @@ input{
     display: none;
     position: relative;
     padding: 5px;
+}
+
+.separator{
+    display: none;
+    width: 100%;
+    padding-top: 15px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
 .close_arc{
