@@ -2,7 +2,7 @@ function drawgraphs(rivers){
     rivers.forEach(function(d){
        drawlinegraph(String(d));
        drawarc(String(d)); 
-       drawasymmetry(String(d));
+       //drawasymmetry(String(d));
     });
 }
 
