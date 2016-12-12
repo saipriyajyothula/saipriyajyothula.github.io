@@ -17,7 +17,8 @@ function drawarc(datafile){
     
     datum.z = eval("R"+datafile).z;
     datum.ext = eval("R"+datafile).ext;
-    datum.fit = eval("R"+datafile).fit;
+    datum.fit = eval("R" + datafile).fit;
+    datum.ao = eval("R" + datafile).ao;
     
     var maxim = Number.NEGATIVE_INFINITY;
     var minim = Infinity;
@@ -56,6 +57,8 @@ function drawarc(datafile){
             document.getElementById('sequence'+datafile).innerHTML += ' R'    
         }
     });
+
+    document.getElementById('sequence' + datafile).innerHTML += ('<br>Asymmetry index is '+datum.ao);
         
     var arcpath = function(extarr, elevations){
         var flag = (extarr.val==1)?200:220;
