@@ -1,0 +1,20 @@
+.same_line.display{
+    display: inline-block;
+}
+
+.display{
+    display: block;
+}
+
+.dont_display{
+    display: none;
+}
+
+#submit_button{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+body{
+    padding-left: 13px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Time Calculator">
+        <meta name="author" content="Sai Priya Jyothula">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Time Calculator</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div>
+            <form class="form">
+                <div>
+                    <p class="same_line display">Total time:</p>
+                    <input id="total_hours_radio" type="radio" name="thp" checked onchange="total_type_change(0)"> Hours
+                    <input id="total_points_radio" type="radio" name="thp" onchange="total_type_change(1)"> Points&nbsp;&nbsp;
+                    <div id="total_hours" class="same_line display">
+                        <input id="total_time_hours" type="text" placeholder="hh:mm" value="08:02" style="width: 98px; height: 20px; padding: 0;">
+                    </div>
+                    <div id="total_points" class="same_line dont_display"> 
+                        <input id="total_time_points" type="text" placeholder="Example: 8.02" value="8.034">
+                    </div>
+                </div>
+                <p class="same_line display">Start time:</p>
+                <input id="start_time" type="time" value="09:00">
+                <br>
+                <p class="same_line display">Lunch time:</p>
+                <input id="lunch_time" type="time" value="12:30">
+                <br>
+                <p class="same_line display">Lunch break:</p>
+                <input id="lunch_hours_radio" type="radio" name="lhp" onchange="lunch_type_change(0)" checked> Time after lunch
+                <input id="lunch_mins_radio" type="radio" name="lhp" onchange="lunch_type_change(1)"> Number of minutes&nbsp;&nbsp;
+                <div id="lunch_after_hours" class="same_line display">
+                    <input id="lunch_break_hours" type="time" value="12:40">
+                </div>
+                <div id="lunch_mins" class="same_line dont_display"> 
+                    <input id="lunch_break_mins" type="text" placeholder="Enter minutes less than 60"  value="10" style="width: 98px; height: 20px; padding: 0;">
+                </div>
+                <br>
+                <input id="submit_button" type = "submit" value="Calculate end time" onclick="calculate_end()">
+            </form>
+            <p class="same_line display">End time:</p>
+            <input id="end_time" type="time">
+        </div>
+    </body>
+    <script src="js/script.js" type="text/javascript"></script>
+    
+</html>
