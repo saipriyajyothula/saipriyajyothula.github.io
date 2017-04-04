@@ -3,160 +3,135 @@ $(".form").submit(function(e) {
 });
 
 $("#submit_button").click(function(){
-    var a = $("#size_1")["0"].value;
-    var b = $("#size_2")["0"].value;
-    var c = $("#click_number")["0"].value;
-    if((a%1==0)&&(parseInt(a)<=$("#size_1")["0"].max)&&(parseInt(a)>=$("#size_1")["0"].min)){
-        if((b%1==0)&&(parseInt(b)<=$("#size_2")["0"].max)&&(parseInt(b)>=$("#size_2")["0"].min)){
-            if((c%1==0)&&(parseInt(c)<=$("#click_number")["0"].max)&&(parseInt(c)>=$("#click_number")["0"].min)){
-                trial++;
-                datum.push({"trial": trial+1, "clicks": []});
-                count = parseInt(c)*2;
-                halfcount = parseInt(c);
-                updatePattern();
-                select_random();
+    if(validateValues(["#size_1", "#size_2", "#distance_1", "#distance_2", "#distance_3", "#click_number"])){
+        document.getElementById("form_div").style.display = "none";
+        document.getElementById("inputsvg").style.display = "block";
+        click_num = Number($("#click_number")["0"].value);
+        updatePattern(tuples[0].size, tuples[0].distance);
+        tuples.shift()
+        $("#1").addClass("present");
+        }
+    });
+
+function validateValues(items){
+    var res = [];
+    items.forEach(function(item){
+        item = $(item)["0"];
+        var v = item.value;
+        if((v%(Number(item.step))==0)&&(Number(v)<=item.max)&&(Number(v)>=item.min)){
+            res.push(true);
+        }
+    });
+    if(res.length==items.length){
+        tuples = [];
+        for(var i=1; i<=2; i++){
+            for(var j=1; j<=3; j++){
+                tuples.push({"size": Number($("#size_"+i)["0"].value), "distance": Number($("#distance_"+j)["0"].value)});
             }
         }
+        return true;
     }
-});
+    else return false;
+}
 
 var width = 600,
-    height = 500,
-    radius,
-    rows,
-    rowsforodd,
-    columns,
-    count = 20,
-    halfcount = 10,
-    trial = 0,
-    datum = [{"trial": trial+1, clicks: []}];
+    height = 600,
+    mousedata = [],
+    pointnumber = 120,
+    tuples = [],
+    click_num,
+    prev_time,
+    datum = [],
+    prev_center = {};
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("id", "inputsvg")
+    .style("display", "none")
+    .style("outline", "thin solid #EEE")
+//    .on("mousemove", function(){
+//        var point = d3.mouse(this);
+//        tick(point);
+//    });
 
-var halfradius;
-
-//var hexpath = function(d){
-//    return "M " + 0 + " " + (Math.sqrt(3)*halfradius) + " L " + halfradius + " " + 0 + " L " + (halfradius*3) + " " + 0 + " L " + (2*radius) + " " + (Math.sqrt(3)*halfradius) + " L " + (3*halfradius) + " " + (Math.sqrt(3)*radius) + " L " + halfradius + " " + (Math.sqrt(3)*radius) + " Z";
-//}
-
-var hexpaths;
-var previous, present = "nothing";
-
-var hexagons = function(width, height, radius){
-    hexpaths = [];
-    halfradius = radius/2;
-    rows = Math.floor(width/(3*radius));
-    if(((rows*3*radius)+(3*halfradius)+(2*radius))>width){
-        rowsforodd = rows - 1;
+function updatePattern(size, distance){
+    d3.selectAll(".target").remove();
+    circles = [];
+    var theta = (2*Math.PI)/(click_num+1);
+    for(var k=2; k<=(click_num+1); k+=2){
+        circles.push(k);
     }
-    columns = Math.floor(height/(Math.sqrt(3)*halfradius)) - 1;
-    for(var i=0; i<rows; i++){
-        for(var j=0; j<columns;j++){
-            temp = [i, j];
-            if(j%2 == 0){
-                temp.push("M " + (3*radius*i) + " " + ((Math.sqrt(3)*halfradius*j)+(Math.sqrt(3)*halfradius)) + " L " + ((3*radius*i)+halfradius) + " " + (Math.sqrt(3)*halfradius*j) + " L " + ((3*radius*i)+(halfradius*3)) + " " + (Math.sqrt(3)*halfradius*j) + " L " + ((3*radius*i)+(2*radius)) + " " + ((Math.sqrt(3)*halfradius*j)+(Math.sqrt(3)*halfradius)) + " L " + ((3*radius*i)+(3*halfradius)) + " " + ((Math.sqrt(3)*halfradius*j)+(Math.sqrt(3)*radius)) + " L " + ((3*radius*i)+halfradius) + " " + ((Math.sqrt(3)*halfradius*j)+(Math.sqrt(3)*radius)) + " Z");
-                hexpaths.push(temp);
+    for(var k=1; k<=(click_num+1); k+=2){
+        circles.push(k);
+    }
+    svg.selectAll("target")
+        .data(circles)
+        .enter().append("circle")
+        .attr("class", "target")
+        .attr("id", function(d){ return d; })
+        .attr("r", size/2)
+        .attr("cx", function(d,i){ return 300 + ((distance/2)*Math.cos(theta*i-0.75)); })
+        .attr("cy", function(d,i){ return 300 + ((distance/2)*Math.sin(theta*i-0.75)); });
+
+    $(".target").click(function(){
+        if(this.classList.contains("present")){
+            var timestamp = new Date;
+            timestamp = timestamp.getTime();
+            //console.log([event.clientX, event.clientY]);
+            //console.log(timestamp);
+            console.log($("#"+this.id)[0].cx.baseVal.value);
+            console.log($("#"+this.id)[0].cy.baseVal.value);
+            if(click_num > 0){
+                if(click_num==Number($("#click_number")[0].value)){
+                    prev_time = timestamp;
+                    prev_center = {"x": event.clientX, "y": event.clientY};
+                }
+                else{
+                    datum.push({"MT":(timestamp-prev_time), "size":size, "distance": distance, "actual_distance": (Math.sqrt(Math.pow((event.clientX-prev_center.x),2)+Math.pow((event.clientY-prev_center.y),2)))});
+                    prev_center = {"x": event.clientX, "y": event.clientY};
+                    prev_time = timestamp;
+                }
+                click_num--;
+                $("#"+(Number(this.id)+1)).addClass("present");
+                $("#"+this.id).removeClass("present");
             }
-            else{
-                if(i<rowsforodd){
-                    temp.push("M " + ((3*halfradius)+(3*radius*i)) + " " + ((Math.sqrt(3)*halfradius*j)+(Math.sqrt(3)*halfradius)) + " L " + ((3*halfradius)+(3*radius*i)+halfradius) + " " + (Math.sqrt(3)*halfradius*j) + " L " + ((3*halfradius)+(3*radius*i)+(halfradius*3)) + " " + (Math.sqrt(3)*halfradius*j) + " L " + ((3*halfradius)+(3*radius*i)+(2*radius)) + " " + ((Math.sqrt(3)*halfradius*j)+(Math.sqrt(3)*halfradius)) + " L " + ((3*halfradius)+(3*radius*i)+(3*halfradius)) + " " + ((Math.sqrt(3)*halfradius*j)+(Math.sqrt(3)*radius)) + " L " + ((3*halfradius)+(3*radius*i)+halfradius) + " " + ((Math.sqrt(3)*halfradius*j)+(Math.sqrt(3)*radius)) + " Z");
-                    hexpaths.push(temp);
+            else if(click_num==0){
+                datum.push({"MT":(timestamp-prev_time), "size":size, "distance":distance, "actual_distance": (Math.sqrt(Math.pow((event.clientX-prev_center.x),2)+Math.pow((event.clientY-prev_center.y),2)))});
+                //console.log("size distance over");
+                if(tuples.length != 0){
+                    click_num = Number($("#click_number")["0"].value);
+                    updatePattern(tuples[0].size, tuples[0].distance);
+                    tuples.shift();
+                    $("#1").addClass("present");
+                }
+                else{
+                    $("#"+this.id).removeClass("present");
+                    document.getElementById("form_div").style.display = "block";
+                    console.log(JSON.stringify(datum));
+                    //console.log("done!");
                 }
             }
-        }
-    }
-}
-
-hexagons(width, height, radius);
-
-updatePattern();
-select_random();
-
-function updatePattern(){
-    
-    if(count>halfcount){
-        hexagons(width, height, parseInt($("#size_1")["0"].value));    
-    }
-    else if(count==halfcount){
-        hexagons(width, height, parseInt($("#size_2")["0"].value));    
-    }
-    
-    d3.selectAll("path").remove();
-    
-    svg.selectAll("path")
-        .data(hexpaths)
-        .enter().append("path")
-        .attr("d", function(d){ return d[2]; })
-        .attr("class", "hexagon")
-        .attr("id", function(d){ return d[0] + "_" + d[1]; })
-        .attr("stroke", "#EEE")
-        .attr("fill", "white")
-    
-    $(".hexagon").click(function(){
-        if(this.classList.contains("present")){
-            var t = new Date;
             
-            if(count>=halfcount){
-                datum[trial].clicks[(halfcount*2)-count-1] = {};
-                datum[trial].clicks[(halfcount*2)-count-1]["size"] = parseInt($("#size_1")["0"].value);
-            }
-            else if(count>=0){
-                datum[trial].clicks[(halfcount*2)-count-1] = {};
-                datum[trial].clicks[(halfcount*2)-count-1]["size"] = parseInt($("#size_2")["0"].value);
-            }
-            
-            datum[trial].clicks[(halfcount*2)-count-1]["absTime"] = t.getTime();
-            
-            if(((halfcount*2)-count-1)>0){
-                datum[trial].clicks[(halfcount*2)-count-1]["previous"] = previous;
-            }
-            else{
-                datum[trial].clicks[(halfcount*2)-count-1]["previous"] = "nothing";
-            }
-            
-            datum[trial].clicks[(halfcount*2)-count-1]["present"] = present;
-            
-            console.log(datum);
-            
-            if(count==halfcount){
-                updatePattern();
-                select_random();
-            }
-            else if(count>=0){
-                select_random();
-            }
         }
     });
-    
 }
 
-function select_random(){
-    console.log(count);
-    if(count!=0){
-        if((previous!="nothing")&&(previous!=undefined)){
-            $("#" + previous).removeClass("previous");
-        }
-        previous = present;
-        temp = Math.floor(Math.random()*rowsforodd) + "_" + Math.floor(Math.random()*columns);
-        if(temp==previous){
-            var first = parseInt(temp.split('_')[0]);
-            var second = parseInt(temp.split('_')[1]);
-            second = (second == columns - 1) ? (second - 1) : (second + 1)
-            temp = first + "_" + second;
-        }
-        present = temp;
-        if((previous!="nothing")&&(previous!=undefined)){
-            $("#" + previous).removeClass("present");
-            $("#" + previous).addClass("previous");
-        }
-        console.log("previous: "+ previous + ", present: " + present);        
-        count--;
-        $("#" + present).addClass("present");
-    }
-    else{
-        $("#" + present).removeClass("present");
+var line = d3.line()
+    .curve(d3.curveBasis)
+    .x(function(d) { return d[0]; })
+    .y(function(d) { return d[1]; });
+
+var path = svg.append("path")
+    .data([mousedata])
+    .attr("d", line)
+    .attr("class", "mouseline")
+    .attr("fill", "transparent");
+
+function tick(point){
+    mousedata.push(point);
+    path.attr("d", function(d) { return line(d);})
+    if(mousedata.length > pointnumber){
+        mousedata.shift();
     }
 }
-        

@@ -5,12 +5,34 @@
 }
 */
 
-.present {
-    fill: #00CDCD;
+body {
+    margin: 0px;
 }
 
-.previous {
-    fill: white;
+#form_div {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.target.present {
+    fill: #00CDCD;
+    opacity: 1;
+    z-index: 1;
+}
+
+.target {
+    fill: #EEE;
+    opacity: 0.4;
+    stroke: #DDD;
+    z-index: -1;
+}
+
+.mouseline {
+    stroke: #00CDCD;
+}
+
+p, input {
+    font-family: Helvetica, Arial, sans-serif !important; 
 }
 
 /*
