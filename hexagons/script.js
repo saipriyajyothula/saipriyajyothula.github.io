@@ -42,7 +42,15 @@ var width = 600,
     click_num,
     prev_time,
     datum = [],
-    prev_center = {};
+    prev_pt = {},
+    prev_center = {},
+    MTsum,
+    dev_width_square_sum,
+    actual_distance_sum,
+    AMT,
+    We,
+    De,
+    IDe;
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -71,39 +79,58 @@ function updatePattern(size, distance){
         .attr("class", "target")
         .attr("id", function(d){ return d; })
         .attr("r", size/2)
-        .attr("cx", function(d,i){ return 300 + ((distance/2)*Math.cos(theta*i-0.75)); })
-        .attr("cy", function(d,i){ return 300 + ((distance/2)*Math.sin(theta*i-0.75)); });
+        .attr("cx", function(d,i){ return width/2 + ((distance/2)*Math.cos(theta*i-0.75)); })
+        .attr("cy", function(d,i){ return height/2 - ((distance/2)*Math.sin(theta*i-0.75)); })
+        .attr("angle", function(d,i){ return (theta*i-0.75); });
 
     $(".target").click(function(){
         if(this.classList.contains("present")){
             var timestamp = new Date;
             timestamp = timestamp.getTime();
-            //console.log([event.clientX, event.clientY]);
-            //console.log(timestamp);
-            console.log($("#"+this.id)[0].cx.baseVal.value);
-            console.log($("#"+this.id)[0].cy.baseVal.value);
+            var xc = Number($("#"+this.id)[0].cx.baseVal.value);
+            var yc = Number($("#"+this.id)[0].cy.baseVal.value);
             if(click_num > 0){
-                if(click_num==Number($("#click_number")[0].value)){
-                    prev_time = timestamp;
-                    prev_center = {"x": event.clientX, "y": event.clientY};
+                if(click_num!=Number($("#click_number")[0].value)){
+                    datum.push({"target_width":size, "target_distance": distance, "actual_distance": (Math.sqrt(Math.pow((event.clientX-prev_pt.x),2)+Math.pow((event.clientY-prev_pt.y),2))), "dev_width_squared": distToSegmentSquared({"x": event.clientX, "y": event.clientY}, {"x": xc, "y": yc}, prev_center), "MT":(timestamp-prev_time), "ID": Math.log2((distance/size)+1)});
+                    MTsum += datum[datum.length-1].MT;
+                    dev_width_square_sum += datum[datum.length-1].dev_width_squared;
+                    actual_distance_sum += datum[datum.length-1].actual_distance;
                 }
                 else{
-                    datum.push({"MT":(timestamp-prev_time), "size":size, "distance": distance, "actual_distance": (Math.sqrt(Math.pow((event.clientX-prev_center.x),2)+Math.pow((event.clientY-prev_center.y),2)))});
-                    prev_center = {"x": event.clientX, "y": event.clientY};
-                    prev_time = timestamp;
+                    MTsum = 0;
+                    dev_width_square_sum = 0;
+                    actual_distance_sum = 0;
                 }
+                prev_time = timestamp;
+                prev_pt = {"x": event.clientX, "y": event.clientY};
+                prev_center = {"x": xc, "y": yc};
                 click_num--;
                 $("#"+(Number(this.id)+1)).addClass("present");
                 $("#"+this.id).removeClass("present");
             }
             else if(click_num==0){
-                datum.push({"MT":(timestamp-prev_time), "size":size, "distance":distance, "actual_distance": (Math.sqrt(Math.pow((event.clientX-prev_center.x),2)+Math.pow((event.clientY-prev_center.y),2)))});
-                //console.log("size distance over");
+                datum.push({"target_width":size, "target_distance": distance, "actual_distance": (Math.sqrt(Math.pow((event.clientX-prev_pt.x),2)+Math.pow((event.clientY-prev_pt.y),2))), "dev_width_squared": distToSegmentSquared({"x": event.clientX, "y": event.clientY}, {"x": xc, "y": yc}, prev_center), "MT":(timestamp-prev_time), "ID": Math.log2((distance/size)+1)});
+                MTsum += datum[datum.length-1].MT;
+                dev_width_square_sum += datum[datum.length-1].dev_width_squared;
+                actual_distance_sum += datum[datum.length-1].actual_distance;
+                AMT = MTsum/(Number($("#click_number")["0"].value));
+                We = 4.133*Math.sqrt(dev_width_square_sum/(Number($("#click_number")["0"].value)));
+                De = actual_distance_sum/(Number($("#click_number")["0"].value));
+                IDe = Math.log2((De/We)+1);
+                for(var goback = (datum.length-1); goback>((datum.length)-(Number($("#click_number")["0"].value)+1)); goback--){
+                    datum[goback]["effective_distance"] = De;
+                    datum[goback]["effective_width"] = We;
+                    datum[goback]["effective_ID"] = IDe;
+                    datum[goback]["average_MT"] = AMT;
+                    datum[goback]["throughput"] = (datum[goback]["ID"])/AMT;
+                    datum[goback]["effective_throughput"] = IDe/MT;
+                }
                 if(tuples.length != 0){
                     click_num = Number($("#click_number")["0"].value);
                     updatePattern(tuples[0].size, tuples[0].distance);
                     tuples.shift();
                     $("#1").addClass("present");
+                    //console.log("size distance over");
                 }
                 else{
                     $("#"+this.id).removeClass("present");
@@ -135,3 +162,17 @@ function tick(point){
         mousedata.shift();
     }
 }
+
+//code from https://stackoverflow.com/questions/849211/shortest-distance-between-a-point-and-a-line-segment
+
+function sqr(x) { return x * x; }
+function dist2(v, w) { return sqr(v.x - w.x) + sqr(v.y - w.y); }
+function distToSegmentSquared(p, v, w) {
+  var l2 = dist2(v, w);
+  if (l2 == 0) return dist2(p, v);
+  var t = ((p.x - v.x) * (w.x - v.x) + (p.y - v.y) * (w.y - v.y)) / l2;
+  t = Math.max(0, Math.min(1, t));
+  return dist2(p, { x: v.x + t * (w.x - v.x),
+                    y: v.y + t * (w.y - v.y) });
+}
+function distToSegment(p, v, w) { return Math.sqrt(distToSegmentSquared(p, v, w)); }
