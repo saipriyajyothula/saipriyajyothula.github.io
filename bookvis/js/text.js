@@ -69,10 +69,10 @@ function add_colors(emo_str){
             }
             else{
                 result += (', 0 '+String(pos)+'px 0px 0px #FFF, 0 '+String(pos+2)+'px 0px 0px '+colors[emotion_vector[String(a)]]);
+                pos += 4;
             }
         }
     }
-//    console.log(result);
     return result;
 }
 
