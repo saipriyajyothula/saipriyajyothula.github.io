@@ -1,0 +1,427 @@
+.vis_div{
+    overflow-y:scroll;
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    width: 33%;
+    height: 600px;
+    border: 1px solid black;
+}
+
+.top_div{
+    display: inline-block;
+	position: relative;
+    width: 100%;
+    padding-bottom: 3.9062%;
+	overflow: hidden;
+}
+
+.slider_content{ 
+	display: inline-block;
+	position: absolute;
+	top: 9px;
+	left: 0;
+}
+
+.slider_line{
+    stroke-width: 10px;
+    stroke: black;
+    opacity: 0;
+}
+
+.slider_inside{
+    stroke-width: 8px;
+    stroke: #eee;
+}
+
+.slider_line, .slider_inside{
+    stroke-linecap: round;
+}
+
+.slider_handle{
+    stroke-width: 1.25px;
+    stroke: black;
+    stroke-opacity: 0.5;
+    fill: white;
+    cursor: pointer;
+}
+
+#text_div{
+    overflow-x: hidden;
+}
+
+span:hover{
+    background-color: #EEE;
+}
+
+/*
+span{
+    line-height: 20px;
+    text-decoration: underline red;
+    border: 1px solid black;
+}
+*/
+
+span.chapter{
+    font-weight: 450;
+}
+
+text, span, p{
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.i{
+    font-style: italic;
+}
+
+p {
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.8em;
+}
+
+/*
+.oneAnger{
+    line-height: 20px;
+    background: linear-gradient(0deg, #BE3E31 1px, white 1px, transparent 1px);
+}
+
+.oneAnticipation{
+    line-height: 20px; 
+    background: linear-gradient(0deg, #99D179 1px, white 1px, transparent 1px);
+}
+
+.oneDisgust{
+    line-height: 20px; 
+    background: linear-gradient(0deg, #9D4D1C 1px, white 1px, transparent 1px);
+}
+
+.oneFear{
+    line-height: 20px; 
+    background: linear-gradient(0deg, #171717 1px, white 1px, transparent 1px);
+}
+
+.oneJoy{
+    line-height: 20px; 
+    background: linear-gradient(0deg, #FACF48 1px, white 1px, transparent 1px);
+}
+
+.oneSadness{
+    line-height: 20px; 
+    background: linear-gradient(0deg, #BBBBBB 1px, white 1px, transparent 1px);
+}
+
+.oneSurprise{
+    line-height: 20px; 
+    background: linear-gradient(0deg, #EC7428 1px, white 1px, transparent 1px);
+}
+
+.oneTrust{
+    line-height: 20px; 
+    background: linear-gradient(0deg, #1F4E8A 1px, white 1px, transparent 1px);
+}
+
+.twoAnger{
+    line-height: 24px; 
+    padding-bottom: 4px;
+    background: linear-gradient(0deg, #BE3E31 1px, white 1px, transparent 1px);
+}
+
+.twoAnticipation{
+    line-height: 24px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #99D179 1px, white 1px, transparent 1px);
+}
+
+.twoDisgust{
+    line-height: 24px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #9D4D1C 1px, white 1px, transparent 1px);
+}
+
+.twoFear{
+    line-height: 24px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #171717 1px, white 1px, transparent 1px);
+}
+
+.twoJoy{
+    line-height: 24px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #FACF48 1px, white 1px, transparent 1px);
+}
+
+.twoSadness{
+    line-height: 24px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #BBBBBB 1px, white 1px, transparent 1px);
+}
+
+.twoSurprise{
+    line-height: 24px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #EC7428 1px, white 1px, transparent 1px);
+}
+
+.twoTrust{
+    line-height: 24px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #1F4E8A 1px, white 1px, transparent 1px);
+}
+
+.threeAnger{
+    line-height: 28px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #BE3E31 1px, white 1px, transparent 1px);
+}
+
+.threeAnticipation{
+    line-height: 28px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #99D179 1px, white 1px, transparent 1px);
+}
+
+.threeDisgust{
+    line-height: 28px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #9D4D1C 1px, white 1px, transparent 1px);
+}
+
+.threeFear{
+    line-height: 28px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #171717 1px, white 1px, transparent 1px);
+}
+
+.threeJoy{
+    line-height: 28px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #FACF48 1px, white 1px, transparent 1px);
+}
+
+.threeSadness{
+    line-height: 28px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #BBBBBB 1px, white 1px, transparent 1px);
+}
+
+.threeSurprise{
+    line-height: 28px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #EC7428 1px, white 1px, transparent 1px);
+}
+
+.threeTrust{
+    line-height: 28px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #1F4E8A 1px, white 1px, transparent 1px);
+}
+
+.fourAnger{
+    line-height: 32px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #BE3E31 1px, white 1px, transparent 1px);
+}
+
+.fourAnticipation{
+    line-height: 32px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #99D179 1px, white 1px, transparent 1px);
+}
+
+.fourDisgust{
+    line-height: 32px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #9D4D1C 1px, white 1px, transparent 1px);
+}
+
+.fourFear{
+    line-height: 32px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #171717 1px, white 1px, transparent 1px);
+}
+
+.fourJoy{
+    line-height: 32px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #FACF48 1px, white 1px, transparent 1px);
+}
+
+.fourSadness{
+    line-height: 32px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #BBBBBB 1px, white 1px, transparent 1px);
+}
+
+.fourSurprise{
+    line-height: 32px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #EC7428 1px, white 1px, transparent 1px);
+}
+
+.fourTrust{
+    line-height: 32px; 
+    padding-bottom: 4px; 
+    background: linear-gradient(0deg, #1F4E8A 1px, white 1px, transparent 1px);
+}
+
+.fiveAnger{
+    line-height: 40px; 
+    background: linear-gradient(0deg, #BE3E31 1px, white 1px, transparent 1px);
+}
+
+.fiveAnticipation{
+    line-height: 40px; 
+    background: linear-gradient(0deg, #99D179 1px, white 1px, transparent 1px);
+}
+
+.fiveDisgust{
+    line-height: 40px; 
+    background: linear-gradient(0deg, #9D4D1C 1px, white 1px, transparent 1px);
+}
+
+.fiveFear{
+    line-height: 40px; 
+    background: linear-gradient(0deg, #171717 1px, white 1px, transparent 1px);
+}
+
+.fiveJoy{
+    line-height: 40px; 
+    background: linear-gradient(0deg, #FACF48 1px, white 1px, transparent 1px);
+}
+
+.fiveSadness{
+    line-height: 40px; 
+    background: linear-gradient(0deg, #BBBBBB 1px, white 1px, transparent 1px);
+}
+
+.fiveSurprise{
+    line-height: 40px; 
+    background: linear-gradient(0deg, #EC7428 1px, white 1px, transparent 1px);
+}
+
+.fiveTrust{
+    line-height: 40px; 
+    background: linear-gradient(0deg, #1F4E8A 1px, white 1px, transparent 1px);
+}
+
+.sixAnger{
+    line-height: 45px; 
+    background: linear-gradient(0deg, #BE3E31 1px, white 1px, transparent 1px);
+}
+
+.sixAnticipation{
+    line-height: 45px; 
+    background: linear-gradient(0deg, #99D179 1px, white 1px, transparent 1px);
+}
+
+.sixDisgust{
+    line-height: 45px; 
+    background: linear-gradient(0deg, #9D4D1C 1px, white 1px, transparent 1px);
+}
+
+.sixFear{
+    line-height: 45px; 
+    background: linear-gradient(0deg, #171717 1px, white 1px, transparent 1px);
+}
+
+.sixJoy{
+    line-height: 45px; 
+    background: linear-gradient(0deg, #FACF48 1px, white 1px, transparent 1px);
+}
+
+.sixSadness{
+    line-height: 45px; 
+    background: linear-gradient(0deg, #BBBBBB 1px, white 1px, transparent 1px);
+}
+
+.sixSurprise{
+    line-height: 45px; 
+    background: linear-gradient(0deg, #EC7428 1px, white 1px, transparent 1px);
+}
+
+.sixTrust{
+    line-height: 45px; 
+    background: linear-gradient(0deg, #1F4E8A 1px, white 1px, transparent 1px);
+}
+
+.sevenAnger{
+    line-height: 50px; 
+    background: linear-gradient(0deg, #BE3E31 1px, white 1px, transparent 1px);
+}
+
+.sevenAnticipation{
+    line-height: 50px; 
+    background: linear-gradient(0deg, #99D179 1px, white 1px, transparent 1px);
+}
+
+.sevenDisgust{
+    line-height: 50px; 
+    background: linear-gradient(0deg, #9D4D1C 1px, white 1px, transparent 1px);
+}
+
+.sevenFear{
+    line-height: 50px; 
+    background: linear-gradient(0deg, #171717 1px, white 1px, transparent 1px);
+}
+
+.sevenJoy{
+    line-height: 50px; 
+    background: linear-gradient(0deg, #FACF48 1px, white 1px, transparent 1px);
+}
+
+.sevenSadness{
+    line-height: 50px; 
+    background: linear-gradient(0deg, #BBBBBB 1px, white 1px, transparent 1px);
+}
+
+.sevenSurprise{
+    line-height: 50px; 
+    background: linear-gradient(0deg, #EC7428 1px, white 1px, transparent 1px);
+}
+
+.sevenTrust{
+    line-height: 50px; 
+    background: linear-gradient(0deg, #1F4E8A 1px, white 1px, transparent 1px);
+}
+
+.eightAnger{
+    line-height: 55px; 
+    background: linear-gradient(0deg, #BE3E31 1px, white 1px, transparent 1px);
+}
+
+.eightAnticipation{
+    line-height: 55px; 
+    background: linear-gradient(0deg, #99D179 1px, white 1px, transparent 1px);
+}
+
+.eightDisgust{
+    line-height: 55px; 
+    background: linear-gradient(0deg, #9D4D1C 1px, white 1px, transparent 1px);
+}
+
+.eightFear{
+    line-height: 55px; 
+    background: linear-gradient(0deg, #171717 1px, white 1px, transparent 1px);
+}
+
+.eightJoy{
+    line-height: 55px; 
+    background: linear-gradient(0deg, #FACF48 1px, white 1px, transparent 1px);
+}
+
+.eightSadness{
+    line-height: 55px; 
+    background: linear-gradient(0deg, #BBBBBB 1px, white 1px, transparent 1px);
+}
+
+.eightSurprise{
+    line-height: 55px; 
+    background: linear-gradient(0deg, #EC7428 1px, white 1px, transparent 1px);
+}
+
+.eightTrust{
+    line-height: 55px; 
+    background: linear-gradient(0deg, #1F4E8A 1px, white 1px, transparent 1px);
+}
+*/
