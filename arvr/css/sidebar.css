@@ -118,3 +118,13 @@
         margin-right: 0;
     }
 }
+
+.hyperlink:hover{
+    color: #c40000;
+    text-decoration: underline;
+}
+        
+.hyperlink{
+    color: #c40000;
+    text-decoration: none;
+}
