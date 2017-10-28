@@ -61,6 +61,16 @@
                         <p>'Here Comes the Sun' is a project for the course CS 491, Virtual and Augmented Reality at the University of Illinois at Chicago. The problem statement is available <a class="hyperlink" href="https://www.evl.uic.edu/aej/491/17project2.html">here</a>. 
                         </p>
                         <br><p><img src="files/birdseye.png" width="100%"></p>
+                        <br><p>There are three different views in the application:</p>
+                        <br><p>2D view: The project has a 2D View where each exoplanet system is horizontally represented with the planets at scaled distances from their respective stars.  The habitable zone for each planetary system is also calculated and represented - it’s extent is shown in green. Many such exoplanet systems are stacked vertically in alphabetical order.</p>
+                        <br><p><img src="files/2d%20view.png" width="100%"></p>
+                        <br><p>3D view: The 3D view displays the systems based on the data acquired from the XML file - distance and radius is determined, textures were applied and the planets were rotated around the stars based on their orbital period. Our solar system is always visible in the 3D View and any other systems that the user choose to add are stacked below our solar system.</p>
+                        <br><p><img src="files/3d%20view.png" width="100%"></p>
+                        <br><p>3D stars view: In this view, the stars are represented in 3D according to their distance from Sun, declination and right ascension. The sun is at the center of the 3D view.</p>
+                        <br><p><img src="files/3d%20stars.png" width="100%"></p>
+                        <br><p>To interact with the systems and manipulate the views, the following things are used:</p>
+                        <br><p>Laser pointer: A laser pointer is implemented in order to interact with all these systems. Laser pointer is attached to the controllers. Actions applied to the controller buttons such as grip, trigger etc., are captured and appropriate changes are applied on the object to which the laser pointer is pointing.</p>
+                        <br><p>Menu panel: The menu panel is placed near the 2D View. It houses a number of options that allow you to manipulate with the 3D and 2D views, add and remove views, apply filters on the systems to be viewed, etc.</p>
                     </div>
                 </div>
             </div>
@@ -74,33 +84,34 @@
                         <br>
                         <h4>Look at detailed information about the system</h4>
                         <br>
-                        <p>The ability to hover over an object to get its details has been added to the application. The user can point at any planet or star in the planetary system with the laser pointer and press the trigger button to get detailed information about the respective celestial object - this is shown in the image below. The input from the controllers is the main mode of communication here.
+                        <p>The ability to hover over an object to get its details has been added to the application. The user can point at any planet or star in the planetary system 3D view with the laser pointer and press the trigger button to get detailed information about the respective celestial object - this is shown in the image below. The input from the controllers is the main mode of communication here.
                         </p>
+                        <br><p><img src="files/desc.png" width="100%"></p>
                         <br>
                         <h4>Filter the exoplanetary systems</h4>
                         <br>
-                        <p>We have added a number of filters that would be helpful when viewing large number of planetary systems. These filters include categories such as Earth and Super Earth sized planets, systems with single planets, multiple planets, systems with multiple stars (binary and ternary systems), based on the discovery methods (Transit, RV, Timing, Imaging), systems that have planets in habitable zone of the star etc.
+                        <p>We have added a number of filters that would be helpful when viewing large number of planetary systems. These filters allow the user to view systems that match the selected filters. These filters include categories such as Earth sized planets, systems with single planets, multiple planets, systems with multiple stars (binary and ternary systems), based on the discovery methods (Transit, RV, Timing, Imaging) and systems that have planets in habitable zone of the star. The user can select multiple filters to view systems that match all the selected criteria.
                         </p>
                         <br>
                         <br><p><img src="files/filters.png" width="40%"></p>
                         <br>
                         <h4>Scaling the exoplanetary systems</h4>
                         <br>
-                        <p>We have added a number of filters that would be helpful when viewing large number of planetary systems. These filters include categories such as Earth and Super Earth sized planets, systems with single planets, multiple planets, systems with multiple stars (binary and ternary systems), based on the discovery methods (Transit, RV, Timing, Imaging), systems that have planets in habitable zone of the star etc.
+                        <p>There are 3 slider controls designed for controlling various scales of the views rendered such as rotation speed, orbit length and the size of the planets.
                         </p>
                         <br>
                         <br><p><img src="files/scales-slide.png" width="50%"></p>
                         <br>
                         <h4>Add and Remove systems</h4>
                         <br>
-                        <p>The user is presented with a 2D view of the planetary systems that match any filters that the user selects. In this view, a number of systems are stacked one below the other. In each system, the star and the corresponding planets are displayed in a horizontal line separated by a scaled distance. User has the freedom to select any of systems from more than six hundred systems. A menu item near each system allows the user to add and remove the system from the 2D View. The user can also add systems to the 3D view by pointing to any star from the 3D star view and selecting the trigger.
+                        <p>The user is presented with a 2D view of the planetary systems that match any filters that the user selects. In this view, a number of systems are stacked one below the other. In each system, the star and the corresponding planets are displayed in a horizontal line separated by a scaled distance. User has the freedom to select any of systems from more than six hundred systems. A menu item '+' near each system allows the user to add and remove the system from the 2D View to the 3D view. The user can also add systems to the 3D view by pointing to any star from the 3D star view and selecting the trigger.
                         </p>
                         <br>
                         <br><p><img src="files/2DView.png" width="100%"></p>
                         <br>
                         <h4>Scroll up and down</h4>
                         <br>
-                        <p>The 2D view is also supported by 2 menu options that allow the systems in the 2D view to be scrolled up and down. The panel of the 2D View is of fixed length. Only a maximum of 4 systems are shown at a time while the rest of the systems can be viewed using the scroll controls.
+                        <p>The 2D view is also supported by 2 menu options 'Up' and 'Down' that allow the systems in the 2D view to be scrolled up and down. The panel of the 2D View is of fixed length. Only a maximum of 4 systems are shown at a time while the rest of the systems can be viewed using the scroll controls.
                         </p>
                         <br>
                         <br><p><img src="files/scroll.png" width="20%"></p>
@@ -120,7 +131,7 @@
                         <br>
                         <h4>Reset Positions</h4>
                         <br>
-                        <p>When the user has used multiple filters and scaling controls, there is no need to feel lost. The ‘Defaults’ option comes in handy when the user wants to reset the environment to its original state, the user can press the Grip button to go to the default view.
+                        <p>When the user has used multiple filters and scaling controls, there is no need to feel lost. The ‘Defaults’ option comes in handy when the user wants to reset the environment to its original state, the user can press the Grip button to go to the default view and reset all filters.
                         </p>
                         <br>
                         <br>
@@ -161,7 +172,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <h3>Citations and references</h3>
                         <br>
-                        <p>openexoplanetcatalogue.com<br>https://www.raywenderlich.com/149239/htc-vive-tutorial-unity<br>https://unity3d.college/2017/06/17/steamvr-laser-pointer-menus/</p>
+                        <p>openexoplanetcatalogue.com<br>https://www.raywenderlich.com/149239/htc-vive-tutorial-unity<br>https://unity3d.college/2017/06/17/steamvr-laser-pointer-menus/<br>Sounds from http://www.fromtexttospeech.com/<br>Convert mp3 to wav - https://audio.online-convert.com/convert-to-wav</p>
                         <br>
                     </div>
                 </div>
