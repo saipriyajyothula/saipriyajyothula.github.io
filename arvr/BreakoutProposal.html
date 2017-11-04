@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Breakout Proposal</title>
+
+    <link href="css/main.css" rel="stylesheet">
+
+    <link href="css/sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body style="background-color:#191919;color:white">
+    
+        <div id="wrapper">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#title">Title and Description</a>
+                </li>
+                <li>
+                    <a href="#whyvr">Why VR?</a> 
+                </li>
+                <li>
+                    <a href="#hwsw">Hardware and Software</a> 
+                </li>
+                <li>
+                    <a href="#team">Team</a> 
+                </li>
+                <li>
+                    <a href="#links">Links to resources</a>
+                    
+                </li>           
+            </ul>
+        </div>
+        
+        <section id="title" class="content-section left">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h2>Project 3 Proposal</h2>
+                        <br>
+                        <h3>Title of the project</h3>
+                        <br>
+                        <p>Breakout
+                        </p>
+                        <br>
+                        <h3>Description</h3>
+                        <br>
+                        <p>For this project, we are planning on building a single player virtual reality game ‘Breakout’.
+                        </p>
+                        <br>
+                        <h4>Theme/story of the game</h4>
+                        <br>
+                        <p>The protagonist (player) is trapped in an unknown place with a series of rooms and gets a brief window where he/she is not monitored. The player utilizes this window of time to breakout of the place.
+                        </p>
+                        <br>
+                        <p>Initially, the player is locked in a room with nothing much to do. He/she should find a way to get out of the room. Once the player gets out, he/she has to overcome the challenges in more rooms (about 10) before reaching the exit and winning the game. The player will have the help of a virtual personal assistant similar to Siri/Alexa (simulated using a disembodied voice) who gives the status quo or hints. 
+                        </p>
+                        <br>
+                        <p>In each of the rooms, the player will be facing a different hurdle or danger and he/she has to make it across each room without being killed by the traps. We will keep track of the health of the player by scoring him/her positively or negatively according to his/her performance while handling these obstacles.
+                        </p>
+                        <br>
+                        <p>The following is a list of tentative descriptions about the dangers or challenges that the player might encounter in various levels of the game:<br>- Dodging arrows or bullets: The player will have to cross the room, when he is attacked with arrows from multiple sides. The player can dodge physically to avoid the arrows. In the middle of the room he can get a shield, which he has to pick up in order to deflect the arrows.<br>- Catch falling keys: The player has to catch a number of keys falling from the roof, in order to open the next room. These keys will be destroyed if they reach the ground. The player has to catch at least some keys (about 4 to 6) in order to open the door.<br>- Shooting a robot: The player would have to confront a moving robot, that is attacking him/her. The player can find a weapon in the room, which can be used to defeat the robot. The door will be synced with the robot and when the robot is dead, then the door would open automatically.<br>- Open boxes to find keys: The player has to open a number of boxes to find the room key within the stipulated time. If the time expires, he will be captured.<br>- Disappearing floor: In this stage, the player will be in a room where the door is at the opposite end. The floor tiles disappear randomly rendering the user unable to move faster. If he steps on a blank space, then the user will be falling through the infinity.<br>- In this level, a number of dangerous items are thrown at the player with high velocity. The only tool at the player’s disposal is an old baseball bat. The player has to display his hitting skills to open the door.<br>- The player would have to solve a puzzle in order to open the door.<br>- Whack-a-mole based: This room will contain the well-known ‘whack-a-mole’ game setup. The player will use the wands to hit creatures popping up from the holes. The creatures are in place to keep the player from escaping. If he steps on any then he declines in health. Therefore he is compelled to kill the creatures. The ratio of ‘hits’ to ‘misses’ will be tracked. A fixed high ‘hit to miss’ ratio threshold maintained over a period of time will be required for the player to progress to the next level. An indicator will be present to show this progress. Once successful, a door will unlock for the player to move to the next room.<br>- Quiz room: In this room, the user will be required to give answers to commonly known questions. The questions will be randomly selected from a bunch of questions that are fed in the game. The player will have four options to choose from, one of which will be the correct answer. The player will have to answer 5 such questions to unlock a door to the next room.<br>- Slingshot: Here, the player will have to use a slingshot and projectiles (unlimited) and target moving tiles on a wall. Some tiles will be marked as dangerous and if hit, the player will lose points. After reaching a certain score the player can progress to the next room.
+                        </p>
+                        <br>
+                        <p>Here are some tentative drawings depicting the rooms:
+                        </p>
+                        <br>
+                        <p><img src="files/room1.JPG" width="80%">
+                        <p><img src="files/room2.JPG" width="80%">
+                        <p><img src="files/room3.JPG" width="80%">
+                        </p>
+                        <br>
+                        <p>The game is going to be in the player’s point of view and the player will be able to move around by walking around physically. The user will be controlling and interacting with the VR environment with the use of controllers/wands. With wand controls and natural movements, the player gets an immersive experience in the game.
+                        </p>
+                        <br>
+                        <p>Since we are limiting the player’s movement to involve only walking and not enabling flying or teleportation, this might give rise to safety concerns. The player might walk into physical obstacles in the real world and hurt himself/herself. We want to address this issue by first making the player clear out some fixed amount of space around himself/herself and designing the virtual rooms such that they are all located in the same limited space, all the while giving the player the illusion that he/she is moving in a much larger space and sequentially going through each of the rooms. This ‘limited space’ paradigm is inspired by the VR game <a href="http://store.steampowered.com/app/429830/Unseen_Diplomacy/" class="hyperlink">Unseen Diplomacy</a>. The link to a video of the game can be found <a href="https://www.youtube.com/watch?v=KirQtdsG5yE" class="hyperlink">here</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="whyvr" class="content-section left">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h3>Why VR?</h3>
+                        <br>
+                        <p>+ The main reason why we chose VR for this game is to take advantage of the fact that the user will have the illusion of reality while playing it; this will add up to the user having an immersive experience.<br>+ The user can walk around normally, use physical movements such leaning to the right or left to react in the game (dodging arrows) or press the physical wand trigger to shoot something. In case of normal keyboard games, the user has to map actions like pressing the right arrow to the game character moving right or clicking for jumping etc., whereas in VR he/she can perform the actual physical actions and see that they are reflected/used directly in the game.<br>+ In VR gaming, we have the ability to give the player the feeling of limitless environment while using a bounded space in the real world.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hwsw" class="content-section left">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h3>Hardware and Software</h3>
+                        <br>
+                        <h4>Hardware platform</h4>
+                        <br>
+                        <p><a href="https://www.vive.com/us/" class="hyperlink">HTC Vive</a> with the controllers and speakers
+                        </p>
+                        <br>
+                        <h4>Software</h4>
+                        <br>
+                        <p><a href="https://unity3d.com/" class="hyperlink">Unity 3D</a> (v5.6.3, August 1 2017)
+                        <p><a href="http://u3d.as/content/valve-corporation/steam-vr-plugin" class="hyperlink">SteamVR plugin</a> for Unity
+                        <p><a href="https://www.blender.org/" class="hyperlink">Blender</a>
+                        <p><a href="https://www.sketchup.com/" class="hyperlink">SketchUp</a>
+                        </p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+        <section id="team" class="content-section left">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h3>Team</h3>
+                        <br>
+                        <p>Sai Priya Jyothula (sjyoth2@uic.edu)<br>Vasanth Pandiarajan (vpandi2@uic.edu)<br>Glenn Mascarenhas (gmasca2@uic.edu)</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+        <section id="links" class="content-section left">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h3>Links to video &amp; code</h3>
+                        <br>
+                        <p><a class="hyperlink" href="https://drive.google.com/open?id=0B0EJCbblMWtBdkJ4ZElKUk9KYTQ">Link to code</a></p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+            
+        <hr>
+        
+        <div class="row">
+            <div class="container">
+                    <div class="copyright">
+                        <br>
+                        <p align = "center">&copy; Sai Priya Jyothula. All rights reserved.</p>
+                        <br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
