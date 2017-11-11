@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Holoportation</title>
+
+    <link href="css/main.css" rel="stylesheet">
+
+    <link href="css/sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body style="background-color:#191919;color:white">
+    
+        <div id="wrapper">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Holoportation</a>
+                </li>
+                <li>
+                    <a href="#adv">Uses &amp; best suited applications</a>                    
+                </li>
+                <li>
+                    <a href="#disadv">Issues</a>
+                </li>
+            </ul>
+        </div>
+        
+        <section id="#" class="content-section left">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h2>Holoportation</h2>
+                        <br>
+                        <p><a class="hyperlink" href="https://github.com/saipriyajyothula/saipriyajyothula.github.io/raw/master/arvr/files/Jyothula_Holoportation.pdf">Download pdf version</a></p>
+                        <br>
+                        <p>For this homework, I looked at a new kind of 3D capturing technology developed by Microsoft called <a class="hyperlink" href="https://www.microsoft.com/en-us/research/project/holoportation-3/">Holoportation</a>. This technology enables a scene/object/person to be captured in 3D and displayed at another place in the world in real-time. </p>
+                        <br><p>Holoportation uses a specially designed camera rig (cameras at different positions capturing at the same time at different angles) to capture the scene. This feed is then stitched together, compressed, transmitted, reconstructed and displayed via the mixed reality headset <a class="hyperlink" href="https://www.microsoft.com/en-us/hololens">Hololens</a> or VR HMD such as <a class="hyperlink" href="https://www.vive.com/us/">HTC Vive</a>. The end user wearing the Hololens gets the impression that the scene is happening in the same place as him/her. I wrote some of the uses, best suited applications and issues of the technology below. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="adv" class="content-section left">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h3>Uses &amp; best suited applications</h3>
+                        <br><p>+ In collaborative virtual social spaces, especially in applications such as business meetings, the users should be able to see each other, recognize and communicate with each other. The users should also be able to modify the environment. Since Holoportation overlays each of the participants on top of the main scene and enables all the participants wearing the HMDs to see and hear the others normally in synchronization, it inherently meets all these requirements.<br> + This technology is helpful for communicating with family and friends that are far away in real-time and get the feeling that they are nearby, as demonstrated in the video below: <br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/7d59O6cfaM0?rel=0" frameborder="0" allowfullscreen></iframe><br><br> + Since all participants will be their own selves in the environment, level hierarchies or mismatching avatars won’t be an issue.<br> + Holoportation has the ability to capture a scene and play it back later in time in whichever scale the user wants. This feature will be especially useful when the user wants to replay the conversation again to make sure of something or catch up with already elapsed conversation in case of asynchronous collaboration.<br>+ The bandwidth required by Holoportation is supposedly reduced to ~30-50 Mbps enabling the technology to be mobile. This could be particularly useful in medical applications where the injured person in an ambulance can be inspected and pretreated by remote doctors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+        <section id="disadv" class="content-section left">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h3>Issues</h3>
+                        <br><p>- Uncanny valley: For the person wearing the HMD, other remote person will look as a translucent figure (seems almost real but not quite) sharing the same physical space.  This might cause the illusion to break or worse, might result in the feelings of eeriness or revulsion in the user.<br><p><img src="files/holo2.png" width="80%" ></p>- It is not completely apparent how much computing power is required for Holoportation to work. Is it practical and economical? What about the special camera rig that is required, how easy/difficult is it to setup? Also, the 3D capture only captures particular people/objects in a scene, how is this setup in the beginning?<br> - If one person is wearing the HMD and an observer is next to them, the observer won’t be able to see what the other person is seeing. This might cause an issue in collaborative spaces. However, this can be easily solved by having a shared display such as an LCD screen that is visible to everyone showing the entire scene and routing the audio to speakers.<br> - The field of view (FOV) of the HMD also presents an issue, the immersive experience of the user might be disrupted by the limited FOV. The user would have to turn all the way to look at the person that is far from the center of his/her view.<br> - Even though the user can see and hear other people in the same space, they wouldn’t have the sense of touch or smell. This might be an interesting direction that needs attention.<br> - Sometimes, if the setup is not correctly done, the virtual figure of the remote person might collide with other objects or walls or the user. If the collision is with objects, it would break the illusion; if the collision is with the user, then it would raise issues with personal space.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+        
+        <div class="row">
+            <div class="container">
+                    <div class="copyright">
+                        <br>
+                        <p align = "center">&copy; Sai Priya Jyothula. All rights reserved.</p>
+                        <br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
