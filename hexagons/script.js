@@ -123,7 +123,7 @@ function updatePattern(size, distance){
                     datum[goback]["effective_ID"] = IDe;
                     datum[goback]["average_MT"] = AMT;
                     datum[goback]["throughput"] = (datum[goback]["ID"])/AMT;
-                    datum[goback]["effective_throughput"] = IDe/MT;
+                    datum[goback]["effective_throughput"] = IDe/AMT;
                 }
                 if(tuples.length != 0){
                     click_num = Number($("#click_number")["0"].value);
