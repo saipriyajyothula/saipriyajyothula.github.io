@@ -1,0 +1,78 @@
+{
+	"Transits": [
+			{
+				"id": 1,
+                "name": "pink",
+				"type": "Train",
+				"iconUrl": "imgs/transits/Train.png",
+                "iconSize": [60, 60],
+				"stops":[{"lat": 41.883233, "lon": -87.626205},
+						  {"lat": 41.878730, "lon": -87.633721}],
+				"dir": "Eastbound",
+				"frequency": 12,
+				"travelTime": 16
+			},
+			{
+				"id": 2,
+                "name": "146 S",
+				"type": "Bus",
+				"iconUrl": "imgs/transits/bus.png",
+                "iconSize": [60, 60],
+				"stops":[{"lat": 41.883487234033, "lon": -87.627909064031},
+						 {"lat": 41.864782986081, "lon": -87.615827322006},
+						 {"lat": 41.866085342666, "lon": -87.612978816032},
+						 {"lat": 41.866161246066, "lon": -87.60786652565}],
+				"dir": "Southbound",
+				"frequency": 7,
+				"travelTime": 20
+			},
+			{
+				"id": 3,
+                "name": "146 N",
+				"type": "Bus",
+				"iconUrl": "imgs/transits/bus.png",
+                "iconSize": [60, 60],
+				"stops":[{"lat": 41.883487234033, "lon":-87.627909064031},
+						{"lat": 41.894834296652, "lon": -87.624126076698}],
+				"dir": "Northbound",
+				"frequency": 12,
+				"travelTime": 25
+			},
+			{
+				"id": 4,
+                "name": "22",
+				"type": "Bus",
+				"iconUrl": "imgs/transits/bus.png",
+                "iconSize": [60, 60],
+				"stops":[{"lat": 41.883173318274, "lon": -87.628530263901},
+						{"lat": 41.921814109027, "lon": -87.63814330101}],
+				"dir": "Northbound",
+				"frequency": 15,
+				"travelTime": 30
+			},
+			{
+				"id": 5,
+                "name": "124",
+				"type": "Bus",
+				"iconUrl": "imgs/transits/bus.png",
+                "iconSize": [60, 60],
+				"stops":[{"lat":41.884686969581, "lon": -87.624351382256},
+						{"lat": 41.892677974773, "lon": -87.610130310059}],
+				"dir": "Eastbound",
+				"frequency": 10,
+				"travelTime": 18 
+			},
+			{ 
+				"id": 6,
+                "name": "blue",
+				"type": "Train",
+				"iconUrl": "imgs/transits/bus.png",
+                "iconSize": [60, 60],
+				"stops":[{"lat":41.883374, "lon": -87.629757},
+						{"lat":41.909633, "lon": -87.642703}],
+				"frequency": 5,
+				"travelTime": 60
+			}
+
+    ]
+}

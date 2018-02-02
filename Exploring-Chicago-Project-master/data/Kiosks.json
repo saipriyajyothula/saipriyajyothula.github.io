@@ -1,0 +1,55 @@
+{
+	"kiosks": [
+			{
+				"id": "1",
+                "name": "Cloud Gate",
+				"iconUrl": "imgs/kiosks/bean.jpg",
+                "iconSize": [200, 200]
+			},
+
+            {
+				"id": "2",
+                "name": "Art Institute",
+				"iconUrl": "imgs/kiosks/art_institute.jpg",
+                "iconSize": [200, 200]
+			},
+
+            {
+				"id": "3",
+                "name": "John Hancock",
+				"iconUrl": "imgs/kiosks/john_hancock.jpg",
+                "iconSize": [200, 200]
+			},
+
+            {
+				"id": "4",
+                "name": "Riverwalk",
+				"iconUrl": "imgs/kiosks/riverwalk.jpg",
+                "iconSize": [200, 200]
+			},
+
+            {
+				"id": "5",
+                "name": "Willis Tower",
+				"iconUrl": "imgs/kiosks/willis.jpg",
+                "iconSize": [200, 200]
+			},
+
+            {
+				"id": "6",
+                "name": "Shedd Aquarium",
+				"iconUrl": "imgs/kiosks/shedd.jpg",
+                "iconSize": [200, 200]
+			},
+
+            {
+				"id": "7",
+                "name": "Navy Pier",
+				"iconUrl": "imgs/kiosks/pier.jpg",
+                "iconSize": [200, 200]
+			}
+
+
+
+    ]
+}

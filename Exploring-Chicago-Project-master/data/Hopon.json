@@ -1,0 +1,108 @@
+{
+	"hoponstops": [
+			{
+				"id": "1",
+                "name": "Fort Dearborn",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8879019,-87.6262665]
+			},
+                
+            {
+				"id": "2",
+                "name": "Chicago Theatre",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8852685,-87.6298598]
+			},
+            
+            {
+				"id": "3",
+                "name": "Willis Tower & Skydeck Chicago",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8788764,-87.6381036]
+			},
+        
+            {
+				"id": "4",
+                "name": "Millennium Park",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8825524,-87.6247401]
+			},
+        
+            {
+				"id": "5",
+                "name": "Art Institute of Chicago",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8795845,-87.625902]
+			},
+        
+            {
+				"id": "6",
+                "name": "Chicago Hilton and Grant Park",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8724431,-87.6262075]
+			},
+        
+            {
+				"id": "7",
+                "name": "Adler Planetarium",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.866333,-87.6089716]
+			},
+        
+            {
+				"id": "8",
+                "name": "Shedd Aquarium",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8675726,-87.6162267]
+			},
+        
+            {
+				"id": "9",
+                "name": "Field Museum",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.866261,-87.6191692]
+			},
+        
+            {
+				"id": "10",
+                "name": "Sheraton Towers and Loews Chicago",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8895089,-87.6217624]
+			},
+
+            {
+				"id": "11",
+                "name": "Navy Pier",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8916138,-87.6100874]
+			},
+        
+            {
+				"id": "12",
+                "name": "Water Tower",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8979303,-87.6250814]
+			},
+        
+            {
+				"id": "13",
+                "name": "The John Hancock Observatory & 360 Chicago",
+				"iconUrl": "imgs/hoponstops/hoponmarker.png",
+                "iconSize": [50, 50],
+                "coordinates":[41.8986422,-87.6249465]
+			}
+        
+    ]
+}

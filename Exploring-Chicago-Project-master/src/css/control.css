@@ -1,0 +1,296 @@
+body {
+  background: #404040;
+  color: #f8f8f8;
+  font: 500 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+#sidebar {
+  position: absolute;
+  width:  66.6666%;
+  left: 33.3333%;
+}
+
+#overviewMap {
+  z-index: 0;
+  border-right: 1px solid #fff;
+  position: absolute;
+  width: 33.3333%;
+  right: 66.6666%;
+  top: 0;
+  bottom: 0;
+}
+
+#detailedMap {
+  z-index: 0;
+  position: absolute;
+  height: 20%;
+  width: 66.81%;
+  bottom:0;
+  left: 0;
+}
+
+
+#detailedMapContainer #localview {
+  z-index: 2;
+  position: absolute;
+  bottom: 16.3%;
+  left: 0.5%;
+  float: right;
+  padding: 15px;
+  border: 1px solid black;
+  background: #2c3e50;
+}
+
+#overviewMapContainer p {
+  z-index: 2;
+  position: absolute;
+  float: right;
+  padding: 15px;
+  border: 1px solid black;
+  background: #2c3e50;
+}
+
+.heading h1 {
+ text-align: center;
+}
+
+#listing .icon{
+  display:inline-block;
+}
+
+.sub-item {
+  margin-left: 12%;
+  overflow-wrap: break-word;
+  max-width:210px;
+  display:  inline-block;
+}
+
+.sub-item-image {
+  white-space: normal;
+  width: 70px;
+  height: 100%;
+  float: left;
+}
+
+#timecontrol {
+  width: 30%;
+  margin-left: 2%;
+  position:fixed;
+  bottom: 50px;
+}
+
+#daycontrol {
+  width: 7%;
+  margin-left: 2%;
+  position:fixed;
+  bottom: 75px;
+}
+
+#nexthourcontrol {
+  width: 20%;
+  margin-left: 10%;
+  position:fixed;
+  bottom: 75px;
+  color: black;
+}
+
+#controlpanel {
+  width: 7%;
+  margin-left: 10%;
+  position: fixed;
+  bottom: 308px;
+  color: black;
+}
+
+
+#timelapse {
+  width: 7%;
+  margin-left: 14%;
+  position: fixed;
+  bottom: 200px;
+  color: black;
+}
+
+.sidebarImg {
+  width: 100%;
+}
+
+.listings {
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 60px;
+  /*white-space: nowrap;*/
+}
+
+.listings .item {
+  display: block;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.listings .item_img {
+  display: block;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0px;
+  text-decoration: none;
+}
+
+.listings .item:last-child { border-bottom: none; }
+
+.listings .item .title {
+  display: block;
+  color:#eee;
+  font-weight: 700;
+}
+
+.listings .description {
+  display: block;
+  color:#eee;
+  font-size: 10px;
+}
+
+.listings .item .title small { font-weight: 400; }
+
+.listings .item.active .title,
+.listings .item .title:hover { color: #8cc63f; }
+
+.listings .item.active {
+  background-color: #f8f8f8;
+}
+
+.leaflet-routing-container {
+  display: none;
+}
+
+
+.transitPath {
+  fill: none;
+  stroke-width: 2px;
+  z-index: 99;
+}
+
+.transitBadge {
+  z-index:100;
+}
+
+#infobar {
+  font-size: 30px;
+  z-index:  2;
+  position: relative;
+  top: 0;
+  width:100%;
+  height: 3%;
+  background: #000;
+  
+}
+
+#infobarTitle {
+  margin-left: 1%;
+  margin-right: 15%
+}
+
+.kioskIconDiv {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  position: relative;
+}
+
+.kioskName {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.kioskIconDiv {
+  opacity: 0.5;
+}
+
+.menuBar {
+  width: 100%;
+  height: 60px;
+  background-color: #93b6dd;
+}
+
+.menuNavLinks {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding-right: 115px;
+  float: left;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+a, a:active,a:hover, a:focus {
+  outline: none;
+  text-decoration: none;
+
+}
+
+#kioskName, #attractionName {
+  width: 50%;
+  margin-top: 5%;
+  margin-right: 1%;
+}
+
+#kioskLat, #kioskLon, #attractionLat, #attractionLon {
+
+  margin-right: 1%;
+}
+
+#kioskSubmitButton, #attractionSubmitButton, #attractionDeleteButton  {
+  width: 180px;
+  height: 55px;
+  font-size: 25px;
+  margin-top: 2%;
+  margin-right: 2%;
+}
+
+
+
+
+.checkbox-inline, .radio-inline {
+  padding-left: 0 !important;
+  margin-left: 20px !important;
+}
+
+.checkbox-inline input[type="checkbox"], .radio-inline input[type="radio"] {
+  margin-left: 6px;
+  margin-top: 6px;
+}
+
+input[type="text"],
+select.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #555657;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+input[type="text"]:focus,
+select.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.datetime {
+  margin-right: 45px;
+}
+
+#attractionDecription {
+  width: 100%;
+}
+
+#attractionDayContainer{
+  float:left;
+}
