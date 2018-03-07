@@ -3,32 +3,35 @@
 	
 			{
 				"id": "2",
-                "name": "JOHN HANCOCK ",
+                "name": "JOHN HANCOCK",
 				"type": "poi",
 				"iconUrl": "imgs/attractions/hancock.png",
                 "iconSize": [100, 103],
                 "coordinates":[41.898770, -87.622917],
 				"hours":{"start_time": "09:00", "end_time" : "22:00"},
 				"description":["Adult | Youth | Children"],
-				"cta": ["146 N"],
-				"stops": [{"lat": 41.894834296652, "lon": -87.624126076698}],
-				"price": ["$$"]
+				"cta": ["red"],
+				"stops": [{"lat": 41.8966734, "lon": -87.6303808}],
+				"price": ["$$"],
+                "travel_time": {"uber": "8 min", "transit": "17 min", "walk": "26 min"}
 			},
 			{
 				"id": "3",
-                "name": "LINCOLN PARK ZOO ",
+                "name": "LINCOLN PARK ZOO",
 				"type": "poi",
 				"iconUrl": "imgs/attractions/zoo.png",
                 "iconSize": [100, 103],
                 "coordinates":[41.921092, -87.633991],
 				"description":["Adult | Youth | Children"],
 				"hours": {"start_time": "10:00", "end_time": "17:00"},
-				"cta": ["22"],
-				"price": ["FREE"]
+				"cta": ["22 N"],
+				"price": ["FREE"],
+				"stops": [{"lat": 41.921814109027, "lon": -87.63814330101}],
+                "travel_time": {"uber": "13 min", "transit": "30 min", "walk": "47 min"}
 			},
 			{
 				"id": "4",
-                "name": "ART INSTITUTE ",
+                "name": "ART INSTITUTE",
 				"type": "poi",
 				"iconUrl": "imgs/attractions/museum.png",
                 "iconSize": [100, 103],
@@ -36,50 +39,54 @@
 				"description":["Adult | Youth | Children "],
 				"hours": {"start_time": "10:30", "end_time":"17:00"},
 				"price": ["$$"],
-				"cta": []
+				"cta": [],
+                "travel_time": {"uber": "5 min", "transit": "5 min", "walk": "7 min"}
 			},
 			{
 				"id": "5",
-                "name": "ADLER PLANETARIUM ",
+                "name": "ADLER PLANETARIUM",
 				"type": "poi",
 				"iconUrl": "imgs/attractions/adler.png",
                 "iconSize": [100, 103],
                 "coordinates":[41.867965, -87.607330],
 				"description":["Adult | Youth | Children "],
-				"hours": {"start_time": "09:30", "end_time": "18:00"},
+				"hours": {"start_time": "09:30", "end_time": "16:00"},
 				"price": ["$$"],
 				"cta": ["146 S"],
-				"stops": [{"lat": 41.866161246066, "lon": -87.60786652565}]
+				"stops": [{"lat": 41.866161246066, "lon": -87.60786652565}],
+                "travel_time": {"uber": "10 min", "transit": "28 min", "walk": "37 min"}
 			},
 			{
 				"id": "6",
-                "name": "SHEDD AQUARIUM ",
+                "name": "SHEDD AQUARIUM",
 				"type": "poi",
 				"iconUrl": "imgs/attractions/shedd.png",
                 "iconSize": [100, 103],
                 "coordinates":[41.868812, -87.615055],
 				"description":["Adult | Youth | Children "],
 				"hours": {"start_time":"09:00", "end_time": "18:00"},
-				"price": ["$$"],
+				"price": ["$"],
 				"cta": ["146 S"],
-				"stops": [{"lat": 41.866085342666, "lon": -87.612978816032}]
+				"stops": [{"lat": 41.866085342666, "lon": -87.612978816032}],
+                "travel_time": {"uber": "12 min", "transit": "30 min", "walk": "30 min"}
 			},
 			{
 				"id": "7",
-                "name": "FIELD MUSEUM ",
+                "name": "FIELD MUSEUM",
 				"type": "poi",
-				"iconUrl": "imgs/attractions/museum.png",
+				"iconUrl": "imgs/attractions/field.png",
                 "iconSize": [100, 103],
                 "coordinates":[41.867150, -87.619368],
 				"description":["Adult | Youth | Children"],
 				"hours": {"start_time":"09:00", "end_time":"17:00"},
 				"cta": ["146 S"],
 				"stops": [{"lat": 41.864782986081, "lon": -87.615827322006}],
-				"price": ["$$"]
+				"price": ["$$"],
+                "travel_time": {"uber": "10 min", "transit": "28 min", "walk": "30 min"}
 			},
 			{
 				"id": "8",
-                "name": "WILLIS TOWER ",
+                "name": "WILLIS TOWER",
 				"type": "poi",
 				"iconUrl": "imgs/attractions/willis.png",
                 "iconSize": [100, 103],
@@ -88,24 +95,26 @@
 				"hours": {"start_time":"10:00", "end_time":"20:00"},
 				"price": ["$$"],
 				"cta": ["pink"],
-				"stops": [{"lat": 	41.878730, "lon":-87.633721}]
+				"stops": [{"lat": 41.878730, "lon":-87.633721}],
+                "travel_time": {"uber": "14 min", "transit": "15 min", "walk": "20 min"}
 			},
 			{
 				"id": "9",
-                "name": "NAVY PIER ",
+                "name": "NAVY PIER",
 				"type": "poi",
 				"iconUrl": "imgs/attractions/navy.png",
                 "iconSize": [100, 103],
                 "coordinates":[41.892808, -87.605463],
 				"description":["Adult | Youth | Children"],
 				"hours": {"start_time":"10:00", "end_time":"22:00"},
-				"price": ["$$"],
-				"cta": ["124"],
-				"stops": [{"lat": 41.892677974773, "lon": -87.610130310059}]
+				"price": ["$"],
+				"cta": ["124 E"],
+				"stops": [{"lat": 41.892677974773, "lon": -87.610130310059}],
+                "travel_time": {"uber": "8 min", "transit": "18 min", "walk": "30 min"}
 			},
 			{
 				"id": "10",
-                "name": "FIREWORKS ",
+                "name": "FIREWORKS",
 				"type": "event",
 				"iconUrl": "imgs/attractions/fireworks2.png",
                 "iconSize": [100, 103],
@@ -114,12 +123,14 @@
 				"hours": {"start_time":"22:00", "end_time":"23:00"},
 				"days": ["wednesday", "saturday"],
 				"date": {"start_date":"05/27/2017", "end_date": "09/02/2017"},
-				"cta": ["124"],
-				"stops": [{"lat": 41.892677974773, "lon": -87.610130310059}]
+				"cta": ["124 E"],
+                "price": ["FREE"],
+				"stops": [{"lat": 41.892677974773, "lon": -87.610130310059}],
+                "travel_time": {"uber": "8 min", "transit": "18 min", "walk": "30 min"}
 			},
 			{
 				"id": "10",
-                "name": "FIREWORKS ",
+                "name": "FIREWORKS",
 				"type": "event",
 				"iconUrl": "imgs/attractions/fireworks2.png",
                 "iconSize": [100, 103],
@@ -128,11 +139,13 @@
 				"hours": {"start_time":"22:00", "end_time":"23:00"},
 				"days": ["wednesday", "saturday"],
 				"date": {"start_date":"05/27/2017", "end_date": "09/02/2017"},
-				"price": ["FREE"]
+                "cta": ["124 E"],
+				"price": ["FREE"],
+                "travel_time": {"uber": "8 min", "transit": "18 min", "walk": "30 min"}
 			},
 			{
 				"id": "10",
-                "name": "FIREWORKS ",
+                "name": "FIREWORKS",
 				"type": "event",
 				"iconUrl": "imgs/attractions/fireworks2.png",
                 "iconSize": [100, 103],
@@ -141,19 +154,22 @@
 				"hours": {"start_time":"22:00", "end_time":"23:00"},
 				"days": ["wednesday", "saturday"],
 				"date": {"start_date":"05/27/2017", "end_date": "09/02/2017"},
-				"price": ["FREE"]
+                "cta": ["124 E"],
+				"price": ["FREE"],
+                "travel_time": {"uber": "8 min", "transit": "18 min", "walk": "30 min"}
 			},
 			{
 				"id": "13",
 				"name": "O'HARE AIRPORT",
 				"type": "offmap",
-				"iconUrl": "imgs/attractions/airport.png",
+				"iconUrl": "imgs/attractions/ohare_nocolor.png",
 				"iconSize": [100, 103],
 				"coordinates": [41.927761, -87.646959],
 				"description":[" "],
 				"cta":["blue"],
 				"stops": [{"lat": 41.927761, "lon": -87.646959}],
-				"hours": {"start_time":"00:00", "end_time":"24:00"}
+				"hours": {"start_time":"00:00", "end_time":"24:00"},
+                "travel_time": {"uber": "26 min", "transit": "48 min", "walk": "6.5 hr"}
 			},
 			{
 				"id": "14",
@@ -198,100 +214,57 @@
 			},
 			{
 				"id": "18",
-				"name": "WICKER PARK ",
-				"type": "poi",
-				"iconUrl": "imgs/attractions/wicker_park.png",
+				"name": "WICKER PARK",
+				"type": "offmap",
+				"iconUrl": "imgs/attractions/wickerpark.png",
 				"iconSize": [100, 103],
 				"coordinates": [41.909633, -87.642703],
 				"description":["Adult | Youth | Children"],
-                "price": ["$$$"],
+                "price": ["$"],
 				"hours": {"start_time":"19:00", "end_time":"24:00"},
 				"cta":["blue"],
-				"stops": [{"lat": 41.909633, "lon": -87.642703}]
+				"stops": [{"lat": 41.909633, "lon": -87.642703}],
+                "travel_time": {"uber": "20 min", "transit": "21 min", "walk": "1.4 hr"}
 			},
             {
 				"id": "19",
-				"name": "MUSEUM OF SCIENCE AND INDUSTRY ",
+				"name": "MUSEUM OF SCIENCE AND INDUSTRY",
 				"type": "offmap",
-				"iconUrl": "imgs/attractions/museum.png",
+				"iconUrl": "imgs/attractions/museum_industry.png",
 				"iconSize": [100, 103],
 				"coordinates": [41.7905726,-87.5852546],
 				"description":["Adult | Youth | Children"],
                 "price": ["$$"],
 				"hours": {"start_time":"09:30", "end_time":"16:00"},
-				"cta":["6 S"]
+				"cta":["6 S"],
+                "travel_time": {"uber": "16 min", "transit": "37 min", "walk": "2.4 hr"}
 			},
             {
 				"id": "20",
-				"name": "MUSEUM OF SCIENCE AND INDUSTRY ",
+				"name": "WRIGLEY FIELD",
 				"type": "offmap",
-				"iconUrl": "imgs/attractions/museum.png",
+				"iconUrl": "imgs/attractions/wrigley.png",
 				"iconSize": [100, 103],
-				"coordinates": [41.7905726,-87.5852546],
+				"coordinates": [41.9484384,-87.6575214],
 				"description":["Adult | Youth | Children"],
                 "price": ["$$"],
-				"hours": {"start_time":"00:00", "end_time":"23:00"},
-				"cta":["6 S"]
+				"hours": {"start_time":"00:00", "end_time":"24:00"},
+				"cta":["red"],
+                "travel_time": {"uber": "16 min", "transit": "29 min", "walk": "1.75 hr"}
 			},
             {
 				"id": "21",
-				"name": "MUSEUM OF SCIENCE AND INDUSTRY ",
-				"type": "offmap",
-				"iconUrl": "imgs/attractions/museum.png",
+				"name": "RESTAURANT ROW",
+				"type": "poi",
+				"iconUrl": "imgs/attractions/restaurant_row.png",
 				"iconSize": [100, 103],
-				"coordinates": [41.7905726,-87.5852546],
+				"coordinates": [41.8853831,-87.645865],
 				"description":["Adult | Youth | Children"],
-                "price": ["$$"],
-				"hours": {"start_time":"00:00", "end_time":"23:00"},
-				"cta":["6 S"]
-			},
-            {
-				"id": "22",
-				"name": "MUSEUM OF SCIENCE AND INDUSTRY ",
-				"type": "offmap",
-				"iconUrl": "imgs/attractions/museum.png",
-				"iconSize": [100, 103],
-				"coordinates": [41.7905726,-87.5852546],
-				"description":["Adult | Youth | Children"],
-                "price": ["$$"],
-				"hours": {"start_time":"00:00", "end_time":"23:00"},
-				"cta":["6 S"]
-			},
-            {
-				"id": "23",
-				"name": "MUSEUM OF SCIENCE AND INDUSTRY ",
-				"type": "offmap",
-				"iconUrl": "imgs/attractions/museum.png",
-				"iconSize": [100, 103],
-				"coordinates": [41.7905726,-87.5852546],
-				"description":["Adult | Youth | Children"],
-                "price": ["$$"],
-				"hours": {"start_time":"00:00", "end_time":"23:00"},
-				"cta":["6 S"]
-			},
-            {
-				"id": "24",
-				"name": "MUSEUM OF SCIENCE AND INDUSTRY ",
-				"type": "offmap",
-				"iconUrl": "imgs/attractions/museum.png",
-				"iconSize": [100, 103],
-				"coordinates": [41.7905726,-87.5852546],
-				"description":["Adult | Youth | Children"],
-                "price": ["$$"],
-				"hours": {"start_time":"00:00", "end_time":"23:00"},
-				"cta":["6 S"]
-			},
-            {
-				"id": "25",
-				"name": "MUSEUM OF SCIENCE AND INDUSTRY ",
-				"type": "offmap",
-				"iconUrl": "imgs/attractions/museum.png",
-				"iconSize": [100, 103],
-				"coordinates": [41.7905726,-87.5852546],
-				"description":["Adult | Youth | Children"],
-                "price": ["$$"],
-				"hours": {"start_time":"00:00", "end_time":"23:00"},
-				"cta":["6 S"]
+                "price": ["$"],
+				"hours": {"start_time":"07:00", "end_time":"24:00"},
+				"cta":["green"],
+				"stops": [{"lat": 41.8857266, "lon": -87.6441011}],
+                "travel_time": {"uber": "10 min", "transit": "19 min", "walk": "30 min"}
 			}
 	
 		]
