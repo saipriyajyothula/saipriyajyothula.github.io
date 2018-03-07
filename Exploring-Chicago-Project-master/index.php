@@ -75,6 +75,9 @@ header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");
         <div id ="detailedMapContainer">
             <!--<p id="localview">Detailed View</p>-->
             <div id='detailedMap'></div>
+            <div id='detailedMapText'>
+                <p>DETAILED VIEW</p>
+            </div>
         </div>
 
         <div id='sidebar'>
@@ -89,6 +92,20 @@ header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");
             <div class="sliders" id="nexthourcontrol"></div>
         </div>
 
+        <div id='legend'>
+            <div id = 'legend_dollar'>
+                <p>$<br>$$<br>$$$</p>
+            </div>
+            <div id = 'legend_dollaramt'>
+                <p>$3-10<br>$11-30<br>$31+</p>
+            </div>
+            <div id = 'legend_border'></div>
+            <img id = "QRcode" src = "imgs/sidebar/QR_code.png">
+            <div id = 'legend_infotext'>
+                <p>For further details download the app.</p>
+            </div>
+        </div>
+        
         <div id="scripts">
             <script src='src/js/map.js'></script>
             <script src="src/js/animation.js"></script>
